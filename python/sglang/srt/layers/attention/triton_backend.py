@@ -711,6 +711,25 @@ class TritonAttnBackend(AttentionBackend):
                 kv_indices,
                 self.req_to_token.stride(0),
             )
+            if (
+                self.sliding_window_size is not None
+                and self.sliding_window_size > 0
+            ):
+                window_kv_indices = self.cuda_graph_window_kv_indices
+                window_num_kv_splits = self.cuda_graph_window_num_kv_splits
+                window_kv_indptr, window_kv_indices, _, _ = (
+                    update_sliding_window_buffer_cuda_graph(
+                        self.window_kv_indptr,
+                        window_kv_indices,
+                        self.req_to_token,
+                        self.sliding_window_size,
+                        seq_lens[:bs],
+                        req_pool_indices,
+                        bs,
+                        self.token_to_kv_pool_allocator,
+                    )
+                )
+                swa_attn_logits = self.cuda_graph_swa_attn_logits
             custom_mask = None
             mask_indptr = None
             max_extend_len = num_tokens_per_bs
@@ -866,6 +885,21 @@ class TritonAttnBackend(AttentionBackend):
                 kv_indices,
                 self.req_to_token.stride(0),
             )
+            if (
+                self.sliding_window_size is not None
+                and self.sliding_window_size > 0
+            ):
+                window_kv_indices = self.cuda_graph_window_kv_indices
+                _, _, _, _ = update_sliding_window_buffer_cuda_graph(
+                    self.window_kv_indptr,
+                    window_kv_indices,
+                    self.req_to_token,
+                    self.sliding_window_size,
+                    seq_lens[:bs],
+                    req_pool_indices,
+                    bs,
+                    self.token_to_kv_pool_allocator,
+                )
         else:
             raise ValueError(
                 f"Invalid forward mode: {forward_mode=} for CUDA Graph replay."
