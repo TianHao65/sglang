@@ -862,7 +862,7 @@ class TritonAttnBackend(AttentionBackend):
             seq_mask_len = self.num_draft_tokens * (seq_lens + self.num_draft_tokens)
             mask_indptr = self.mask_indptr[: bs + 1]
             mask_indptr[1 : bs + 1] = torch.cumsum(seq_mask_len, dim=0)
-        elif forward_mode.is_draft_extend(include_v2=True):
+        elif forward_mode.is_draft_extend():
             seq_lens = seq_lens[:bs]
             num_tokens_per_bs = self.speculative_num_steps + 1
             qo_indptr = self.qo_indptr[: bs + 1]
@@ -900,6 +900,63 @@ class TritonAttnBackend(AttentionBackend):
                     bs,
                     self.token_to_kv_pool_allocator,
                 )
+        elif forward_mode.is_draft_extend_v2():
+            seq_lens = seq_lens[:bs]
+            kv_indptr = self.kv_indptr[: bs + 1]
+            kv_indptr[1 : bs + 1] = torch.cumsum(seq_lens, dim=0)
+            kv_indices = self.cuda_graph_kv_indices
+            create_flashinfer_kv_indices_triton[(bs,)](
+                self.req_to_token,
+                req_pool_indices,
+                seq_lens,
+                kv_indptr,
+                None,
+                kv_indices,
+                self.req_to_token.stride(0),
+            )
+
+            extend_seq_lens_tensor = getattr(spec_info, "extend_seq_lens_tensor", None)
+            extend_seq_lens_cpu = getattr(spec_info, "extend_seq_lens_cpu", None)
+            if extend_seq_lens_tensor is not None:
+                extend_seq_lens = extend_seq_lens_tensor.to(torch.int32)
+            elif extend_seq_lens_cpu is not None:
+                extend_seq_lens = torch.as_tensor(
+                    extend_seq_lens_cpu,
+                    dtype=torch.int32,
+                    device=seq_lens.device,
+                )
+            else:
+                default_extend = getattr(
+                    spec_info, "num_tokens_per_req", self.speculative_num_steps + 1
+                )
+                extend_seq_lens = torch.full(
+                    (bs,), default_extend, dtype=torch.int32, device=seq_lens.device
+                )
+
+            qo_indptr = self.qo_indptr[: bs + 1]
+            qo_indptr[0] = 0
+            qo_indptr[1 : bs + 1] = torch.cumsum(extend_seq_lens, dim=0)
+
+            if (
+                self.sliding_window_size is not None
+                and self.sliding_window_size > 0
+            ):
+                window_kv_indices = self.cuda_graph_window_kv_indices
+                _, _, _, _ = update_sliding_window_buffer_cuda_graph(
+                    self.window_kv_indptr,
+                    window_kv_indices,
+                    self.req_to_token,
+                    self.sliding_window_size,
+                    seq_lens[:bs],
+                    req_pool_indices,
+                    bs,
+                    self.token_to_kv_pool_allocator,
+                )
+
+            if extend_seq_lens_cpu:
+                self.forward_metadata.max_extend_len = int(max(extend_seq_lens_cpu))
+            else:
+                self.forward_metadata.max_extend_len = extend_seq_lens.max().item()
         else:
             raise ValueError(
                 f"Invalid forward mode: {forward_mode=} for CUDA Graph replay."
