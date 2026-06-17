@@ -486,11 +486,18 @@ class MiMoV2Attention(nn.Module):
             assert attn_tp_size % self.total_num_kv_heads == 0
         self.num_kv_heads = max(1, self.total_num_kv_heads // attn_tp_size)
         self.head_dim = head_dim
-        self.v_head_dim = v_head_dim if v_head_dim is not None else head_dim
+        self.original_v_head_dim = v_head_dim if v_head_dim is not None else head_dim
+        server_args = get_global_server_args()
+        self.needs_v_pad = (
+            self.original_v_head_dim != self.head_dim
+            and server_args is not None
+            and server_args.attention_backend == "aiter"
+        )
+        self.v_head_dim = self.head_dim if self.needs_v_pad else self.original_v_head_dim
 
         self.q_size = self.num_heads * self.head_dim
         self.k_size = self.num_kv_heads * self.head_dim
-        self.v_size = self.num_kv_heads * self.v_head_dim
+        self.v_size = self.num_kv_heads * self.original_v_head_dim
 
         self.v_scale = v_scale
 
@@ -501,7 +508,7 @@ class MiMoV2Attention(nn.Module):
             self.head_dim,
             self.total_num_heads,
             self.total_num_kv_heads,
-            v_head_size=self.v_head_dim,
+            v_head_size=self.original_v_head_dim,
             bias=attention_bias,
             quant_config=quant_config,
             tp_rank=attn_tp_rank,
@@ -511,7 +518,7 @@ class MiMoV2Attention(nn.Module):
         )
 
         self.o_proj = RowParallelLinear(
-            self.total_num_heads * self.v_head_dim,
+            self.total_num_heads * self.original_v_head_dim,
             hidden_size,
             bias=False,
             quant_config=quant_config,
@@ -575,6 +582,11 @@ class MiMoV2Attention(nn.Module):
         if self.v_scale is not None:
             v = v * self.v_scale
 
+        if self.needs_v_pad:
+            v = v.view(-1, self.num_kv_heads, self.original_v_head_dim)
+            v = F.pad(v, [0, self.head_dim - self.original_v_head_dim])
+            v = v.view(-1, self.num_kv_heads * self.head_dim)
+
         inner_state = q, k, v, forward_batch
         return None, forward_batch, inner_state
 
@@ -586,6 +598,10 @@ class MiMoV2Attention(nn.Module):
             *inner_state,
             sinks=self.attention_sink_bias,
         )
+        if self.needs_v_pad:
+            attn_output = attn_output.view(-1, self.num_heads, self.head_dim)[
+                ..., : self.original_v_head_dim
+            ].reshape(-1, self.num_heads * self.original_v_head_dim)
         output, _ = self.o_proj(attn_output)
         return output
 
@@ -604,7 +620,19 @@ class MiMoV2Attention(nn.Module):
 
         if self.v_scale is not None:
             v = v * self.v_scale
+
+        if self.needs_v_pad:
+            v = v.view(-1, self.num_kv_heads, self.original_v_head_dim)
+            v = F.pad(v, [0, self.head_dim - self.original_v_head_dim])
+            v = v.view(-1, self.num_kv_heads * self.head_dim)
+
         attn_output = self.attn(q, k, v, forward_batch, sinks=self.attention_sink_bias)
+
+        if self.needs_v_pad:
+            attn_output = attn_output.view(-1, self.num_heads, self.head_dim)[
+                ..., : self.original_v_head_dim
+            ].reshape(-1, self.num_heads * self.original_v_head_dim)
+
         output, _ = self.o_proj(attn_output)
         return output
 

@@ -522,6 +522,9 @@ class ModelRunnerKVCacheMixin:
                         "swa_v_head_dim": self.model_config.hf_text_config.swa_v_head_dim,
                         "v_head_dim": self.model_config.hf_text_config.v_head_dim,
                     }
+                    if self.server_args.attention_backend == "aiter":
+                        kwargs["swa_v_head_dim"] = self.model_config.hf_text_config.swa_head_dim
+                        kwargs["v_head_dim"] = self.model_config.head_dim
                 self.token_to_kv_pool = SWAKVPool(
                     size=self.full_max_total_num_tokens,
                     size_swa=self.swa_max_total_num_tokens,
@@ -645,6 +648,11 @@ class ModelRunnerKVCacheMixin:
                         "swa_v_head_dim": self.model_config.hf_text_config.swa_v_head_dim,
                         "v_head_dim": self.model_config.hf_text_config.v_head_dim,
                     }
+                    # Aiter paged kernels require K/V to have matching head dims.
+                    # The model zero-pads V from v_head_dim to head_dim before caching.
+                    if self.server_args.attention_backend == "aiter":
+                        kwargs["swa_v_head_dim"] = self.model_config.hf_text_config.swa_head_dim
+                        kwargs["v_head_dim"] = self.model_config.head_dim
                 self.token_to_kv_pool = SWAKVPool(
                     size=self.full_max_total_num_tokens,
                     size_swa=self.swa_max_total_num_tokens,
