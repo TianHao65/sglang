@@ -150,6 +150,7 @@ class EagleDraftWorkerBase(ABC):
             forward_batch.seq_lens_cpu = forward_batch.seq_lens_cpu + num_draft_tokens
             forward_batch.seq_lens_sum = int(forward_batch.seq_lens_cpu.sum())
         else:
+            forward_batch.seq_lens_sum = int(forward_batch.seq_lens.sum().item())
             # Supply CPU mirror (extend_seq_lens are all num_draft_tokens) so
             # backend max() reads from list without a per-iter D2H sync.
             forward_batch.extend_seq_lens_cpu = [num_draft_tokens] * bs
