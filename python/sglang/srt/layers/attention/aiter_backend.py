@@ -1109,6 +1109,15 @@ class AiterAttnBackend(AttentionBackend):
                     encoder_lens=forward_batch.encoder_lens,
                     spec_info=forward_batch.spec_info,
                 )
+
+                draft_extend_swa_page_table = None
+                if self.use_sliding_window_kv_pool:
+                    draft_extend_swa_page_table = (
+                        self.token_to_kv_pool.translate_loc_from_full_to_swa(
+                            self.indices_updater_prefill.kv_indices
+                        ).to(torch.int32)
+                    )
+
                 self.forward_metadata = ForwardMetadata(
                     self.indices_updater_prefill.kv_indptr,
                     self.indices_updater_prefill.kv_indices,
@@ -1116,6 +1125,8 @@ class AiterAttnBackend(AttentionBackend):
                     None,
                     self.indices_updater_prefill.max_q_len,
                     self.indices_updater_prefill.max_kv_len,
+                    swa_page_table=draft_extend_swa_page_table,
+                    swa_out_cache_loc=swa_out_cache_loc,
                 )
         elif forward_batch.forward_mode.is_target_verify():
             if self.use_mla:
@@ -1482,6 +1493,9 @@ class AiterAttnBackend(AttentionBackend):
                 dtype=torch.int32,
                 device=self.device,
             )
+            self.cuda_graph_swa_kv_indices = torch.zeros_like(
+                self.cuda_graph_kv_indices
+            )
             # SWA write-target buffer; refilled and bound onto forward_metadata
             # in init_forward_metadata_out_graph before each replay.
             self.cuda_graph_swa_out_cache_loc = torch.zeros(
@@ -1795,70 +1809,136 @@ class AiterAttnBackend(AttentionBackend):
             self._ensure_spec_v2_topk_supported()
             seq_lens = seq_lens[:bs]
             num_tokens_per_bs = self._resolve_v2_num_draft_tokens()
-            extend_lens = torch.full(
-                (bs,), num_tokens_per_bs, dtype=torch.int32, device=seq_lens.device
-            )
 
             qo_indptr = self.qo_indptr[: bs + 1]
-            qo_indptr[1 : bs + 1] = torch.cumsum(extend_lens, dim=0)
-            kv_indptr = self.kv_indptr[: bs + 1]
-            kv_indptr[1 : bs + 1] = torch.cumsum(seq_lens, dim=0)
-            kv_indices = self.cuda_graph_kv_indices
-            create_flashinfer_kv_indices_triton[(bs,)](
-                self.req_to_token,
-                req_pool_indices,
-                seq_lens,
-                kv_indptr,
-                None,
-                kv_indices,
-                self.req_to_token.stride(0),
+            qo_indptr[: bs + 1] = torch.arange(
+                0,
+                (1 + bs) * num_tokens_per_bs,
+                step=num_tokens_per_bs,
+                dtype=torch.int32,
+                device=seq_lens.device,
             )
 
             kv_last_page_len = self.cuda_graph_kv_last_page_len[:bs]
             max_q_len = num_tokens_per_bs
 
-            if self.use_mla and _use_mla_ps_kernel:
-                num_kv_splits = self.max_split_per_batch
+            if self.use_triton_unified_attention and not self.use_mla:
+                max_num_blocks_per_seq = (
+                    self.max_context_len + self.page_size - 1
+                ) // self.page_size
+                page_table = self.cuda_graph_page_table[:bs]
 
-                self.make_mla_meta_data(
-                    qo_indptr,
-                    kv_indptr,
-                    kv_last_page_len,
-                    self.work_metadata,
-                    self.work_info_set,
-                    self.work_indptr,
-                    self.reduce_indptr,
-                    self.reduce_final_map,
-                    self.reduce_partial_map,
-                    max_q_len,
-                    fast_mode=fast_mode,
-                    max_split_per_batch=num_kv_splits,
-                    intra_batch_mode=intra_batch_mode,
+                swa_page_table = None
+                swa_slot_mapping = None
+                if self.use_sliding_window_kv_pool:
+                    swa_page_table = self.cuda_graph_swa_page_table.view(
+                        -1, max_num_blocks_per_seq
+                    )[:bs]
+                    swa_slot_mapping = (
+                        self.token_to_kv_pool.full_to_swa_index_mapping.long()
+                    )
+
+                BLOCK_SIZE = 1024
+                grid = (bs, triton.cdiv(max(max_num_blocks_per_seq, 1), BLOCK_SIZE))
+                scatter_req_to_token_to_page_table_kernel[grid](
+                    self.req_to_token,
+                    req_pool_indices,
+                    seq_lens,
+                    page_table,
+                    self.req_to_token.stride(0),
+                    page_table.stride(0),
+                    swa_page_table,
+                    swa_slot_mapping,
+                    DRAFT_NUM=0,
+                    PAGE_SIZE=self.page_size,
+                    BLOCK_SIZE=BLOCK_SIZE,
+                    HAS_SWA=(swa_slot_mapping is not None),
                 )
 
-                work_metadata = self.work_metadata
-                work_info_set = self.work_info_set
-                work_indptr = self.work_indptr
+                max_kv_len_unified = max_num_blocks_per_seq * self.page_size
+                self.forward_metadata = ForwardMetadata(
+                    None,
+                    page_table,
+                    qo_indptr,
+                    kv_last_page_len,
+                    max_q_len,
+                    max_kv_len_unified,
+                    max_extend_len=max_q_len,
+                    swa_page_table=swa_page_table,
+                )
+            else:
+                extend_lens = torch.full(
+                    (bs,),
+                    num_tokens_per_bs,
+                    dtype=torch.int32,
+                    device=seq_lens.device,
+                )
+                kv_indptr = self.kv_indptr[: bs + 1]
+                kv_indptr[1 : bs + 1] = torch.cumsum(seq_lens, dim=0)
+                kv_indices = self.cuda_graph_kv_indices
+                create_flashinfer_kv_indices_triton[(bs,)](
+                    self.req_to_token,
+                    req_pool_indices,
+                    seq_lens,
+                    kv_indptr,
+                    None,
+                    kv_indices,
+                    self.req_to_token.stride(0),
+                )
 
-                reduce_indptr = self.reduce_indptr
-                reduce_final_map = self.reduce_final_map
-                reduce_partial_map = self.reduce_partial_map
+                if self.use_sliding_window_kv_pool:
+                    kv_len_total = int(kv_indptr[bs].item())
+                    swa_kv_indices = self.cuda_graph_swa_kv_indices
+                    swa_kv_indices[:kv_len_total] = (
+                        self.token_to_kv_pool.translate_loc_from_full_to_swa(
+                            kv_indices[:kv_len_total]
+                        ).to(torch.int32)
+                    )
+                    swa_page_table = swa_kv_indices
 
-            self.forward_metadata = ForwardMetadata(
-                kv_indptr,
-                kv_indices,
-                qo_indptr,
-                kv_last_page_len,
-                max_q_len,
-                max_kv_len,
-                work_metadata=work_metadata,
-                work_info_set=work_info_set,
-                work_indptr=work_indptr,
-                reduce_indptr=reduce_indptr,
-                reduce_final_map=reduce_final_map,
-                reduce_partial_map=reduce_partial_map,
-                num_kv_splits=num_kv_splits,
-            )
+                if self.use_mla and _use_mla_ps_kernel:
+                    num_kv_splits = self.max_split_per_batch
+
+                    self.make_mla_meta_data(
+                        qo_indptr,
+                        kv_indptr,
+                        kv_last_page_len,
+                        self.work_metadata,
+                        self.work_info_set,
+                        self.work_indptr,
+                        self.reduce_indptr,
+                        self.reduce_final_map,
+                        self.reduce_partial_map,
+                        max_q_len,
+                        fast_mode=fast_mode,
+                        max_split_per_batch=num_kv_splits,
+                        intra_batch_mode=intra_batch_mode,
+                    )
+
+                    work_metadata = self.work_metadata
+                    work_info_set = self.work_info_set
+                    work_indptr = self.work_indptr
+
+                    reduce_indptr = self.reduce_indptr
+                    reduce_final_map = self.reduce_final_map
+                    reduce_partial_map = self.reduce_partial_map
+
+                self.forward_metadata = ForwardMetadata(
+                    kv_indptr,
+                    kv_indices,
+                    qo_indptr,
+                    kv_last_page_len,
+                    max_q_len,
+                    max_kv_len,
+                    work_metadata=work_metadata,
+                    work_info_set=work_info_set,
+                    work_indptr=work_indptr,
+                    reduce_indptr=reduce_indptr,
+                    reduce_final_map=reduce_final_map,
+                    reduce_partial_map=reduce_partial_map,
+                    num_kv_splits=num_kv_splits,
+                    swa_page_table=swa_page_table,
+                )
         else:
             raise ValueError("Invalid forward mode")
 
@@ -2282,6 +2362,64 @@ class AiterAttnBackend(AttentionBackend):
                     1.0,  # v_scale
                     layer.scaling,
                     logit_cap=layer.logit_cap,
+                )
+                return o.view(-1, layer.tp_q_head_num * layer.v_head_dim)
+
+            if (
+                forward_batch.forward_mode.is_draft_extend_v2()
+                and self.use_triton_unified_attention
+            ):
+                if layer.qk_head_dim != layer.v_head_dim:
+                    o = q.new_empty(
+                        (q.shape[0], layer.tp_q_head_num * layer.v_head_dim)
+                    )
+                else:
+                    o = torch.empty_like(q)
+
+                k_cache, v_cache = self.token_to_kv_pool.get_kv_buffer(
+                    layer.layer_id
+                )
+                page_table = self.forward_metadata.kv_indices
+                max_kv_len = page_table.shape[1] * self.page_size
+
+                window_size = (-1, -1)
+                if (
+                    layer.sliding_window_size is not None
+                    and layer.sliding_window_size > -1
+                ):
+                    window_size = (layer.sliding_window_size - 1, 0)
+                    if self.forward_metadata.swa_page_table is not None:
+                        page_table = self.forward_metadata.swa_page_table
+
+                q_unified = q.view(-1, layer.tp_q_head_num, layer.qk_head_dim)
+                k_unified = k_cache.view(
+                    -1, self.page_size, layer.tp_k_head_num, layer.qk_head_dim
+                )
+                v_unified = v_cache.view(
+                    -1, self.page_size, layer.tp_v_head_num, layer.v_head_dim
+                )
+                if layer.tp_k_head_num == 1 and layer.tp_q_head_num > 1:
+                    k_unified = k_unified.expand(-1, -1, layer.tp_q_head_num, -1)
+                    v_unified = v_unified.expand(-1, -1, layer.tp_q_head_num, -1)
+
+                unified_attention(
+                    q=q_unified,
+                    k=k_unified,
+                    v=v_unified,
+                    out=o.view(-1, layer.tp_q_head_num, layer.v_head_dim),
+                    cu_seqlens_q=self.forward_metadata.qo_indptr,
+                    seqused_k=forward_batch.seq_lens,
+                    max_seqlen_q=self.forward_metadata.max_q_len,
+                    max_seqlen_k=max_kv_len,
+                    softmax_scale=layer.scaling,
+                    causal=True,
+                    window_size=window_size,
+                    block_table=page_table,
+                    softcap=layer.logit_cap,
+                    q_descale=None,
+                    k_descale=k_descale,
+                    v_descale=v_descale,
+                    sinks=sinks,
                 )
                 return o.view(-1, layer.tp_q_head_num * layer.v_head_dim)
 
