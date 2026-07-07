@@ -1,3 +1,5 @@
+[toc]
+
 # MiMo-V2.5-Pro 1P1D Disaggregated Inference Guide on 12N MI308X
 
 ## Prefill node: mi308-ccs-aus-e06-10.prov.aus.ccs.cpe.ice.amd.com (10.235.192.101)
@@ -23,7 +25,7 @@ sudo docker pull rocm/sgl-dev:v0.5.11-rocm720-mi30x-20260510
 | Pytorch      | 2.9.1                                       |
 | Mooncake     | v0.3.7.post2                                |
 
-### 2.1 Launch docker 
+### 2.2 Launch docker 
 
 ```bash
 sudo docker run -it --name sgl-dev-v0.5.11-rocm720-mi30x-20260510-mimo-v2.5-pro-xisun --shm-size 64g --privileged --network=host --ipc=host \
@@ -37,7 +39,7 @@ sudo docker run -it --name sgl-dev-v0.5.11-rocm720-mi30x-20260510-mimo-v2.5-pro-
 rocm/sgl-dev:v0.5.11-rocm720-mi30x-20260510
 ```
 
-安装支持aiter_backend 的sglang版本
+#### 2.2.1 安装支持aiter_backend 的sglang版本
 
 ```bash
 pip uninstall -y sglang
@@ -50,9 +52,13 @@ cd sglang/sgl-kernel && python3 setup_rocm.py install
 cd ../python && cp pyproject.toml pyproject.toml.bak && cp pyproject_other.toml pyproject.toml && pip install -e ".[all_hip]"
 ```
 
+#### 2.2.2 安装包含优化算子的aiter版本
 
+```bash
+cd /sgl-workspace && rm -rf aiter && git clone -b mimo_v2.5_pro  https://github.com/TianHao65/aiter
+```
 
-### 2.2 Launch server with TP=8 in single node w/o PD disaggreate
+### 2.3 Launch server with TP=8 in single node w/o PD disaggreate
 
 ```bash
 export SGLANG_USE_AITER=1
@@ -76,7 +82,7 @@ python3 -m sglang.launch_server \
     2>&1 | tee ./server_log/mimo_v2.5_pro_server_aiter_attn_fp8_kv_page_size_32.log
 ```
 
-### 2.3 Run single curl for functional test
+### 2.4 Run single curl for functional test
 ```bash
 curl -X POST http://127.0.0.1:30000/generate \
 -H "Content-Type: application/json" \
@@ -84,7 +90,7 @@ curl -X POST http://127.0.0.1:30000/generate \
 0.3 } }'
 ```
 
-### 2.4 Run GSM8K Accruacy test
+### 2.5 Run GSM8K Accruacy test
 ```bash
 cd /sgl-workspace/sglang
 python3 benchmark/gsm8k/bench_sglang.py --parallel 128 --num-questions 1400
@@ -348,6 +354,9 @@ export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=5000
 export SGLANG_ENABLE_SPEC_V2=1
 export SGLANG_SPEC_NAN_DETECTION=1
 export SGLANG_SPEC_OOB_DETECTION=1
+export SGLANG_SIMULATE_ACC_LEN=3
+export SGLANG_SIMULATE_ACC_METHOD=match-expected
+export SGLANG_USE_AITER_CK_BLOCKSCALE_BPRESHUFFLE=1
 
 python3 -m sglang.launch_server \
     --model /models/MiMo-V2.5-Pro \
@@ -374,8 +383,6 @@ python3 -m sglang.launch_server \
     --disable-overlap-schedule \
     2>&1 | tee ./server_log/mimo_v2.5_pro_pd_prefill_server_mtp.log
 
-
-
 ```
 
 ## 5.2 Launch decode server on decode node
@@ -391,6 +398,9 @@ export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=5000
 export SGLANG_ENABLE_SPEC_V2=1
 export SGLANG_SPEC_NAN_DETECTION=1
 export SGLANG_SPEC_OOB_DETECTION=1
+export SGLANG_SIMULATE_ACC_LEN=3
+export SGLANG_SIMULATE_ACC_METHOD=match-expected
+export SGLANG_USE_AITER_CK_BLOCKSCALE_BPRESHUFFLE=1
 
 python3 -m sglang.launch_server \
     --model /models/MiMo-V2.5-Pro \
@@ -540,5 +550,29 @@ P95 ITL (ms):                            89.15
 P99 ITL (ms):                            91.15     
 Max ITL (ms):                            761.68    
 ==================================================
+```
+
+### 5.7 Run Profile
+
+```python
+input_tokens=4096 #8192, 16384, 32768, 65536, 131072, 262144, 524288
+output_tokens=5
+export SGLANG_TORCH_PROFILER_DIR="./profile/mi308x_mimo_pro_2.5_aiter_attn_fp8kv_mtp_profile_res_aiter_unified_attn_0"
+
+python3 -m sglang.bench_serving \
+    --backend sglang \
+    --model /models/MiMo-V2.5-Pro \
+    --host 0.0.0.0 \
+    --port 40000 \
+    --dataset-name random \
+    --random-input-len ${input_tokens} \
+    --random-output-len ${output_tokens} \
+    --random-range-ratio 1.0 \
+    --flush-cache \
+    --seed 12345 \
+    --num-prompts 4 \
+    --warmup-requests 1 \
+    --max-concurrency 1 \
+    --profile
 ```
 
