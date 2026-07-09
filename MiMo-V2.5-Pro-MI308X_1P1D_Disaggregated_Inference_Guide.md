@@ -55,7 +55,7 @@ cd ../python && cp pyproject.toml pyproject.toml.bak && cp pyproject_other.toml 
 #### 2.2.2 安装包含优化算子的aiter版本
 
 ```bash
-cd /sgl-workspace && rm -rf aiter && git clone -b mimo_v2.5_pro  https://github.com/TianHao65/aiter
+cd /sgl-workspace && rm -rf aiter && git clone -b mimo_ck_a8w8_blockwise_gemm_config  https://github.com/sammysun0711/aiter
 ```
 
 ### 2.3 Launch server with TP=8 in single node w/o PD disaggreate
