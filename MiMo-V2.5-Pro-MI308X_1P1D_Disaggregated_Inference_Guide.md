@@ -45,17 +45,36 @@ rocm/sgl-dev:v0.5.11-rocm720-mi30x-20260510
 pip uninstall -y sglang
 cd /sgl-workspace && rm -rf sglang && git clone -b Mimo_mtp_enable https://github.com/TianHao65/sglang.git
 
-\# Compile sgl-kernel
+# Compile sgl-kernel
 cd sglang/sgl-kernel && python3 setup_rocm.py install
 
-\# Install sglang python package
+# Install sglang python package
 cd ../python && cp pyproject.toml pyproject.toml.bak && cp pyproject_other.toml pyproject.toml && pip install -e ".[all_hip]"
 ```
 
 #### 2.2.2 安装包含优化算子的aiter版本
 
 ```bash
-cd /sgl-workspace && rm -rf aiter && git clone -b mimo_ck_a8w8_blockwise_gemm_config  https://github.com/sammysun0711/aiter
+# 1. 卸载旧版本并清理 pip 缓存
+pip uninstall -y aiter
+pip cache purge
+
+# 2. 删除旧源码并重新克隆指定分支
+cd /sgl-workspace && rm -rf aiter && git clone -b mimo_ck_a8w8_blockwise_gemm_config https://github.com/sammysun0711/aiter.git
+
+# 3. 【关键】进入目录后清理所有构建产物（防止增量编译残留）
+cd aiter
+rm -rf build/ dist/ *.egg-info/ .eggs/ __pycache__/
+find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+find . -type f -name "*.so" -delete 2>/dev/null || true
+
+# 4. 设置 ROCm 环境变量（按需调整 GPU 架构）
+export ROCM_PATH=/opt/rocm
+export HIP_PATH=/opt/rocm
+# export PYTORCH_ROCM_ARCH="gfx942"  # MI300X 取消注释此行
+
+# 5. 强制重新编译并安装（--no-build-isolation 确保使用当前环境的 torch/rocm）
+pip install -e . --no-build-isolation -v
 ```
 
 ### 2.3 Launch server with TP=8 in single node w/o PD disaggreate
