@@ -71,8 +71,7 @@ python3 -m sglang.launch_server \
     --model /models/MiMo-V2-Flash \
     --port 30000 \
     --host 0.0.0.0 \
-    --tp-size 8 \
-    --dp-size 2 \
+    --tp-size 4 \
     --trust-remote-code \
     --cuda-graph-max-bs 32 \
     --mem-fraction-static 0.8 \
@@ -358,8 +357,7 @@ python3 -m sglang.launch_server \
     --disaggregation-ib-device bnxt_re_benic1b,bnxt_re_benic2b,bnxt_re_benic3b,bnxt_re_benic4b,bnxt_re_benic5b,bnxt_re_benic6b,bnxt_re_benic7b,bnxt_re_benic8b \
     --port 30000 \
     --host 0.0.0.0 \
-    --tp-size 8 \
-    --dp-size 2 \
+    --tp-size 4 \
     --enable-dp-attention \
     --enable-dp-lm-head \
     --mm-enable-dp-encoder \
@@ -397,8 +395,7 @@ python3 -m sglang.launch_server \
     --disaggregation-ib-device bnxt_re_benic1b,bnxt_re_benic2b,bnxt_re_benic3b,bnxt_re_benic4b,bnxt_re_benic5b,bnxt_re_benic6b,bnxt_re_benic7b,bnxt_re_benic8b \
     --port 30001 \
     --host 0.0.0.0 \
-    --tp-size 8 \
-    --dp-size 2 \
+    --tp-size 4 \
     --enable-dp-attention \
     --enable-dp-lm-head \
     --mm-enable-dp-encoder \
