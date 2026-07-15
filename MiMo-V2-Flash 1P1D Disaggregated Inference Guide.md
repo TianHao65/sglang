@@ -1,19 +1,26 @@
 # MiMo-V2-Flash 1P1D Disaggregated Inference Guide on 12N MI308X
 
 ## Prefill node: mi308-ccs-aus-e06-10.prov.aus.ccs.cpe.ice.amd.com (10.235.192.101)
+
 ## Decode node:  mi308-ccs-aus-e06-01.prov.aus.ccs.cpe.ice.amd.com (10.235.192.97)
 
 ## 1. Access to 12N MI308X in Citrix
+
 ```bash
 ssh  -i .ssh/id_rsa xisun@mi308-ccs-aus-e06-10.prov.aus.ccs.cpe.ice.amd.com
 ssh  -i .ssh/id_rsa xisun@mi308-ccs-aus-e06-01.prov.aus.ccs.cpe.ice.amd.com
 ```
 
+
 ## 2. MiMo-V2-Flash single node TP=8 test
+
 ### 2.1 Pull docker image
+
 ```bash
 sudo docker pull rocm/sgl-dev:v0.5.11-rocm720-mi30x-20260510
 ```
+
+
 | Rocm version  | 7.2.0                                       |
 | ------------- | ------------------------------------------- |
 | Docker        | 29.1.3                                      |
@@ -23,7 +30,7 @@ sudo docker pull rocm/sgl-dev:v0.5.11-rocm720-mi30x-20260510
 | Pytorch       | 2.9.1                                       |
 | Mooncake      | v0.3.7.post2                                |
 
-### 2.1 Launch docker 
+### 2.1 Launch docker
 
 ```bash
 sudo docker run -it --name sgl-dev-v0.5.11-rocm720-mi30x-20260510-mimo-v2.5-pro-xisun --shm-size 64g --privileged --network=host --ipc=host \
@@ -38,8 +45,7 @@ rocm/sgl-dev:v0.5.11-rocm720-mi30x-20260510
 ```
 
 
-
-安装支持MTP的sglang版本
+安装最新的sglang版本
 
 ```bash
 pip uninstall -y sglang
@@ -53,35 +59,32 @@ cd ../python && cp pyproject.toml pyproject.toml.bak && cp pyproject_other.toml 
 ```
 
 
-
 ### 2.2 Launch server with TP=8 in single node w/o PD disaggreate
 
 ```bash
-declare -x SGLANG_ALLOW_OVERWRITE_LONGER_CONTEXT_LEN="1" 
-declare -x SGLANG_DISABLE_CUDNN_CHECK="1" 
-declare -x SGLANG_INT4_WEIGHT="0" 
-declare -x SGLANG_MOE_PADDING="1" 
-declare -x SGLANG_ROCM_DISABLE_LINEARQUANT="0" 
-declare -x SGLANG_ROCM_FUSED_DECODE_MLA="1" 
-declare -x SGLANG_SET_CPU_AFFINITY="1" 
-declare -x SGLANG_USE_AITER="1" 
-declare -x SGLANG_USE_ROCM700A="1" 
- 
 python3 -m sglang.launch_server \
     --model /models/MiMo-V2-Flash \
     --port 30000 \
     --host 0.0.0.0 \
-    --tp-size 4 \
+    --tp-size 8 \
+    --dp-size 2 \
+    --enable-dp-attention \
+    --enable-dp-lm-head \
+    --mm-enable-dp-encoder \
+    --disable-radix-cache \
     --trust-remote-code \
-    --cuda-graph-max-bs 32 \
     --mem-fraction-static 0.8 \
     --attention-backend triton \
-    --chunked-prefill-size 32768\
-2>&1 | tee sglang_server.log  
+    --disable-custom-all-reduce \
+    --chunked-prefill-size 32768 \
+    --disable-cuda-graph \
+    2>&1 | tee sglang_server.log
 
 ```
 
+
 ### 2.3 Run single curl for functional test
+
 ```bash
 curl -X POST http://127.0.0.1:30000/generate \
 -H "Content-Type: application/json" \
@@ -89,11 +92,15 @@ curl -X POST http://127.0.0.1:30000/generate \
 0.3 } }'
 ```
 
+
 ### 2.4 Run GSM8K Accruacy test
+
 ```bash
 cd /sgl-workspace/sglang
 python3 benchmark/gsm8k/bench_sglang.py --parallel 128 --num-questions 1400
 ```
+
+
 ```bash
 root@mi308-ccs-aus-e07-22:/sgl-workspace/sglang# python3 benchmark/gsm8k/bench_sglang.py --parallel 128 --num-questions 1400
 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 1319/1319 [02:25<00:00,  9.05it/s]
@@ -103,9 +110,11 @@ Latency: 145.740 s
 Output throughput: 1078.936 token/s
 ```
 
+
 ## 3. MiMo-V2-Flash 1P1D w/ PD disaggreate
 
-### 2.1 Launch docker 
+### 2.1 Launch docker
+
 ```bash
 sudo docker run -itd --name sgl-dev-v0.5.11-rocm720-mi30x-20260510-mimo-v2-flash-hatian --shm-size 64g --privileged --network=host --ipc=host \
 --device=/dev/kfd --device=/dev/dri \
@@ -117,6 +126,8 @@ sudo docker run -itd --name sgl-dev-v0.5.11-rocm720-mi30x-20260510-mimo-v2-flash
 --workdir /work \
 rocm/sgl-dev:v0.5.11-rocm720-mi30x-20260510
 ```
+
+
 ```bash
 sudo docker run -itd --name sgl-dev-v0.5.11-rocm720-mi30x-20260510-mimo-v2-flash-hatian --shm-size 64g --privileged --network=host --ipc=host \
 --device=/dev/kfd --device=/dev/dri \
@@ -128,29 +139,42 @@ sudo docker run -itd --name sgl-dev-v0.5.11-rocm720-mi30x-20260510-mimo-v2-flash
 --workdir /work \
 rocm/sgl-dev:v0.5.11-rocm720-mi30x-20260510
 ```
+
+
 ### 3.1. Setup environment for prefill node: mi308-ccs-aus-e06-10
+
 #### 3.1.1. Clone llm-distributed-inference repo for helper scripts
+
 ```bash
 git clone https://github.com/sammysun0711/llm-distributed-inference.git
 cd llm-distributed-inference/sglang
 ```
 
+
 #### 3.1.2. Install etcd for cluster metadata storage
+
 ```bash
 ./scripts/install_etcd.sh
 ```
 
+
 #### 3.1.3. Install Mooncake for KV cache transfer between nodes
+
 ```bash
 ./scripts/install_mooncake.sh
 #pip install mooncake-transfer-engine==0.3.7.post2
 ```
 
+
 #### 3.1.4. Install the NIC RDMA driver
+
 ```bash
 ./scripts/install_nic_rdma_driver.sh
 ```
-Check the RDMA devices: 
+
+
+Check the RDMA devices:
+
 ```
     device                 node GUID
     ------              ----------------
@@ -168,14 +192,21 @@ Check the RDMA devices:
     bnxt_re_benic4b     18fb8dfffe266b37
 ```
 
+
 #### 3.1.5. Build and install the ROCm-aware UCX library
+
 ```bash
 source ./scripts/build_ucx.sh
 ```
+
+
 Verify UCX ROCm support
+
 ```bash
 ucx_info -v
 ```
+
+
 ```bash
 # Library version: 1.18.1
 # Library path: /opt/ucx/lib/libucs.so.0
@@ -184,56 +215,83 @@ ucx_info -v
 # Configured with: --with-rocm=/opt/rocm --enable-mt --prefix=/opt/ucx
 ```
 
+
 #### 3.1.6. Build and install the ROCm-Aware Open MPI library
+
 ```bash
 source ./scripts/build_ompi.sh
 ```
+
+
 Verify Open MPI ROCm support
+
 ```bash
 ompi_info | grep "extensions"
 ```
+
+
 ```bash
           MPI extensions: affinity, cuda, ftmpi, rocm
 ```
 
+
 ### 3.2. Repeat step 3.1.1 – 3.1.6 on decode node
 
 ### 3.3 Setup SSH for docker container on multi GPU node
-Use setup_docker_passwdless_ssh.sh to setup passwordless ssh connection, please follow the instructions provided by the scripts. 
+
+Use setup_docker_passwdless_ssh.sh to setup passwordless ssh connection, please follow the instructions provided by the scripts.  
 Please note: Need to manually copy public key to /root/.ssh/authorized_keys on remote GPU node.
 
 Setup ssh connection for docker container on prefill node mi308-ccs-aus-e06-10 to remote decode node mi308-ccs-aus-e06-01, need to follow script instruction to copy ssh key to /root/.ssh/authorized_keys on mi308-ccs-aus-e06-01
+
 ```bash
 ./scripts/setup_docker_passwdless_ssh.sh mi308-ccs-aus-e06-01
 ```
+
+
 Setup ssh connection for docker container on decode node mi308-ccs-aus-e06-01 to remote prefill node mi308-ccs-aus-e06-10, need to follow script instruction to copy ssh key to /root/.ssh/authorized_keys on mi308-ccs-aus-e06-10
+
 ```bash
 ./scripts/setup_docker_passwdless_ssh.sh mi308-ccs-aus-e06-10
 ```
+
+
 Check passwordless connections on mi308-ccs-aus-e06-10
+
 ```bash
 ssh mi308-ccs-aus-e06-01 hostname
 ```
+
+
 ```bash
 root@mi308-ccs-aus-e06-10:/workspace# ssh mi308-ccs-aus-e06-01 hostname
 mi308-ccs-aus-e06-01.prov.aus.ccs.cpe.ice.amd.com
 ```
 
+
 Check passwordless connections on mi308-ccs-aus-e06-01
+
 ```bash
 ssh mi308-ccs-aus-e06-10 hostname
 ```
+
+
 ```bash
 mi308-ccs-aus-e06-10.prov.aus.ccs.cpe.ice.amd.com
 ```
 
+
 ### 4.1 Build and run RCCL test
+
 ```bash
 git clone https://github.com/ROCm/rccl-tests
 cd rccl-tests
 ./install.sh --mpi --rocm_home /opt/rocm --rccl_home /opt/rocm --mpi_home /opt/ompi/ --hip_compiler /opt/rocm/bin/amdclang++
 ```
-### 4.2 Create mpi_hosts file as follows and save in disk: 
+
+
+### 4.2 Create mpi_hosts file as follows and save in disk:
+
 ```
 cd /workspace/xiaomi/rccl-tests
 
@@ -247,6 +305,7 @@ cat mpi_hosts
 
 
 # 4.3.	Run RCCL All Reduce test on 2 GPU nodes
+
 ```bash
 TORCH_NCCL_HIGH_PRIORITY=1 \
 RCCL_MSCCL_ENABLE=0 \
@@ -340,9 +399,10 @@ Librccl path : /opt/rocm-7.2.0/lib/librccl.so.1
 # Collective test concluded: all_reduce_perf
 ```
 
+
 ## 5.1 Launch prefill server on prefill node
+
 ```bash
-export SGLANG_USE_AITER=1
 export TORCH_NCCL_BLOCKING_WAIT=1
 export MC_GID_INDEX=3
 export HSA_NO_SCRATCH_RECLAIM=1
@@ -354,66 +414,57 @@ python3 -m sglang.launch_server \
     --model /models/MiMo-V2-Flash \
     --disaggregation-mode prefill \
     --disaggregation-transfer-backend mooncake \
-    --disaggregation-ib-device bnxt_re_benic1b,bnxt_re_benic2b,bnxt_re_benic3b,bnxt_re_benic4b,bnxt_re_benic5b,bnxt_re_benic6b,bnxt_re_benic7b,bnxt_re_benic8b \
+    --disaggregation-ib-device bnxt_re_bond0,bnxt_re_bond1,bnxt_re_bond2,bnxt_re_bond3,bnxt_re_bond4,bnxt_re_bond5,bnxt_re_bond6,bnxt_re_bond7 \
     --port 30000 \
     --host 0.0.0.0 \
-    --tp-size 4 \
+    --tp-size 8 \
+    --dp-size 2 \
     --enable-dp-attention \
     --enable-dp-lm-head \
     --mm-enable-dp-encoder \
     --trust-remote-code \
     --mem-fraction-static 0.9 \
     --attention-backend triton \
-    --max-running-requests 96 \
     --disable-cuda-graph \
-    --chunked-prefill-size 32768 \
-    --page-size 64 \
-    --speculative-algorithm EAGLE \
-    --speculative-num-steps 3 \
-    --speculative-eagle-topk 1 \
-    --speculative-num-draft-tokens 4 \
-    --enable-multi-layer-eagle \
     2>&1 | tee ./server_log/mimo_v2_flash_pd_prefill_server.log
+h_pd_prefill_server.log
 
 ```
 
+
 ## 5.2 Launch decode server on decode node
+
 ```bash
-export SGLANG_USE_AITER=1
-export MC_GID_INDEX=3
 export TORCH_NCCL_BLOCKING_WAIT=1
+export MC_GID_INDEX=3
 export HSA_NO_SCRATCH_RECLAIM=1
 export MC_TE_METRIC=1
 export SGLANG_DISAGGREGATION_THREAD_POOL_SIZE=12
 export SGLANG_DISAGGREGATION_BOOTSTRAP_TIMEOUT=5000
 export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=5000
-
 python3 -m sglang.launch_server \
     --model /models/MiMo-V2-Flash \
-    --disaggregation-mode decode \
+    --disaggregation-mode prefill \
     --disaggregation-transfer-backend mooncake \
-    --disaggregation-ib-device bnxt_re_benic1b,bnxt_re_benic2b,bnxt_re_benic3b,bnxt_re_benic4b,bnxt_re_benic5b,bnxt_re_benic6b,bnxt_re_benic7b,bnxt_re_benic8b \
-    --port 30001 \
+    --disaggregation-ib-device bnxt_re_bond0,bnxt_re_bond1,bnxt_re_bond2,bnxt_re_bond3,bnxt_re_bond4,bnxt_re_bond5,bnxt_re_bond6,bnxt_re_bond7 \
+    --port 30000 \
     --host 0.0.0.0 \
-    --tp-size 4 \
+    --tp-size 8 \
+    --dp-size 2 \
     --enable-dp-attention \
     --enable-dp-lm-head \
     --mm-enable-dp-encoder \
     --trust-remote-code \
     --mem-fraction-static 0.9 \
     --attention-backend triton \
-    --max-running-requests 96 \
-    --chunked-prefill-size 32768 \
-    --page-size 64 \
-    --speculative-algorithm EAGLE \
-    --speculative-num-steps 3 \
-    --speculative-eagle-topk 1 \
-    --speculative-num-draft-tokens 4 \
-    --enable-multi-layer-eagle \
-    2>&1 | tee ./server_log/mimo_v2_flash_pd_decode_server_mtp.log
+    --disable-cuda-graph \
+    2>&1 | tee ./server_log/mimo_v2_flash_pd_prefill_server.log
+ash_pd_decode_server.log
 ```
 
+
 ## 5.3 Launch sglang router on prefill node
+
 ```bash
 python -m sglang_router.launch_router \
 --pd-disaggregation \
@@ -423,7 +474,9 @@ python -m sglang_router.launch_router \
 --port 40000
 ```
 
+
 ### 5.4 Run single curl for functional test
+
 ```bash
 curl -X POST http://127.0.0.1:40000/generate \
 -H "Content-Type: application/json" \
@@ -431,14 +484,19 @@ curl -X POST http://127.0.0.1:40000/generate \
 0.3 } }'
 ```
 
+
 ```bash
 {"text":" Let me tell you a story about a man named Charlie  On a tragic and fateful day  He put ten cents in his pocket, kissed his wife and family  Went to ride on the MTA  Well, did he ever return? No, he never returned  And his fate is still unlearned (what a pity)  He may ride forever 'neath the streets of Boston  He's the man who never returned  Now, Charlie handed in his dime at the Kendall Square Station  And he changed for Jamaica Plain  When he got there the conductor told him, \"One more nickel\"  Charlie couldn't get off","output_ids":[6771,752,3291,498,264,3364,911,264,883,6941,24927,220,1913,264,34179,323,282,20840,1899,220,1260,2182,5779,30191,304,806,17822,11,58234,806,7403,323,2997,220,53759,311,11877,389,279,386,15204,220,8325,11,1521,566,3512,470,30,2308,11,566,2581,5927,220,1597,806,24382,374,2058,650,12675,291,320,12555,264,56943,8,220,1260,1231,11877,15683,364,27817,279,14371,315,10196,220,1260,594,279,883,879,2581,5927,220,4695,11,24927,22593,304,806,73853,518,279,73076,15619,16629,220,1597,566,5497,369,56175,43199,220,3197,566,2684,1052,279,60756,3229,1435,11,330,3966,803,51249,1,220,24927,7691,944,633,1007],"meta_info":{"id":"3c98ab3684934687b2f863f0c267d35e","finish_reason":{"type":"length","length":128},"prompt_tokens":7,"weight_version":"default","num_retractions":0,"reasoning_tokens":0,"completion_tokens":128,"cached_tokens":0,"cached_tokens_details":null,"dp_rank":null,"e2e_latency":12.085600160993636,"response_sent_to_client_ts":1779867031.223716}}
 ```
+
+
 ### 5.5 Run GSM8K Accuracy test
+
 ```bash
 cd /sgl-workspace/sglang
 python3 benchmark/gsm8k/bench_sglang.py --parallel 128 --num-questions 1400 --host 0.0.0.0 --port 40000
 ```
+
 
 ```bash
 root@mi308-ccs-aus-e06-10:/workspace/xiaomi# ./run_gsm8k.sh 
@@ -450,7 +508,10 @@ Invalid: 0.002
 Latency: 156.316 s
 Output throughput: 1008.646 token/s
 ```
+
+
 ### 5.6 Run benchmark
+
 ```bash
 #!/bin/bash # 推荐添加 shebang
 
@@ -493,6 +554,5 @@ done
 
 echo "✅ 所有长度、并发测试全部完成！"
 ```
-
 
 
