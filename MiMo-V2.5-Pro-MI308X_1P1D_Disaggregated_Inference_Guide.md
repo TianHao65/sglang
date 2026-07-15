@@ -55,25 +55,14 @@ cd ../python && cp pyproject.toml pyproject.toml.bak && cp pyproject_other.toml 
 #### 2.2.2 安装包含优化算子的aiter版本
 
 ```bash
-# 1. 卸载旧版本并清理 pip 缓存
-pip uninstall -y aiter
-pip cache purge
+# 卸载旧版本和旧源码，并清理 pip 缓存
+pip uninstall -y aiter && pip cache purge && cd /sgl-workspace && rm -rf aiter && rm -rf /root/.aiter
 
-# 2. 删除旧源码并重新克隆指定分支
-cd /sgl-workspace && rm -rf aiter && git clone -b mimo_ck_a8w8_blockwise_gemm_config https://github.com/sammysun0711/aiter.git
+# 重新克隆指定分支
+git clone -b mimo_ck_a8w8_blockwise_gemm_config https://github.com/sammysun0711/aiter.git
+cd aiter && git submodule update --init --recursive
 
-# 3. 【关键】进入目录后清理所有构建产物（防止增量编译残留）
-cd aiter
-rm -rf build/ dist/ *.egg-info/ .eggs/ __pycache__/
-find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
-find . -type f -name "*.so" -delete 2>/dev/null || true
-
-# 4. 设置 ROCm 环境变量（按需调整 GPU 架构）
-export ROCM_PATH=/opt/rocm
-export HIP_PATH=/opt/rocm
-# export PYTORCH_ROCM_ARCH="gfx942"  # MI300X 取消注释此行
-
-# 5. 强制重新编译并安装（--no-build-isolation 确保使用当前环境的 torch/rocm）
+# 强制重新编译并安装
 pip install -e . --no-build-isolation -v
 ```
 
@@ -373,6 +362,7 @@ export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=5000
 export SGLANG_ENABLE_SPEC_V2=1
 export SGLANG_SPEC_NAN_DETECTION=1
 export SGLANG_SPEC_OOB_DETECTION=1
+export SGLANG_USE_AITER_CK_BLOCKSCALE=1
 export SGLANG_SIMULATE_ACC_LEN=3
 export SGLANG_SIMULATE_ACC_METHOD=match-expected
 export SGLANG_USE_AITER_CK_BLOCKSCALE_BPRESHUFFLE=1
@@ -381,7 +371,7 @@ python3 -m sglang.launch_server \
     --model /models/MiMo-V2.5-Pro \
     --disaggregation-mode prefill \
     --disaggregation-transfer-backend mooncake \
-    --disaggregation-ib-device bnxt_re_benic1b,bnxt_re_benic2b,bnxt_re_benic3b,bnxt_re_benic4b,bnxt_re_benic5b,bnxt_re_benic6b,bnxt_re_benic7b,bnxt_re_benic8b \
+    --disaggregation-ib-device bnxt_re_bond0,bnxt_re_bond1,bnxt_re_bond2,bnxt_re_bond3,bnxt_re_bond4,bnxt_re_bond5,bnxt_re_bond6,bnxt_re_bond7 \
     --port 30000 \
     --host 0.0.0.0 \
     --tp-size 8 \
@@ -400,7 +390,7 @@ python3 -m sglang.launch_server \
     --speculative-num-draft-tokens 4 \
     --enable-multi-layer-eagle \
     --disable-overlap-schedule \
-    2>&1 | tee ./server_log/mimo_v2.5_pro_pd_prefill_server_mtp.log
+2>&1 | tee ./server_log/mimo_v2.5_pro_pd_prefill_server_mtp.log
 
 ```
 
@@ -417,6 +407,7 @@ export SGLANG_DISAGGREGATION_WAITING_TIMEOUT=5000
 export SGLANG_ENABLE_SPEC_V2=1
 export SGLANG_SPEC_NAN_DETECTION=1
 export SGLANG_SPEC_OOB_DETECTION=1
+export SGLANG_USE_AITER_CK_BLOCKSCALE=1
 export SGLANG_SIMULATE_ACC_LEN=3
 export SGLANG_SIMULATE_ACC_METHOD=match-expected
 export SGLANG_USE_AITER_CK_BLOCKSCALE_BPRESHUFFLE=1
@@ -425,7 +416,7 @@ python3 -m sglang.launch_server \
     --model /models/MiMo-V2.5-Pro \
     --disaggregation-mode decode \
     --disaggregation-transfer-backend mooncake \
-    --disaggregation-ib-device bnxt_re15,bnxt_re_benic2b,bnxt_re_benic3b,bnxt_re_benic4b,bnxt_re_benic5b,bnxt_re_benic6b,bnxt_re_benic7b,bnxt_re_benic8b \
+    --disaggregation-ib-device bnxt_re_bond0,bnxt_re_bond1,bnxt_re_bond2,bnxt_re_bond3,bnxt_re_bond4,bnxt_re_bond5,bnxt_re_bond6,bnxt_re_bond7 \
     --port 30001 \
     --host 0.0.0.0 \
     --tp-size 8 \
@@ -450,7 +441,7 @@ python3 -m sglang.launch_server \
 python -m sglang_router.launch_router \
 --pd-disaggregation \
 --prefill http://10.235.192.101:30000 \
---decode http://10.235.192.97:30001 \
+--decode http://10.235.192.98:30001 \
 --host 0.0.0.0 \
 --port 40000
 ```
