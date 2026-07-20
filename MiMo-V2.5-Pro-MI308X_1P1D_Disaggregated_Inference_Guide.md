@@ -236,13 +236,13 @@ ssh -p 8737 mi308-ccs-aus-e06-10 hostname
 mi308-ccs-aus-e06-10.prov.aus.ccs.cpe.ice.amd.com
 ```
 
-### 4.1 Build and run RCCL test
+## 4 Build and run RCCL test
 ```bash
 git clone https://github.com/ROCm/rccl-tests
 cd rccl-tests
 ./install.sh --mpi --rocm_home /opt/rocm --rccl_home /opt/rocm --mpi_home /opt/ompi/ --hip_compiler /opt/rocm/bin/amdclang++
 ```
-### 4.2 Create mpi_hosts file as follows and save in disk: 
+### 4.1 Create mpi_hosts file as follows and save in disk: 
 ```
 cd /workspace/xiaomi/rccl-tests
 
@@ -255,7 +255,7 @@ cat mpi_hosts
 ```
 
 
-# 4.3.	Run RCCL All Reduce test on 2 GPU nodes
+###  4.2 Run RCCL All Reduce test on 2 GPU nodes
 ```bash
 TORCH_NCCL_HIGH_PRIORITY=1 \
 RCCL_MSCCL_ENABLE=0 \
@@ -349,7 +349,10 @@ Librccl path : /opt/rocm-7.2.0/lib/librccl.so.1
 # Collective test concluded: all_reduce_perf
 ```
 
-## 5.1 Launch prefill server on prefill node
+## 5 1P1D Disaggregated
+
+### 5.1 Launch prefill server on prefill node
+
 ```bash
 export SGLANG_USE_AITER=1
 export TORCH_NCCL_BLOCKING_WAIT=1
@@ -394,7 +397,7 @@ python3 -m sglang.launch_server \
 
 ```
 
-## 5.2 Launch decode server on decode node
+### 5.2 Launch decode server on decode node
 ```bash
 export SGLANG_USE_AITER=1
 export MC_GID_INDEX=3
@@ -436,7 +439,7 @@ python3 -m sglang.launch_server \
     2>&1 | tee ./server_log/mimo_v2.5_pro_pd_decode_server_mtp.log
 ```
 
-## 5.3 Launch sglang router on prefill node
+### 5.3 Launch sglang router on prefill node
 ```bash
 python -m sglang_router.launch_router \
 --pd-disaggregation \
