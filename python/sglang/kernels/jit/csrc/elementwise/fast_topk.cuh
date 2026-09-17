@@ -260,24 +260,23 @@ struct FastTopKKernel {
     auto L = SymbolicSize{"length"};
     auto S = SymbolicSize{"input_stride"};
     auto device = SymbolicDevice{};
-    device.set_options<kDLCUDA>();
 
     TensorMatcher({B, L})  // score
         .with_strides({S, 1})
         .with_dtype<fp32_t>()
-        .with_device(device)
+        .with_device<kDLGPU>(device)
         .verify(score);
     TensorMatcher({B})  // row_starts
         .with_dtype<int32_t>()
-        .with_device(device)
+        .with_device<kDLGPU>(device)
         .verify(row_starts);
     TensorMatcher({B, kTopK})  // indices
         .with_dtype<int32_t>()
-        .with_device(device)
+        .with_device<kDLGPU>(device)
         .verify(indices);
     TensorMatcher({B})  // lengths
         .with_dtype<int32_t>()
-        .with_device(device)
+        .with_device<kDLGPU>(device)
         .verify(lengths);
 
     const auto params = fast_topk_detail::FastTopKParams{

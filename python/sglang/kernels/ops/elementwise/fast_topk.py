@@ -51,14 +51,14 @@ def fast_topk(
 
     Parameters
     ----------
-    score      : CUDA fp32 tensor [B, L]
-    lengths    : CUDA int32 tensor [B]
+    score      : CUDA/ROCm fp32 tensor [B, L]
+    lengths    : CUDA/ROCm int32 tensor [B]
     topk       : number of indices per row; 512 or 2048
-    row_starts : optional CUDA int32 tensor [B]; defaults to zeros
+    row_starts : optional CUDA/ROCm int32 tensor [B]; defaults to zeros
 
     Returns
     -------
-    CUDA int32 tensor [B, topk]
+    CUDA/ROCm int32 tensor [B, topk]
     """
     batch = score.shape[0]
     if row_starts is None:
