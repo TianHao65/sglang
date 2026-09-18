@@ -388,6 +388,7 @@ def test_decode_selection_equivalent():
     # Fused index q.
     pool = FakePool(64, 4096, device, dtype)
     cache_loc = torch.arange(1, batch + 1, device=device)
+
     q_new, _, stored = indexer.project_qk(
         hidden, positions, pool=pool, cache_loc=cache_loc
     )
@@ -414,6 +415,63 @@ def test_decode_selection_equivalent():
         ref_set = set(idx_ref[row][idx_ref[row] >= 0].tolist())
         new_set = set(idx_new[row][idx_new[row] >= 0].tolist())
         assert ref_set == new_set, f"row {row}: selection mismatch"
+
+
+def test_fused_project_qk_uses_prereserved_rope_cache(monkeypatch):
+    """The fused per-layer path must not read positions back to the host."""
+    from sglang.kernels.ops.attention import qsa_indexer as qsa_ops
+
+    tokens, heads, head_dim = 2, 4, 128
+    qk = torch.zeros(tokens, (heads + 1) * head_dim)
+    q_out = torch.zeros(tokens, heads, head_dim)
+    key_state = torch.zeros(8, head_dim)
+    rope_state = torch.zeros(8, 3, dtype=torch.int64)
+    axis_map = torch.zeros(32, dtype=torch.int32)
+    weight = torch.zeros(head_dim)
+
+    def fail_cache_resize(_):
+        raise AssertionError("fused QSA hot path must use the pre-reserved RoPE cache")
+
+    def fake_q_prep(*args, **kwargs):
+        return q_out
+
+    monkeypatch.setattr(qsa_ops, "qsa_index_q_norm_rope_store", fake_q_prep)
+    indexer = SimpleNamespace(
+        index_qk_proj=lambda hidden: (qk, None),
+        index_n_heads=heads,
+        index_kv_heads=1,
+        index_head_dim=head_dim,
+        layer_id=0,
+        _use_fused_prep=lambda tensor: True,
+        _rope_axis_map=lambda device: axis_map,
+        rotary_emb=SimpleNamespace(
+            cos_sin_cache=torch.zeros(16, 64),
+            rotary_dim=64,
+            is_neox_style=True,
+            _ensure_cos_sin_cache_length=fail_cache_resize,
+        ),
+        q_layernorm=SimpleNamespace(
+            weight=SimpleNamespace(data=weight), variance_epsilon=1e-6
+        ),
+    )
+    pool = SimpleNamespace(
+        get_qsa_key_state_buffer=lambda layer_id: key_state,
+        qsa_rope_position_buffer=rope_state,
+    )
+    positions = torch.arange(tokens, dtype=torch.int64).repeat(3, 1)
+    cache_loc = torch.arange(tokens, dtype=torch.int64)
+
+    q, token_k, stored = QSAIndexer.project_qk(
+        indexer,
+        torch.zeros(tokens, 1),
+        positions,
+        pool=pool,
+        cache_loc=cache_loc,
+    )
+
+    assert q is q_out
+    assert token_k.shape == (tokens, 1, head_dim)
+    assert stored
 
 
 if __name__ == "__main__":

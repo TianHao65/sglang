@@ -226,12 +226,10 @@ class QSAIndexer(MultiPlatformOp):
                 qsa_index_q_norm_rope_store,
             )
 
-            if not get_is_capture_mode() and hasattr(
-                self.rotary_emb, "_ensure_cos_sin_cache_length"
-            ):
-                self.rotary_emb._ensure_cos_sin_cache_length(
-                    int(positions.max().item())
-                )
+            # ModelRunner reserves every RoPE cache to the configured context
+            # bound before execution.  Do not inspect the device positions in
+            # this per-layer hot path: ``positions.max().item()`` drains the
+            # stream once per QSA layer and leaves the GPU idle before q_prep.
             key_state_buffer = pool.get_qsa_key_state_buffer(self.layer_id)
             q = qsa_index_q_norm_rope_store(
                 qk,
