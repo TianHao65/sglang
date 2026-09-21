@@ -6,7 +6,9 @@ RoPE-position store into one kernel launch.
 
 ``qsa_index_k_compress_store`` fuses, per completed compress group, the eager
 chain gather -> fp32 mean -> GemmaRMSNorm -> MRoPE(group-start position) ->
-compressed-cache store into one kernel launch.
+compressed-cache store into one kernel launch. Compressed-cache slot 0 is
+reserved: on ROCm, ``write_locs == 0`` is a device-side no-op, while active
+locations must be at least 1.
 
 Both kernels reproduce the eager operations (fp32 norm reduction, per-op
 rounding to the storage dtype during RoPE, and an fp32 group mean rounded to
@@ -169,8 +171,10 @@ def qsa_index_k_compress_store(
                        [capacity, rotary_dim] RoPE cache
     axis_map         : CUDA/ROCm int32 [rotary_dim // 2] position-axis per pair
     weight           : [head_dim] gemma norm weight (kernel applies 1 + w)
-    write_locs       : CUDA int32 [groups] compressed-cache slots to write
-    compressed_k_buffer : CUDA [compressed_slots, head_dim] (written)
+    write_locs       : CUDA/ROCm int32 [groups] compressed-cache destinations;
+                       0 is reserved (a device-side no-op on ROCm) and active
+                       slots must be >= 1
+    compressed_k_buffer : CUDA/ROCm [compressed_slots, head_dim] (written)
     compress_ratio   : raw keys per compressed key
     rotary_dim       : rotated prefix of each head row
     eps              : RMSNorm epsilon

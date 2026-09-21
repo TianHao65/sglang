@@ -252,7 +252,7 @@ struct FastTopKKernel {
 
   static void
   run(const tvm::ffi::TensorView score,
-      const tvm::ffi::TensorView row_starts,
+      const tvm::ffi::Optional<tvm::ffi::TensorView> row_starts,
       const tvm::ffi::TensorView indices,
       const tvm::ffi::TensorView lengths) {
     using namespace host;
@@ -266,10 +266,14 @@ struct FastTopKKernel {
         .with_dtype<fp32_t>()
         .with_device<kDLGPU>(device)
         .verify(score);
-    TensorMatcher({B})  // row_starts
-        .with_dtype<int32_t>()
-        .with_device<kDLGPU>(device)
-        .verify(row_starts);
+    const int32_t* row_starts_ptr = nullptr;
+    if (row_starts.has_value()) {
+      TensorMatcher({B})  // row_starts
+          .with_dtype<int32_t>()
+          .with_device<kDLGPU>(device)
+          .verify(row_starts.value());
+      row_starts_ptr = static_cast<const int32_t*>(row_starts.value().data_ptr());
+    }
     TensorMatcher({B, kTopK})  // indices
         .with_dtype<int32_t>()
         .with_device<kDLGPU>(device)
@@ -281,7 +285,7 @@ struct FastTopKKernel {
 
     const auto params = fast_topk_detail::FastTopKParams{
         .input = static_cast<const float*>(score.data_ptr()),
-        .row_starts = static_cast<const int32_t*>(row_starts.data_ptr()),
+        .row_starts = row_starts_ptr,
         .indices = static_cast<int32_t*>(indices.data_ptr()),
         .lengths = static_cast<const int32_t*>(lengths.data_ptr()),
         .input_stride = S.unwrap(),

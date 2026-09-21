@@ -95,6 +95,36 @@ def test_fast_topk_row_stride(topk):
     _check_topk_values(score, lengths, indices, topk, None)
 
 
+@pytest.mark.parametrize("batch", [1, 4, 8])
+def test_fast_topk_no_row_starts_cuda_graph(batch):
+    """The nullptr row-start specialization must remain graph replay safe."""
+    torch.manual_seed(0)
+    topk, length = 512, 4096
+    score = torch.randn(batch, length, dtype=torch.float32, device="cuda")
+    lengths = torch.full((batch,), length, dtype=torch.int32, device="cuda")
+
+    # Compile and initialize allocator state before capture.
+    fast_topk(score, lengths, topk)
+    torch.cuda.synchronize()
+
+    graph = torch.cuda.CUDAGraph()
+    with torch.cuda.graph(graph):
+        indices = fast_topk(score, lengths, topk)
+
+    for seed in (1, 2):
+        score.copy_(
+            torch.randn(
+                score.shape,
+                dtype=score.dtype,
+                device=score.device,
+                generator=torch.Generator(device="cuda").manual_seed(seed),
+            )
+        )
+        graph.replay()
+        torch.cuda.synchronize()
+        _check_topk_values(score, lengths, indices, topk, None)
+
+
 @pytest.mark.parametrize("topk", [512, 2048])
 @pytest.mark.parametrize(
     "fill",
