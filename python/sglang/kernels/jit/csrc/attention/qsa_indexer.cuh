@@ -10,7 +10,8 @@
 // qsa_index_k_compress_kernel replaces, per completed compress group,
 //   gather group -> fp32 mean -> round to storage dtype -> GemmaRMSNorm
 //   -> MRoPE(group-start position) -> set_qsa_compressed_k_buffer
-// with one warp per group.
+// with one warp per group. Compressed-cache slot 0 is reserved: on ROCm a
+// write_locs entry of 0 is a no-op sentinel, and active writes use slots >= 1.
 //
 // Numerics preserve the eager chain's operation boundaries:
 //   - norm: fp32 sum of squares, rsqrt(mean + eps), x * nf * (1 + w) rounded
@@ -290,7 +291,7 @@ struct QsaIndexKCompressParams {
   const void* cos_sin_cache;            // [positions_capacity, rotary_dim]
   const int32_t* axis_map;              // [rotary_dim / 2]
   const void* weight;                   // [kHeadDim]
-  const int32_t* write_locs;            // [groups]
+  const int32_t* write_locs;            // [groups], ROCm: 0 = no-op; active slots >= 1
   void* compressed_k_buffer;            // [compressed_slots, kHeadDim]
   int32_t compress_ratio;
   int32_t rotary_dim;
@@ -302,6 +303,10 @@ struct QsaIndexKCompressParams {
 /**
  * \brief Per-group compressed-K prep: fp32 mean over the group, gemma norm,
  * MRoPE at the group-start position, store into the compressed cache.
+ * On ROCm, a write location of 0 is a no-op sentinel and performs no source
+ * reads or destination write; compressed-cache slot 0 is reserved for this
+ * contract. CUDA keeps the established inert-slot write behavior so an early
+ * warp cannot signal PDL completion while another warp in its CTA is active.
  * One warp per group.
  */
 template <typename T, typename CacheT, int kHeadDim, bool kIsNeox, bool kUsePDL>
@@ -318,7 +323,17 @@ __launch_bounds__(128) void qsa_index_k_compress_kernel(const QsaIndexKCompressP
   }
   __shared__ T smem_rows[4][kHeadDim];
 
+  // The graph metadata kernel may produce write_locs immediately before this
+  // launch, so the sentinel must be read only after the PDL dependency wait.
+  // A no-op warp still triggers its secondary dependency before returning.
   device::PDLWaitPrimary<kUsePDL>();
+  const int32_t write_loc = params.write_locs[group];
+#ifdef USE_ROCM
+  if (write_loc == 0) {
+    device::PDLTriggerSecondary<kUsePDL>();
+    return;
+  }
+#endif
 
   const int32_t* locs = params.group_locs + group * params.compress_ratio;
   const int32_t loc0 = locs[0];
@@ -380,7 +395,7 @@ __launch_bounds__(128) void qsa_index_k_compress_kernel(const QsaIndexKCompressP
     pos[a] = params.rope_position_buffer[static_cast<int64_t>(loc0) * 3 + a];
   }
 
-  T* out_row = static_cast<T*>(params.compressed_k_buffer) + static_cast<int64_t>(params.write_locs[group]) * kHeadDim;
+  T* out_row = static_cast<T*>(params.compressed_k_buffer) + static_cast<int64_t>(write_loc) * kHeadDim;
   qsa_mrope_apply<T, CacheT, kHeadDim, kIsNeox>(
       smem_rows[warp],
       out_row,

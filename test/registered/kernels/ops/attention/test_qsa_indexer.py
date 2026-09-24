@@ -334,17 +334,89 @@ def test_fused_compress_matches_eager(num_groups, mrope_section, mrope_interleav
     pool_new.qsa_rope_position_buffer.copy_(positions)
     pool_ref.qsa_rope_position_buffer.copy_(positions)
 
-    # Random groups; slot 0 doubles as the CUDA-graph dummy write target, so
-    # allow repeats there too.
+    # Random active groups. Compressed slot 0 is reserved as the no-op
+    # sentinel, so every real destination is at least 1.
     group_locs = torch.randint(0, 8192, (num_groups, RATIO), device=device).to(
         torch.int32
     )
-    write_locs = torch.randperm(4096, device=device)[:num_groups].to(torch.int32)
+    write_locs = torch.randperm(4095, device=device)[:num_groups].to(torch.int32) + 1
 
     _eager_compress_reference(indexer, pool_ref, group_locs, write_locs)
     indexer._fused_compress_store(pool_new, group_locs, write_locs)
 
     assert_fused_close(pool_new.compressed, pool_ref.compressed)
+
+
+def _make_compress_buffers(num_groups, seed):
+    device = torch.device("cuda")
+    dtype = torch.bfloat16
+    torch.manual_seed(seed)
+    rotary = _make_rotary([24, 20, 20], True, device, dtype)
+    indexer = _make_indexer(rotary, device, dtype)
+    pool = FakePool(8192, 128, device, dtype)
+    pool.key_state.copy_(torch.randn_like(pool.key_state, device=device, dtype=dtype))
+    pool.qsa_rope_position_buffer.copy_(
+        torch.randint(0, 30000, pool.qsa_rope_position_buffer.shape, device=device)
+    )
+    pool.compressed.copy_(torch.randn_like(pool.compressed, device=device, dtype=dtype))
+    group_locs = torch.randint(
+        0, pool.key_state.shape[0], (num_groups, RATIO), device=device
+    ).to(torch.int32)
+    return indexer, pool, group_locs
+
+
+@pytest.mark.skipif(torch.version.hip is None, reason="ROCm sentinel fast path")
+def test_fused_compress_all_zero_write_locs_are_noops():
+    """A fixed-shape graph step with no completed groups changes no cache row."""
+    num_groups = 8
+    indexer, pool, group_locs = _make_compress_buffers(num_groups, seed=101)
+    before = pool.compressed.clone()
+
+    indexer._fused_compress_store(
+        pool,
+        group_locs,
+        torch.zeros(num_groups, dtype=torch.int32, device=group_locs.device),
+    )
+
+    torch.testing.assert_close(pool.compressed, before, rtol=0, atol=0)
+
+
+@pytest.mark.skipif(torch.version.hip is None, reason="ROCm sentinel fast path")
+def test_fused_compress_mixed_write_locs_skip_zero_entries():
+    """Mixed graph rows write active slots >= 1 and leave sentinel rows alone."""
+    indexer, pool, group_locs = _make_compress_buffers(8, seed=102)
+    before = pool.compressed.clone()
+    write_locs = torch.tensor(
+        [0, 7, 0, 19, 23, 0, 31, 0],
+        dtype=torch.int32,
+        device=group_locs.device,
+    )
+    active = write_locs != 0
+
+    pool_ref = FakePool(
+        pool.key_state.shape[0], pool.compressed.shape[0], group_locs.device
+    )
+    pool_ref.key_state.copy_(pool.key_state)
+    pool_ref.qsa_rope_position_buffer.copy_(pool.qsa_rope_position_buffer)
+    pool_ref.compressed.copy_(before)
+    indexer._fused_compress_store(pool_ref, group_locs[active], write_locs[active])
+
+    indexer._fused_compress_store(pool, group_locs, write_locs)
+
+    active_locs = write_locs[active].long()
+    torch.testing.assert_close(
+        pool.compressed[active_locs],
+        pool_ref.compressed[active_locs],
+        rtol=0,
+        atol=0,
+    )
+    inactive_slots = torch.ones(
+        pool.compressed.shape[0], dtype=torch.bool, device=group_locs.device
+    )
+    inactive_slots[active_locs] = False
+    torch.testing.assert_close(
+        pool.compressed[inactive_slots], before[inactive_slots], rtol=0, atol=0
+    )
 
 
 @pytest.mark.parametrize("dtype", [torch.int32, torch.int64])

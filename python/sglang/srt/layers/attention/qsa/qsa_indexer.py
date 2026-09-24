@@ -278,6 +278,8 @@ class QSAIndexer(MultiPlatformOp):
 
         The member source defaults to the pending ring; extend forwards pass
         this forward's packed keys/rope instead (members are chunk-local).
+        On ROCm, a write location of 0 is a device-side no-op; active
+        compressed-cache locations are always at least 1.
         """
         from sglang.kernels.ops.attention.qsa_indexer import (
             qsa_index_k_compress_store,
@@ -421,11 +423,13 @@ class QSAIndexer(MultiPlatformOp):
         pool.set_qsa_compressed_k_buffer(self.layer_id, compressed_locs, normalized)
 
     def _compress_decode_cuda_graph(self, metadata) -> None:
-        """Run a fixed-shape compression step; non-boundaries write slot zero.
+        """Run a fixed-shape compression step with zero as the no-op sentinel.
 
         Member slots come from ``metadata.graph_ring_group_locs``, a static
         buffer refreshed before every replay alongside the other graph
-        buffers (triton prologue, or the host fallback refresh).
+        buffers (triton prologue, or the host fallback refresh). The fused
+        ROCm kernel skips source reads and destination writes for non-boundary
+        rows whose write location is the reserved compressed slot 0.
         """
 
         if metadata.graph_write_locs is None or metadata.graph_ring_group_locs is None:
@@ -564,6 +568,10 @@ class QSAIndexer(MultiPlatformOp):
             compressed_page_table,
             compressed_lengths,
             max_model_len,
+            # FastTopK reads exactly [0, compressed_length), so the direct
+            # Triton path can leave complete tail CTAs untouched. Keeping the
+            # length device-resident also makes this safe across graph replay.
+            _clean_tail=False,
         )
         if logits.is_cuda and self.block_topk == 512:
             # Decode rows start at zero, so lengths are the compressed lengths
@@ -655,11 +663,16 @@ class QSAIndexer(MultiPlatformOp):
             pool=indexer_metadata.token_to_kv_pool,
             cache_loc=state_slots,
             q_heads_padded=(
-                # The tilelang decode MQA requires a query-head multiple of 8;
-                # writing the zero padding from the fused prep kernel avoids a
-                # separate fill + cat per layer.
+                # CUDA TileLang decode requires a query-head multiple of 8;
+                # writing the zero padding here avoids a separate fill + cat.
+                # The ROCm direct Triton MQA accepts the native four-head shape.
                 ((self.index_n_heads + 7) // 8) * 8
-                if (forward_mode.is_decode() or is_target_verify or is_draft_extend)
+                if (
+                    not (is_hip() and is_gfx942_supported())
+                    and (
+                        forward_mode.is_decode() or is_target_verify or is_draft_extend
+                    )
+                )
                 else None
             ),
         )
