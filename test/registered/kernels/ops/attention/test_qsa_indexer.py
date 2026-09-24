@@ -76,9 +76,9 @@ def _make_indexer(rotary, device, dtype=torch.bfloat16):
         indexer.to(device=device)
     finally:
         torch.set_default_dtype(prev_dtype)
-    # These are direct fused-kernel tests. ROCm production keeps the JIT
-    # backend behind the Qwen3.8 profile gate, while these synthetic configs
-    # intentionally cover additional RoPE layouts and token counts.
+    # These are direct fused-kernel tests.  ROCm production keeps the JIT
+    # backend behind the Qwen3.8 profile gate, while the synthetic configs
+    # below intentionally cover additional RoPE layouts and token counts.
     indexer._use_jit_indexer = True
     with torch.no_grad():
         out_features = (NUM_Q_HEADS + 1) * HEAD_DIM
@@ -170,6 +170,9 @@ def assert_fused_close(actual, expected, max_frac=1e-5, max_abs=0.02):
     """
     diff = (actual.float() - expected.float()).abs()
     if torch.version.hip is not None:
+        # hipcc and the eager ROCm RMSNorm/RoPE kernels use different valid
+        # reduction and BF16-rounding orders.  Check the numerical contract
+        # here; downstream selection is checked independently below.
         torch.testing.assert_close(actual, expected, rtol=2e-2, atol=4e-2)
         return
     mismatches = int((diff > 0).sum())
