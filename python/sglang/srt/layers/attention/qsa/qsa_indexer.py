@@ -6,6 +6,7 @@ from typing import Tuple
 
 import torch
 
+from sglang.srt.environ import envs
 from sglang.srt.layers.attention.qsa.kernel import (
     average_pool_qsa_keys,
     expand_qsa_block_indices,
@@ -22,7 +23,8 @@ from sglang.srt.layers.linear import ReplicatedLinear
 from sglang.srt.layers.rotary_embedding.utils import apply_rotary_emb
 from sglang.srt.layers.utils import MultiPlatformOp
 from sglang.srt.model_executor.runner import get_is_capture_mode
-from sglang.srt.utils import is_hip
+from sglang.srt.runtime_context import get_parallel
+from sglang.srt.utils import is_gfx942_supported, is_hip
 
 # Bound the dominant FP32 [query_rows, compressed_keys] prefill workspace.
 # Top-k is row-independent, so large scheduler chunks can be scored in smaller
@@ -82,6 +84,40 @@ class QSAIndexer(MultiPlatformOp):
             self.index_head_dim, eps=getattr(config, "rms_norm_eps", 1e-6)
         )
         self._rope_axis_map_cache = None
+        self._use_jit_indexer = self._resolve_jit_indexer()
+
+    def _resolve_jit_indexer(self) -> bool:
+        backend = envs.SGLANG_QSA_INDEXER_BACKEND.get().strip().lower()
+        if backend not in ("auto", "jit"):
+            raise ValueError(
+                "SGLANG_QSA_INDEXER_BACKEND must be 'auto' or 'jit' when the "
+                "ROCm Triton QSA path is unavailable, got "
+                f"{backend!r}"
+            )
+        if not is_hip():
+            return True
+        if backend == "auto":
+            return False
+        supported_profile = (
+            is_gfx942_supported()
+            and get_parallel().config.tp_size == 2
+            and self.index_n_heads == 4
+            and self.index_kv_heads == 1
+            and self.index_head_dim == 128
+            and self.token_topk == 2048
+            and self.compress_ratio == 4
+            and self.rotary_emb.rotary_dim == 64
+            and self.rotary_emb.is_neox_style
+            and getattr(self.rotary_emb, "mrope_interleaved", False)
+            and tuple(getattr(self.rotary_emb, "mrope_section", ()) or ())
+            == (11, 11, 10)
+        )
+        if not supported_profile:
+            raise ValueError(
+                "SGLANG_QSA_INDEXER_BACKEND=jit is experimental and currently "
+                "gated to the Qwen3.8 TP2 profile on gfx942"
+            )
+        return True
 
     @staticmethod
     def _validate_config(config) -> None:
@@ -121,15 +157,23 @@ class QSAIndexer(MultiPlatformOp):
     def _use_fused_prep(self, tensor: torch.Tensor) -> bool:
         """Whether the fused indexer-prep kernels support this configuration."""
         return (
-            tensor.is_cuda
-            and tensor.dtype in (torch.bfloat16, torch.float16)
+            self._use_jit_indexer
+            and tensor.is_cuda
+            and (
+                tensor.dtype == torch.bfloat16
+                if is_hip()
+                else tensor.dtype in (torch.bfloat16, torch.float16)
+            )
             and self.index_head_dim in (64, 128, 256)
             and self.rotary_emb.rotary_dim % 2 == 0
             and not getattr(self.rotary_emb, "mrope_interleaved_glm", False)
             and len(getattr(self.rotary_emb, "mrope_section", None) or ()) in (0, 3)
             and getattr(self.rotary_emb, "cos_sin_cache", None) is not None
             and self.rotary_emb.cos_sin_cache.is_cuda
-            and self.rotary_emb.cos_sin_cache.dtype == torch.float32
+            and (
+                self.rotary_emb.cos_sin_cache.dtype == torch.float32
+                or (is_hip() and self.rotary_emb.cos_sin_cache.dtype == tensor.dtype)
+            )
         )
 
     def _rope_axis_map(self, device) -> torch.Tensor:
@@ -179,12 +223,10 @@ class QSAIndexer(MultiPlatformOp):
                 qsa_index_q_norm_rope_store,
             )
 
-            if not get_is_capture_mode() and hasattr(
-                self.rotary_emb, "_ensure_cos_sin_cache_length"
-            ):
-                self.rotary_emb._ensure_cos_sin_cache_length(
-                    int(positions.max().item())
-                )
+            # ModelRunner reserves every RoPE cache to the configured context
+            # bound before execution.  Do not inspect the device positions in
+            # this per-layer hot path: ``positions.max().item()`` drains the
+            # stream once per QSA layer and leaves the GPU idle before q_prep.
             key_state_buffer = pool.get_qsa_key_state_buffer(self.layer_id)
             q = qsa_index_q_norm_rope_store(
                 qk,
