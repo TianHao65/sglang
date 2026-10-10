@@ -439,7 +439,7 @@ def test_qsa_same_named_chunk_prefill_kernels_do_not_collide_in_one_process():
 
 
 @pytest.mark.skipif(not _is_mi308x(), reason="requires MI308X ROCm")
-def test_qsa_fast_topk_expand_dispatches_prepared_packed_one_cta(monkeypatch):
+def test_qsa_fast_topk_expand_dispatches_prepared_pr40_attention(monkeypatch):
     """Exercise the decode selection output directly through sparse attention."""
 
     lengths = [CACHE_TOKENS, 2051, 1025, 17]
@@ -468,6 +468,14 @@ def test_qsa_fast_topk_expand_dispatches_prepared_packed_one_cta(monkeypatch):
     monkeypatch.setattr(
         backend_module,
         "qwen_sparse_kv_extraction_compact_triton",
+        fallback_must_not_run,
+    )
+    monkeypatch.setattr(
+        backend_module, "sparse_gqa_packed_decode_triton", fallback_must_not_run
+    )
+    monkeypatch.setattr(
+        direct_module,
+        "sparse_gqa_direct_paged_decode_one_cta_triton",
         fallback_must_not_run,
     )
 
@@ -517,12 +525,18 @@ def test_qsa_fast_topk_expand_dispatches_prepared_packed_one_cta(monkeypatch):
         sum("_expand_qsa_block_indices_kernel" in name for name in gpu_kernel_names)
         == 1
     )
-    assert gpu_kernel_names.count("_sparse_gqa_chunk_prefill.kd") == 1
+    assert (
+        sum("_qsa_sparse_packed_gqa_kernel" in name for name in gpu_kernel_names) == 1
+    )
+    assert (
+        sum("_mla_decode_fwd_reduce_kernel" in name for name in gpu_kernel_names) == 1
+    )
     assert sum("_prepare_qsa_packed_kv" in name for name in gpu_kernel_names) == 1
+    assert not any("_sparse_gqa_chunk_prefill" in name for name in gpu_kernel_names)
     assert not any(
         forbidden in name.lower()
         for name in gpu_kernel_names
-        for forbidden in ("compact", "split", "merge")
+        for forbidden in ("compact", "merge")
     )
 
 
@@ -640,7 +654,7 @@ def test_qsa_backend_prepare_gate_miss_keeps_packed_one_cta_fallback(monkeypatch
         ),
     ],
 )
-def test_qsa_backend_prepared_packed_one_cta_graph_replay(
+def test_qsa_backend_prepared_pr40_attention_graph_replay(
     monkeypatch, primary_lengths, alternate_lengths
 ):
     state = _make_backend_state(
@@ -707,7 +721,7 @@ def test_qsa_backend_prepared_packed_one_cta_graph_replay(
 
 
 @pytest.mark.skipif(not _is_mi308x(), reason="requires MI308X ROCm")
-def test_qsa_backend_prepared_packed_one_cta_two_layers_do_not_alias():
+def test_qsa_backend_prepared_pr40_attention_two_layers_do_not_alias():
     state = _make_backend_state(4, [2051, 1, 1, 1], 840000, layers=2)
     layer0 = SimpleNamespace(layer_id=0, scaling=SCALE)
     layer1 = SimpleNamespace(layer_id=1, scaling=SCALE)

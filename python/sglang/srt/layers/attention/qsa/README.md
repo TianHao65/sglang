@@ -21,22 +21,30 @@ index projection GEMM
 -> _expand_qsa_block_indices_kernel.kd
 -> store_kvcache<512, 512, 1, false, long>
 -> _prepare_qsa_packed_kv.kd
--> _sparse_gqa_chunk_prefill.kd
+-> _qsa_sparse_packed_gqa_kernel.kd
+-> _mla_decode_fwd_reduce_kernel.kd
 ```
 
 The preparation kernel resolves the existing page table, gathers selected
 full K/V into continuous per-row scratch, and writes all packed-attention
-metadata in one launch. The final attention call reuses the original packed
-`_sparse_gqa_chunk_prefill` implementation and its launch configuration;
-attention does not access the page table. Unsupported shapes keep the generic
-compact-KV fallback.
+metadata in one launch. Attention uses the split-K computation and token-count
+scheduling adapted from apinge/sglang PR #40 (`4b5faf7343`), followed by the
+installed AITER reduction. It reads the prepared packed K/V directly through
+row offsets and relative indices, without accessing the original cache's page
+table. Unsupported shapes keep the generic compact-KV and original attention
+fallback; ordinary prefill is unchanged.
 
 Each preparation row owns `TOPK + 1` scratch slots. Valid selections retain
 their original order, with relative indices listing only valid scratch slots.
-The additional zero K/V slot represents an empty row, so the unchanged packed
-softmax produces zero without encountering an entirely masked first tile.
+The additional zero K/V slot represents an empty row. The split-K attention
+returns zero for this sentinel and for empty selection rows.
 Mutable lengths, selections, and page tables are read on device on every
-graph replay. Preparation and attention remain separate GPU launches.
+graph replay. Preparation is separate from both split-K attention and its
+reduction. Attention retains PR #40's occupancy tiers, BF16 probability
+rounding, FP32 partials, and `.cg` loads. Every split initializes its partial
+state, including empty partitions, so reused graph workspaces cannot leak
+old values. Workspaces are retained per device, query shape, split count and
+stream; returned outputs have independent storage.
 
 ## Operator replacements
 
@@ -48,7 +56,7 @@ graph replay. Preparation and attention remain separate GPU launches.
 | Allocating/filling a zero `row_starts` tensor and the barrier-heavy gfx942 radix histogram scan | `fast_topk(..., row_starts=None)` plus the wave64 DPP scan | Decode rows start at zero. The optimized scan is length-generic, supports top-k 512/2048, and retains an exact overflow fallback. |
 | Work on complete logits-tail CTAs | Device-side early return in `_triton_qsa_mqa_decode_kernel.kd` | Internal FastTopK receives the valid compressed lengths, so untouched tail CTAs are not consumed. |
 | Valid-count, prefix-sum, compact-KV, and relative-index preparation before sparse attention | `_prepare_qsa_packed_kv.kd` | Parallel gather and all row metadata are produced in one launch, outside attention. |
-| Direct logical-index to physical-page mapping inside sparse attention | Original packed `_sparse_gqa_chunk_prefill.kd` | Reads continuous selected K/V scratch and relative indices; one CTA per row, with no split-K or merge. |
+| One-CTA `_sparse_gqa_chunk_prefill.kd` over packed K/V | PR #40 adapted `_qsa_sparse_packed_gqa_kernel.kd` plus AITER reduction | Splits selected tokens across CTAs while keeping the packed-input contract. No page-table lookup is moved back into attention. |
 
 The following kernels are retained rather than replaced:
 
@@ -123,16 +131,19 @@ The relevant tests are:
 - `test_qsa_triton_decode_mqa_supports_rocm_graph_replay`
 - `test_qsa_triton_decode_mqa_matches_tilelang_when_available`
 - `test_qsa_same_named_chunk_prefill_kernels_do_not_collide_in_one_process`
-- `test_qsa_fast_topk_expand_dispatches_prepared_packed_one_cta`
-- `test_qsa_backend_prepared_packed_one_cta_graph_replay`
-- `test_qsa_backend_prepared_packed_one_cta_two_layers_do_not_alias`
+- `test_qsa_fast_topk_expand_dispatches_prepared_pr40_attention`
+- `test_qsa_backend_prepared_pr40_attention_graph_replay`
+- `test_qsa_backend_prepared_pr40_attention_two_layers_do_not_alias`
 - `test_qsa_packed_prepare.py`: selected K/V and FP32 attention reference,
   invalid pages and rows, holes, dirty tails, empty rows, dynamic B1/B4/B8
-  graph replay, and exactly one preparation plus one packed-attention launch.
+  graph replay, and separate preparation, split-K attention and reduction.
+- `test_qsa_packed_pr40.py`: split counts, ragged and strided packed inputs,
+  FP32/legacy reference, invalid offsets, empty partitions, poisoned workspaces,
+  dynamic graph replay, and output non-aliasing.
 
 The backend tests make the old multi-launch compact-KV helpers fail if they
 are reached, compare outputs with an FP32 reference, and require the separate
-preparation and original packed-attention calls. Standalone tests of the
+preparation and PR #40 packed-attention calls. Standalone tests of the
 former direct-paged kernel remain as regression and comparison coverage.
 
 ## Historical 12K input / 350 output validation

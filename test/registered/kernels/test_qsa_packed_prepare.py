@@ -9,7 +9,10 @@ import torch
 from sglang.srt.layers.attention import qwen_sparse_attn_backend as backend_module
 from sglang.srt.layers.attention.qsa import direct_paged_one_cta as direct_module
 from sglang.srt.layers.attention.qsa.packed_prepare import prepare_qsa_packed_kv
-from sglang.srt.layers.attention.qsa.sparse_attn import sparse_gqa_packed_decode_triton
+from sglang.srt.layers.attention.qsa.sparse_attn_decode import (
+    SparsePackedGQAWorkspace,
+    qsa_sparse_packed_gqa,
+)
 from sglang.srt.layers.attention.qwen_sparse_attn_backend import QwenSparseAttnBackend
 from sglang.test.ci.ci_register import register_amd_ci
 
@@ -305,7 +308,7 @@ def test_qsa_packed_prepare_matches_selected_kv_and_fp32_attention(case, batch):
 
     prepared = _prepare(state)
     _assert_prepared(state, prepared)
-    output = sparse_gqa_packed_decode_triton(state.q, *prepared, SCALE)
+    output = qsa_sparse_packed_gqa(state.q, *prepared, SCALE)
     assert torch.isfinite(output).all()
     torch.testing.assert_close(output.float(), _reference(state), rtol=2e-2, atol=2e-2)
 
@@ -355,8 +358,10 @@ def test_qsa_backend_passes_only_prepared_inputs_to_packed_attention(
         assert kwargs == PREPARE_KWARGS
         return prepared
 
-    def fake_packed(attn_q, *args):
+    def fake_packed(attn_q, *args, workspace):
         calls.append("packed")
+        assert isinstance(workspace, SparsePackedGQAWorkspace)
+        assert workspace is backend._packed_gqa_workspace
         assert attn_q is q
         assert len(args) == len(prepared) + 1
         assert all(actual is wanted for actual, wanted in zip(args[:-1], prepared))
@@ -364,7 +369,7 @@ def test_qsa_backend_passes_only_prepared_inputs_to_packed_attention(
         return expected_output
 
     def direct_must_not_run(*args, **kwargs):
-        pytest.fail("backend invoked direct-paged attention")
+        pytest.fail("backend invoked the old packed or direct-paged attention")
 
     monkeypatch.setattr(backend_module, "is_hip", lambda: True)
     monkeypatch.setattr(
@@ -373,7 +378,10 @@ def test_qsa_backend_passes_only_prepared_inputs_to_packed_attention(
         lambda *a, **k: True,
     )
     monkeypatch.setattr(backend_module, "prepare_qsa_packed_kv", fake_prepare)
-    monkeypatch.setattr(backend_module, "sparse_gqa_packed_decode_triton", fake_packed)
+    monkeypatch.setattr(backend_module, "qsa_sparse_packed_gqa", fake_packed)
+    monkeypatch.setattr(
+        backend_module, "sparse_gqa_packed_decode_triton", direct_must_not_run
+    )
     monkeypatch.setattr(
         backend_module,
         "sparse_gqa_direct_paged_decode_one_cta_triton",
@@ -391,11 +399,20 @@ def test_qsa_backend_passes_only_prepared_inputs_to_packed_attention(
     )
     assert calls == ["prepare", "packed"]
     assert output is expected_output
+    workspace = backend._packed_gqa_workspace
+    assert (
+        backend._forward_packed_decode(
+            q, k, v, SimpleNamespace(scaling=SCALE), metadata, indices
+        )
+        is expected_output
+    )
+    assert backend._packed_gqa_workspace is workspace
+    assert calls == ["prepare", "packed", "prepare", "packed"]
 
 
 @requires_mi308x
 @pytest.mark.parametrize("batch", [1, 4, 8])
-def test_qsa_backend_launches_one_prepare_and_one_original_attention(
+def test_qsa_backend_launches_prepare_pr40_attention_and_aiter_reduce(
     monkeypatch, batch
 ):
     state = _make_state([2051] * batch, 920000 + batch)
@@ -410,16 +427,15 @@ def test_qsa_backend_launches_one_prepare_and_one_original_attention(
 
     def record_packed(*args, **kwargs):
         calls.append("packed")
-        return sparse_gqa_packed_decode_triton(*args, **kwargs)
+        return qsa_sparse_packed_gqa(*args, **kwargs)
 
     def other_path_must_not_run(*args, **kwargs):
-        pytest.fail("backend left the prepare + original packed attention path")
+        pytest.fail("backend left the prepare + PR40 packed attention path")
 
     monkeypatch.setattr(backend_module, "prepare_qsa_packed_kv", record_prepare)
-    monkeypatch.setattr(
-        backend_module, "sparse_gqa_packed_decode_triton", record_packed
-    )
+    monkeypatch.setattr(backend_module, "qsa_sparse_packed_gqa", record_packed)
     for name in (
+        "sparse_gqa_packed_decode_triton",
         "_resolve_trtllm_sparse_decode",
         "qwen_sparse_fa2_cu_seqlens_triton",
         "qwen_sparse_kv_extraction_compact_triton",
@@ -453,9 +469,11 @@ def test_qsa_backend_launches_one_prepare_and_one_original_attention(
         for event in profiler.events()
         if event.device_type == torch.autograd.DeviceType.CUDA
     ]
-    assert len(kernels) == 2, kernels
+    assert len(kernels) == 3, kernels
     assert sum("_prepare_qsa_packed_kv" in name for name in kernels) == 1
-    assert sum("_sparse_gqa_chunk_prefill" in name for name in kernels) == 1
+    assert sum("_qsa_sparse_packed_gqa_kernel" in name for name in kernels) == 1
+    assert sum("_mla_decode_fwd_reduce_kernel" in name for name in kernels) == 1
+    assert not any("_sparse_gqa_chunk_prefill" in name for name in kernels)
     torch.testing.assert_close(
         output.view_as(state.q).float(), _reference(state), rtol=2e-2, atol=2e-2
     )
@@ -467,10 +485,13 @@ def test_qsa_packed_prepare_graph_replay_refreshes_metadata_and_empty_sentinel(b
     primary_lengths = [2051] * batch
     alternate_lengths = [17, 0, 1, 65, 1024, 2048, 2051, 128][:batch]
     state = _make_state(primary_lengths, 930000 + batch)
+    workspace = SparsePackedGQAWorkspace()
 
     def prepare_and_attend():
         prepared = _prepare(state)
-        return prepared, sparse_gqa_packed_decode_triton(state.q, *prepared, SCALE)
+        return prepared, qsa_sparse_packed_gqa(
+            state.q, *prepared, SCALE, workspace=workspace
+        )
 
     for _ in range(3):
         prepare_and_attend()
@@ -487,6 +508,11 @@ def test_qsa_packed_prepare_graph_replay_refreshes_metadata_and_empty_sentinel(b
         _add_holes_and_dirty_tails(state)
         if step == 3:
             state.row_to_page_table[-1] = -1
+        for partials, maxima, sums, widths in workspace.buffers.values():
+            partials.fill_(float("nan"))
+            maxima.fill_(float("nan"))
+            sums.fill_(float("nan"))
+            widths.fill_(-1)
         graph.replay()
         torch.cuda.synchronize()
         assert [tensor.data_ptr() for tensor in (*prepared, captured)] == pointers
@@ -502,9 +528,9 @@ def test_qsa_packed_prepare_calls_and_attention_outputs_do_not_alias():
     first = _make_state([2051, 17, 0, 65], 950000)
     second = _make_state([128, 0, 2048, 1], 950001)
     first_prepared = _prepare(first)
-    first_output = sparse_gqa_packed_decode_triton(first.q, *first_prepared, SCALE)
+    first_output = qsa_sparse_packed_gqa(first.q, *first_prepared, SCALE)
     second_prepared = _prepare(second)
-    second_output = sparse_gqa_packed_decode_triton(second.q, *second_prepared, SCALE)
+    second_output = qsa_sparse_packed_gqa(second.q, *second_prepared, SCALE)
     assert all(
         original.data_ptr() != later.data_ptr()
         for original, later in zip(first_prepared, second_prepared)

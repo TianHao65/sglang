@@ -42,6 +42,10 @@ from sglang.srt.layers.attention.qsa.sparse_attn import (
     sparse_gqa_fwd_interface_triton_ck,
     sparse_gqa_packed_decode_triton,
 )
+from sglang.srt.layers.attention.qsa.sparse_attn_decode import (
+    SparsePackedGQAWorkspace,
+    qsa_sparse_packed_gqa,
+)
 from sglang.srt.model_executor.forward_batch_info import ForwardMode
 from sglang.srt.utils import is_hip
 
@@ -1534,7 +1538,7 @@ class QwenSparseAttnBackend(AttentionBackend):
         metadata: QwenSparseAttnMetadata,
         topk_indices: torch.Tensor,
     ) -> Optional[torch.Tensor]:
-        """Gather paged KV separately, then run the existing packed attention."""
+        """Gather paged KV separately, then run PR40 split-K on packed input."""
 
         if not is_hip():
             return None
@@ -1574,7 +1578,10 @@ class QwenSparseAttnBackend(AttentionBackend):
             compress_ratio=indexer.compress_ratio,
             block_topk=indexer.block_topk,
         )
-        return sparse_gqa_packed_decode_triton(q, *packed, layer.scaling)
+        workspace = getattr(self, "_packed_gqa_workspace", None)
+        if workspace is None:
+            workspace = self._packed_gqa_workspace = SparsePackedGQAWorkspace()
+        return qsa_sparse_packed_gqa(q, *packed, layer.scaling, workspace=workspace)
 
     def _get_trtllm_sparse_tables(self, batch, pages_per_row, page, device):
         key = (batch, pages_per_row, device)
