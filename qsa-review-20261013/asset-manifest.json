@@ -1,0 +1,43 @@
+[
+  {
+    "id": "pr38-direct-paged",
+    "publication_png": "pr38-direct-paged-comparison.png",
+    "publication_png_sha256": "2b8a78e91c3cfcd7822f53571c6d5532d2f7c124e1ee433c09cc6de3a7b852eb",
+    "caption_en": "Historical PR38 representative profile: the HC-end-to-sparse-start index interval shrinks from 267.399 to 84.607 us, while the sparse kernel changes from 199.736 to 297.362 us. The complete HC-end-to-sparse-end interval improves from 467.136 to 381.970 us. TP0, decode step 2, QSA layer 1; old Qwen3.8-Flash-Next-PTPC-FP8 model, MI308X fc54, ROCm 7.2.4, TP2, 12000 input / 350 output, concurrency 1. Separate historical parent/child captures, aligned by constant timestamp translation.",
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2F525d67cc0514fd1ad5bf83ce0ad2f54781a72efb&visStart=0&visEnd=487136",
+    "trace_url": "https://storage.googleapis.com/perfetto-ui-data/525d67cc0514fd1ad5bf83ce0ad2f54781a72efb",
+    "trace_sha256": "96f6d52064d41568919a75ef7d8cc40d3fca41f87330bb0b5e00cc833c044545",
+    "limits": [
+      "A single representative layer, not the 72-sample aggregate or an end-to-end performance estimate.",
+      "The shared sparse kernel symbol does not imply identical addressing: packed KV before, direct paged KV after."
+    ]
+  },
+  {
+    "id": "prepare-packed",
+    "publication_png": "prepare-packed-comparison.png",
+    "publication_png_sha256": "b1b80039c90a816915363b9db50ba50e71591913bb67dd0c2eb14bdcd9796df6",
+    "caption_en": "Historical 2026-10-09 full-model profile: independent packed KV preparation changes HC END to sparse END from 371.554 to 240.398 us. The sparse kernel changes from 291.193 to 153.147 us, with a 7.210 us prepare kernel; upstream index through current-token KV store is 80.360 versus 80.039 us. TP0, decode step 2, QSA layer 1; old Qwen3.8-Flash-Next-PTPC-FP8 model, the same fc58 MI308X GPUs 4/5, TP2, 12000 input / 350 output, concurrency 1, fixed 32768-token KV pool. HC is displayed separately and excluded. These are representative GPU intervals from separate profiles.",
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2Fa739265cfa5fe1dac0707a72e99b923e8a3fd6d3&visStart=0&visEnd=491554",
+    "trace_url": "https://storage.googleapis.com/perfetto-ui-data/a739265cfa5fe1dac0707a72e99b923e8a3fd6d3",
+    "trace_sha256": "cf410b5fa6095ecd7c13a8d14de699630121968050f0622e9554167b19becc20",
+    "limits": [
+      "Old model and 32768-token pool; not the PLE-BF16 262144-token pool campaign.",
+      "Representative profile interval, not a throughput mean or independent-restart study.",
+      "Both sides use _sparse_gqa_chunk_prefill.kd but the input layout changes from direct paged KV to packed contiguous KV."
+    ]
+  },
+  {
+    "id": "pr40-packed",
+    "publication_png": "pr40-packed-comparison.png",
+    "publication_png_sha256": "57a7bb8ec020d80f7eee4c46989243c99c7fee91f733dffd536978709cc34e90",
+    "caption_en": "Historical 2026-10-09 full-model profile: replacing one-CTA packed attention with PR40 packed split-K attention plus AITER reduction changes the full HC-end-to-final-attention-end interval from 240.398 to 104.275 us. Prepare remains 7.210 versus 7.209 us; the old 153.147 us packed attention is replaced by a 10.856 us main kernel and a 5.967 us reduction kernel. Upstream index through current-token KV store is 80.039 versus 80.240 us. TP0, decode step 2, QSA layer 1; old Qwen3.8-Flash-Next-PTPC-FP8 model, the same fc58 MI308X GPUs 4/5, TP2, 12000 input / 350 output, concurrency 1, fixed 32768-token KV pool. HC is displayed separately and excluded. These are representative GPU intervals from separate profiles.",
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2F700d513440987c00b9b39c0577c2c89b6c256f58&visStart=0&visEnd=360398",
+    "trace_url": "https://storage.googleapis.com/perfetto-ui-data/700d513440987c00b9b39c0577c2c89b6c256f58",
+    "trace_sha256": "447f27953a8f4c58968c0b21b2f4f06c56efcfadf86438ac017f875068dfed7f",
+    "limits": [
+      "Old model and 32768-token pool; not the PLE-BF16 262144-token pool campaign.",
+      "Representative profile interval, not a throughput mean or independent-restart study.",
+      "The interval includes the final reduction; comparing the new main kernel alone against the old attention would omit required work."
+    ]
+  }
+]
