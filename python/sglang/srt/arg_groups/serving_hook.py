@@ -852,8 +852,12 @@ def handle_multimodal_feature_transport(server_args: Any):
         )
 
     if requested_transport == "cuda_ipc":
-        if not get_platform().is_cuda:
-            raise ValueError("--mm-feature-transport=cuda_ipc requires NVIDIA CUDA.")
+        # PyTorch storage sharing dispatches to HIP IPC on ROCm. The pool's
+        # ready/ack protocol also needs the ROCm stream-control implementation.
+        if not (get_platform().is_cuda or get_platform().is_hip):
+            raise ValueError(
+                "--mm-feature-transport=cuda_ipc requires NVIDIA CUDA or AMD ROCm/HIP."
+            )
         if cfg.nnodes != 1:
             raise ValueError(
                 "--mm-feature-transport=cuda_ipc only supports a single node."
