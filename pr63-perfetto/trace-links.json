@@ -1,0 +1,130 @@
+[
+  {
+    "stage": "prefill",
+    "mode": "baseline",
+    "label": "PREFILL | BEFORE | MI308X TP0 | layer-call 30",
+    "file": "traces/pr8-prefill-baseline.trace.json.gz",
+    "sha256": "25bacd01a68c7a4318805073fc94d17824db708bdf79120e4e41fe1f6bee4725",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/sglang_0521_43f134da_512256_c16c64c128_20261020/results/baseline_r1/traces/baseline-TP-0.trace.json.gz",
+    "source_sha256": "5d50e4da49d4bf2ed339736db733e0c0113c3a09a68088368359b6dfb44ae926",
+    "source_stage": "step[EXTEND bs=1 toks=512]",
+    "source_start_us": 1626036845305.761,
+    "selected": [
+      {
+        "family": "FP8",
+        "kernel": "_ZN2ck53kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffle_2ldsINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE0ELi256ELi128ELi128ELi128ELi16ELi16ELi16ELi16ELi8ELi2ENS_8SequenceIJLi8ELi32ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi2ELi1ENSG_IJLi1ELi32ELi1ELi8EEEENSG_IJLi8ELi8ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE2ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE",
+        "duration_us": 42.319,
+        "source_timestamp_us": 1626036845305.761,
+        "source_stream": 7
+      },
+      {
+        "family": "BF16",
+        "kernel": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_2",
+        "duration_us": 11.639,
+        "source_timestamp_us": 1626036845348.081,
+        "source_stream": 7
+      }
+    ],
+    "scope": "Two adjacent original GPU kernels of layer-call 30; only time origin translated; names, durations, order and spacing preserved. Display lanes separated by dtype.",
+    "vis_end_ns": 57959,
+    "trace_url": "https://storage.googleapis.com/perfetto-ui-data/5a482f1a7fa5147eefa3e1515601d4a332e75380",
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2F5a482f1a7fa5147eefa3e1515601d4a332e75380&visStart=0&visEnd=57959",
+    "public_bytes_match": true
+  },
+  {
+    "stage": "prefill",
+    "mode": "candidate",
+    "label": "PREFILL | AFTER | MI308X TP0 | layer-call 30",
+    "file": "traces/pr8-prefill-candidate.trace.json.gz",
+    "sha256": "5ee48d361a15b6e7108c2307fa718e844ae5c3b1e0451e33f80e1db700204390",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/sglang_0521_43f134da_512256_c16c64c128_20261020/results/candidate_r1/traces/candidate-TP-0.trace.json.gz",
+    "source_sha256": "b0fdaabf62b7d6654991832b39fe8319152bfdfb10eb8b657dd478692356a617",
+    "source_stage": "step[EXTEND bs=1 toks=512]",
+    "source_start_us": 1626930126985.14,
+    "selected": [
+      {
+        "family": "FP8",
+        "kernel": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT128x64x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT2_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA4_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB4_WSGRA0_WSGRB0_WS64_WG64_4_1",
+        "duration_us": 37.319,
+        "source_timestamp_us": 1626930126985.14,
+        "source_stream": 7
+      },
+      {
+        "family": "BF16",
+        "kernel": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1",
+        "duration_us": 9.519,
+        "source_timestamp_us": 1626930127022.46,
+        "source_stream": 7
+      }
+    ],
+    "scope": "Two adjacent original GPU kernels of layer-call 30; only time origin translated; names, durations, order and spacing preserved. Display lanes separated by dtype.",
+    "vis_end_ns": 57959,
+    "trace_url": "https://storage.googleapis.com/perfetto-ui-data/8fb669f5ee8d2557d330e16e05cd2692cadd3890",
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2F8fb669f5ee8d2557d330e16e05cd2692cadd3890&visStart=0&visEnd=57959",
+    "public_bytes_match": true
+  },
+  {
+    "stage": "decode",
+    "mode": "baseline",
+    "label": "DECODE | BEFORE | MI308X TP0 | layer-call 30",
+    "file": "traces/pr8-decode-baseline.trace.json.gz",
+    "sha256": "e5e7919b06a1ad90101d04714cece5c8253d23cf9e5f219f31a3747f25338c1b",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/sglang_0521_43f134da_512256_c16c64c128_20261020/results/baseline_r1/traces/baseline-TP-0.trace.json.gz",
+    "source_sha256": "5d50e4da49d4bf2ed339736db733e0c0113c3a09a68088368359b6dfb44ae926",
+    "source_stage": "step[DECODE bs=1]",
+    "source_start_us": 1626037288992.91,
+    "selected": [
+      {
+        "family": "FP8",
+        "kernel": "_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE",
+        "duration_us": 10.119,
+        "source_timestamp_us": 1626037288992.91,
+        "source_stream": 7
+      },
+      {
+        "family": "BF16",
+        "kernel": "void aiter::wv_splitk_small_fp16_bf16_kernel<__hip_bfloat16, 64, 1, 1, 8, 4, 1>(int, int, __hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16*, int, int)",
+        "duration_us": 5.359,
+        "source_timestamp_us": 1626037289003.03,
+        "source_stream": 7
+      }
+    ],
+    "scope": "Two adjacent original GPU kernels of layer-call 30; only time origin translated; names, durations, order and spacing preserved. Display lanes separated by dtype.",
+    "vis_end_ns": 22319,
+    "trace_url": "https://storage.googleapis.com/perfetto-ui-data/ce5754487ee652f5739594bc5887cf77308c6e7b",
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2Fce5754487ee652f5739594bc5887cf77308c6e7b&visStart=0&visEnd=22319",
+    "public_bytes_match": true
+  },
+  {
+    "stage": "decode",
+    "mode": "candidate",
+    "label": "DECODE | AFTER | MI308X TP0 | layer-call 30",
+    "file": "traces/pr8-decode-candidate.trace.json.gz",
+    "sha256": "65b527a74ec1864e7b1179263199aa1953dedcabae29d13bd8bf935e5536891e",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/sglang_0521_43f134da_512256_c16c64c128_20261020/results/candidate_r1/traces/candidate-TP-0.trace.json.gz",
+    "source_sha256": "b0fdaabf62b7d6654991832b39fe8319152bfdfb10eb8b657dd478692356a617",
+    "source_stage": "step[DECODE bs=1]",
+    "source_start_us": 1626930582802.927,
+    "selected": [
+      {
+        "family": "FP8",
+        "kernel": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT32x16x1024_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA8_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_4_2",
+        "duration_us": 9.279,
+        "source_timestamp_us": 1626930582802.927,
+        "source_stream": 7
+      },
+      {
+        "family": "BF16",
+        "kernel": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1",
+        "duration_us": 9.039,
+        "source_timestamp_us": 1626930582812.207,
+        "source_stream": 7
+      }
+    ],
+    "scope": "Two adjacent original GPU kernels of layer-call 30; only time origin translated; names, durations, order and spacing preserved. Display lanes separated by dtype.",
+    "vis_end_ns": 22319,
+    "trace_url": "https://storage.googleapis.com/perfetto-ui-data/165cbdeec296fd14391ccc34944cdcd506036dc0",
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2F165cbdeec296fd14391ccc34944cdcd506036dc0&visStart=0&visEnd=22319",
+    "public_bytes_match": true
+  }
+]
