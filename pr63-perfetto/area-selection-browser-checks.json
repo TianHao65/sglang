@@ -1,0 +1,82 @@
+[
+  {
+    "stage": "prefill",
+    "mode": "baseline",
+    "screenshot": "figures/area-selection/pr8-prefill-baseline-perfetto.png",
+    "native_area_selection": true,
+    "native_slices_tab": true,
+    "all_kernel_names_in_native_list": true,
+    "page_errors": [],
+    "visible_window": {
+      "start": 0,
+      "duration": 57959
+    },
+    "drawer_geometry": {
+      "x": 230,
+      "y": 389,
+      "width": 2170,
+      "height": 308
+    },
+    "native_list_text": "Area Selection\nSlices\nPivot Table\nSlice Flamegraph\ndownloadExport\nrestart_alt\nunfold_more\nunfold_less\nview_listFlat\naccount_treeTree\nName\nCount\nCOUNT\n2\nWall Duration\narrow_downward\nSUM\n53.96\u00b5s\nSelf Duration\nSUM\n53.96\u00b5s\nWall Duration\nAVG\n26.98\u00b5s\n_ZN2ck53kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffle_2ldsINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE0ELi256ELi128ELi128ELi128ELi16ELi16ELi16ELi16ELi8ELi2ENS_8SequenceIJLi8ELi32ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi2ELi1ENSG_IJLi1ELi32ELi1ELi8EEEENSG_IJLi8ELi8ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE2ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE\n1\n42.32\u00b5s\n42.32\u00b5s\n42.32\u00b5s\nCijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_2\n1\n11.64\u00b5s\n11.64\u00b5s\n11.64\u00b5s\nsyncTimeline Sync"
+  },
+  {
+    "stage": "prefill",
+    "mode": "candidate",
+    "screenshot": "figures/area-selection/pr8-prefill-candidate-perfetto.png",
+    "native_area_selection": true,
+    "native_slices_tab": true,
+    "all_kernel_names_in_native_list": true,
+    "page_errors": [],
+    "visible_window": {
+      "start": 0,
+      "duration": 57959
+    },
+    "drawer_geometry": {
+      "x": 230,
+      "y": 389,
+      "width": 2170,
+      "height": 308
+    },
+    "native_list_text": "Area Selection\nSlices\nPivot Table\nSlice Flamegraph\ndownloadExport\nrestart_alt\nunfold_more\nunfold_less\nview_listFlat\naccount_treeTree\nName\nCount\nCOUNT\n2\nWall Duration\narrow_downward\nSUM\n46.84\u00b5s\nSelf Duration\nSUM\n46.84\u00b5s\nWall Duration\nAVG\n23.42\u00b5s\nCijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT128x64x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT2_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA4_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB4_WSGRA0_WSGRB0_WS64_WG64_4_1\n1\n37.32\u00b5s\n37.32\u00b5s\n37.32\u00b5s\nCijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1\n1\n9.519\u00b5s\n9.519\u00b5s\n9.519\u00b5s\nsyncTimeline Sync"
+  },
+  {
+    "stage": "decode",
+    "mode": "baseline",
+    "screenshot": "figures/area-selection/pr8-decode-baseline-perfetto.png",
+    "native_area_selection": true,
+    "native_slices_tab": true,
+    "all_kernel_names_in_native_list": true,
+    "page_errors": [],
+    "visible_window": {
+      "start": 0,
+      "duration": 22319
+    },
+    "drawer_geometry": {
+      "x": 230,
+      "y": 389,
+      "width": 2170,
+      "height": 308
+    },
+    "native_list_text": "Area Selection\nSlices\nPivot Table\nSlice Flamegraph\ndownloadExport\nrestart_alt\nunfold_more\nunfold_less\nview_listFlat\naccount_treeTree\nName\nCount\nCOUNT\n2\nWall Duration\narrow_downward\nSUM\n15.48\u00b5s\nSelf Duration\nSUM\n15.48\u00b5s\nWall Duration\nAVG\n7.739\u00b5s\n_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE\n1\n10.12\u00b5s\n10.12\u00b5s\n10.12\u00b5s\nvoid aiter::wv_splitk_small_fp16_bf16_kernel<__hip_bfloat16, 64, 1, 1, 8, 4, 1>(int, int, __hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16*, int, int)\n1\n5.359\u00b5s\n5.359\u00b5s\n5.359\u00b5s\nsyncTimeline Sync"
+  },
+  {
+    "stage": "decode",
+    "mode": "candidate",
+    "screenshot": "figures/area-selection/pr8-decode-candidate-perfetto.png",
+    "native_area_selection": true,
+    "native_slices_tab": true,
+    "all_kernel_names_in_native_list": true,
+    "page_errors": [],
+    "visible_window": {
+      "start": 0,
+      "duration": 22319
+    },
+    "drawer_geometry": {
+      "x": 230,
+      "y": 389,
+      "width": 2170,
+      "height": 308
+    },
+    "native_list_text": "Area Selection\nSlices\nPivot Table\nSlice Flamegraph\ndownloadExport\nrestart_alt\nunfold_more\nunfold_less\nview_listFlat\naccount_treeTree\nName\nCount\nCOUNT\n2\nWall Duration\narrow_downward\nSUM\n18.32\u00b5s\nSelf Duration\nSUM\n18.32\u00b5s\nWall Duration\nAVG\n9.159\u00b5s\nCijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT32x16x1024_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA8_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_4_2\n1\n9.279\u00b5s\n9.279\u00b5s\n9.279\u00b5s\nCijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1\n1\n9.039\u00b5s\n9.039\u00b5s\n9.039\u00b5s\nsyncTimeline Sync"
+  }
+]

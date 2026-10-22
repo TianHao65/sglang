@@ -14,3 +14,8 @@ separate screenshots. Trace fragments and their provenance are included.
 These are sampled operator times, not ETE measurements. Images are real
 Perfetto browser screenshots. This evidence branch is separate from the
 five-file source PR.
+
+Updated screenshots use Perfetto's native Area Selection blue box and duration
+bracket. Current Selection > Slices shows the two original kernel names,
+call counts, wall duration, self duration and average below the timeline.
+Screenshots use the native dark theme and the same time scale within each stage.
