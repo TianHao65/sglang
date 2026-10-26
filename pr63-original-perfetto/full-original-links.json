@@ -1,0 +1,42 @@
+[
+  {
+    "stage": "prefill",
+    "mode": "baseline",
+    "full_original_trace_url": "https://storage.googleapis.com/perfetto-ui-data/d75490e34d85d781d256c572b6331421889e3d81",
+    "source_sha256": "5d50e4da49d4bf2ed339736db733e0c0113c3a09a68088368359b6dfb44ae926",
+    "public_bytes_match": true,
+    "window_start_ns": 1626036845285761,
+    "window_end_ns": 1626036845385761,
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2Fd75490e34d85d781d256c572b6331421889e3d81&visStart=1626036845285761&visEnd=1626036845385761"
+  },
+  {
+    "stage": "prefill",
+    "mode": "candidate",
+    "full_original_trace_url": "https://storage.googleapis.com/perfetto-ui-data/e0eae8abee7e4f676bd54bb2cdd27351a41977f0",
+    "source_sha256": "b0fdaabf62b7d6654991832b39fe8319152bfdfb10eb8b657dd478692356a617",
+    "public_bytes_match": true,
+    "window_start_ns": 1626930126965140,
+    "window_end_ns": 1626930127065140,
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2Fe0eae8abee7e4f676bd54bb2cdd27351a41977f0&visStart=1626930126965140&visEnd=1626930127065140"
+  },
+  {
+    "stage": "decode",
+    "mode": "baseline",
+    "full_original_trace_url": "https://storage.googleapis.com/perfetto-ui-data/d75490e34d85d781d256c572b6331421889e3d81",
+    "source_sha256": "5d50e4da49d4bf2ed339736db733e0c0113c3a09a68088368359b6dfb44ae926",
+    "public_bytes_match": true,
+    "window_start_ns": 1626037288984910,
+    "window_end_ns": 1626037289024910,
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2Fd75490e34d85d781d256c572b6331421889e3d81&visStart=1626037288984910&visEnd=1626037289024910"
+  },
+  {
+    "stage": "decode",
+    "mode": "candidate",
+    "full_original_trace_url": "https://storage.googleapis.com/perfetto-ui-data/e0eae8abee7e4f676bd54bb2cdd27351a41977f0",
+    "source_sha256": "b0fdaabf62b7d6654991832b39fe8319152bfdfb10eb8b657dd478692356a617",
+    "public_bytes_match": true,
+    "window_start_ns": 1626930582794927,
+    "window_end_ns": 1626930582834927,
+    "perfetto_url": "https://ui.perfetto.dev/#!/?url=https%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2Fe0eae8abee7e4f676bd54bb2cdd27351a41977f0&visStart=1626930582794927&visEnd=1626930582834927"
+  }
+]

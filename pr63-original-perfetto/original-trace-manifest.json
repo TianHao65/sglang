@@ -1,0 +1,318 @@
+[
+  {
+    "rows": [
+      {
+        "id": 10426,
+        "ts": 1626036845305761,
+        "dur": 42319,
+        "track_id": 6,
+        "name": "_ZN2ck53kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffle_2ldsINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE0ELi256ELi128ELi128ELi128ELi16ELi16ELi16ELi16ELi8ELi2ENS_8SequenceIJLi8ELi32ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi2ELi1ENSG_IJLi1ELi32ELi1ELi8EEEENSG_IJLi8ELi8ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE2ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE"
+      },
+      {
+        "id": 10435,
+        "ts": 1626036845348081,
+        "dur": 11639,
+        "track_id": 6,
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_2"
+      }
+    ],
+    "track_uri": "/slice_6",
+    "track_tags": {
+      "kinds": [
+        "SliceTrack"
+      ],
+      "trackIds": [
+        6,
+        7
+      ],
+      "type": "thread_execution",
+      "upid": 6,
+      "utid": 23,
+      "hasCallstacks": false
+    },
+    "start_ns": 1626036845305761,
+    "end_ns": 1626036845359720,
+    "window_start_ns": 1626036845285761,
+    "window_end_ns": 1626036845385761,
+    "importErrors": [
+      {
+        "name": "slice_spill_overlapping_complete_event",
+        "value": 33
+      }
+    ],
+    "loaded_slice_count": 28258,
+    "stage": "prefill",
+    "mode": "baseline",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/sglang_0521_43f134da_512256_c16c64c128_20261020/results/baseline_r1/traces/baseline-TP-0.trace.json.gz",
+    "source_sha256": "5d50e4da49d4bf2ed339736db733e0c0113c3a09a68088368359b6dfb44ae926",
+    "source_bytes": 857784,
+    "source_event_count": 42485,
+    "source_unchanged": true,
+    "selected_original_events": [
+      {
+        "name": "_ZN2ck53kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffle_2ldsINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE0ELi256ELi128ELi128ELi128ELi16ELi16ELi16ELi16ELi8ELi2ENS_8SequenceIJLi8ELi32ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi2ELi1ENSG_IJLi1ELi32ELi1ELi8EEEENSG_IJLi8ELi8ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE2ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE",
+        "source_ts_us": "1626036845305.761",
+        "source_dur_us": "42.319",
+        "ts_ns": 1626036845305761,
+        "dur_ns": 42319,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_2",
+        "source_ts_us": "1626036845348.081",
+        "source_dur_us": "11.639",
+        "ts_ns": 1626036845348081,
+        "dur_ns": 11639,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      }
+    ],
+    "screenshot": "figures/pr8-prefill-baseline-original-perfetto.png",
+    "native_area": true,
+    "native_slices": true,
+    "kernel_names_in_native_list": true,
+    "stream_7_visible": true,
+    "page_errors": [],
+    "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\nFlow Events\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n5\nWall Duration\narrow_downward\nSUM\n215.8\u00b5s\nSelf Duration\nSUM\n53.96\u00b5s\nWall Duration\nAVG\n43.17\u00b5s\nstep[EXTEND bs=1 toks=512]\n1\n53.96\u00b5s\n0s\n53.96\u00b5s\nsglang.vlm.language_model_prefill\n1\n53.96\u00b5s\n1ns\n53.96\u00b5s\nscheduler.run_batch\n1\n53.96\u00b5s\n0s\n53.96\u00b5s\n_ZN2ck53kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffle_2ldsINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE0ELi256ELi128ELi128ELi128ELi16ELi16ELi16ELi16ELi8ELi2ENS_8SequenceIJLi8ELi32ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi2ELi1ENSG_IJLi1ELi32ELi1ELi8EEEENSG_IJLi8ELi8ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE2ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE\n1\n42.32\u00b5s\n42.32\u00b5s\n42.32\u00b5s\nCijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_2\n1\n11.64\u00b5s\n11.64\u00b5s\n11.64\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info."
+  },
+  {
+    "rows": [
+      {
+        "id": 9365,
+        "ts": 1626930126985140,
+        "dur": 37319,
+        "track_id": 6,
+        "name": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT128x64x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT2_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA4_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB4_WSGRA0_WSGRB0_WS64_WG64_4_1"
+      },
+      {
+        "id": 9367,
+        "ts": 1626930127022460,
+        "dur": 9519,
+        "track_id": 6,
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1"
+      }
+    ],
+    "track_uri": "/slice_6",
+    "track_tags": {
+      "kinds": [
+        "SliceTrack"
+      ],
+      "trackIds": [
+        6,
+        7
+      ],
+      "type": "thread_execution",
+      "upid": 6,
+      "utid": 23,
+      "hasCallstacks": false
+    },
+    "start_ns": 1626930126985140,
+    "end_ns": 1626930127031979,
+    "window_start_ns": 1626930126965140,
+    "window_end_ns": 1626930127065140,
+    "importErrors": [
+      {
+        "name": "slice_spill_overlapping_complete_event",
+        "value": 33
+      }
+    ],
+    "loaded_slice_count": 26223,
+    "stage": "prefill",
+    "mode": "candidate",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/sglang_0521_43f134da_512256_c16c64c128_20261020/results/candidate_r1/traces/candidate-TP-0.trace.json.gz",
+    "source_sha256": "b0fdaabf62b7d6654991832b39fe8319152bfdfb10eb8b657dd478692356a617",
+    "source_bytes": 778777,
+    "source_event_count": 39242,
+    "source_unchanged": true,
+    "selected_original_events": [
+      {
+        "name": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT128x64x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT2_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA4_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB4_WSGRA0_WSGRB0_WS64_WG64_4_1",
+        "source_ts_us": "1626930126985.140",
+        "source_dur_us": "37.319",
+        "ts_ns": 1626930126985140,
+        "dur_ns": 37319,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1",
+        "source_ts_us": "1626930127022.460",
+        "source_dur_us": "9.519",
+        "ts_ns": 1626930127022460,
+        "dur_ns": 9519,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      }
+    ],
+    "screenshot": "figures/pr8-prefill-candidate-original-perfetto.png",
+    "native_area": true,
+    "native_slices": true,
+    "kernel_names_in_native_list": true,
+    "stream_7_visible": true,
+    "page_errors": [],
+    "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\nFlow Events\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n5\nWall Duration\narrow_downward\nSUM\n187.4\u00b5s\nSelf Duration\nSUM\n46.84\u00b5s\nWall Duration\nAVG\n37.47\u00b5s\nstep[EXTEND bs=1 toks=512]\n1\n46.84\u00b5s\n0s\n46.84\u00b5s\nsglang.vlm.language_model_prefill\n1\n46.84\u00b5s\n1ns\n46.84\u00b5s\nscheduler.run_batch\n1\n46.84\u00b5s\n0s\n46.84\u00b5s\nCijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT128x64x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT2_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA4_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB4_WSGRA0_WSGRB0_WS64_WG64_4_1\n1\n37.32\u00b5s\n37.32\u00b5s\n37.32\u00b5s\nCijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1\n1\n9.519\u00b5s\n9.519\u00b5s\n9.519\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info."
+  },
+  {
+    "rows": [
+      {
+        "id": 27558,
+        "ts": 1626037288992910,
+        "dur": 10119,
+        "track_id": 6,
+        "name": "_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE"
+      },
+      {
+        "id": 27559,
+        "ts": 1626037289003030,
+        "dur": 5359,
+        "track_id": 6,
+        "name": "void aiter::wv_splitk_small_fp16_bf16_kernel<__hip_bfloat16, 64, 1, 1, 8, 4, 1>(int, int, __hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16*, int, int)"
+      }
+    ],
+    "track_uri": "/slice_6",
+    "track_tags": {
+      "kinds": [
+        "SliceTrack"
+      ],
+      "trackIds": [
+        6,
+        7
+      ],
+      "type": "thread_execution",
+      "upid": 6,
+      "utid": 23,
+      "hasCallstacks": false
+    },
+    "start_ns": 1626037288992910,
+    "end_ns": 1626037289008389,
+    "window_start_ns": 1626037288984910,
+    "window_end_ns": 1626037289024910,
+    "importErrors": [
+      {
+        "name": "slice_spill_overlapping_complete_event",
+        "value": 33
+      }
+    ],
+    "loaded_slice_count": 28258,
+    "stage": "decode",
+    "mode": "baseline",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/sglang_0521_43f134da_512256_c16c64c128_20261020/results/baseline_r1/traces/baseline-TP-0.trace.json.gz",
+    "source_sha256": "5d50e4da49d4bf2ed339736db733e0c0113c3a09a68088368359b6dfb44ae926",
+    "source_bytes": 857784,
+    "source_event_count": 42485,
+    "source_unchanged": true,
+    "selected_original_events": [
+      {
+        "name": "_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE",
+        "source_ts_us": "1626037288992.910",
+        "source_dur_us": "10.119",
+        "ts_ns": 1626037288992910,
+        "dur_ns": 10119,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      },
+      {
+        "name": "void aiter::wv_splitk_small_fp16_bf16_kernel<__hip_bfloat16, 64, 1, 1, 8, 4, 1>(int, int, __hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16*, int, int)",
+        "source_ts_us": "1626037289003.030",
+        "source_dur_us": "5.359",
+        "ts_ns": 1626037289003030,
+        "dur_ns": 5359,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      }
+    ],
+    "screenshot": "figures/pr8-decode-baseline-original-perfetto.png",
+    "native_area": true,
+    "native_slices": true,
+    "kernel_names_in_native_list": true,
+    "stream_7_visible": true,
+    "page_errors": [],
+    "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n4\nWall Duration\narrow_downward\nSUM\n46.44\u00b5s\nSelf Duration\nSUM\n15.48\u00b5s\nWall Duration\nAVG\n11.61\u00b5s\nstep[DECODE bs=1]\n1\n15.48\u00b5s\n1ns\n15.48\u00b5s\nscheduler.run_batch\n1\n15.48\u00b5s\n0s\n15.48\u00b5s\n_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE\n1\n10.12\u00b5s\n10.12\u00b5s\n10.12\u00b5s\nvoid aiter::wv_splitk_small_fp16_bf16_kernel<__hip_bfloat16, 64, 1, 1, 8, 4, 1>(int, int, __hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16*, int, int)\n1\n5.359\u00b5s\n5.359\u00b5s\n5.359\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info."
+  },
+  {
+    "rows": [
+      {
+        "id": 25523,
+        "ts": 1626930582802927,
+        "dur": 9279,
+        "track_id": 6,
+        "name": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT32x16x1024_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA8_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_4_2"
+      },
+      {
+        "id": 25524,
+        "ts": 1626930582812207,
+        "dur": 9039,
+        "track_id": 6,
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1"
+      }
+    ],
+    "track_uri": "/slice_6",
+    "track_tags": {
+      "kinds": [
+        "SliceTrack"
+      ],
+      "trackIds": [
+        6,
+        7
+      ],
+      "type": "thread_execution",
+      "upid": 6,
+      "utid": 23,
+      "hasCallstacks": false
+    },
+    "start_ns": 1626930582802927,
+    "end_ns": 1626930582821246,
+    "window_start_ns": 1626930582794927,
+    "window_end_ns": 1626930582834927,
+    "importErrors": [
+      {
+        "name": "slice_spill_overlapping_complete_event",
+        "value": 33
+      }
+    ],
+    "loaded_slice_count": 26223,
+    "stage": "decode",
+    "mode": "candidate",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/sglang_0521_43f134da_512256_c16c64c128_20261020/results/candidate_r1/traces/candidate-TP-0.trace.json.gz",
+    "source_sha256": "b0fdaabf62b7d6654991832b39fe8319152bfdfb10eb8b657dd478692356a617",
+    "source_bytes": 778777,
+    "source_event_count": 39242,
+    "source_unchanged": true,
+    "selected_original_events": [
+      {
+        "name": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT32x16x1024_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA8_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_4_2",
+        "source_ts_us": "1626930582802.927",
+        "source_dur_us": "9.279",
+        "ts_ns": 1626930582802927,
+        "dur_ns": 9279,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1",
+        "source_ts_us": "1626930582812.207",
+        "source_dur_us": "9.039",
+        "ts_ns": 1626930582812207,
+        "dur_ns": 9039,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      }
+    ],
+    "screenshot": "figures/pr8-decode-candidate-original-perfetto.png",
+    "native_area": true,
+    "native_slices": true,
+    "kernel_names_in_native_list": true,
+    "stream_7_visible": true,
+    "page_errors": [],
+    "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n4\nWall Duration\narrow_downward\nSUM\n54.96\u00b5s\nSelf Duration\nSUM\n18.32\u00b5s\nWall Duration\nAVG\n13.74\u00b5s\nstep[DECODE bs=1]\n1\n18.32\u00b5s\n1ns\n18.32\u00b5s\nscheduler.run_batch\n1\n18.32\u00b5s\n0s\n18.32\u00b5s\nCijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT32x16x1024_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPM0_LPA0_LPB32_LPM0_LRVW16_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA8_NLCB1_ONLL0_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_4_2\n1\n9.279\u00b5s\n9.279\u00b5s\n9.279\u00b5s\nCijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1\n1\n9.039\u00b5s\n9.039\u00b5s\n9.039\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info."
+  }
+]
