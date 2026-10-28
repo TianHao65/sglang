@@ -1,0 +1,13 @@
+{
+  "checked_date": "2026-10-28",
+  "own_container_id": "6d890f90b360",
+  "container_exited_pid0": true,
+  "own_cgroup_members": 0,
+  "port_19080_closed": true,
+  "own_process_and_kfd_release_verified": true,
+  "remaining_gpu0_gpu1_owners": "foreign container7775cad2",
+  "global_vram_zero": false,
+  "global_vram_attribution": "not isolated under external occupation",
+  "operator_validation": "15GPU cases+10DLPack rejection PASS log; wrapper completion absent dueinterrupt",
+  "model_or_micro_benchmark_started": false
+}

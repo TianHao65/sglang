@@ -1,0 +1,10 @@
+[
+  "aten::empty",
+  "hipPointerGetAttribute",
+  "hipModuleLaunchKernel",
+  "_swizzled_gemv",
+  "aten::copy_",
+  "hipMemcpyAsync",
+  "Memcpy DtoD (Device -> Device)",
+  "hipDeviceSynchronize"
+]

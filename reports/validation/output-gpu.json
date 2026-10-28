@@ -1,0 +1,195 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "m": 1,
+      "layout": "contiguous",
+      "relative_l2": 0.0019943080842494965,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 1,
+      "layout": "row_gap",
+      "relative_l2": 0.0019943080842494965,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 1,
+      "layout": "column_stride",
+      "relative_l2": 0.0019943080842494965,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 3,
+      "layout": "contiguous",
+      "relative_l2": 0.0013314344687387347,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 3,
+      "layout": "row_gap",
+      "relative_l2": 0.0013314344687387347,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 3,
+      "layout": "column_stride",
+      "relative_l2": 0.0013314344687387347,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 8,
+      "layout": "contiguous",
+      "relative_l2": 0.001647257711738348,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 8,
+      "layout": "row_gap",
+      "relative_l2": 0.001647257711738348,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 8,
+      "layout": "column_stride",
+      "relative_l2": 0.001647257711738348,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 16,
+      "layout": "contiguous",
+      "relative_l2": 0.0016041850904002786,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 16,
+      "layout": "row_gap",
+      "relative_l2": 0.0016041850904002786,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 16,
+      "layout": "column_stride",
+      "relative_l2": 0.0016041850904002786,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 32,
+      "layout": "contiguous",
+      "relative_l2": 0.0017135225934907794,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 32,
+      "layout": "row_gap",
+      "relative_l2": 0.0017135225934907794,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    },
+    {
+      "m": 32,
+      "layout": "column_stride",
+      "relative_l2": 0.0017135225934907794,
+      "pointer_identity": true,
+      "padding_intact": true,
+      "graph": "passed"
+    }
+  ],
+  "dlpack_overlap_checks": [
+    {
+      "m": 1,
+      "overlaps": "input",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 1,
+      "overlaps": "weight",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 3,
+      "overlaps": "input",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 3,
+      "overlaps": "weight",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 8,
+      "overlaps": "input",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 8,
+      "overlaps": "weight",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 16,
+      "overlaps": "input",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 16,
+      "overlaps": "weight",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 32,
+      "overlaps": "input",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    },
+    {
+      "m": 32,
+      "overlaps": "weight",
+      "distinct_storage": true,
+      "rejected_before_launch": true
+    }
+  ],
+  "direct_output_profile": [
+    "hipPointerGetAttribute",
+    "hipModuleLaunchKernel",
+    "_swizzled_gemv",
+    "hipDeviceSynchronize"
+  ],
+  "original_trace": "results/output-gpu-original.trace.json",
+  "no_copy": true
+}

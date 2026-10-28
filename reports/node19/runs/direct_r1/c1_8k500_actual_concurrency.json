@@ -1,0 +1,7 @@
+{
+  "case": "c1_8k500",
+  "client_concurrency": 1,
+  "max_actual_decode_requests": 1,
+  "decode_log_samples": 301,
+  "samples_at_requested_concurrency": 301
+}

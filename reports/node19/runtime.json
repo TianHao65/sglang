@@ -1,0 +1,1 @@
+{"torch": "2.9.1+rocm7.2.0.git7e1940d4", "aiter_file": "/sgl-workspace/aiter/aiter/__init__.py", "aiter_git": "acf8fdf9307431ece8ee275971c41cb3d1a7020b", "gpu": "AMD Instinct MI308X"}

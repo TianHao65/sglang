@@ -1,0 +1,9 @@
+{
+  "owned_processes_alive": [],
+  "port_open": false,
+  "all_vram_zero": true,
+  "external_gpu_pids": [],
+  "owned_processes_and_port_released": true,
+  "owned_cleanup_complete": true,
+  "gpu_release_verification": "all selected VRAM zero"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "confirmed_original_guard_failure",
+  "source_commit": "a8cd5457832218bad7e74e3cc570dc5d04e50998",
+  "image": "0534eb382626ef55ace8be24f7d81cc6eb7451acac8a5727848397a5e9309d91",
+  "torch": "2.9.1+rocm7.2.0.git7e1940d4",
+  "scope": "CPU guard only; no GPU kernel",
+  "ordinary_input_alias_rejected": true,
+  "dlpack_input_storage_base_differs": true,
+  "dlpack_input_alias_accepted": true,
+  "dlpack_weight_storage_base_differs": true,
+  "dlpack_weight_alias_accepted": true,
+  "input_output_shape": [
+    3,
+    16
+  ],
+  "input_output_stride": [
+    4096,
+    1
+  ],
+  "fixed_cpu_regressions": {
+    "commit": "176150ccc32f03b663d339b327527c2f85902200",
+    "tree": "66a516ffca9dfda08478db07b282700f9f1c422a",
+    "status": "passed",
+    "test_count": 5,
+    "positive_layout_subcases": 30,
+    "scope": "CPU only, no GPU devices mounted; no unsafe original kernel launched",
+    "image": "lmsysorg/sglang@sha256:0534eb382626ef55ace8be24f7d81cc6eb7451acac8a5727848397a5e9309d91",
+    "kernel_sha256": "ef78b3362a262b82ba6e3a0c960f6f7eab6d516466e6337b202014cf959577ca",
+    "test_sha256": "5e2b07dc37f077c8cfc6e1be45633aa0bb22400b31b33537bdaece27a8c92591",
+    "test_path": "test/registered/kernels/test_swizzled_bf16_gemv.py",
+    "checks": [
+      "DLPack input overlap rejected before kernel launch",
+      "DLPack weight overlap rejected before kernel launch",
+      "same-storage disjoint views remain rejected",
+      "disjoint contiguous/row-gap/column-strided outputs accepted",
+      "invalid metadata remains rejected"
+    ]
+  }
+}

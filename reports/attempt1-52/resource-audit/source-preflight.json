@@ -1,0 +1,11 @@
+{
+  "node": "hjbog-srdc-52.amd.com",
+  "commits": {
+    "port": "ddccab6e0da380838ef21a87c655624d7f164b1d",
+    "gemv": "e0e3b3271a4834488a6c114144d67a04dc3eee82",
+    "direct": "176150ccc32f03b663d339b327527c2f85902200"
+  },
+  "source_catalog_verified": true,
+  "model_config_sha256": "0d6f94abe9032f6c4dd60eb934574812a7fd8bc83ffd9dd9e1f8e3c57dce41d0",
+  "image_id": "sha256:69624536227b4413c02d68f6e6569326f35f56f6692a3714e553e0d26f4d673f"
+}

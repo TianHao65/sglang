@@ -1,0 +1,107 @@
+{
+  "verified_at_utc": "2026-10-28T14:24:10.964036+00:00",
+  "status": "source_refs_published_pr_creation_pending_final_evidence",
+  "authentication": "existing remote fc54 container gh; no credentials migrated",
+  "bundle": {
+    "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/review/source-publication/source-head.bundle",
+    "sha256": "c8042c571f8fe48ae1d8c7975adadd86dd6f896426b701abc8d59ba77c42d200",
+    "bytes": 6707
+  },
+  "isolated_repository": "/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/review/source-publication/source-head-176150.git",
+  "source_worktree": {
+    "path": "/opt/sglang",
+    "before": {
+      "head": "21243a2f40dad116caa59aaa1e1ed41946153d2e",
+      "tracked_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "after": {
+      "head": "21243a2f40dad116caa59aaa1e1ed41946153d2e",
+      "tracked_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "unchanged": true
+  },
+  "base": {
+    "repository": "apinge/sglang",
+    "branch": "qwen4-pr8-port-base",
+    "sha": "ddccab6e0da380838ef21a87c655624d7f164b1d",
+    "action": "created_by_gh_api",
+    "url": "https://github.com/apinge/sglang/tree/qwen4-pr8-port-base"
+  },
+  "head": {
+    "repository": "TianHao65/sglang",
+    "branch": "qwen4-pr8-decode-validated-20261028",
+    "sha": "176150ccc32f03b663d339b327527c2f85902200",
+    "action": "created_by_nonforce_push",
+    "url": "https://github.com/TianHao65/sglang/tree/qwen4-pr8-decode-validated-20261028"
+  },
+  "local_scope": {
+    "commits": 2,
+    "changed_files": 7,
+    "additions": 300,
+    "deletions": 2
+  },
+  "github_compare": {
+    "status": "ahead",
+    "ahead_by": 2,
+    "behind_by": 0,
+    "total_commits": 2,
+    "merge_base_sha": "ddccab6e0da380838ef21a87c655624d7f164b1d",
+    "head_sha": "176150ccc32f03b663d339b327527c2f85902200",
+    "changed_files": 7,
+    "additions": 300,
+    "deletions": 2,
+    "commit_shas": [
+      "e0e3b3271a4834488a6c114144d67a04dc3eee82",
+      "176150ccc32f03b663d339b327527c2f85902200"
+    ],
+    "files": [
+      "python/sglang/kernels/ops/gemm/swizzled_bf16_gemv.py",
+      "python/sglang/srt/environ.py",
+      "python/sglang/srt/layers/quantization/compressed_tensors/utils.py",
+      "python/sglang/srt/layers/quantization/unquant.py",
+      "python/sglang/srt/models/qwen3_5.py",
+      "python/sglang/srt/runtime_context.py",
+      "test/registered/kernels/test_swizzled_bf16_gemv.py"
+    ],
+    "html_url": "https://github.com/apinge/sglang/compare/qwen4-pr8-port-base...TianHao65:qwen4-pr8-decode-validated-20261028"
+  },
+  "pr63": {
+    "before": {
+      "html_url": "https://github.com/apinge/sglang/pull/63",
+      "state": "open",
+      "draft": true,
+      "commits": 1,
+      "changed_files": 5,
+      "additions": 216,
+      "deletions": 17,
+      "base": {
+        "ref": "qwen4_v0.5.21",
+        "sha": "91cdd01da750004559b94f2ceede50d88f516a59"
+      },
+      "head": {
+        "ref": "qwen4-v0.5.21-hipblaslt-pr8",
+        "sha": "ddccab6e0da380838ef21a87c655624d7f164b1d"
+      }
+    },
+    "after": {
+      "html_url": "https://github.com/apinge/sglang/pull/63",
+      "state": "open",
+      "draft": true,
+      "commits": 1,
+      "changed_files": 5,
+      "additions": 216,
+      "deletions": 17,
+      "base": {
+        "ref": "qwen4_v0.5.21",
+        "sha": "91cdd01da750004559b94f2ceede50d88f516a59"
+      },
+      "head": {
+        "ref": "qwen4-v0.5.21-hipblaslt-pr8",
+        "sha": "ddccab6e0da380838ef21a87c655624d7f164b1d"
+      }
+    },
+    "unchanged": true
+  },
+  "pr_created": false,
+  "force_push_performed": false
+}

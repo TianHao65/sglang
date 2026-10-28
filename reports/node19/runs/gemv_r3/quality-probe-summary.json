@@ -1,0 +1,90 @@
+{
+  "probes": [
+    {
+      "probe_index": 0,
+      "output_token_count": 64,
+      "meta_info": {
+        "id": "44c35809417d4505917c9bb7fac701c7",
+        "finish_reason": {
+          "type": "length",
+          "length": 64
+        },
+        "prompt_tokens": 26,
+        "weight_version": "default",
+        "num_retractions": 0,
+        "reasoning_tokens": 0,
+        "completion_tokens": 64,
+        "cached_tokens": 0,
+        "weight_versions": [
+          {
+            "version": "default",
+            "start": 0,
+            "end": 64
+          }
+        ],
+        "cached_tokens_details": null,
+        "dp_rank": null,
+        "e2e_latency": 0.8671606811694801,
+        "response_sent_to_client_ts": 1793196565.7503016
+      }
+    },
+    {
+      "probe_index": 1,
+      "output_token_count": 64,
+      "meta_info": {
+        "id": "df59a86610c0428bad53738335988f84",
+        "finish_reason": {
+          "type": "length",
+          "length": 64
+        },
+        "prompt_tokens": 27,
+        "weight_version": "default",
+        "num_retractions": 0,
+        "reasoning_tokens": 0,
+        "completion_tokens": 64,
+        "cached_tokens": 0,
+        "weight_versions": [
+          {
+            "version": "default",
+            "start": 0,
+            "end": 64
+          }
+        ],
+        "cached_tokens_details": null,
+        "dp_rank": null,
+        "e2e_latency": 0.8618829287588596,
+        "response_sent_to_client_ts": 1793196567.268032
+      }
+    },
+    {
+      "probe_index": 2,
+      "output_token_count": 64,
+      "meta_info": {
+        "id": "fa3a2daece154356ae6d7f6f05a12bf8",
+        "finish_reason": {
+          "type": "length",
+          "length": 64
+        },
+        "prompt_tokens": 30,
+        "weight_version": "default",
+        "num_retractions": 0,
+        "reasoning_tokens": 0,
+        "completion_tokens": 64,
+        "cached_tokens": 0,
+        "weight_versions": [
+          {
+            "version": "default",
+            "start": 0,
+            "end": 64
+          }
+        ],
+        "cached_tokens_details": null,
+        "dp_rank": null,
+        "e2e_latency": 0.8563785711303353,
+        "response_sent_to_client_ts": 1793196568.7804837
+      }
+    }
+  ],
+  "accepted_model_quality": false,
+  "limit": "These three64-token smoke probes are diagnostics, not GSM8K/Taobao acceptance."
+}

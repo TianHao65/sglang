@@ -1,0 +1,6 @@
+[
+  "hipPointerGetAttribute",
+  "hipModuleLaunchKernel",
+  "_swizzled_gemv",
+  "hipDeviceSynchronize"
+]

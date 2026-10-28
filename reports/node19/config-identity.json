@@ -1,0 +1,76 @@
+{
+  "scope": "Three exact commits; c1 three independent startups per variant; c16/64/128 first-start comparison",
+  "experiment": "pr8-decode-followup-20261028-19",
+  "node": "hjbog-srdc-19.amd.com",
+  "container": "hatian-pr8-decode-followup-20261028-19",
+  "image": "lmsysorg/sglang@sha256:0534eb382626ef55ace8be24f7d81cc6eb7451acac8a5727848397a5e9309d91",
+  "model": "/shared/xiaomi/Qwen3.5-397B-A17B-PTPC-FP8",
+  "model_config_sha256": "0d6f94abe9032f6c4dd60eb934574812a7fd8bc83ffd9dd9e1f8e3c57dce41d0",
+  "candidate_commits": {
+    "port": "ddccab6e0da380838ef21a87c655624d7f164b1d",
+    "gemv": "e0e3b3271a4834488a6c114144d67a04dc3eee82",
+    "direct": "176150ccc32f03b663d339b327527c2f85902200"
+  },
+  "cases": [
+    {
+      "name": "c1_8k500",
+      "input_tokens": 8000,
+      "output_tokens": 500,
+      "concurrency": 1,
+      "num_prompts": 24,
+      "warmup_prompts": 4
+    },
+    {
+      "name": "c16_512256",
+      "input_tokens": 512,
+      "output_tokens": 256,
+      "concurrency": 16,
+      "num_prompts": 512,
+      "warmup_prompts": 32
+    },
+    {
+      "name": "c64_512256",
+      "input_tokens": 512,
+      "output_tokens": 256,
+      "concurrency": 64,
+      "num_prompts": 768,
+      "warmup_prompts": 128
+    },
+    {
+      "name": "c128_512256",
+      "input_tokens": 512,
+      "output_tokens": 256,
+      "concurrency": 128,
+      "num_prompts": 1024,
+      "warmup_prompts": 256
+    }
+  ],
+  "orders": {
+    "1": [
+      "port",
+      "gemv",
+      "direct"
+    ],
+    "2": [
+      "direct",
+      "gemv",
+      "port"
+    ],
+    "3": [
+      "gemv",
+      "port",
+      "direct"
+    ]
+  },
+  "pythonpaths": {
+    "port": "/experiment/sources/port/python",
+    "gemv": "/experiment/sources/gemv/python",
+    "direct": "/experiment/sources/direct/python"
+  },
+  "source_trees": {
+    "port": "bc8874709caac3fce0a6fcdd751965bf73ab90ef",
+    "gemv": "dc2eb71484f61cfcdc446c44cfdbf5d2b345139c",
+    "direct": "66a516ffca9dfda08478db07b282700f9f1c422a"
+  },
+  "solution_table": "disabled: IDs from a different AITER/image build are not portable"
+}

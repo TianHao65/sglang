@@ -1,0 +1,58 @@
+{
+  "gemv-TP-1.trace.json.gz": {
+    "total_kernel_events": 1647,
+    "swizzled_gemv": 45,
+    "hipblaslt_fp8": 120,
+    "hipblaslt_bf16_swizzle": 60,
+    "trace_sha256": "d84f770412f5e49214ded23596754faeef12e3f143de41bc0522e5a48f47c410"
+  },
+  "gemv-TP-6.trace.json.gz": {
+    "total_kernel_events": 3523,
+    "swizzled_gemv": 45,
+    "hipblaslt_fp8": 240,
+    "hipblaslt_bf16_swizzle": 165,
+    "trace_sha256": "76f526fc4c93103641f3789bfa29b11c038f7212f3889c1db6bbc833ca14a5c6"
+  },
+  "gemv-TP-7.trace.json.gz": {
+    "total_kernel_events": 3523,
+    "swizzled_gemv": 45,
+    "hipblaslt_fp8": 240,
+    "hipblaslt_bf16_swizzle": 165,
+    "trace_sha256": "4c2894834eef1d35d7773015b5cd53722f49580427ee187789ed0a023de51975"
+  },
+  "gemv-TP-5.trace.json.gz": {
+    "total_kernel_events": 3523,
+    "swizzled_gemv": 45,
+    "hipblaslt_fp8": 240,
+    "hipblaslt_bf16_swizzle": 165,
+    "trace_sha256": "3ae08496f25d54e8e3dfa970014608614ce654533ebe8ab33136de68889bb113"
+  },
+  "gemv-TP-0.trace.json.gz": {
+    "total_kernel_events": 3523,
+    "swizzled_gemv": 45,
+    "hipblaslt_fp8": 240,
+    "hipblaslt_bf16_swizzle": 165,
+    "trace_sha256": "9ac5c6ddb1eb3fc3a75125f0b77f205023c7023b0846cfe4c38c8323f290b7cf"
+  },
+  "gemv-TP-2.trace.json.gz": {
+    "total_kernel_events": 3523,
+    "swizzled_gemv": 45,
+    "hipblaslt_fp8": 240,
+    "hipblaslt_bf16_swizzle": 165,
+    "trace_sha256": "d1ef1a9c42ccc9a754bda99532b3d84976db8e1da213b56baa3011be2f360645"
+  },
+  "gemv-TP-3.trace.json.gz": {
+    "total_kernel_events": 3518,
+    "swizzled_gemv": 45,
+    "hipblaslt_fp8": 240,
+    "hipblaslt_bf16_swizzle": 165,
+    "trace_sha256": "0761ff852938c6e176210f8512c69a8e537eecd36c54e8b9d3b02052376f442d"
+  },
+  "gemv-TP-4.trace.json.gz": {
+    "total_kernel_events": 3523,
+    "swizzled_gemv": 45,
+    "hipblaslt_fp8": 240,
+    "hipblaslt_bf16_swizzle": 165,
+    "trace_sha256": "a869ad07a088635df038825a76d8f1b8e7121fb745fc635cabb06a60b670100c"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "server_exit_code": -15,
+  "port_open": false,
+  "gpu_snapshot": "device,GPU use (%),GPU Memory Allocated (VRAM%),GPU Memory Read/Write Activity (%),Memory Activity\ncard0,0,0,0,N/A\ncard1,0,0,0,N/A\ncard2,0,0,0,N/A\ncard3,0,0,0,N/A\ncard4,0,0,0,N/A\ncard5,0,0,0,N/A\ncard6,0,0,0,N/A\ncard7,0,0,0,N/A\n\n",
+  "gpu_pids": "\n\n============================ ROCm System Management Interface ============================\n================================== GPUs Indexed by PID ===================================\nNo KFD PIDs currently running\n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n"
+}

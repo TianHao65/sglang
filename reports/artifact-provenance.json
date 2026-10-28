@@ -1,0 +1,989 @@
+[
+  {
+    "artifact": "reports/node19/final-audit.json",
+    "original_source": "/tmp/pr8-decode-final-nine-audit.json",
+    "original_source_sha256": "448d631cf814076a84cc115a7bf2facfb0c23f3632636b446322ebf254204180",
+    "artifact_sha256": "448d631cf814076a84cc115a7bf2facfb0c23f3632636b446322ebf254204180",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/summary.json",
+    "original_source_sha256": "ac37157944133b3afb9a096f0ef8ba418a2d1fa95af3f9f3808d24da750d7fc1",
+    "artifact_sha256": "ac37157944133b3afb9a096f0ef8ba418a2d1fa95af3f9f3808d24da750d7fc1",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/formal-audit.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/resource-audit/formal-audit.json",
+    "original_source_sha256": "fffe2aca47f16cd13bbfeb8450f6897b750d033c831c0ac97063db2ebab9afbb",
+    "artifact_sha256": "fffe2aca47f16cd13bbfeb8450f6897b750d033c831c0ac97063db2ebab9afbb",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/cleanup.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/resource-audit/cleanup.json",
+    "original_source_sha256": "ddc59493d741602a1c7a73d0d30fcd7758e9f187b4ebf174e6acada4c074860a",
+    "artifact_sha256": "ddc59493d741602a1c7a73d0d30fcd7758e9f187b4ebf174e6acada4c074860a",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/container-final.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/resource-audit/container-final.json",
+    "original_source_sha256": "5370e01b4a272b7bfa7320a7da998f5f88fbaa4550c008a712b987c324913318",
+    "artifact_sha256": "5370e01b4a272b7bfa7320a7da998f5f88fbaa4550c008a712b987c324913318",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runtime.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/resource-audit/runtime.json",
+    "original_source_sha256": "e0a9a1a7e891c561538f5acc41cd89f40208a6233614f1d39ccefda5c3a15c70",
+    "artifact_sha256": "e0a9a1a7e891c561538f5acc41cd89f40208a6233614f1d39ccefda5c3a15c70",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runtime-resume.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/resource-audit/runtime-resume.json",
+    "original_source_sha256": "e0a9a1a7e891c561538f5acc41cd89f40208a6233614f1d39ccefda5c3a15c70",
+    "artifact_sha256": "e0a9a1a7e891c561538f5acc41cd89f40208a6233614f1d39ccefda5c3a15c70",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/validation/guard-original-reproduction.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/guard-original-reproduction.json",
+    "original_source_sha256": "f9e1c3132ababb7f9eda174a821aa631bace89bf4f5c4036a37ca9fbebce7b98",
+    "artifact_sha256": "f9e1c3132ababb7f9eda174a821aa631bace89bf4f5c4036a37ca9fbebce7b98",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/validation/output-gpu.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/output-gpu.json",
+    "original_source_sha256": "9d162797a6db3ab406777885c4de607ca21cde2f0736da4dc1d53db9b8b7f7e4",
+    "artifact_sha256": "9d162797a6db3ab406777885c4de607ca21cde2f0736da4dc1d53db9b8b7f7e4",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/validation/output-validation.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/output-validation.json",
+    "original_source_sha256": "3f97862aa8b7ce46e275f22f8faf9d25d4c8ed5db5c145005a314b7af678afd0",
+    "artifact_sha256": "3f97862aa8b7ce46e275f22f8faf9d25d4c8ed5db5c145005a314b7af678afd0",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/validation/output-gpu-original.trace.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/output-gpu-original.trace.json",
+    "original_source_sha256": "27dda092721d9d849945271e24c8188940c992ab7b8da13487ad936a548c4cbc",
+    "artifact_sha256": "27dda092721d9d849945271e24c8188940c992ab7b8da13487ad936a548c4cbc",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/source-publication.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/review/source-publication.json",
+    "original_source_sha256": "1a650c6b85aee42a1de34945106d3bd4b02ef48d603b25aac5c120a172fcf6e1",
+    "artifact_sha256": "1a650c6b85aee42a1de34945106d3bd4b02ef48d603b25aac5c120a172fcf6e1",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/port/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/port/metrics.json",
+    "original_source_sha256": "99b34a0b519806d79fe4c9126a4a45815ba742f21396aea78de2f176b5aad573",
+    "artifact_sha256": "99b34a0b519806d79fe4c9126a4a45815ba742f21396aea78de2f176b5aad573",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/port/profile-names.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/port/profile-names.json",
+    "original_source_sha256": "af2d8e0a6dccf652ff10c45646c959e7db7226fb3963e488873e1c0e42591dcc",
+    "artifact_sha256": "af2d8e0a6dccf652ff10c45646c959e7db7226fb3963e488873e1c0e42591dcc",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/port/apply-into-original.trace.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/port/apply-into-original.trace.json",
+    "original_source_sha256": "73c18918d5ea5fb4945e57803767b6b6a655f189bdfcaf27e8ec1832ec89ad39",
+    "artifact_sha256": "73c18918d5ea5fb4945e57803767b6b6a655f189bdfcaf27e8ec1832ec89ad39",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/gemv/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/gemv/metrics.json",
+    "original_source_sha256": "f68a43ea404cbe0e63aeac3552fcfd83cb48f65969301b93ef1cb55a6b1c1ce1",
+    "artifact_sha256": "f68a43ea404cbe0e63aeac3552fcfd83cb48f65969301b93ef1cb55a6b1c1ce1",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/gemv/profile-names.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/gemv/profile-names.json",
+    "original_source_sha256": "c745a946006970f8247158ccbf3f621e1980ed06749b5b8fdba276839d4da53f",
+    "artifact_sha256": "c745a946006970f8247158ccbf3f621e1980ed06749b5b8fdba276839d4da53f",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/gemv/apply-into-original.trace.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/gemv/apply-into-original.trace.json",
+    "original_source_sha256": "12c9cd5034a7c3c34e737ef66cb55f67d0fef33547244238aba9f78b8203ab43",
+    "artifact_sha256": "12c9cd5034a7c3c34e737ef66cb55f67d0fef33547244238aba9f78b8203ab43",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/direct/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/direct/metrics.json",
+    "original_source_sha256": "af53aee6a48ea37fb49b9475e7261c58e8370da9db6a302bb7ebbf05f7cd7053",
+    "artifact_sha256": "af53aee6a48ea37fb49b9475e7261c58e8370da9db6a302bb7ebbf05f7cd7053",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/direct/profile-names.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/direct/profile-names.json",
+    "original_source_sha256": "794c2baa1b9551272b11d616ea0caa8706217f9e495284300b5b935a59db0ce2",
+    "artifact_sha256": "794c2baa1b9551272b11d616ea0caa8706217f9e495284300b5b935a59db0ce2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/micro/direct/apply-into-original.trace.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/results/node19/micro/direct/apply-into-original.trace.json",
+    "original_source_sha256": "ae5d1d655853a517a8d7d4afe6c1f3acfc8c370f5b9c99b0266bc3857b1a7103",
+    "artifact_sha256": "ae5d1d655853a517a8d7d4afe6c1f3acfc8c370f5b9c99b0266bc3857b1a7103",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/attempt1-52/owned-cleanup-assessment.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/attempts/attempt1-external-gpu-52/owned-cleanup-assessment.json",
+    "original_source_sha256": "5c3d07e43998c907a230f11635d1031f7d6a2772c41063ddb671ad710fc3c7de",
+    "artifact_sha256": "5c3d07e43998c907a230f11635d1031f7d6a2772c41063ddb671ad710fc3c7de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/attempt1-52/status.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/attempts/attempt1-external-gpu-52/status.json",
+    "original_source_sha256": "49d515661f285bcd48c8e28d900ee08e69dcedf34efeffd2859a40a07f79a204",
+    "artifact_sha256": "49d515661f285bcd48c8e28d900ee08e69dcedf34efeffd2859a40a07f79a204",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/attempt1-52/resource-audit/EXTERNAL_GPU_USE.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/attempts/attempt1-external-gpu-52/resource-audit/EXTERNAL_GPU_USE.json",
+    "original_source_sha256": "561a98197a9954ba96b538818839de8721533fc496417b58c053f27371298fd7",
+    "artifact_sha256": "561a98197a9954ba96b538818839de8721533fc496417b58c053f27371298fd7",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/attempt1-52/resource-audit/cleanup.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/attempts/attempt1-external-gpu-52/resource-audit/cleanup.json",
+    "original_source_sha256": "aa3dbdcb6d971583a661a9a6235364063bf4f1b45eee85c866ff2a113511fed4",
+    "artifact_sha256": "aa3dbdcb6d971583a661a9a6235364063bf4f1b45eee85c866ff2a113511fed4",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/attempt1-52/resource-audit/container-final.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/attempts/attempt1-external-gpu-52/resource-audit/container-final.json",
+    "original_source_sha256": "23b074135b0ac5370b722e4719ab39b01f7ce10d830da2bdb073ea899c507a7f",
+    "artifact_sha256": "23b074135b0ac5370b722e4719ab39b01f7ce10d830da2bdb073ea899c507a7f",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/attempt1-52/resource-audit/runtime.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/attempts/attempt1-external-gpu-52/resource-audit/runtime.json",
+    "original_source_sha256": "e0a9a1a7e891c561538f5acc41cd89f40208a6233614f1d39ccefda5c3a15c70",
+    "artifact_sha256": "e0a9a1a7e891c561538f5acc41cd89f40208a6233614f1d39ccefda5c3a15c70",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/attempt1-52/resource-audit/source-preflight.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/attempts/attempt1-external-gpu-52/resource-audit/source-preflight.json",
+    "original_source_sha256": "2e27df700d5ba100f0cf115a0a6fc6d4401e4a809d6465f6f63e19aa73f7c5a5",
+    "artifact_sha256": "2e27df700d5ba100f0cf115a0a6fc6d4401e4a809d6465f6f63e19aa73f7c5a5",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/config-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/CONFIG.json",
+    "original_source_sha256": "a2f10f579ab1093d6dabcb5911e86e5906996ffa0ae32127f5efe33c4fdabb70",
+    "artifact_sha256": "eacbb51e36f2572204f822920de68e2a5b2c4e07df14155f5f89044be854cfa2",
+    "transformation": "Selected noncredential experiment/model/image/source/workload identity; full config omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/metrics.json",
+    "original_source_sha256": "66e4b2ea58b4c5e9e967582ed4375e60834c9df3869cfbb90f150251ef4eb96c",
+    "artifact_sha256": "477f18490181547661d6ff3e3ec53b7089fca25c3356714134032720f395230e",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/server_info.json",
+    "original_source_sha256": "2f53f75b2ef68606135649e5871a5125dafc85c89a1bd0cf6e4a09d3d33905e9",
+    "artifact_sha256": "b35e300d263218bec58521cc4958f2e5bc04c62d32b3aa6c944aa22f201af1d6",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/launch-env.json",
+    "original_source_sha256": "fac7a030f8bac9ed9b5861a64bf88db0b19e2119dd645626a23a61e75a5bbce1",
+    "artifact_sha256": "fac7a030f8bac9ed9b5861a64bf88db0b19e2119dd645626a23a61e75a5bbce1",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/source_hashes.json",
+    "original_source_sha256": "35293e020e1b9b2c063378930417d5622ce3c75343e9f5e096fdb24b45db34c6",
+    "artifact_sha256": "35293e020e1b9b2c063378930417d5622ce3c75343e9f5e096fdb24b45db34c6",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/dispatch.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/dispatch.json",
+    "original_source_sha256": "922e04150246834f323cfecbb81ba3803870986513320c9d7fdf63705b3f0735",
+    "artifact_sha256": "922e04150246834f323cfecbb81ba3803870986513320c9d7fdf63705b3f0735",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/quality.json",
+    "original_source_sha256": "a2a47eb7ffd5a14a844ee9fef6bc468ba8457e6dcf4476641f521771255897db",
+    "artifact_sha256": "1757e03b67e5d1ec04c1c45f79de1c23013bce2455c1505f969b8659e5d2a38b",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c128_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c128_512256_actual_concurrency.json",
+    "original_source_sha256": "24aca95d106bc111fe01d3caf17e2acec748b4919f8e5f8376f4e1a2832a179b",
+    "artifact_sha256": "24aca95d106bc111fe01d3caf17e2acec748b4919f8e5f8376f4e1a2832a179b",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c16_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c16_512256_actual_concurrency.json",
+    "original_source_sha256": "0675edfbce473afd66be90fe8a4cb2c0c42dff0c1d067a3193d6f5d400894adc",
+    "artifact_sha256": "0675edfbce473afd66be90fe8a4cb2c0c42dff0c1d067a3193d6f5d400894adc",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c64_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c64_512256_actual_concurrency.json",
+    "original_source_sha256": "8adcc2be945252f2da8289db736fe5ec8d38d1b7d264446f93d9231d39d54ef0",
+    "artifact_sha256": "8adcc2be945252f2da8289db736fe5ec8d38d1b7d264446f93d9231d39d54ef0",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c128_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c128_512256_command.json",
+    "original_source_sha256": "f625479eb30fa0d4d96dd2f6b63017e73a3a270fbb86d80a98936d9bff30acac",
+    "artifact_sha256": "f625479eb30fa0d4d96dd2f6b63017e73a3a270fbb86d80a98936d9bff30acac",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c16_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c16_512256_command.json",
+    "original_source_sha256": "b9d6954fa734ae7db8ee2e1688df71cd04ae2f9abe88e14b9285e0a804b77801",
+    "artifact_sha256": "b9d6954fa734ae7db8ee2e1688df71cd04ae2f9abe88e14b9285e0a804b77801",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c1_8k500_command.json",
+    "original_source_sha256": "d5f0d1c302d22b42828343bcfd18dcf9a08208916e9ea39cbdd5fe9f7052feec",
+    "artifact_sha256": "d5f0d1c302d22b42828343bcfd18dcf9a08208916e9ea39cbdd5fe9f7052feec",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c64_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c64_512256_command.json",
+    "original_source_sha256": "64ec9090130112d32468ba26f168bfcfe10a2a41f38e1a433f098866f67cf581",
+    "artifact_sha256": "64ec9090130112d32468ba26f168bfcfe10a2a41f38e1a433f098866f67cf581",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c128_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c128_512256.jsonl",
+    "original_source_sha256": "eaeb4934dfd01903eecd7c393cc2da08c00d24c26de0aa6e5fb63d23c2285915",
+    "artifact_sha256": "4fcd12fa2e750642887a78edf6e5981eb082eb65f876bdfa5b71d4101cd06f90",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c16_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c16_512256.jsonl",
+    "original_source_sha256": "d5a048c22c3651d5505981511a442cad36f0ae531af20ae7a1da9242ebb80701",
+    "artifact_sha256": "b0bf1a29a6ddaf31b30004e9d87baa288592d732ecbdb72aae3d13ebe94bbca5",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c1_8k500.jsonl",
+    "original_source_sha256": "5598b6c3a6e2eda2fd1707c1f48cd7a689c4e5e4da684b5bd6cda5017e38e89a",
+    "artifact_sha256": "40781c27e881b12a24ec20054fd54b88515919aa7e006965222d9f2f57aa0e41",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r1/c64_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r1/c64_512256.jsonl",
+    "original_source_sha256": "9b725fd6ec8e4081211e8585f028345f671054b80d9583109c2e291fc35daa28",
+    "artifact_sha256": "a3d8540a0e7540da4f3a3c45426f2d3668d11e7a6a2c61a9dd2746caafb45b47",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/metrics.json",
+    "original_source_sha256": "e8ba6278d69abf9e0f96f6b7bee7f568567a40d20f2acb17d5dee1c116f4bbe1",
+    "artifact_sha256": "387beef01ed899e64897bbf92df8e1d7d498bbaeffefb5aff2c6e60ab86a10f4",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/server_info.json",
+    "original_source_sha256": "6bb3ea77d8808fe95ef058c8470521b70cc830f544c0dff1cfa768a1c94efd8f",
+    "artifact_sha256": "d606b9a2e24ffe06202ac36d2a4d40c52bf5ebe0bab27c3e2af97b6b6515a994",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/launch-env.json",
+    "original_source_sha256": "fac7a030f8bac9ed9b5861a64bf88db0b19e2119dd645626a23a61e75a5bbce1",
+    "artifact_sha256": "fac7a030f8bac9ed9b5861a64bf88db0b19e2119dd645626a23a61e75a5bbce1",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/source_hashes.json",
+    "original_source_sha256": "35293e020e1b9b2c063378930417d5622ce3c75343e9f5e096fdb24b45db34c6",
+    "artifact_sha256": "35293e020e1b9b2c063378930417d5622ce3c75343e9f5e096fdb24b45db34c6",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/quality.json",
+    "original_source_sha256": "5eb9377e00b642da485dba4367e141178c416a2da856dd317147f1c34b27de64",
+    "artifact_sha256": "cd6ccb1b9f5c8304eb3db21057f956cf802163897d9dbf686a5c8a005dd185f9",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/c1_8k500_command.json",
+    "original_source_sha256": "a88e89f55790ccb7ed7bf2811263387f339221e987c997d5701c456093a6fd2b",
+    "artifact_sha256": "a88e89f55790ccb7ed7bf2811263387f339221e987c997d5701c456093a6fd2b",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r2/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r2/c1_8k500.jsonl",
+    "original_source_sha256": "d2ea48fa4113b55c2630759ee01b68708c4f780cf345012e4f563f2f4155c16a",
+    "artifact_sha256": "f64a2d2ff62989bb0269c7ae570a73dad2701bf93b2f401ab8f3edc7a65a2174",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/metrics.json",
+    "original_source_sha256": "9655d5c0bd49bae4e0877300aa07e073eb768a588ea54334d56a6d3a930553a0",
+    "artifact_sha256": "c14e885725d2f15907f85cb2723165f8cf8d188359145006dfef8d94cf087675",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/server_info.json",
+    "original_source_sha256": "ad73f0340510af67ec28861f29dc374d3042e04b65a754451d05071b3992c8a6",
+    "artifact_sha256": "7763bb07058ce932d168a0c0a27ef2f4bed9ddded31eb6f5b061e24dfc9793eb",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/launch-env.json",
+    "original_source_sha256": "fac7a030f8bac9ed9b5861a64bf88db0b19e2119dd645626a23a61e75a5bbce1",
+    "artifact_sha256": "fac7a030f8bac9ed9b5861a64bf88db0b19e2119dd645626a23a61e75a5bbce1",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/source_hashes.json",
+    "original_source_sha256": "35293e020e1b9b2c063378930417d5622ce3c75343e9f5e096fdb24b45db34c6",
+    "artifact_sha256": "35293e020e1b9b2c063378930417d5622ce3c75343e9f5e096fdb24b45db34c6",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/quality.json",
+    "original_source_sha256": "395ac8c36790a34c83eb66c73dac716ea31f458f6d1f9463387e72e52efbb690",
+    "artifact_sha256": "fcb53cbaaef720e32edb50b7f0a129cf7c46e91e16ef705668781beb6c91d21d",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/c1_8k500_command.json",
+    "original_source_sha256": "f647ba8c26580b2a33f6556ca412c73eddecb2d7febd4d108d81a977ed5dad63",
+    "artifact_sha256": "f647ba8c26580b2a33f6556ca412c73eddecb2d7febd4d108d81a977ed5dad63",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/port_r3/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/port_r3/c1_8k500.jsonl",
+    "original_source_sha256": "d2c62f9655b2b256f1683e299414b087bca631a8a239336267348e0d099f4f14",
+    "artifact_sha256": "a7db1955e8cc2a8d3b6cf59e180465eebe929730983e822e9ac4ea54bb8a93b7",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/metrics.json",
+    "original_source_sha256": "8b3c9db87d5e1ee30a8fa7d6cb6f7a3c76c01a05e10924a4f13aa7754c3fd471",
+    "artifact_sha256": "be784cc0d73fe74e367684f788ffe113ea5bb5fbd80cb4fcf961397790369c26",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/server_info.json",
+    "original_source_sha256": "c634afa9cefca3845fd5bb39a1ee23ebeb6ef10c3cc9ec943fe9b91b04a64ee4",
+    "artifact_sha256": "fd1c3ac96b9996c94d6c9f92575701eb2247d95f6eae4566fc9142f7b0223687",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/launch-env.json",
+    "original_source_sha256": "d77cd451c363e1154c74a8b7dbc8f9fc012020507fff9f67b807426789bc5c78",
+    "artifact_sha256": "d77cd451c363e1154c74a8b7dbc8f9fc012020507fff9f67b807426789bc5c78",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/source_hashes.json",
+    "original_source_sha256": "920623549625a46edeb7a8b8e57c8640c29b9b6bdfce90ecf15822a22951f680",
+    "artifact_sha256": "920623549625a46edeb7a8b8e57c8640c29b9b6bdfce90ecf15822a22951f680",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/dispatch.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/dispatch.json",
+    "original_source_sha256": "748704a798cd473f1372f43a3946f77b32d3effb4f55374850782a67944c9f83",
+    "artifact_sha256": "748704a798cd473f1372f43a3946f77b32d3effb4f55374850782a67944c9f83",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/quality.json",
+    "original_source_sha256": "a91c4c15c78a4670d9578fdb1d704b0817df067800ee41be06d519a9aa390059",
+    "artifact_sha256": "ead04c4c6198f41aa125867ecb52d6d01fb216114bcf43e862154c1bc2bc63bd",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c128_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c128_512256_actual_concurrency.json",
+    "original_source_sha256": "24aca95d106bc111fe01d3caf17e2acec748b4919f8e5f8376f4e1a2832a179b",
+    "artifact_sha256": "24aca95d106bc111fe01d3caf17e2acec748b4919f8e5f8376f4e1a2832a179b",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c16_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c16_512256_actual_concurrency.json",
+    "original_source_sha256": "0675edfbce473afd66be90fe8a4cb2c0c42dff0c1d067a3193d6f5d400894adc",
+    "artifact_sha256": "0675edfbce473afd66be90fe8a4cb2c0c42dff0c1d067a3193d6f5d400894adc",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c64_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c64_512256_actual_concurrency.json",
+    "original_source_sha256": "8adcc2be945252f2da8289db736fe5ec8d38d1b7d264446f93d9231d39d54ef0",
+    "artifact_sha256": "8adcc2be945252f2da8289db736fe5ec8d38d1b7d264446f93d9231d39d54ef0",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c128_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c128_512256_command.json",
+    "original_source_sha256": "25bf89cd33365141ff1c0930eaec3ef1ab92480ab81c64a14578bcd0b45ca5eb",
+    "artifact_sha256": "25bf89cd33365141ff1c0930eaec3ef1ab92480ab81c64a14578bcd0b45ca5eb",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c16_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c16_512256_command.json",
+    "original_source_sha256": "2249eed550b0de4f2ecdea7449139f8150bed23a59980a5ee6e0858bbfed4c38",
+    "artifact_sha256": "2249eed550b0de4f2ecdea7449139f8150bed23a59980a5ee6e0858bbfed4c38",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c1_8k500_command.json",
+    "original_source_sha256": "52a20eb3da2b3677aaffda2cc704016d8f560f3d7f65663dbbd5e760295cbe00",
+    "artifact_sha256": "52a20eb3da2b3677aaffda2cc704016d8f560f3d7f65663dbbd5e760295cbe00",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c64_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c64_512256_command.json",
+    "original_source_sha256": "2e963e2a940814178a15e1a2d835578d4b12f325a3d9da4f77f2c65d193ec31e",
+    "artifact_sha256": "2e963e2a940814178a15e1a2d835578d4b12f325a3d9da4f77f2c65d193ec31e",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c128_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c128_512256.jsonl",
+    "original_source_sha256": "c9112e149e9242a7c57d592b5bd362d01ee08d58c128c9668a2830c5e699eb91",
+    "artifact_sha256": "d6d458670996b2d0cf8a221f80ebe847d20ef6664da99aeaa95754a5f43dae40",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c16_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c16_512256.jsonl",
+    "original_source_sha256": "5ac87750e5ccb09222950bfc663f903af13f0f3a85b3e81d5a4b6e07ab87a6c6",
+    "artifact_sha256": "1fea12b61b28d000ef452d3b442828e93612d3cc254e485e9a176fc34462bc63",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c1_8k500.jsonl",
+    "original_source_sha256": "41f77f0e21c7866e759d3c1d364dcbeac3efe2788733cf466cded92875c1f292",
+    "artifact_sha256": "3068b76999be64b6c262a886cd6ced03b076934fabaea28e7fb7bb3d52697bb3",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r1/c64_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r1/c64_512256.jsonl",
+    "original_source_sha256": "3bf062a6a06b6dc781612d5a6b506c113d3e63a829b5e1d2b3fa15cfc5996fc1",
+    "artifact_sha256": "215d7979ab0b2e2a46066be565f77e698fd9cc8c4598c4def21186b4b8472c78",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/metrics.json",
+    "original_source_sha256": "1d2b18f3aa8681a5bcb8a017cdf331d374d68ff58b97e96aab876a0e0b501127",
+    "artifact_sha256": "d6ba897705e818bf8bef2d50953e3d072bf9df84d7453c1c05b3ba73dfbd94fe",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/server_info.json",
+    "original_source_sha256": "67ae44073f9a136f6d6787427d66cf3e28c80803160e768a9061bb49becc4ef3",
+    "artifact_sha256": "57f3d309d89add6b841e94d840f2e0b985689d1e9332d41d3572609eeb064be6",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/launch-env.json",
+    "original_source_sha256": "d77cd451c363e1154c74a8b7dbc8f9fc012020507fff9f67b807426789bc5c78",
+    "artifact_sha256": "d77cd451c363e1154c74a8b7dbc8f9fc012020507fff9f67b807426789bc5c78",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/source_hashes.json",
+    "original_source_sha256": "920623549625a46edeb7a8b8e57c8640c29b9b6bdfce90ecf15822a22951f680",
+    "artifact_sha256": "920623549625a46edeb7a8b8e57c8640c29b9b6bdfce90ecf15822a22951f680",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/quality.json",
+    "original_source_sha256": "bfe936fe9e50553b33514c4eed2b216b15f15f478ba458584709239092c382a8",
+    "artifact_sha256": "e6a833bcd1ed50ffdbd4f43cf1dafc863f492a8ed7c628bf45021feb4592e728",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/c1_8k500_command.json",
+    "original_source_sha256": "f9a22cb1de42e4a05fb3dd66218d8c2d4d15740de5cb8c5dc4a1b479d39d2139",
+    "artifact_sha256": "f9a22cb1de42e4a05fb3dd66218d8c2d4d15740de5cb8c5dc4a1b479d39d2139",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r2/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r2/c1_8k500.jsonl",
+    "original_source_sha256": "feee94b7bbe160152cc6cc0d4be583b94ba7133db406149891c38bad5189aad3",
+    "artifact_sha256": "4025467161c02989cb538fe8442c19c2b216510e3a0b1325f6931dcb523c3206",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/metrics.json",
+    "original_source_sha256": "0bfe7f9478988fdbb5111993f2b056b4846147783666975d8475dfc7e8a45986",
+    "artifact_sha256": "83a092945c6d04958e7e56867e3893ee9aea016bd56845cd9cd8b21ebfda32d2",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/server_info.json",
+    "original_source_sha256": "edabf9f8e4aa95118313b8b9662fd91381802980458c040919703e2929116dea",
+    "artifact_sha256": "ca65851d93777059740a3aa499d43bdfe3eebe6f6460d4d4908cc763bde87f35",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/launch-env.json",
+    "original_source_sha256": "d77cd451c363e1154c74a8b7dbc8f9fc012020507fff9f67b807426789bc5c78",
+    "artifact_sha256": "d77cd451c363e1154c74a8b7dbc8f9fc012020507fff9f67b807426789bc5c78",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/source_hashes.json",
+    "original_source_sha256": "920623549625a46edeb7a8b8e57c8640c29b9b6bdfce90ecf15822a22951f680",
+    "artifact_sha256": "920623549625a46edeb7a8b8e57c8640c29b9b6bdfce90ecf15822a22951f680",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/quality.json",
+    "original_source_sha256": "473195f9a8f2023477e876cbcf7edce82abb793a9d8506c2682e53b6a3804d44",
+    "artifact_sha256": "1fe7a68d8b997d0c90907441c8da60947cf26b023aff980dac884cea4cc90d92",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/c1_8k500_command.json",
+    "original_source_sha256": "f19b56a0e43eccd10932e8928a4df1be1c3eb3d049451734d1ae5f53cb78c7a2",
+    "artifact_sha256": "f19b56a0e43eccd10932e8928a4df1be1c3eb3d049451734d1ae5f53cb78c7a2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/gemv_r3/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/gemv_r3/c1_8k500.jsonl",
+    "original_source_sha256": "1b7f7d87e88d24cd874e8f1df34c467ebafc5603b3ddc0aa1ec9807e29f2f6af",
+    "artifact_sha256": "15645e56a282107111d03353aa1aa1fe77e6cddb4952d72407ed24ecb1c04bea",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/metrics.json",
+    "original_source_sha256": "93cc51f649e093dc94c38722ca7b94fd27056b0a3b0cfd862719990bbba5c6d0",
+    "artifact_sha256": "4966da81fb8e313328344863c5480e1a295b40269247552376c296e3fd9ab3cb",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/server_info.json",
+    "original_source_sha256": "477947e799ae69a1d6933675a73af827d9989891336be61b9f20de76c55c81d3",
+    "artifact_sha256": "e77c1ac402a7b5f6fe03138bf54ec154008c92460138d635a96094d4c28b376a",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/launch-env.json",
+    "original_source_sha256": "c96611e556cdaeefd24fa2ff8b7fc520323600cacc6ca76176dc92b3215425a9",
+    "artifact_sha256": "c96611e556cdaeefd24fa2ff8b7fc520323600cacc6ca76176dc92b3215425a9",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/source_hashes.json",
+    "original_source_sha256": "daa7776caec8963bd5fb4fe0cdb20423d860136e1fcce9386671b0273e622f63",
+    "artifact_sha256": "daa7776caec8963bd5fb4fe0cdb20423d860136e1fcce9386671b0273e622f63",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/dispatch.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/dispatch.json",
+    "original_source_sha256": "4c13c1a2a5978f78b7e3b114fb4579937e56261d3ba78276a14a2d36873d7634",
+    "artifact_sha256": "4c13c1a2a5978f78b7e3b114fb4579937e56261d3ba78276a14a2d36873d7634",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/quality.json",
+    "original_source_sha256": "a91ddd31baecb8d5ff3635a5d00cf2139e571a196cf0b9575d262663aed629db",
+    "artifact_sha256": "abfc70e630fa27b69e46e1ffee105be09e7e15dcdb9719df617a0b119dfa72df",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c128_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c128_512256_actual_concurrency.json",
+    "original_source_sha256": "24aca95d106bc111fe01d3caf17e2acec748b4919f8e5f8376f4e1a2832a179b",
+    "artifact_sha256": "24aca95d106bc111fe01d3caf17e2acec748b4919f8e5f8376f4e1a2832a179b",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c16_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c16_512256_actual_concurrency.json",
+    "original_source_sha256": "1682ba2507d001b6d115e5daac304ddf5d7c8010f8311a21b74e9a401ca69da7",
+    "artifact_sha256": "1682ba2507d001b6d115e5daac304ddf5d7c8010f8311a21b74e9a401ca69da7",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c64_512256_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c64_512256_actual_concurrency.json",
+    "original_source_sha256": "f6df3fa146e2cd9aa73fbb09934cce4812ff1be1249b9415cf809cf0da785e8c",
+    "artifact_sha256": "f6df3fa146e2cd9aa73fbb09934cce4812ff1be1249b9415cf809cf0da785e8c",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c128_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c128_512256_command.json",
+    "original_source_sha256": "e58a93959d1511a6ffe36c9c096b8b035809aa828cdef3bce9cd710746ab9b42",
+    "artifact_sha256": "e58a93959d1511a6ffe36c9c096b8b035809aa828cdef3bce9cd710746ab9b42",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c16_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c16_512256_command.json",
+    "original_source_sha256": "fc0b821c7d5a8dfad9c21c907a7c9b8de63f5afeb1ef2bd16c1ffcd2b103abc0",
+    "artifact_sha256": "fc0b821c7d5a8dfad9c21c907a7c9b8de63f5afeb1ef2bd16c1ffcd2b103abc0",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c1_8k500_command.json",
+    "original_source_sha256": "2e7f0447d42a9dbe22cb6bb1a52298a96a7beb507646a943bb33f7ea035252f3",
+    "artifact_sha256": "2e7f0447d42a9dbe22cb6bb1a52298a96a7beb507646a943bb33f7ea035252f3",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c64_512256_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c64_512256_command.json",
+    "original_source_sha256": "9f2e83ee795f05e7f8f939d096458af6a82c0f68be22f3537a13c5a3dac5fe75",
+    "artifact_sha256": "9f2e83ee795f05e7f8f939d096458af6a82c0f68be22f3537a13c5a3dac5fe75",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c128_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c128_512256.jsonl",
+    "original_source_sha256": "b4f3fd2e36a58bd6b97e00fdc5c3cd28ab8ae1d055b26b0c29b3739c42e07211",
+    "artifact_sha256": "56c57e54dabc2f01ff44d3b96623f1c516da76ff40785fe4f0fdb1d28d55539e",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c16_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c16_512256.jsonl",
+    "original_source_sha256": "26ec0a2ed6c2f2e746de9778bfcd003be76672c10b545341cf89c7f7b52ed8a3",
+    "artifact_sha256": "4207d3aa55fde54bc86e00c1c3c61f90fcdcb65c1dc12f44cceb4c87bdc11005",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c1_8k500.jsonl",
+    "original_source_sha256": "39e4a7b0230aee0350e0a139846e6abd3cd6c98861e94ebad54bdbba8aacdf63",
+    "artifact_sha256": "98d0be6854204d7054984807e29dec4cbed8a8c6d0f0592dd97ea8668039216d",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r1/c64_512256-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r1/c64_512256.jsonl",
+    "original_source_sha256": "c597f3991b5e67c34ed2574fd6263dc13c46ae962f91307cbafd2a091a39862f",
+    "artifact_sha256": "391d46c4281777f066ed5dfed86f0cae42c153b3679a2a95d6fa7a9ebe657d48",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/metrics.json",
+    "original_source_sha256": "8e195c4a479ebd003fc4568715e523ac08e5165680e2233455ac124516722e65",
+    "artifact_sha256": "c7f043d9663e987ee84bdcb01a2e46f0a691e68cbdbbcbb37671483428c4c5ba",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/server_info.json",
+    "original_source_sha256": "34a3fa5971dff7b87d9c5fed332797612758a831c5be498c418f13f2827881a7",
+    "artifact_sha256": "029cd1943d5494738bd6d1bdaa1dcc7facdd7c68f9459fbc07c89d4a90262112",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/launch-env.json",
+    "original_source_sha256": "c96611e556cdaeefd24fa2ff8b7fc520323600cacc6ca76176dc92b3215425a9",
+    "artifact_sha256": "c96611e556cdaeefd24fa2ff8b7fc520323600cacc6ca76176dc92b3215425a9",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/source_hashes.json",
+    "original_source_sha256": "daa7776caec8963bd5fb4fe0cdb20423d860136e1fcce9386671b0273e622f63",
+    "artifact_sha256": "daa7776caec8963bd5fb4fe0cdb20423d860136e1fcce9386671b0273e622f63",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/quality.json",
+    "original_source_sha256": "85240d34f06367519960a3a54838c2f9f981d62a0ac220bca9c831317df899ba",
+    "artifact_sha256": "1c7f01b391ce74698e256ee03d3d45f8c565020cd738acf01e85e232283f86bf",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/c1_8k500_command.json",
+    "original_source_sha256": "31f3e7df84c7344b9e52ada2483f786ceb3d0603f5cedd52adc70302545eceeb",
+    "artifact_sha256": "31f3e7df84c7344b9e52ada2483f786ceb3d0603f5cedd52adc70302545eceeb",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r2/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r2/c1_8k500.jsonl",
+    "original_source_sha256": "3f4cb795e8a6240a9a8df173a4df35884e9bb17e462325d427f8bc1d47d1b429",
+    "artifact_sha256": "4075f4a6031df10d4c6d0a13d4fdff0a1b3fba6ad4f44d937cbd593ebf81e005",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/metrics.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/metrics.json",
+    "original_source_sha256": "07d862743eba05a617595af73ff03ea04f60cd45287765b3d8ee45a6d644a733",
+    "artifact_sha256": "27a471ca8d9b87877980d0f363554fc821d75fc9d23ce5369892f679b93e93c7",
+    "transformation": "Original per-case aggregate fields copied without embedded server_info, generated texts or request arrays; no recalculation"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/server-identity.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/server_info.json",
+    "original_source_sha256": "1f34829b413a7e76b974a59ee2c0fe07695a6131f95f563015b59a55bdaa57b5",
+    "artifact_sha256": "ee6b404647fda659b7bec722d92ca506ade67c128b87ae5375ad2061ce8725e1",
+    "transformation": "Explicit whitelist of actual model/runtime/batch/cache/backend/config settings; credentials/network/admin/log parameters omitted"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/launch-env.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/launch-env.json",
+    "original_source_sha256": "c96611e556cdaeefd24fa2ff8b7fc520323600cacc6ca76176dc92b3215425a9",
+    "artifact_sha256": "c96611e556cdaeefd24fa2ff8b7fc520323600cacc6ca76176dc92b3215425a9",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/shutdown.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/shutdown.json",
+    "original_source_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "artifact_sha256": "d90094b322046e2e8f8ef67a951faddfa2f54f6d190f7153f5095a315461b8f2",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/source_hashes.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/source_hashes.json",
+    "original_source_sha256": "daa7776caec8963bd5fb4fe0cdb20423d860136e1fcce9386671b0273e622f63",
+    "artifact_sha256": "daa7776caec8963bd5fb4fe0cdb20423d860136e1fcce9386671b0273e622f63",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/quality-probe-summary.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/quality.json",
+    "original_source_sha256": "5c2d16b87f4d3314f4d71ef6df61ffd4d3785085fcfda475f7dac1fe360fb8fd",
+    "artifact_sha256": "02d4946560bd323cf4cd3c83ddbb184c9163e79d620f00eb2791a0c07a1fb422",
+    "transformation": "Raw quality text/output token IDs omitted; original numeric/token-count/finish metadata retained"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/c1_8k500_actual_concurrency.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/c1_8k500_actual_concurrency.json",
+    "original_source_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "artifact_sha256": "ba4edaffcc03117a5e43c297794e523e2b3bc2754fb0cf2126a22767d14370de",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/c1_8k500_command.json",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/c1_8k500_command.json",
+    "original_source_sha256": "bab02163d9da40958b81eb490795937ea970069a00c7b0b30c7a64d34d21a9a1",
+    "artifact_sha256": "bab02163d9da40958b81eb490795937ea970069a00c7b0b30c7a64d34d21a9a1",
+    "transformation": "none"
+  },
+  {
+    "artifact": "reports/node19/runs/direct_r3/c1_8k500-request-metrics.jsonl",
+    "original_source": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/node19/results/direct_r3/c1_8k500.jsonl",
+    "original_source_sha256": "bedbcc7a347e606f26ae1181d5d2ae25589f34cbda9c308905863987cfea0a0a",
+    "artifact_sha256": "9c147ddcc514aff3effb10924ef5710cf9033408faaedcfe6bf7b426c0b03401",
+    "transformation": "Original scalar aggregates and input_lens/output_lens/ttfts/itls arrays preserved verbatim; generated_texts/full server_info/error text removed; original line index retained"
+  },
+  {
+    "artifact": "reports/node19/RESULTS.md",
+    "original_source": "hjbog-srdc-19:/mnt/raid0/hatian/pr8-decode-followup-20261028/RESULTS.md",
+    "original_source_sha256": "934a0cac51b6d7d9252d476a54aa67f2dffd753e93ec1ccd1772703c8ff7df93",
+    "artifact_sha256": "934a0cac51b6d7d9252d476a54aa67f2dffd753e93ec1ccd1772703c8ff7df93",
+    "transformation": "none"
+  }
+]

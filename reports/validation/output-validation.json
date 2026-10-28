@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "source_commit": "176150ccc32f03b663d339b327527c2f85902200",
+  "test": "test/registered/kernels/test_swizzled_bf16_gemv.py",
+  "test_sha256": "5e2b07dc37f077c8cfc6e1be45633aa0bb22400b31b33537bdaece27a8c92591"
+}

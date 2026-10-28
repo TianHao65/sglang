@@ -66,3 +66,7 @@ The native Slices table also contains enclosing step/scheduler scopes, so its
 summed Wall Duration includes overlap. Read the GPU kernel row for GPU time and
 call count. Local/remote capture paths in hashed witnesses are provenance, not
 public filesystem paths; artifact-relative paths are provided by the manifests.
+
+## Supplemental benchmark and validation reports
+
+[Per-start benchmark and validation reports](reports/README.md) document nine complete model starts, eighteen formal cases, actual settings/length/concurrency, source identities, numerical checks and final cleanup. Generated text and full server configuration are excluded; transformations and original source hashes are recorded. Native image and complete model-trace PR links remain pinned to d16bdf05a3d00de8bf5288e5fc185fccff193d94.

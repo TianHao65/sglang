@@ -1,0 +1,7 @@
+{
+  "case": "c128_512256",
+  "client_concurrency": 128,
+  "max_actual_decode_requests": 128,
+  "decode_log_samples": 52,
+  "samples_at_requested_concurrency": 51
+}

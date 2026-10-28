@@ -1,0 +1,12 @@
+{
+  "owned_processes_alive": [],
+  "port_open": false,
+  "all_vram_zero": false,
+  "external_gpu_pids": [
+    3362913,
+    3364296
+  ],
+  "owned_processes_and_port_released": true,
+  "owned_cleanup_complete": false,
+  "gpu_release_verification": "external occupation prevents isolated VRAM attribution"
+}

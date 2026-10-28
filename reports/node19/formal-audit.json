@@ -1,0 +1,287 @@
+{
+  "performance_protocol_status": "passed",
+  "rounds": [
+    {
+      "mode": "port",
+      "repetition": 1,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "port",
+      "repetition": 1,
+      "case": "c16_512256",
+      "requests": 512,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "port",
+      "repetition": 1,
+      "case": "c64_512256",
+      "requests": 768,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "port",
+      "repetition": 1,
+      "case": "c128_512256",
+      "requests": 1024,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "port",
+      "repetition": 2,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "port",
+      "repetition": 3,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "gemv",
+      "repetition": 1,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "gemv",
+      "repetition": 1,
+      "case": "c16_512256",
+      "requests": 512,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "gemv",
+      "repetition": 1,
+      "case": "c64_512256",
+      "requests": 768,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "gemv",
+      "repetition": 1,
+      "case": "c128_512256",
+      "requests": 1024,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "gemv",
+      "repetition": 2,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "gemv",
+      "repetition": 3,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "direct",
+      "repetition": 1,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "direct",
+      "repetition": 1,
+      "case": "c16_512256",
+      "requests": 512,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "direct",
+      "repetition": 1,
+      "case": "c64_512256",
+      "requests": 768,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "direct",
+      "repetition": 1,
+      "case": "c128_512256",
+      "requests": 1024,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "direct",
+      "repetition": 2,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    },
+    {
+      "mode": "direct",
+      "repetition": 3,
+      "case": "c1_8k500",
+      "requests": 24,
+      "source_identity": true,
+      "actual_lengths_and_concurrency": true,
+      "duration_ge_60s": true,
+      "shutdown": true
+    }
+  ],
+  "quality_diagnostics": [
+    {
+      "mode": "port",
+      "repetition": 1,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "mode": "port",
+      "repetition": 2,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "mode": "port",
+      "repetition": 3,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "mode": "gemv",
+      "repetition": 1,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "mode": "gemv",
+      "repetition": 2,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "mode": "gemv",
+      "repetition": 3,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "mode": "direct",
+      "repetition": 1,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "mode": "direct",
+      "repetition": 2,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "mode": "direct",
+      "repetition": 3,
+      "probes": 3,
+      "length_stops": 3,
+      "completion_tokens": [
+        64,
+        64,
+        64
+      ]
+    }
+  ],
+  "quality_acceptance": "not asserted; these are three diagnostic prompts per startup"
+}

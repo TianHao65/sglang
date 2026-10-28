@@ -1,0 +1,12 @@
+{
+  "state": {
+    "stage": "single_operator_output_validation",
+    "updated_utc": "2026-10-28T12:37:57.522490+00:00",
+    "mode": "direct"
+  },
+  "external_pids": [
+    3362913,
+    3364296
+  ],
+  "gpu_pids": "\n\n============================ ROCm System Management Interface ============================\n================================== GPUs Indexed by PID ===================================\nPID 3362913 is using 1 DRM device(s):\n0 \nPID 3358683 is using 0 DRM device(s)\nPID 3364296 is using 1 DRM device(s):\n1 \nPID 3365442 is using 0 DRM device(s)\n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n"
+}

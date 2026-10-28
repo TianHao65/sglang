@@ -1,0 +1,7 @@
+{
+  "PYTHONPATH": "/experiment/sources/port/python",
+  "ROCR_VISIBLE_DEVICES": "0,1,2,3,4,5,6,7",
+  "SGLANG_ROCM_HIPB_PREFILL_ONLY": "0",
+  "SGLANG_ROCM_HIPB_DECODE_GEMV": "0",
+  "SGLANG_ROCM_HIPB_TUNED_SOLUTIONS": ""
+}
