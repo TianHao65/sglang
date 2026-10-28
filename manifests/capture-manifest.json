@@ -1,0 +1,318 @@
+[
+  {
+    "phase": "prefill",
+    "side": "before",
+    "source_commit": "ddccab6e0da380838ef21a87c655624d7f164b1d",
+    "original_trace": "original-traces/port-r1-TP0.trace.json.gz",
+    "original_trace_sha256": "1e3a6b58acdde8df08c4d61cbf1b8c9999f20a7e7a28176812b2b80e8b0f4b6a",
+    "original_trace_bytes": 2407260,
+    "original_event_count": 126943,
+    "source_unchanged": true,
+    "selected_original_events": [
+      {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1",
+        "pid": 2,
+        "tid": 7,
+        "source_ts_us": "2336482602749.680",
+        "source_dur_us": "32.120",
+        "ts_ns": "2336482602749680",
+        "dur_ns": "32120",
+        "stream": 7
+      }
+    ],
+    "attribution": {
+      "rank": 0,
+      "phase": "prefill",
+      "module": "in_proj_ba",
+      "batch": 1,
+      "m": 8000,
+      "layer": 0,
+      "n": 16,
+      "k": 4096,
+      "graph_batch": null,
+      "layer_assignment": "Ascending PP1 non-MTP full pass source-order inference; not directly named by profiler",
+      "witness": "witnesses/port-prefill-witness.json",
+      "witness_sha256": "037a823a8d3c73d023962a40195b6c102d937996d697ba6854f06f79097106a1",
+      "capture_witness_path": "/tmp/pr8-decode-followup-perfetto-20261028-w_2zi2p7/selection/port-prefill-witness.json"
+    },
+    "native_area": true,
+    "native_slices": true,
+    "screenshot": "figures/prefill-before.png",
+    "screenshot_sha256": "29f7ef686faad2119f3b966fc60592313c563616f588cdf5ed83069a01f725e9",
+    "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\nFlow Events\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n4\nWall Duration\narrow_downward\nSUM\n128.5\u00b5s\nSelf Duration\nSUM\n32.12\u00b5s\nWall Duration\nAVG\n32.12\u00b5s\nstep[EXTEND bs=1 toks=8000]\n1\n32.12\u00b5s\n0s\n32.12\u00b5s\nsglang.vlm.language_model_prefill\n1\n32.12\u00b5s\n0s\n32.12\u00b5s\nscheduler.run_batch\n1\n32.12\u00b5s\n0s\n32.12\u00b5s\nCijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1\n1\n32.12\u00b5s\n32.12\u00b5s\n32.12\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info.",
+    "page_errors": [],
+    "rows": [
+      {
+        "id": 87523,
+        "ts_ns": "2336482602749680",
+        "dur_ns": "32120",
+        "track_id": 6,
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1"
+      }
+    ],
+    "track_uri": "/slice_6",
+    "track_tags": {
+      "kinds": [
+        "SliceTrack"
+      ],
+      "trackIds": [
+        6,
+        7
+      ],
+      "type": "thread_execution",
+      "upid": 6,
+      "utid": 23,
+      "hasCallstacks": false
+    },
+    "area_start_ns": "2336482602749680",
+    "area_end_ns": "2336482602781800",
+    "window_start_ns": "2336482602729680",
+    "window_end_ns": "2336482602829680",
+    "window_duration_ns": "100000",
+    "import_errors": [
+      {
+        "name": "slice_spill_overlapping_complete_event",
+        "value": 36
+      }
+    ],
+    "imported_slice_count": 113530,
+    "capture_original_trace_path": "/tmp/pr8-decode-followup-perfetto-20261028-w_2zi2p7/raw/port-r1-TP0.trace.json.gz"
+  },
+  {
+    "phase": "decode",
+    "side": "before",
+    "source_commit": "ddccab6e0da380838ef21a87c655624d7f164b1d",
+    "original_trace": "original-traces/port-r1-TP0.trace.json.gz",
+    "original_trace_sha256": "1e3a6b58acdde8df08c4d61cbf1b8c9999f20a7e7a28176812b2b80e8b0f4b6a",
+    "original_trace_bytes": 2407260,
+    "original_event_count": 126943,
+    "source_unchanged": true,
+    "selected_original_events": [
+      {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1",
+        "pid": 2,
+        "tid": 7,
+        "source_ts_us": "2336483314715.597",
+        "source_dur_us": "8.959",
+        "ts_ns": "2336483314715597",
+        "dur_ns": "8959",
+        "stream": 7
+      }
+    ],
+    "attribution": {
+      "rank": 0,
+      "phase": "decode",
+      "module": "in_proj_ba",
+      "batch": 1,
+      "m": 1,
+      "layer": 0,
+      "n": 16,
+      "k": 4096,
+      "graph_batch": 1,
+      "layer_assignment": "Ascending PP1 non-MTP full pass source-order inference; not directly named by profiler",
+      "witness": "witnesses/port-decode-witness.json",
+      "witness_sha256": "4c5e541e4d61c4fb880c9a29cd56f9090079f8a1e7d98eadd7f435c63b27db73",
+      "capture_witness_path": "/tmp/pr8-decode-followup-perfetto-20261028-w_2zi2p7/selection/port-decode-witness.json"
+    },
+    "native_area": true,
+    "native_slices": true,
+    "screenshot": "figures/decode-before.png",
+    "screenshot_sha256": "88bfba9b1247f3a1d74e71d6d6feb320caa32b3a9259ba67f5cf41719e153d93",
+    "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n3\nWall Duration\narrow_downward\nSUM\n26.88\u00b5s\nSelf Duration\nSUM\n8.959\u00b5s\nWall Duration\nAVG\n8.959\u00b5s\nstep[DECODE bs=1]\n1\n8.959\u00b5s\n0s\n8.959\u00b5s\nscheduler.run_batch\n1\n8.959\u00b5s\n0s\n8.959\u00b5s\nCijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1\n1\n8.959\u00b5s\n8.959\u00b5s\n8.959\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info.",
+    "page_errors": [],
+    "rows": [
+      {
+        "id": 112139,
+        "ts_ns": "2336483314715597",
+        "dur_ns": "8959",
+        "track_id": 6,
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1"
+      }
+    ],
+    "track_uri": "/slice_6",
+    "track_tags": {
+      "kinds": [
+        "SliceTrack"
+      ],
+      "trackIds": [
+        6,
+        7
+      ],
+      "type": "thread_execution",
+      "upid": 6,
+      "utid": 23,
+      "hasCallstacks": false
+    },
+    "area_start_ns": "2336483314715597",
+    "area_end_ns": "2336483314724556",
+    "window_start_ns": "2336483314707597",
+    "window_end_ns": "2336483314747597",
+    "window_duration_ns": "40000",
+    "import_errors": [
+      {
+        "name": "slice_spill_overlapping_complete_event",
+        "value": 36
+      }
+    ],
+    "imported_slice_count": 113530,
+    "capture_original_trace_path": "/tmp/pr8-decode-followup-perfetto-20261028-w_2zi2p7/raw/port-r1-TP0.trace.json.gz"
+  },
+  {
+    "phase": "prefill",
+    "side": "after",
+    "source_commit": "176150ccc32f03b663d339b327527c2f85902200",
+    "original_trace": "original-traces/direct-r1-TP0.trace.json.gz",
+    "original_trace_sha256": "31fba39480ab5e9a734e0ca33cf03cd9d3b882150e4788c4349e148f151ac0e8",
+    "original_trace_bytes": 2215186,
+    "original_event_count": 116067,
+    "source_unchanged": true,
+    "selected_original_events": [
+      {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1",
+        "pid": 2,
+        "tid": 7,
+        "source_ts_us": "2338308366475.620",
+        "source_dur_us": "31.919",
+        "ts_ns": "2338308366475620",
+        "dur_ns": "31919",
+        "stream": 7
+      }
+    ],
+    "attribution": {
+      "rank": 0,
+      "phase": "prefill",
+      "module": "in_proj_ba",
+      "batch": 1,
+      "m": 8000,
+      "layer": 0,
+      "n": 16,
+      "k": 4096,
+      "graph_batch": null,
+      "layer_assignment": "Ascending PP1 non-MTP full pass source-order inference; not directly named by profiler",
+      "witness": "witnesses/direct-prefill-witness.json",
+      "witness_sha256": "254134f1d24ab3a9934f9cde8f39231a8324c0bdf9aa9090f347ac95c4dd183a",
+      "capture_witness_path": "/tmp/pr8-decode-followup-perfetto-20261028-w_2zi2p7/selection/direct-prefill-witness.json"
+    },
+    "native_area": true,
+    "native_slices": true,
+    "screenshot": "figures/prefill-after.png",
+    "screenshot_sha256": "dc9bd33e1f5c11207f3e6a032647dff51123e5ff938e13ee63d3fe8c76702ce4",
+    "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\nFlow Events\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n4\nWall Duration\narrow_downward\nSUM\n127.7\u00b5s\nSelf Duration\nSUM\n31.92\u00b5s\nWall Duration\nAVG\n31.92\u00b5s\nstep[EXTEND bs=1 toks=8000]\n1\n31.92\u00b5s\n0s\n31.92\u00b5s\nsglang.vlm.language_model_prefill\n1\n31.92\u00b5s\n0s\n31.92\u00b5s\nscheduler.run_batch\n1\n31.92\u00b5s\n0s\n31.92\u00b5s\nCijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1\n1\n31.92\u00b5s\n31.92\u00b5s\n31.92\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info.",
+    "page_errors": [],
+    "rows": [
+      {
+        "id": 76688,
+        "ts_ns": "2338308366475620",
+        "dur_ns": "31919",
+        "track_id": 6,
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1"
+      }
+    ],
+    "track_uri": "/slice_6",
+    "track_tags": {
+      "kinds": [
+        "SliceTrack"
+      ],
+      "trackIds": [
+        6,
+        7
+      ],
+      "type": "thread_execution",
+      "upid": 6,
+      "utid": 23,
+      "hasCallstacks": false
+    },
+    "area_start_ns": "2338308366475620",
+    "area_end_ns": "2338308366507539",
+    "window_start_ns": "2338308366455620",
+    "window_end_ns": "2338308366555620",
+    "window_duration_ns": "100000",
+    "import_errors": [
+      {
+        "name": "slice_spill_overlapping_complete_event",
+        "value": 37
+      }
+    ],
+    "imported_slice_count": 102656,
+    "capture_original_trace_path": "/tmp/pr8-decode-followup-perfetto-20261028-w_2zi2p7/raw/direct-r1-TP0.trace.json.gz"
+  },
+  {
+    "phase": "decode",
+    "side": "after",
+    "source_commit": "176150ccc32f03b663d339b327527c2f85902200",
+    "original_trace": "original-traces/direct-r1-TP0.trace.json.gz",
+    "original_trace_sha256": "31fba39480ab5e9a734e0ca33cf03cd9d3b882150e4788c4349e148f151ac0e8",
+    "original_trace_bytes": 2215186,
+    "original_event_count": 116067,
+    "source_unchanged": true,
+    "selected_original_events": [
+      {
+        "name": "_swizzled_gemv",
+        "pid": 2,
+        "tid": 7,
+        "source_ts_us": "2338309073427.059",
+        "source_dur_us": "5.279",
+        "ts_ns": "2338309073427059",
+        "dur_ns": "5279",
+        "stream": 7
+      }
+    ],
+    "attribution": {
+      "rank": 0,
+      "phase": "decode",
+      "module": "in_proj_ba",
+      "batch": 1,
+      "m": 1,
+      "layer": 0,
+      "n": 16,
+      "k": 4096,
+      "graph_batch": 1,
+      "layer_assignment": "Ascending PP1 non-MTP full pass source-order inference; not directly named by profiler",
+      "witness": "witnesses/direct-decode-witness.json",
+      "witness_sha256": "72dcf805074b69c205081d7145668ebe714240e9815ac39b9ac775ab2530b1fc",
+      "capture_witness_path": "/tmp/pr8-decode-followup-perfetto-20261028-w_2zi2p7/selection/direct-decode-witness.json"
+    },
+    "native_area": true,
+    "native_slices": true,
+    "screenshot": "figures/decode-after.png",
+    "screenshot_sha256": "ffd5e92364f4666a6c6d7f005aaad0cfc76548145f2b7cdf65eda6ccb6260e2e",
+    "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n3\nWall Duration\narrow_downward\nSUM\n15.84\u00b5s\nSelf Duration\nSUM\n5.279\u00b5s\nWall Duration\nAVG\n5.279\u00b5s\nstep[DECODE bs=1]\n1\n5.279\u00b5s\n0s\n5.279\u00b5s\nscheduler.run_batch\n1\n5.279\u00b5s\n0s\n5.279\u00b5s\n_swizzled_gemv\n1\n5.279\u00b5s\n5.279\u00b5s\n5.279\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info.",
+    "page_errors": [],
+    "rows": [
+      {
+        "id": 101265,
+        "ts_ns": "2338309073427059",
+        "dur_ns": "5279",
+        "track_id": 6,
+        "name": "_swizzled_gemv"
+      }
+    ],
+    "track_uri": "/slice_6",
+    "track_tags": {
+      "kinds": [
+        "SliceTrack"
+      ],
+      "trackIds": [
+        6,
+        7
+      ],
+      "type": "thread_execution",
+      "upid": 6,
+      "utid": 23,
+      "hasCallstacks": false
+    },
+    "area_start_ns": "2338309073427059",
+    "area_end_ns": "2338309073432338",
+    "window_start_ns": "2338309073419059",
+    "window_end_ns": "2338309073459059",
+    "window_duration_ns": "40000",
+    "import_errors": [
+      {
+        "name": "slice_spill_overlapping_complete_event",
+        "value": 37
+      }
+    ],
+    "imported_slice_count": 102656,
+    "capture_original_trace_path": "/tmp/pr8-decode-followup-perfetto-20261028-w_2zi2p7/raw/direct-r1-TP0.trace.json.gz"
+  }
+]

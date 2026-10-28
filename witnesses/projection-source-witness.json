@@ -1,0 +1,78 @@
+{
+  "purpose": "Static source and model attribution for original full-model trace samples; not a reconstructed trace",
+  "model_config_sha256": "0d6f94abe9032f6c4dd60eb934574812a7fd8bc83ffd9dd9e1f8e3c57dce41d0",
+  "model": {
+    "hidden_size": 4096,
+    "linear_num_value_heads": 64,
+    "num_hidden_layers": 60,
+    "full_attention_interval": 4,
+    "dtype": "bfloat16",
+    "attention_tp": 8,
+    "pp_size": 1,
+    "speculative_algorithm": null
+  },
+  "projection": {
+    "module": "in_proj_ba",
+    "input_k": 4096,
+    "unsharded_output_sizes": [
+      64,
+      64
+    ],
+    "local_n": 16,
+    "formula": "(64+64)/attention_tp8=16",
+    "quantization": "in_proj_b/in_proj_a are ignored by compressed-tensors; packed mapping creates BF16 UnquantizedLinearMethod"
+  },
+  "source_files": {
+    "port": {
+      "path": "/raid/hatian/pr8-decode-threeway-20261026/sources/port/python/sglang/srt/models/qwen3_5.py",
+      "sha256": "9ccff88d991fc492daff984e73b5f88fb4daac62d19a2c19c6c686c9bbe5499c"
+    },
+    "candidate": {
+      "path": "sources/pr-candidate/python/sglang/srt/models/qwen3_5.py",
+      "sha256": "c09961d1c558c2444696e9637c135872cc1fc102b176de0e73f9f4b8028d9189",
+      "references": {
+        "head_and_tp_config": 310,
+        "in_proj_ba_prefix": 359,
+        "create_ba_proj": 593,
+        "bf16_input_path": [
+          793,
+          854,
+          878
+        ],
+        "linear_attention_layer": 1039,
+        "packed_modules_mapping": 1600,
+        "layer_build": 1681,
+        "ascending_forward": 1852
+      }
+    },
+    "column_parallel": {
+      "path": "python/sglang/srt/layers/linear.py",
+      "references": [
+        359,
+        364,
+        548
+      ]
+    },
+    "quantization": {
+      "paths": [
+        "python/sglang/srt/layers/quantization/compressed_tensors/utils.py",
+        "python/sglang/srt/layers/quantization/compressed_tensors/compressed_tensors.py"
+      ],
+      "references": {
+        "utils": [
+          33
+        ],
+        "compressed_tensors": [
+          179,
+          1078
+        ]
+      }
+    }
+  },
+  "layer_assignment": {
+    "sample_ordinal_in_full_pass": 0,
+    "inferred_layer_id": 0,
+    "qualifier": "Inferred from ascending full-model execution under PP=1 and non-MTP, with layer0 linear_attention; not directly named by profiler"
+  },
+  "expected_dependency_anchor": "in_proj_qkvz -> in_proj_ba -> fused_qkvzba_split_reshape_cat_contiguous_kernel"
+}

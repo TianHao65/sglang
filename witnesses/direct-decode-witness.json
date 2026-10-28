@@ -1,0 +1,58 @@
+{
+  "trace": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/capture/raw/direct-r1-TP0.trace.json.gz",
+  "trace_sha256": "31fba39480ab5e9a734e0ca33cf03cd9d3b882150e4788c4349e148f151ac0e8",
+  "source_commit": "176150ccc32f03b663d339b327527c2f85902200",
+  "rank": 0,
+  "gpu_metadata_pid": 2,
+  "phase": "decode",
+  "request_batch": 1,
+  "matrix_m": 1,
+  "n": 16,
+  "k": 4096,
+  "attention_tp": 8,
+  "module": "in_proj_ba",
+  "sample_ordinal_in_full_pass": 0,
+  "inferred_layer_id": 0,
+  "layer_assignment": "Ascending PP1 non-MTP full pass source-order inference; not directly named by profiler",
+  "architecture_witness": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/capture/projection-source-witness.json",
+  "architecture_sha256": "080604aa73f870f3ace07dc1dd4ba49db086da3a92ab8c6c87fa3efed0ba6965",
+  "runtime_witness": "/home/hatian/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_followup_20261028/evidence/capture/direct-runtime-witness.json",
+  "runtime_sha256": "4eea677f64c847b317889a2e756cf593c8b269628457e8f39278054eda9064fe",
+  "original_scope": {
+    "name": "step[DECODE bs=1]",
+    "ts_us": "2338309063636.522",
+    "dur_us": "1435.355",
+    "pid": 18816,
+    "tid": 18816,
+    "stream": null
+  },
+  "selected_gpu_events": [
+    {
+      "name": "_swizzled_gemv",
+      "ts_us": "2338309073427.059",
+      "dur_us": "5.279",
+      "pid": 2,
+      "tid": 7,
+      "stream": 7
+    }
+  ],
+  "original_graph_launch": {
+    "name": "hipGraphLaunch",
+    "ts_us": "2338309064266.179",
+    "dur_us": "721.283",
+    "pid": 18816,
+    "tid": 18816,
+    "stream": null
+  },
+  "graph_launch_correlation": 9590,
+  "graph_batch": 1,
+  "specific_dependency_anchor": {
+    "name": "fused_qkvzba_split_reshape_cat_contiguous_kernel",
+    "ts_us": "2338309073432.339",
+    "dur_us": "5.519",
+    "pid": 2,
+    "tid": 7,
+    "stream": 7
+  },
+  "shape_attribution": "Verified source BA shape and first GDN dependency sequence; graph replay has no individual CPU projection shape record"
+}

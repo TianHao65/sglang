@@ -1,0 +1,31 @@
+{
+  "source": "port_r1",
+  "server_info_sha256": "2f53f75b2ef68606135649e5871a5125dafc85c89a1bd0cf6e4a09d3d33905e9",
+  "server_log_sha256": "2fc40effc9dfe32622a065f4231874b1385f531c4a06b07632cf0d863fa946f5",
+  "server_info": {
+    "version": "0.5.21",
+    "tp_size": 8,
+    "pp_size": 1,
+    "speculative_algorithm": null,
+    "disable_cuda_graph": false,
+    "disable_decode_cuda_graph": false,
+    "disable_cuda_graph_padding": false,
+    "cuda_graph_max_bs_decode": 128,
+    "cuda_graph_bs_decode": null
+  },
+  "captured_graph_bs1": true,
+  "captured_graph_bs1_line": "Capturing batches (bs=1 avail_mem=110.88 GB): 100%|██████████| 20/20 [00:43<00:00,  2.18s/it]",
+  "profile_recipe": {
+    "input_tokens": 8000,
+    "output_tokens": 500,
+    "warmups": 2,
+    "num_steps": 33,
+    "activities": [
+      "CPU",
+      "GPU"
+    ],
+    "record_shapes": true,
+    "with_stack": false
+  },
+  "graph_batch_basis": "smallest recorded captured graph tier1 matches actual DECODE bs1; no padding expansion is needed"
+}

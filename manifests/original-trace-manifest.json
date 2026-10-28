@@ -1,0 +1,25 @@
+{
+  "raw_files": [
+    {
+      "variant": "port_r1",
+      "producer_path": "/mnt/raid0/hatian/pr8-decode-followup-20261028/results/port_r1/traces/port-TP-0.trace.json.gz",
+      "local_path": "raw/port-r1-TP0.trace.json.gz",
+      "source_commit": "ddccab6e0da380838ef21a87c655624d7f164b1d",
+      "sha256": "1e3a6b58acdde8df08c4d61cbf1b8c9999f20a7e7a28176812b2b80e8b0f4b6a",
+      "bytes": 2407260,
+      "original_events": 126943,
+      "artifact": "original-traces/port-r1-TP0.trace.json.gz"
+    },
+    {
+      "variant": "direct_r1",
+      "producer_path": "/mnt/raid0/hatian/pr8-decode-followup-20261028/results/direct_r1/traces/direct-TP-0.trace.json.gz",
+      "local_path": "raw/direct-r1-TP0.trace.json.gz",
+      "source_commit": "176150ccc32f03b663d339b327527c2f85902200",
+      "sha256": "31fba39480ab5e9a734e0ca33cf03cd9d3b882150e4788c4349e148f151ac0e8",
+      "bytes": 2215186,
+      "original_events": 116067,
+      "artifact": "original-traces/direct-r1-TP0.trace.json.gz"
+    }
+  ],
+  "original_bytes_unchanged": true
+}
