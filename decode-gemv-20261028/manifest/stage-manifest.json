@@ -1,0 +1,146 @@
+[
+  {
+    "stage": "prefill",
+    "side": "before",
+    "variant": "port",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_threeway_20261026/evidence/results/port_r1/traces/port-TP-0.trace.json.gz",
+    "source_sha256": "c436c9b4ff1413afe9d28a4ef7a2db2ea6832fe90b5b45b9efc8ef1a75325bff",
+    "source_bytes": 2260531,
+    "original_event_count": 119235,
+    "selected": [
+      {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1",
+        "ts_us": "2154842415879.542",
+        "dur_us": "25.559",
+        "ts_ns": 2154842415879542,
+        "dur_ns": 25559,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      }
+    ],
+    "mapping": {
+      "kind": "original_cpu_shapes_external_id_runtime_correlation",
+      "cpu_external_id": 85485,
+      "input_dims": [
+        [
+          8000,
+          4096
+        ],
+        [
+          4096,
+          16
+        ]
+      ],
+      "runtime_correlation": 5086
+    },
+    "window_width_ns": 100000
+  },
+  {
+    "stage": "decode",
+    "side": "before",
+    "variant": "port",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_threeway_20261026/evidence/results/port_r1/traces/port-TP-0.trace.json.gz",
+    "source_sha256": "c436c9b4ff1413afe9d28a4ef7a2db2ea6832fe90b5b45b9efc8ef1a75325bff",
+    "source_bytes": 2260531,
+    "original_event_count": 119235,
+    "selected": [
+      {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x16x128_MI16x16x1_SN_LDSB0_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA4_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_1",
+        "ts_us": "2154842823034.865",
+        "dur_us": "7.519",
+        "ts_ns": 2154842823034865,
+        "dur_ns": 7519,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      }
+    ],
+    "mapping": {
+      "kind": "matched_original_gpu_stream_sequence",
+      "stream_kernel_index": 2890,
+      "eligible_gdn_call_ordinal": 30,
+      "eligible_gdn_layer_index": 38,
+      "guard_shape": [
+        1,
+        16,
+        4096
+      ],
+      "graph_replay_correlation": 9590,
+      "matching_neighbor_count": 6
+    },
+    "window_width_ns": 40000
+  },
+  {
+    "stage": "prefill",
+    "side": "after",
+    "variant": "direct",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_threeway_20261026/evidence/results/direct_r1/traces/direct-TP-0.trace.json.gz",
+    "source_sha256": "79e44b5a68ce20a4a570298bfb127cd82b6e052c728c6ebc17eeac4debdfcff5",
+    "source_bytes": 2185869,
+    "original_event_count": 115119,
+    "selected": [
+      {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1",
+        "ts_us": "2156621122996.548",
+        "dur_us": "25.600",
+        "ts_ns": 2156621122996548,
+        "dur_ns": 25600,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      }
+    ],
+    "mapping": {
+      "kind": "original_cpu_shapes_external_id_runtime_correlation",
+      "cpu_external_id": 81712,
+      "input_dims": [
+        [
+          8000,
+          4096
+        ],
+        [
+          4096,
+          16
+        ]
+      ],
+      "runtime_correlation": 5086
+    },
+    "window_width_ns": 100000
+  },
+  {
+    "stage": "decode",
+    "side": "after",
+    "variant": "direct",
+    "source": "/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_threeway_20261026/evidence/results/direct_r1/traces/direct-TP-0.trace.json.gz",
+    "source_sha256": "79e44b5a68ce20a4a570298bfb127cd82b6e052c728c6ebc17eeac4debdfcff5",
+    "source_bytes": 2185869,
+    "original_event_count": 115119,
+    "selected": [
+      {
+        "name": "_swizzled_gemv",
+        "ts_us": "2156621557314.636",
+        "dur_us": "4.759",
+        "ts_ns": 2156621557314636,
+        "dur_ns": 4759,
+        "pid": 2,
+        "tid": 7,
+        "stream": 7
+      }
+    ],
+    "mapping": {
+      "kind": "matched_original_gpu_stream_sequence",
+      "stream_kernel_index": 2890,
+      "eligible_gdn_call_ordinal": 30,
+      "eligible_gdn_layer_index": 38,
+      "guard_shape": [
+        1,
+        16,
+        4096
+      ],
+      "graph_replay_correlation": 9590,
+      "matching_neighbor_count": 6
+    },
+    "window_width_ns": 40000
+  }
+]

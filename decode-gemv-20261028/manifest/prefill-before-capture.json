@@ -1,0 +1,76 @@
+{
+  "stage": "prefill",
+  "side": "before",
+  "variant": "port",
+  "source": "/workspace/projects/Ali-Dflash/397B/experiments/pr8_decode_threeway_20261026/evidence/results/port_r1/traces/port-TP-0.trace.json.gz",
+  "source_sha256": "c436c9b4ff1413afe9d28a4ef7a2db2ea6832fe90b5b45b9efc8ef1a75325bff",
+  "source_bytes": 2260531,
+  "original_event_count": 119235,
+  "selected": [
+    {
+      "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1",
+      "ts_us": "2154842415879.542",
+      "dur_us": "25.559",
+      "ts_ns": 2154842415879542,
+      "dur_ns": 25559,
+      "pid": 2,
+      "tid": 7,
+      "stream": 7
+    }
+  ],
+  "mapping": {
+    "kind": "original_cpu_shapes_external_id_runtime_correlation",
+    "cpu_external_id": 85485,
+    "input_dims": [
+      [
+        8000,
+        4096
+      ],
+      [
+        4096,
+        16
+      ]
+    ],
+    "runtime_correlation": 5086
+  },
+  "window_width_ns": 100000,
+  "slice": {
+    "id": 94908,
+    "ts": 2154842415879542,
+    "dur": 25559,
+    "track_id": 6,
+    "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1"
+  },
+  "track_uri": "/slice_6",
+  "track_tags": {
+    "kinds": [
+      "SliceTrack"
+    ],
+    "trackIds": [
+      6,
+      7
+    ],
+    "type": "thread_execution",
+    "upid": 6,
+    "utid": 23,
+    "hasCallstacks": false
+  },
+  "start_ns": 2154842415879542,
+  "end_ns": 2154842415905101,
+  "window_start_ns": 2154842415859542,
+  "window_end_ns": 2154842415959542,
+  "loaded_slice_count": 105824,
+  "importErrors": [
+    {
+      "name": "slice_spill_overlapping_complete_event",
+      "value": 36
+    }
+  ],
+  "screenshot": "figures/prefill-before-original-perfetto.png",
+  "native_area": true,
+  "native_slices": true,
+  "kernel_in_native_list": true,
+  "page_errors": [],
+  "source_unchanged": true,
+  "native_list_text": "Area Selection\nSlices\nSlice Flamegraph\nFlow Events\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n4\nWall Duration\narrow_downward\nSUM\n102.2\u00b5s\nSelf Duration\nSUM\n25.56\u00b5s\nWall Duration\nAVG\n25.56\u00b5s\nstep[EXTEND bs=1 toks=8000]\n1\n25.56\u00b5s\n0s\n25.56\u00b5s\nsglang.vlm.language_model_prefill\n1\n25.56\u00b5s\n0s\n25.56\u00b5s\nscheduler.run_batch\n1\n25.56\u00b5s\n0s\n25.56\u00b5s\nCijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT16x32x256_MI16x16x1_SN_LDSB1_AFC0_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA1_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPM0_LPA0_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS16_NLCA8_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_1\n1\n25.56\u00b5s\n25.56\u00b5s\n25.56\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info."
+}

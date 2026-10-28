@@ -1,0 +1,65 @@
+{
+  "source_commit": "a8cd5457832218bad7e74e3cc570dc5d04e50998",
+  "source_base": "ddccab6e0da380838ef21a87c655624d7f164b1d",
+  "decode_only_files": [
+    "python/sglang/kernels/ops/gemm/swizzled_bf16_gemv.py",
+    "python/sglang/srt/environ.py",
+    "python/sglang/srt/layers/quantization/compressed_tensors/utils.py",
+    "python/sglang/srt/layers/quantization/unquant.py",
+    "python/sglang/srt/models/qwen3_5.py",
+    "python/sglang/srt/runtime_context.py"
+  ],
+  "syntax_passed": true,
+  "diff_check_passed": true,
+  "tracked_worktree_clean": true,
+  "figures": [
+    {
+      "stage": "prefill",
+      "side": "before",
+      "importErrors": [
+        {
+          "name": "slice_spill_overlapping_complete_event",
+          "value": 36
+        }
+      ],
+      "screenshot": "figures/prefill-before-original-perfetto.png",
+      "sha": "ebe9ac5af74071df5fba1ac6b8f0bb157fbdefd18054709f42f1ac0c9184fcb8"
+    },
+    {
+      "stage": "decode",
+      "side": "before",
+      "importErrors": [
+        {
+          "name": "slice_spill_overlapping_complete_event",
+          "value": 36
+        }
+      ],
+      "screenshot": "figures/decode-before-original-perfetto.png",
+      "sha": "d1151efb5517ae17ec33ff7d5cc196dee4bbf7a31ca0ecf2364ad673e00785f6"
+    },
+    {
+      "stage": "prefill",
+      "side": "after",
+      "importErrors": [
+        {
+          "name": "slice_spill_overlapping_complete_event",
+          "value": 36
+        }
+      ],
+      "screenshot": "figures/prefill-after-original-perfetto.png",
+      "sha": "3f69532605baaf8f430f4facf341142dab36cd8e1afd0824d71f55da04d505cd"
+    },
+    {
+      "stage": "decode",
+      "side": "after",
+      "importErrors": [
+        {
+          "name": "slice_spill_overlapping_complete_event",
+          "value": 36
+        }
+      ],
+      "screenshot": "figures/decode-after-original-perfetto.png",
+      "sha": "6e7083392597f29e0538f288dbc55f1cfa021d6edf18bc2c3c98dcf832b1dd00"
+    }
+  ]
+}
