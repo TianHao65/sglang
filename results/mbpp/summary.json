@@ -1,0 +1,51 @@
+{
+  "requests": 96,
+  "requests_with_draft_counters": 96,
+  "requests_with_verify_counters": 96,
+  "accepted_draft_tokens": 5585,
+  "proposed_draft_tokens": 24360,
+  "spec_accept_rate": 0.22926929392446635,
+  "spec_verify_ct_sum": 1624,
+  "output_tokens": 7123,
+  "spec_accept_length_weighted": 4.386083743842365,
+  "finish_reason_counts": {
+    "stop": 95,
+    "length": 1
+  },
+  "workload": "mbpp",
+  "concurrency": 32,
+  "batch_requests": false,
+  "warmup_requests_excluded": 32,
+  "max_new_tokens": 1024,
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "top_k": 1
+  },
+  "accuracy": 0.7916666666666666,
+  "output_toks_per_s": 290.2501704860549,
+  "latency_s": 24.540898591279984,
+  "server_version": "0.5.19.dev493+g540d564c1",
+  "responses_file": "run1_responses.jsonl",
+  "source_commit": "720f8ad566a97069c10069ad1a76d39bb460e951",
+  "responses_sha256": "79de53a1262a31a1d8fc6e1943ac84c04e16a7f93e422f6e05cdf49376c10604",
+  "independent_counter_recompute": "passed",
+  "label": "MBPP",
+  "selected_prompts": 128,
+  "server_config": {
+    "speculative_algorithm": "DFLASH",
+    "speculative_num_draft_tokens": 16,
+    "tp_size": 8,
+    "attention_backend": "aiter",
+    "speculative_draft_attention_backend": "triton",
+    "disable_radix_cache": true,
+    "page_size": 64,
+    "kv_cache_dtype": "fp8_e4m3",
+    "mamba_radix_cache_strategy": "extra_buffer",
+    "max_running_requests": 128,
+    "chunked_prefill_size": 32768,
+    "mem_fraction_static": 0.765
+  },
+  "model": "Qwen3.5-397B-A17B-PTPC-FP8",
+  "draft_model": "Qwen3.5-397B-A17B-DFlash"
+}

@@ -1,0 +1,51 @@
+{
+  "requests": 132,
+  "requests_with_draft_counters": 132,
+  "requests_with_verify_counters": 132,
+  "accepted_draft_tokens": 29620,
+  "proposed_draft_tokens": 42150,
+  "spec_accept_rate": 0.7027283511269277,
+  "spec_verify_ct_sum": 2810,
+  "output_tokens": 32322,
+  "spec_accept_length_weighted": 11.502491103202846,
+  "finish_reason_counts": {
+    "stop": 131,
+    "length": 1
+  },
+  "workload": "humaneval",
+  "concurrency": 32,
+  "batch_requests": false,
+  "warmup_requests_excluded": 32,
+  "max_new_tokens": 1024,
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "top_k": 1
+  },
+  "accuracy": 0.9545454545454546,
+  "output_toks_per_s": 1451.744964785607,
+  "latency_s": 22.264241160824895,
+  "server_version": "0.5.19.dev493+g540d564c1",
+  "responses_file": "run1_responses.jsonl",
+  "source_commit": "720f8ad566a97069c10069ad1a76d39bb460e951",
+  "responses_sha256": "59d84c2100be021291602ad630045f20157993523a598b81e2c629fe36a484d2",
+  "independent_counter_recompute": "passed",
+  "label": "HumanEval",
+  "selected_prompts": 164,
+  "server_config": {
+    "speculative_algorithm": "DFLASH",
+    "speculative_num_draft_tokens": 16,
+    "tp_size": 8,
+    "attention_backend": "aiter",
+    "speculative_draft_attention_backend": "triton",
+    "disable_radix_cache": true,
+    "page_size": 64,
+    "kv_cache_dtype": "fp8_e4m3",
+    "mamba_radix_cache_strategy": "extra_buffer",
+    "max_running_requests": 128,
+    "chunked_prefill_size": 32768,
+    "mem_fraction_static": 0.765
+  },
+  "model": "Qwen3.5-397B-A17B-PTPC-FP8",
+  "draft_model": "Qwen3.5-397B-A17B-DFlash"
+}

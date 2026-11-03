@@ -1,0 +1,67 @@
+{
+  "gsm8k": {
+    "driver": "benchmark/dflash/bench_dflash_gsm8k_sweep.py",
+    "concurrency": 64,
+    "questions_per_concurrency_base": 200,
+    "max_questions_per_config": 200,
+    "max_new_tokens": 4096,
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "top_k": 1
+    },
+    "enable_thinking": false
+  },
+  "math500": {
+    "driver": "benchmark/dflash/bench_dflash_math500_sweep.py",
+    "concurrency": 32,
+    "questions_per_concurrency_base": 128,
+    "max_questions_per_config": 128,
+    "max_new_tokens": 2048,
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "top_k": 1
+    },
+    "enable_thinking": false
+  },
+  "humaneval": {
+    "driver": "benchmark/dflash/bench_dflash_humaneval_sweep.py",
+    "concurrency": 32,
+    "questions_per_concurrency_base": 164,
+    "max_questions_per_config": 164,
+    "max_new_tokens": 1024,
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "top_k": 1
+    },
+    "enable_thinking": false
+  },
+  "mbpp": {
+    "driver": "benchmark/dflash/bench_dflash_mbpp_sweep.py",
+    "concurrency": 32,
+    "questions_per_concurrency_base": 128,
+    "max_questions_per_config": 128,
+    "max_new_tokens": 1024,
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "top_k": 1
+    },
+    "enable_thinking": false
+  },
+  "mtbench": {
+    "driver": "benchmark/dflash/bench_dflash_mtbench_sweep.py",
+    "concurrency": 32,
+    "questions_per_concurrency_base": 80,
+    "max_questions_per_config": 80,
+    "max_new_tokens": 1024,
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "top_k": 1
+    },
+    "enable_thinking": false
+  }
+}

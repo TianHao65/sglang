@@ -1,0 +1,89 @@
+{
+  "source_commit": "720f8ad566a97069c10069ad1a76d39bb460e951",
+  "ci_base": "0be1aabf5bae3da58bd268fcdad2001a74c4c2b8",
+  "source_sha256": {
+    "python/sglang/srt/models/qwen3_5.py": "9ccff88d991fc492daff984e73b5f88fb4daac62d19a2c19c6c686c9bbe5499c",
+    "python/sglang/srt/models/qwen3_5_text.py": "0233494c85bc6aa4ba9ca3c959fca50b65c57f97c7935b8ee41a77ad575765ea",
+    "python/sglang/srt/models/dflash.py": "10cba6aeac6986537114a7cc26df296d308e45c849c18f690d451bf63a9c4871",
+    "python/sglang/srt/speculative/dflash_info.py": "9e703a1cf0eac7975f865d187459de7bce0890fa67cf6c749a1b2fadb09b71ef",
+    "python/sglang/srt/speculative/dflash_worker_v2.py": "99a44f45747a2cfc69423193cf8d2745c9a4ac320e3c200e37fe46395208f91f",
+    "python/sglang/srt/managers/tokenizer_manager.py": "60992c06c787a3630faa5e27b3d3f1a4530e68870a53272372ed469031a25d28",
+    "python/sglang/srt/entrypoints/http_server.py": "1fbb46671e86d0ebf23046efa09e8e03d251754e681ba03b818dbb7a75c79c55",
+    "benchmark/dflash/record_acceptance.py": "dd95c6e508c886344a727f2f71ca04e2e9624523729dd569d9dd8a935210e230"
+  },
+  "software_distributions": {
+    "torch": "2.12.0+rocm7.2.4.gitcf5ea6e.post2",
+    "sglang": "0.5.19.dev493+g540d564c1",
+    "transformers": "5.12.1",
+    "amd-aiter": "0.1.19.post3.dev139+gc16d44b93.d20260903",
+    "triton": "3.7.1+rocm7.2.4.git0263a6a"
+  },
+  "gpu": "8 x AMD Instinct MI308X",
+  "protocol": {
+    "temperature": 0,
+    "top_p": 1,
+    "top_k": 1,
+    "enable_thinking": false,
+    "target_tp": 8,
+    "draft_tokens": 16,
+    "radix_cache": false,
+    "attention_backend": "aiter",
+    "linear_attention_backend": "triton",
+    "draft_attention_backend": "triton",
+    "mem_fraction_static_resolved": 0.765,
+    "random_seed": 604584685,
+    "page_size": 64,
+    "kv_cache_dtype": "fp8_e4m3",
+    "warmup": "one concurrency-sized batch per dataset; excluded"
+  },
+  "server_starts": 2,
+  "gsm8k_source": "complete first current-commit run, reused without regeneration",
+  "limitations": [
+    "single-request arithmetic probes produced malformed output on this stack",
+    "table covers concurrency64 for GSM8K and concurrency32 for other workloads",
+    "length truncations and scorer failures are retained",
+    "MT-Bench first turn only; no quality judge"
+  ],
+  "files": {
+    "results/gsm8k/responses.jsonl.gz": {
+      "sha256": "6f26f17b3e21b9bef95b4002b25f9d971200ea8c588223a144a21a4477181a5d",
+      "uncompressed_sha256": "e01772a7355108832eca89d2c4b9785e0fd6042985404262b8462ccc5767bc0d"
+    },
+    "data/gsm8k.jsonl.gz": {
+      "sha256": "bb13a52c31b1fa4805ebab294dce067e337ccd4b61c3e6461c85c92965282c62",
+      "uncompressed_sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14"
+    },
+    "results/math500/responses.jsonl.gz": {
+      "sha256": "80068e36b8e564653aefaae6862d71610713aa70dfacc797688086d284b48cea",
+      "uncompressed_sha256": "d0751a16c844ec7aeefe85943c0ce773ce68a07295e49cc33b883373ecdc352f"
+    },
+    "data/math500.jsonl.gz": {
+      "sha256": "f07ed38613fb7897a59423a841d8ab2bb288eba639fbf3ecf1ff3e2bc9c76419",
+      "uncompressed_sha256": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132"
+    },
+    "results/humaneval/responses.jsonl.gz": {
+      "sha256": "38fdca46f75919e4b4696c49365da11fb26c0a001776f7d98845f94bd897a6ca",
+      "uncompressed_sha256": "59d84c2100be021291602ad630045f20157993523a598b81e2c629fe36a484d2"
+    },
+    "data/humaneval.jsonl.gz": {
+      "sha256": "ac4e91943afe24984653da41df3abfbaa028b0097907d380cc1644ff04e1604f",
+      "uncompressed_sha256": "1d49078ba3e2b196b9344535bef34a43021f038fad9561d6ee7c53450609a6a2"
+    },
+    "results/mbpp/responses.jsonl.gz": {
+      "sha256": "7dc02ebb26316ba9598ef62a5f4dfa5a730551a4ce4eeeb1f3a99904a68cc54b",
+      "uncompressed_sha256": "79de53a1262a31a1d8fc6e1943ac84c04e16a7f93e422f6e05cdf49376c10604"
+    },
+    "data/mbpp.jsonl.gz": {
+      "sha256": "29845b0dc86965fbbab7505194f48ab10913fb473fe1c8283672002d2cd7ee94",
+      "uncompressed_sha256": "ccf64ceae9c5403bf50a044cb6d505bfd2a2963ee58338ba268fd65beab92a9f"
+    },
+    "results/mtbench/responses.jsonl.gz": {
+      "sha256": "d68ebc549bfa67f2179b1fb5a3c60b1e681f57a5e0b97aac23385d3ed060e6bf",
+      "uncompressed_sha256": "4d8f6b7ed249141d903cf3fc61c54aba14fd023dd947258f60170b71ac26b402"
+    },
+    "data/mtbench.jsonl.gz": {
+      "sha256": "7ef912e7ebc9cec670a8aa18f224746d6c35ed1129d2746402e99da489992e75",
+      "uncompressed_sha256": "119565adbab82227089cefdb44c8d7e2cf04dc0a0ec233634c82e7d4e2a944f7"
+    }
+  }
+}
