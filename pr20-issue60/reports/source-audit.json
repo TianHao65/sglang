@@ -1,6 +1,6 @@
 {
   "utc": "2026-11-03T04:18:52.373618+00:00",
-  "head": "61f3cb41145e1a8c465b6cf07cc6f9297d64793d",
+  "head": "bbbada6864abc9d9cd46ccea43efdf637293d54c",
   "base": "0be1aabf5bae3da58bd268fcdad2001a74c4c2b8",
   "target": "91cdd01da750004559b94f2ceede50d88f516a59",
   "historical_tested_head": "51565668154dd51530c225b5f221bc631ec034eb",
@@ -45,5 +45,9 @@
   "pr_commits_including_ci": 23,
   "pr_files_including_ci": 18,
   "non_ci_tree_identical_to_tested_candidate": true,
-  "passed": true
+  "passed": true,
+  "dco_predecessor": "61f3cb41145e1a8c465b6cf07cc6f9297d64793d",
+  "dco_change": "Signed-off-by trailer only; identical full tree",
+  "full_tree": "3fcc560b8e758593bdb6f9a1bb32e6d5d58bc04a",
+  "dco_tree_unchanged": true
 }

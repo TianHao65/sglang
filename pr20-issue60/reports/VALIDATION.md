@@ -1,6 +1,6 @@
 # PR20 shared-expert gate follow-up: issue60 port evidence
 
-Source port: `61f3cb41145e1a8c465b6cf07cc6f9297d64793d`.
+Source port: `bbbada6864abc9d9cd46ccea43efdf637293d54c`.
 CI parent: `0be1aabf5bae3da58bd268fcdad2001a74c4c2b8`, the adopted PR63/76 snapshot.
 Target: `apinge/sglang:qwen4_v0.5.21` at `91cdd01da750004559b94f2ceede50d88f516a59`.
 Related issue: https://github.com/apinge/sglang/issues/60
@@ -22,7 +22,9 @@ identities and the full tree outside the CI dependencies match tested candidate
 no PR8/PR63/PR76 linear changes are included. Author and author date preserved;
 issue/source references were appended to the commit message.
 
-21 CI CPU tests and 10 evaluation shell syntax checks passed. The first local
+21 CI CPU tests and 10 evaluation shell syntax checks passed on the identical-tree
+predecessor `61f3cb41145e1a8c465b6cf07cc6f9297d64793d`. The final commit adds only the missing
+author/committer Signed-off-by trailer; no source or CI code changes. The first local
 CPU attempt used an empty HIP_VISIBLE_DEVICES, which changes the CI CLI's default
 --gpus argument and caused a validation-order expectation failure. The final run
 omitted this variable while retaining empty CUDA_VISIBLE_DEVICES and
@@ -32,7 +34,7 @@ ROCR_VISIBLE_DEVICES; no GPU or model work ran and no code changed.
 
 The following data was measured on baseline `e04b1a37e8118cb7323b2cb30a6d0c29259479cc`
 and candidate `51565668154dd51530c225b5f221bc631ec034eb`, before rebasing CI to 0be1.
-These are same-implementation historical results, not fresh measurements of 61f3.
+These are same-implementation historical results, not fresh measurements of bbbada68.
 
 Same-node **TP4**, 4×MI308X, Qwen3.5-397B-A17B-PTPC-FP8. Main pairs r1/r2 use GPUs0–3/NUMA0; the last pair uses GPUs4–7/NUMA1 after two external GPU0 contexts interrupted startup before any formal samples. Each A/B pair uses the same GPU set. The original three-start protocol on one fixed GPU set was not completed.
 
