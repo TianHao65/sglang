@@ -1,0 +1,56 @@
+{
+  "row": {
+    "id": 244,
+    "ts": 2480780869225456,
+    "dur": 5319,
+    "track_id": 3,
+    "name": "_fused_append_shared_experts_with_weights_kernel.kd"
+  },
+  "track_uri": "/slice_3",
+  "track_tags": {
+    "kinds": [
+      "SliceTrack"
+    ],
+    "trackIds": [
+      3
+    ],
+    "type": "thread_execution",
+    "upid": 4,
+    "utid": 22,
+    "hasCallstacks": false
+  },
+  "window_start_ns": 2480780869217456,
+  "window_end_ns": 2480780869247456,
+  "import_errors": [],
+  "loaded_slice_count": 1361,
+  "record": {
+    "phase": "decode",
+    "side": "before",
+    "source": "traces/decode-before.trace.json.gz",
+    "source_sha256": "8ec61bcf748fcbed7d42f19391f5a672795432b2dee76dbbd997937918bb1d07",
+    "source_bytes": 34301,
+    "source_event_count": 2616,
+    "recorded_gate_count": 48,
+    "source_commit": "e04b1a37e8118cb7323b2cb30a6d0c29259479cc",
+    "selected": {
+      "name": "_fused_append_shared_experts_with_weights_kernel.kd",
+      "ts_ns": 2480780869225456,
+      "dur_ns": 5319,
+      "ts_us": "2480780869225.456",
+      "dur_us": "5.319",
+      "pid": 0,
+      "tid": 1,
+      "stream": 1,
+      "original_event_index": 442,
+      "recorded_ordinal": 1
+    },
+    "attribution": "TP0 first recorded Triton gate in DECODE bs=1; no matched layer or timing comparison; baseline gate capture partial"
+  },
+  "screenshot": "figures/decode-before.png",
+  "page_errors": [],
+  "original_bytes_unchanged": true,
+  "native_area": true,
+  "native_slices": true,
+  "kernel_name_in_native_list": true,
+  "native_selection_text": "Area Selection\nSlices\nSlice Flamegraph\nFlow Events\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n2\nWall Duration\narrow_downward\nSUM\n10.64\u00b5s\nSelf Duration\nSUM\n5.319\u00b5s\nWall Duration\nAVG\n5.319\u00b5s\nstep[DECODE bs=1]\n1\n5.319\u00b5s\n0s\n5.319\u00b5s\n_fused_append_shared_experts_with_weights_kernel.kd\n1\n5.319\u00b5s\n5.319\u00b5s\n5.319\u00b5s\nsyncTimeline Sync"
+}

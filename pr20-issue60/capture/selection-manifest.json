@@ -1,0 +1,94 @@
+[
+  {
+    "phase": "prefill",
+    "side": "before",
+    "source": "traces/prefill-before.trace.json.gz",
+    "source_sha256": "bc3847aed35e5b3e5182b67e4415445f3f35400dbab39fa54ef6afcdc8f83053",
+    "source_bytes": 523786,
+    "source_event_count": 30410,
+    "recorded_gate_count": 60,
+    "source_commit": "e04b1a37e8118cb7323b2cb30a6d0c29259479cc",
+    "selected": {
+      "name": "_fused_append_shared_experts_with_weights_kernel.kd",
+      "ts_ns": 2480779337028243,
+      "dur_ns": 61760,
+      "ts_us": "2480779337028.243",
+      "dur_us": "61.760",
+      "pid": 0,
+      "tid": 4,
+      "stream": 4,
+      "original_event_index": 27475,
+      "recorded_ordinal": 30
+    },
+    "attribution": "TP0 prefill chronological gate call 30, EXTEND bs=1/toks=8000"
+  },
+  {
+    "phase": "prefill",
+    "side": "after",
+    "source": "traces/prefill-after.trace.json.gz",
+    "source_sha256": "91344771d7f0c786ccbd6c1a2ed7c7f62f7917c5d75c304bcb394c6b2fb4495c",
+    "source_bytes": 511934,
+    "source_event_count": 29446,
+    "recorded_gate_count": 60,
+    "source_commit": "51565668154dd51530c225b5f221bc631ec034eb",
+    "selected": {
+      "name": "sglang::shared_gate_append_hip_kernel(unsigned short const*, unsigned short const*, int const*, float const*, int*, float*, int, int, int, float) [clone .kd]",
+      "ts_ns": 2484900535510573,
+      "dur_ns": 56119,
+      "ts_us": "2484900535510.573",
+      "dur_us": "56.119",
+      "pid": 0,
+      "tid": 4,
+      "stream": 4,
+      "original_event_index": 27281,
+      "recorded_ordinal": 30
+    },
+    "attribution": "TP0 prefill chronological gate call 30, EXTEND bs=1/toks=8000"
+  },
+  {
+    "phase": "decode",
+    "side": "before",
+    "source": "traces/decode-before.trace.json.gz",
+    "source_sha256": "8ec61bcf748fcbed7d42f19391f5a672795432b2dee76dbbd997937918bb1d07",
+    "source_bytes": 34301,
+    "source_event_count": 2616,
+    "recorded_gate_count": 48,
+    "source_commit": "e04b1a37e8118cb7323b2cb30a6d0c29259479cc",
+    "selected": {
+      "name": "_fused_append_shared_experts_with_weights_kernel.kd",
+      "ts_ns": 2480780869225456,
+      "dur_ns": 5319,
+      "ts_us": "2480780869225.456",
+      "dur_us": "5.319",
+      "pid": 0,
+      "tid": 1,
+      "stream": 1,
+      "original_event_index": 442,
+      "recorded_ordinal": 1
+    },
+    "attribution": "TP0 first recorded Triton gate in DECODE bs=1; no matched layer or timing comparison; baseline gate capture partial"
+  },
+  {
+    "phase": "decode",
+    "side": "after",
+    "source": "traces/decode-after.trace.json.gz",
+    "source_sha256": "1afdebdafaec52c1e040502d09a5a1ead96532fd454e100aedd8949a8b7763d5",
+    "source_bytes": 38423,
+    "source_event_count": 3124,
+    "recorded_gate_count": 60,
+    "source_commit": "51565668154dd51530c225b5f221bc631ec034eb",
+    "selected": {
+      "name": "_fused_append_shared_experts_with_weights_kernel.kd",
+      "ts_ns": 2484901774581653,
+      "dur_ns": 4999,
+      "ts_us": "2484901774581.653",
+      "dur_us": "4.999",
+      "pid": 0,
+      "tid": 1,
+      "stream": 1,
+      "original_event_index": 440,
+      "recorded_ordinal": 1
+    },
+    "attribution": "TP0 first recorded Triton gate in DECODE bs=1; no matched layer or timing comparison; baseline gate capture partial"
+  }
+]

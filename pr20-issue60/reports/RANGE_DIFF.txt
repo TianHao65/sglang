@@ -1,0 +1,11 @@
+1:  5156566815 ! 1:  61f3cb4114 [ROCm] Port native HIP shared-expert gate to qwen4
+    @@ Commit message
+     
+         Port the native kernel from 1c019c6fb29d2de04d40ff21581846aab0688551 onto qwen4_v0.5.21 without the intermediate standalone gate implementation.
+     
+    +    Refs: https://github.com/apinge/sglang/issues/60
+    +    Source: https://github.com/apinge/sglang/pull/20 (native HIP follow-up)
+    +
+      ## python/sglang/kernels/jit/csrc/moe/shared_gate_append_hip.cuh (new) ##
+     @@
+     +#pragma once

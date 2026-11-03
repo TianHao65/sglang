@@ -1,0 +1,62 @@
+{
+  "row": {
+    "id": 18254,
+    "ts": 2484900535510573,
+    "dur": 56119,
+    "track_id": 5,
+    "name": "sglang::shared_gate_append_hip_kernel(unsigned short const*, unsigned short const*, int const*, float const*, int*, float*, int, int, int, float) [clone .kd]"
+  },
+  "track_uri": "/slice_5",
+  "track_tags": {
+    "kinds": [
+      "SliceTrack"
+    ],
+    "trackIds": [
+      5,
+      6
+    ],
+    "type": "thread_execution",
+    "upid": 4,
+    "utid": 23,
+    "hasCallstacks": false
+  },
+  "window_start_ns": 2484900535490573,
+  "window_end_ns": 2484900535610573,
+  "import_errors": [
+    {
+      "name": "slice_spill_overlapping_complete_event",
+      "value": 15
+    }
+  ],
+  "loaded_slice_count": 19251,
+  "record": {
+    "phase": "prefill",
+    "side": "after",
+    "source": "traces/prefill-after.trace.json.gz",
+    "source_sha256": "91344771d7f0c786ccbd6c1a2ed7c7f62f7917c5d75c304bcb394c6b2fb4495c",
+    "source_bytes": 511934,
+    "source_event_count": 29446,
+    "recorded_gate_count": 60,
+    "source_commit": "51565668154dd51530c225b5f221bc631ec034eb",
+    "selected": {
+      "name": "sglang::shared_gate_append_hip_kernel(unsigned short const*, unsigned short const*, int const*, float const*, int*, float*, int, int, int, float) [clone .kd]",
+      "ts_ns": 2484900535510573,
+      "dur_ns": 56119,
+      "ts_us": "2484900535510.573",
+      "dur_us": "56.119",
+      "pid": 0,
+      "tid": 4,
+      "stream": 4,
+      "original_event_index": 27281,
+      "recorded_ordinal": 30
+    },
+    "attribution": "TP0 prefill chronological gate call 30, EXTEND bs=1/toks=8000"
+  },
+  "screenshot": "figures/prefill-after.png",
+  "page_errors": [],
+  "original_bytes_unchanged": true,
+  "native_area": true,
+  "native_slices": true,
+  "kernel_name_in_native_list": true,
+  "native_selection_text": "Area Selection\nSlices\nSlice Flamegraph\nFlow Events\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n3\nWall Duration\narrow_downward\nSUM\n168.4\u00b5s\nSelf Duration\nSUM\n56.12\u00b5s\nWall Duration\nAVG\n56.12\u00b5s\nstep[EXTEND bs=1 toks=8000]\n1\n56.12\u00b5s\n0s\n56.12\u00b5s\nsglang::shared_gate_append_hip_kernel(unsigned short const*, unsigned short const*, int const*, float const*, int*, float*, int, int, int, float) [clone .kd]\n1\n56.12\u00b5s\n56.12\u00b5s\n56.12\u00b5s\nsglang.vlm.language_model_prefill\n1\n56.12\u00b5s\n0s\n56.12\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info."
+}

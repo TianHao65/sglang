@@ -1,0 +1,61 @@
+{
+  "head": "61f3cb41145e1a8c465b6cf07cc6f9297d64793d",
+  "pytest": ".....................                                                    [100%]\n21 passed in 0.16s",
+  "returncode": 0,
+  "shell": [
+    {
+      "file": "evaluation/launch_qwen3.5-35B-fp8_tp1_dflash_with_prefix_cache_mfs0.7_bs32.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/launch_qwen3.5-35B-fp8_tp4_disable_prefix_cache.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/launch_qwen3.5-397B-fp8_tp8_dflash_with_prefix_cache.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/launch_qwen3.5-397B-fp8_tp8_disable_prefix_cache.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/launch_qwen38_flash_next_fp8_mi308x_pure_tp_4_or_8_or_2.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/run_gsm8k.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/run_qwen35_pure_text_bench.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/run_qwen35_pure_text_profile.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/run_qwen38_pure_text_bench.sh",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "file": "evaluation/run_qwen38_pure_text_profile.sh",
+      "returncode": 0,
+      "stderr": ""
+    }
+  ],
+  "CPU_only": true,
+  "no_model_or_gpu_execution": true,
+  "env_note": "HIP_VISIBLE_DEVICES omitted because the CI CLI uses it as the default --gpus list. Empty CUDA_VISIBLE_DEVICES/ROCR_VISIBLE_DEVICES retained. Prior CLI validation-order failure preserved; source unchanged.",
+  "passed": true
+}

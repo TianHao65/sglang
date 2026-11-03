@@ -1,0 +1,96 @@
+{
+  "historical_date": "2026-10-30",
+  "source_sha256": "652bce383cd9ed272ac5a042c16b80bedb218c5e76547718b10ae02c56436f22",
+  "scope": "Single original full-model EXTEND forward per side/rank under matched8000in/20out diagnostic profiling; local operator durations only, not ETE",
+  "measurement_context": {
+    "node": "19",
+    "GPU_platform": "MI308X/gfx942",
+    "tensor_parallel_size": 4,
+    "model": "Qwen3.5-397B-A17B-PTPC-FP8",
+    "baseline_frozen_source": "e04b1a37e8118cb7323b2cb30a6d0c29259479cc",
+    "candidate_frozen_source": "51565668154dd51530c225b5f221bc631ec034eb",
+    "fixed_runtime_image": "sha256:21d84755a0bdd941beebfcecbd1d0d8734c6a8bcaf2ff162088a83f6a2f74834",
+    "call_count_per_side_per_rank": 60,
+    "call_order": "Chronological original traceEvent.ts, one-based ordinals",
+    "scope": "Sum is the sum of60 gate kernel durations on one rank; it is not prefill wall time, request latency, or ETE speedup. Cross-rank sums are not combined as wall time.",
+    "baseline_decode_excluded": "baseline_r1 DECODE records remainpartial48/38/41/49; no complete-DECODE sum comparison was computed.",
+    "candidate_decode_scope": "complete60 Triton per rank used only as reachability/coverage evidence, not an operator-total baseline comparison."
+  },
+  "per_rank_comparison": [
+    {
+      "rank": 0,
+      "baseline_median_us": 61.8,
+      "candidate_median_us": 56.4985,
+      "baseline_mean_us": 61.8039,
+      "candidate_mean_us": 56.34276666666666,
+      "baseline_sum_us": 3708.234,
+      "candidate_sum_us": 3380.566,
+      "candidate_minus_baseline_kernel_sum_us": -327.6680000000001
+    },
+    {
+      "rank": 1,
+      "baseline_median_us": 61.96,
+      "candidate_median_us": 56.019000000000005,
+      "baseline_mean_us": 61.967933333333335,
+      "candidate_mean_us": 56.11535,
+      "baseline_sum_us": 3718.076,
+      "candidate_sum_us": 3366.921,
+      "candidate_minus_baseline_kernel_sum_us": -351.1550000000002
+    },
+    {
+      "rank": 2,
+      "baseline_median_us": 61.84,
+      "candidate_median_us": 56.4585,
+      "baseline_mean_us": 61.857933333333335,
+      "candidate_mean_us": 56.46939999999999,
+      "baseline_sum_us": 3711.476,
+      "candidate_sum_us": 3388.1639999999998,
+      "candidate_minus_baseline_kernel_sum_us": -323.31200000000035
+    },
+    {
+      "rank": 3,
+      "baseline_median_us": 61.84,
+      "candidate_median_us": 56.838499999999996,
+      "baseline_mean_us": 61.84591666666667,
+      "candidate_mean_us": 56.713366666666666,
+      "baseline_sum_us": 3710.755,
+      "candidate_sum_us": 3402.802,
+      "candidate_minus_baseline_kernel_sum_us": -307.953
+    }
+  ],
+  "tp0_call30_comparison": {
+    "baseline": {
+      "call_ordinal_one_based": 30,
+      "sort_definition": "Ascending original timestamp; original trace itself remains unchanged",
+      "original_trace_event_array_index_zero_based": 27475,
+      "original_ts_us": 2480779337028.243,
+      "original_dur_us": 61.76,
+      "kernel_name": "_fused_append_shared_experts_with_weights_kernel.kd",
+      "pid": 0,
+      "tid": 4,
+      "args": {
+        "device": 0,
+        "stream": 4,
+        "correlation": 4349,
+        "kind": "Dispatch Kernel"
+      }
+    },
+    "candidate": {
+      "call_ordinal_one_based": 30,
+      "sort_definition": "Ascending original timestamp; original trace itself remains unchanged",
+      "original_trace_event_array_index_zero_based": 27281,
+      "original_ts_us": 2484900535510.573,
+      "original_dur_us": 56.119,
+      "kernel_name": "sglang::shared_gate_append_hip_kernel(unsigned short const*, unsigned short const*, int const*, float const*, int*, float*, int, int, int, float) [clone .kd]",
+      "pid": 0,
+      "tid": 4,
+      "args": {
+        "device": 0,
+        "stream": 4,
+        "correlation": 4139,
+        "kind": "Dispatch Kernel"
+      }
+    }
+  },
+  "original_trace_modified": false
+}

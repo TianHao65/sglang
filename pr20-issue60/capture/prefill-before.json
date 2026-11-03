@@ -1,0 +1,62 @@
+{
+  "row": {
+    "id": 18796,
+    "ts": 2480779337028243,
+    "dur": 61760,
+    "track_id": 5,
+    "name": "_fused_append_shared_experts_with_weights_kernel.kd"
+  },
+  "track_uri": "/slice_5",
+  "track_tags": {
+    "kinds": [
+      "SliceTrack"
+    ],
+    "trackIds": [
+      5,
+      6
+    ],
+    "type": "thread_execution",
+    "upid": 4,
+    "utid": 23,
+    "hasCallstacks": false
+  },
+  "window_start_ns": 2480779337008243,
+  "window_end_ns": 2480779337128243,
+  "import_errors": [
+    {
+      "name": "slice_spill_overlapping_complete_event",
+      "value": 25
+    }
+  ],
+  "loaded_slice_count": 19793,
+  "record": {
+    "phase": "prefill",
+    "side": "before",
+    "source": "traces/prefill-before.trace.json.gz",
+    "source_sha256": "bc3847aed35e5b3e5182b67e4415445f3f35400dbab39fa54ef6afcdc8f83053",
+    "source_bytes": 523786,
+    "source_event_count": 30410,
+    "recorded_gate_count": 60,
+    "source_commit": "e04b1a37e8118cb7323b2cb30a6d0c29259479cc",
+    "selected": {
+      "name": "_fused_append_shared_experts_with_weights_kernel.kd",
+      "ts_ns": 2480779337028243,
+      "dur_ns": 61760,
+      "ts_us": "2480779337028.243",
+      "dur_us": "61.760",
+      "pid": 0,
+      "tid": 4,
+      "stream": 4,
+      "original_event_index": 27475,
+      "recorded_ordinal": 30
+    },
+    "attribution": "TP0 prefill chronological gate call 30, EXTEND bs=1/toks=8000"
+  },
+  "screenshot": "figures/prefill-before.png",
+  "page_errors": [],
+  "original_bytes_unchanged": true,
+  "native_area": true,
+  "native_slices": true,
+  "kernel_name_in_native_list": true,
+  "native_selection_text": "Area Selection\nSlices\nSlice Flamegraph\nFlow Events\ndownloadExport\nrestart_alt\nName\nCount\nCOUNT\n3\nWall Duration\narrow_downward\nSUM\n185.3\u00b5s\nSelf Duration\nSUM\n61.76\u00b5s\nWall Duration\nAVG\n61.76\u00b5s\nstep[EXTEND bs=1 toks=8000]\n1\n61.76\u00b5s\n0s\n61.76\u00b5s\nsglang.vlm.language_model_prefill\n1\n61.76\u00b5s\n0s\n61.76\u00b5s\n_fused_append_shared_experts_with_weights_kernel.kd\n1\n61.76\u00b5s\n61.76\u00b5s\n61.76\u00b5s\nsyncTimeline Sync\nData-loss/import error. Click for more info."
+}
