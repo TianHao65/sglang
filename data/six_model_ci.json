@@ -1,0 +1,514 @@
+{
+  "scope": "PR63 HEAD851108 before versus same HEAD with local tgemm patch and tuned tables after; local regular six-model CI, not the historical GitHub runs",
+  "completed_totals": {
+    "before": {
+      "performance_requests": 768,
+      "GSM8K_examples": 1200
+    },
+    "after": {
+      "performance_requests": 768,
+      "GSM8K_examples": 1200
+    }
+  },
+  "protocol": {
+    "formal_requests_per_case": 128,
+    "GSM8K_per_case": 200,
+    "warmup_requests": 10,
+    "concurrency": 1,
+    "client_seed": 42,
+    "GSM8K_max_relative_drop": 0.03,
+    "QPS_source": "performance.request_throughput",
+    "performance_change_formula": "(after / before - 1) * 100",
+    "GSM8K_change_unit": "percentage points",
+    "daily_pressure": false,
+    "full_1319_GSM8K": false
+  },
+  "cases": [
+    {
+      "case": "Qwen3.8-Flash-TP2-Base",
+      "before": {
+        "TP": 2,
+        "reference": 0.98,
+        "minimum": 0.9506,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 934.7862155645998,
+          "TPOT_ms": 13.209960965507872,
+          "output_tokens_per_s": 63.1097423353555,
+          "QPS": 0.18031354952958714,
+          "ETE_ms": 5545.062592526847,
+          "QPS_per_GPU": 0.09015677476479357
+        },
+        "accuracy": {
+          "score": 0.98,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 196,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 12000,
+          "random_output_len": 350,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "09b35b4ca13345dedee0de6832de533c9adb5bc6e85242ec5de6a3b7f3708b46",
+        "output_lens_sha256": "975ec1be5b2429c682a5c8e341515cf0662779903efccaef2dca46330290fc85"
+      },
+      "after": {
+        "TP": 2,
+        "reference": 0.98,
+        "minimum": 0.9506,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 924.6153943531681,
+          "TPOT_ms": 12.683756080306848,
+          "output_tokens_per_s": 65.39609743464678,
+          "QPS": 0.18684599267041935,
+          "ETE_ms": 5351.246266380258,
+          "QPS_per_GPU": 0.09342299633520967
+        },
+        "accuracy": {
+          "score": 0.985,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 197,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 12000,
+          "random_output_len": 350,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "09b35b4ca13345dedee0de6832de533c9adb5bc6e85242ec5de6a3b7f3708b46",
+        "output_lens_sha256": "975ec1be5b2429c682a5c8e341515cf0662779903efccaef2dca46330290fc85"
+      },
+      "changes_percent": {
+        "TTFT_ms": -1.0880371406941092,
+        "TPOT_ms": -3.9833947017328897,
+        "output_tokens_per_s": 3.6228243289949447,
+        "QPS": 3.6228243289949225,
+        "accept_length": null,
+        "ETE_ms": -3.4952955518986806,
+        "QPS_per_GPU": 3.6228243289949225
+      },
+      "accuracy_delta_pp": 0.5000000000000004,
+      "input_output_sequences_equal": true
+    },
+    {
+      "case": "Qwen3.8-Flash-TP2-MTP",
+      "before": {
+        "TP": 2,
+        "reference": 0.985,
+        "minimum": 0.9554499999999999,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 1008.7871255818754,
+          "TPOT_ms": 8.260287262579045,
+          "output_tokens_per_s": 89.91981807952959,
+          "QPS": 0.2569137659415131,
+          "accept_length": 3.5498432601880876,
+          "ETE_ms": 3891.627380221962,
+          "QPS_per_GPU": 0.12845688297075655
+        },
+        "accuracy": {
+          "score": 0.99,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 198,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 12000,
+          "random_output_len": 350,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "09b35b4ca13345dedee0de6832de533c9adb5bc6e85242ec5de6a3b7f3708b46",
+        "output_lens_sha256": "975ec1be5b2429c682a5c8e341515cf0662779903efccaef2dca46330290fc85"
+      },
+      "after": {
+        "TP": 2,
+        "reference": 0.985,
+        "minimum": 0.9554499999999999,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 1002.3949063679538,
+          "TPOT_ms": 8.049734735137973,
+          "output_tokens_per_s": 91.8050861984179,
+          "QPS": 0.26230024628119397,
+          "accept_length": 3.5177018633540373,
+          "ETE_ms": 3811.7523289311066,
+          "QPS_per_GPU": 0.13115012314059699
+        },
+        "accuracy": {
+          "score": 0.985,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 197,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 12000,
+          "random_output_len": 350,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "09b35b4ca13345dedee0de6832de533c9adb5bc6e85242ec5de6a3b7f3708b46",
+        "output_lens_sha256": "975ec1be5b2429c682a5c8e341515cf0662779903efccaef2dca46330290fc85"
+      },
+      "changes_percent": {
+        "TTFT_ms": -0.6336539247796757,
+        "TPOT_ms": -2.548973428501966,
+        "output_tokens_per_s": 2.0966102458313207,
+        "QPS": 2.0966102458313207,
+        "accept_length": -0.9054314367769378,
+        "ETE_ms": -2.0524845646013423,
+        "QPS_per_GPU": 2.0966102458313207
+      },
+      "accuracy_delta_pp": -0.5000000000000004,
+      "input_output_sequences_equal": true
+    },
+    {
+      "case": "Qwen3.5-35B-TP4-Base",
+      "before": {
+        "TP": 4,
+        "reference": 0.97,
+        "minimum": 0.9409,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 171.42531593890453,
+          "TPOT_ms": 4.186404056325042,
+          "output_tokens_per_s": 221.11661161058734,
+          "QPS": 0.44223322322117464,
+          "ETE_ms": 2260.4409400451004,
+          "QPS_per_GPU": 0.11055830580529366
+        },
+        "accuracy": {
+          "score": 0.97,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 194,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 8000,
+          "random_output_len": 500,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "e79e1b58e54f3a23cf75a774e7e531e866e176dcd85925227649a4b3c2a7cf1b",
+        "output_lens_sha256": "3e09e593b9b80522991a074d6b1d75003207af481ce37423d9d3109dc6db7f8c"
+      },
+      "after": {
+        "TP": 4,
+        "reference": 0.97,
+        "minimum": 0.9409,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 189.339169367031,
+          "TPOT_ms": 4.616716310270542,
+          "output_tokens_per_s": 200.4779326792566,
+          "QPS": 0.4009558653585132,
+          "ETE_ms": 2493.080608192031,
+          "QPS_per_GPU": 0.1002389663396283
+        },
+        "accuracy": {
+          "score": 0.965,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 193,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 8000,
+          "random_output_len": 500,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "e79e1b58e54f3a23cf75a774e7e531e866e176dcd85925227649a4b3c2a7cf1b",
+        "output_lens_sha256": "3e09e593b9b80522991a074d6b1d75003207af481ce37423d9d3109dc6db7f8c"
+      },
+      "changes_percent": {
+        "TTFT_ms": 10.44994628127791,
+        "TPOT_ms": 10.278803673891957,
+        "output_tokens_per_s": -9.33384370400805,
+        "QPS": -9.33384370400805,
+        "accept_length": null,
+        "ETE_ms": 10.29178263521846,
+        "QPS_per_GPU": -9.33384370400805
+      },
+      "accuracy_delta_pp": -0.5000000000000004,
+      "input_output_sequences_equal": true
+    },
+    {
+      "case": "Qwen3.5-35B-TP1-DFlash",
+      "before": {
+        "TP": 1,
+        "reference": 0.97,
+        "minimum": 0.9409,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 340.0425560103031,
+          "TPOT_ms": 2.885185527899405,
+          "output_tokens_per_s": 280.80474123205306,
+          "QPS": 0.5616094824641061,
+          "accept_length": 5.932336956521739,
+          "ETE_ms": 1779.7501344321063,
+          "QPS_per_GPU": 0.5616094824641061
+        },
+        "accuracy": {
+          "score": 0.985,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 197,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 8000,
+          "random_output_len": 500,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "e79e1b58e54f3a23cf75a774e7e531e866e176dcd85925227649a4b3c2a7cf1b",
+        "output_lens_sha256": "3e09e593b9b80522991a074d6b1d75003207af481ce37423d9d3109dc6db7f8c"
+      },
+      "after": {
+        "TP": 1,
+        "reference": 0.97,
+        "minimum": 0.9409,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 321.65113045994076,
+          "TPOT_ms": 2.8721749422001372,
+          "output_tokens_per_s": 284.80203733072074,
+          "QPS": 0.5696040746614415,
+          "accept_length": 6.016666666666667,
+          "ETE_ms": 1754.8664266178093,
+          "QPS_per_GPU": 0.5696040746614415
+        },
+        "accuracy": {
+          "score": 0.985,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 197,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 8000,
+          "random_output_len": 500,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "e79e1b58e54f3a23cf75a774e7e531e866e176dcd85925227649a4b3c2a7cf1b",
+        "output_lens_sha256": "3e09e593b9b80522991a074d6b1d75003207af481ce37423d9d3109dc6db7f8c"
+      },
+      "changes_percent": {
+        "TTFT_ms": -5.408565847212687,
+        "TPOT_ms": -0.45094450854050727,
+        "output_tokens_per_s": 1.4235144610198702,
+        "QPS": 1.423514461019848,
+        "accept_length": 1.4215259646068956,
+        "ETE_ms": -1.3981573779870526,
+        "QPS_per_GPU": 1.423514461019848
+      },
+      "accuracy_delta_pp": 0.0,
+      "input_output_sequences_equal": true
+    },
+    {
+      "case": "Qwen3.5-397B-TP8-Base",
+      "before": {
+        "TP": 8,
+        "reference": 0.99,
+        "minimum": 0.9602999999999999,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 320.58495322235103,
+          "TPOT_ms": 6.352025702006883,
+          "output_tokens_per_s": 143.22287175559913,
+          "QPS": 0.2864457435111983,
+          "ETE_ms": 3490.2457785237857,
+          "QPS_per_GPU": 0.035805717938899785
+        },
+        "accuracy": {
+          "score": 0.99,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 198,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 8000,
+          "random_output_len": 500,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "e79e1b58e54f3a23cf75a774e7e531e866e176dcd85925227649a4b3c2a7cf1b",
+        "output_lens_sha256": "3e09e593b9b80522991a074d6b1d75003207af481ce37423d9d3109dc6db7f8c"
+      },
+      "after": {
+        "TP": 8,
+        "reference": 0.99,
+        "minimum": 0.9602999999999999,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 319.96566669295134,
+          "TPOT_ms": 5.993252162571372,
+          "output_tokens_per_s": 150.99597816450324,
+          "QPS": 0.30199195632900644,
+          "ETE_ms": 3310.598495816066,
+          "QPS_per_GPU": 0.037748994541125805
+        },
+        "accuracy": {
+          "score": 0.99,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 198,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 8000,
+          "random_output_len": 500,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "e79e1b58e54f3a23cf75a774e7e531e866e176dcd85925227649a4b3c2a7cf1b",
+        "output_lens_sha256": "3e09e593b9b80522991a074d6b1d75003207af481ce37423d9d3109dc6db7f8c"
+      },
+      "changes_percent": {
+        "TTFT_ms": -0.1931739225983442,
+        "TPOT_ms": -5.6481751848415644,
+        "output_tokens_per_s": 5.427280094040032,
+        "QPS": 5.42728009404001,
+        "accept_length": null,
+        "ETE_ms": -5.147124131289749,
+        "QPS_per_GPU": 5.42728009404001
+      },
+      "accuracy_delta_pp": 0.0,
+      "input_output_sequences_equal": true
+    },
+    {
+      "case": "Qwen3.5-397B-TP8-DFlash",
+      "before": {
+        "TP": 8,
+        "reference": 0.985,
+        "minimum": 0.9554499999999999,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 337.5933924371566,
+          "TPOT_ms": 2.933286592058845,
+          "output_tokens_per_s": 277.4466269717151,
+          "QPS": 0.5548932539434303,
+          "accept_length": 7.855476190476191,
+          "ETE_ms": 1801.3034018745202,
+          "QPS_per_GPU": 0.06936165674292878
+        },
+        "accuracy": {
+          "score": 0.99,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 198,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 8000,
+          "random_output_len": 500,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "e79e1b58e54f3a23cf75a774e7e531e866e176dcd85925227649a4b3c2a7cf1b",
+        "output_lens_sha256": "3e09e593b9b80522991a074d6b1d75003207af481ce37423d9d3109dc6db7f8c"
+      },
+      "after": {
+        "TP": 8,
+        "reference": 0.985,
+        "minimum": 0.9554499999999999,
+        "status": "passed",
+        "metrics": {
+          "TTFT_ms": 338.72840670073856,
+          "TPOT_ms": 2.885009644839095,
+          "output_tokens_per_s": 281.023904260134,
+          "QPS": 0.5620478085202679,
+          "accept_length": 7.9248798076923075,
+          "ETE_ms": 1778.348219475447,
+          "QPS_per_GPU": 0.07025597606503349
+        },
+        "accuracy": {
+          "score": 0.985,
+          "requested": 200,
+          "scored": 200,
+          "completed": 200,
+          "errors": 0,
+          "correct": 197,
+          "gate_passed": true
+        },
+        "workload": {
+          "dataset_name": "random",
+          "random_input_len": 8000,
+          "random_output_len": 500,
+          "random_range_ratio": 1.0,
+          "max_concurrency": 1
+        },
+        "performance_completed": 128,
+        "input_lens_sha256": "e79e1b58e54f3a23cf75a774e7e531e866e176dcd85925227649a4b3c2a7cf1b",
+        "output_lens_sha256": "3e09e593b9b80522991a074d6b1d75003207af481ce37423d9d3109dc6db7f8c"
+      },
+      "changes_percent": {
+        "TTFT_ms": 0.33620748776748144,
+        "TPOT_ms": -1.6458312443948575,
+        "output_tokens_per_s": 1.2893569215327139,
+        "QPS": 1.2893569215327139,
+        "accept_length": 0.8835061749695061,
+        "ETE_ms": -1.2743651277838608,
+        "QPS_per_GPU": 1.2893569215327139
+      },
+      "accuracy_delta_pp": -0.5000000000000004,
+      "input_output_sequences_equal": true
+    }
+  ]
+}

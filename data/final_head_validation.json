@@ -1,0 +1,347 @@
+{
+  "head": "f315e8da2e3e9bed6e948fd5a835aeae165b5921",
+  "base": "9ac4ebe4a16d5b8a55473eec17cdeee8916a544f",
+  "cpu_tests": {
+    "status": "passed",
+    "methods": 8
+  },
+  "native_gpu": {
+    "status": "passed",
+    "error": null,
+    "torch": "2.12.0+rocm7.14.0.git6bbd260",
+    "gfx": "gfx942",
+    "cu_num": 80,
+    "source_sha256": {
+      "/draft/python/sglang/srt/layers/quantization/unquant.py": "c67e7d44989417aba1f9296aae4e043eae5b395c8c84d93cfe0efecf6edcb4a3",
+      "/draft/python/sglang/srt/layers/quantization/fp8_utils.py": "74db67fd491f9c42db3ef9771e1b8912297e8e1c6373ae069518a2d834edc46a",
+      "/draft/python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "8fb662ddbe56de8467674ce43a0042330b0d9ddd071eeae2b637c9314a014963"
+    },
+    "replays_per_case": 2,
+    "method": "Actual AST-loaded methods with native AITER backends; numerical/Graph validation only, no performance claim.",
+    "rows": [
+      {
+        "caller": "UnquantizedLinearMethod.apply",
+        "dtype": "bf16",
+        "M": 1,
+        "N": 16,
+        "K": 2048,
+        "dispatch": {
+          "tgemm": 1,
+          "ck": 0
+        },
+        "relative_l2": 0.002739968942478299,
+        "changed_input_graph_relative_l2": [
+          0.0017990595661103725,
+          0.0017591305077075958
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "UnquantizedLinearMethod.apply",
+        "dtype": "bf16",
+        "M": 17,
+        "N": 16,
+        "K": 2048,
+        "dispatch": {
+          "tgemm": 1,
+          "ck": 0
+        },
+        "relative_l2": 0.0016421036561951041,
+        "changed_input_graph_relative_l2": [
+          0.0014097365783527493,
+          0.001577948685735464
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 1,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 2,
+        "per_token": false,
+        "dtype": "torch.bfloat16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.0023508016020059586,
+        "changed_input_graph_relative_l2": [
+          0.002258485183119774,
+          0.002358382800593972
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 1,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": false,
+        "dtype": "torch.float16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.00030106407939456403,
+        "changed_input_graph_relative_l2": [
+          0.00029145152075216174,
+          0.0002896455698646605
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 1,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 2,
+        "per_token": true,
+        "dtype": "torch.bfloat16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.002343884203583002,
+        "changed_input_graph_relative_l2": [
+          0.00227095908485353,
+          0.0022348498459905386
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 1,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": true,
+        "dtype": "torch.float16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.0002890927717089653,
+        "changed_input_graph_relative_l2": [
+          0.0002935265365522355,
+          0.0002956138632725924
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 16,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 2,
+        "per_token": false,
+        "dtype": "torch.bfloat16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.002321953885257244,
+        "changed_input_graph_relative_l2": [
+          0.0023651320952922106,
+          0.0023189778439700603
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 16,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": false,
+        "dtype": "torch.float16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.00029052855097688735,
+        "changed_input_graph_relative_l2": [
+          0.0002932801144197583,
+          0.0002904307912103832
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 16,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 2,
+        "per_token": true,
+        "dtype": "torch.bfloat16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.0023541110567748547,
+        "changed_input_graph_relative_l2": [
+          0.0023575061932206154,
+          0.0023478816729038954
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 16,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": true,
+        "dtype": "torch.float16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.0002933519135694951,
+        "changed_input_graph_relative_l2": [
+          0.0002921884588431567,
+          0.00029222105513326824
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 17,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": false,
+        "dtype": "torch.bfloat16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.002371779875829816,
+        "changed_input_graph_relative_l2": [
+          0.0023714439012110233,
+          0.0023369533009827137
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 17,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": false,
+        "dtype": "torch.float16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.0002930901828221977,
+        "changed_input_graph_relative_l2": [
+          0.0002931217313744128,
+          0.0002942927530966699
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 17,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": true,
+        "dtype": "torch.bfloat16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 1,
+          "ck": 0
+        },
+        "relative_l2": 0.002358152763918042,
+        "changed_input_graph_relative_l2": [
+          0.0023494709748774767,
+          0.0023766374215483665
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 17,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": true,
+        "dtype": "torch.float16",
+        "flag": true,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.0002944674633909017,
+        "changed_input_graph_relative_l2": [
+          0.00029176511452533305,
+          0.00029214631649665534
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 17,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": true,
+        "dtype": "torch.bfloat16",
+        "flag": false,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.0023611015640199184,
+        "changed_input_graph_relative_l2": [
+          0.0023534849751740694,
+          0.002340894192457199
+        ],
+        "status": "passed"
+      },
+      {
+        "caller": "CompressedTensorsW8A8Fp8.apply_weights",
+        "M": 17,
+        "N": 3072,
+        "K": 2048,
+        "tuple_size": 3,
+        "per_token": false,
+        "dtype": "torch.float16",
+        "flag": false,
+        "dispatch": {
+          "tgemm": 0,
+          "ck": 1
+        },
+        "relative_l2": 0.00029580018599517643,
+        "changed_input_graph_relative_l2": [
+          0.00029082686523906887,
+          0.00029052342870272696
+        ],
+        "status": "passed"
+      }
+    ]
+  },
+  "static": {
+    "changed_file_style_and_syntax": "passed",
+    "changed_registered_tests": "passed",
+    "full_registry_check": "fails_on_unchanged_base_file",
+    "baseline_failure": [
+      "test/registered/kernels/test_pyhip_qsa.py: kernel tests live under test/registered/kernels/{ops,benchmark}/<group>/"
+    ],
+    "base": "9ac4ebe4a16d5b8a55473eec17cdeee8916a544f"
+  }
+}

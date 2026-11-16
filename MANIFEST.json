@@ -1,0 +1,13 @@
+{
+  "README.md": "3fe45bbf0b6d91af124a4446a7bfa111241ae3fbef5ca4168acfbfd76069a874",
+  "data/controlled_runs.json": "19c8a187f536095aacf12473ef0b0d90e75e536239db445b598b209f5dbd55a3",
+  "data/tested-implementation.patch": "a4753167a47cb31f160c46801b2a76c2b9f9c9f240c3a8653e27400b9e9a50af",
+  "data/six_model_ci.json": "2b3bf1863d7c19ea00f1c7e622915bd3f7e541a1924cadd060468d2e5b3c56c7",
+  "data/final_head_validation.json": "7c812f41b8ecca9f0775c4aa04842a7abac37c757d7fa75723549f5247cc3696",
+  "configs/ck_base.csv": "a0e6e79481eaa3998c19997daa4d3b82a128e8747f50c237726dd3e39f24c4ff",
+  "configs/tgemm_accepted.csv": "6f2203674469c37b365a817837532d1fca2e7a40dc9c83b63bc205c3d3e9e297",
+  "configs/tgemm_base.csv": "2b1a83c369a24a383477029697b54227f339cd54741b98fe8b42b05c9a34afeb",
+  "configs/ck_accepted.csv": "131424a27c392e988e06952e4fa8828456a32a41ff8ba0448a52abf2d19cedd5",
+  "figures/original-ci-latency.png": "f1fa60679c6f914d9cfe40b307ab57eb802a1e4eb2a6199ddf9470db522694a5",
+  "figures/controlled-abba.png": "c5bc6b00a18ece7019a93890558a976c76f746eda11f9de6e7f1aec8c58960db"
+}
