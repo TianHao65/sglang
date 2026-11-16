@@ -1,0 +1,37 @@
+{
+  "id": "d36f58f07551488d8ba558b55e5137e2",
+  "object": "chat.completion",
+  "created": 1794202601,
+  "model": "/models/Qwen3.5-35B-A3B-PTPC-FP8",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "42",
+        "reasoning_content": null,
+        "tool_calls": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "matched_stop": 248046
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 28,
+    "total_tokens": 31,
+    "completion_tokens": 3,
+    "prompt_tokens_details": null,
+    "reasoning_tokens": 0
+  },
+  "metadata": {
+    "weight_version": "default",
+    "weight_versions": [
+      {
+        "version": "default",
+        "start": 0,
+        "end": 3
+      }
+    ]
+  }
+}

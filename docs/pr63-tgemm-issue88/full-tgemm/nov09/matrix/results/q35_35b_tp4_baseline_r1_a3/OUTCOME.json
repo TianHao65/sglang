@@ -1,0 +1,31 @@
+{
+  "name": "q35_35b_tp4_baseline_r1_a3",
+  "model": "Qwen3.5-35B-A3B-PTPC-FP8",
+  "tp": 4,
+  "gpus": "4,5,6,7",
+  "arm": "baseline",
+  "cycle": 1,
+  "effective": {
+    "model_path": "/models/Qwen3.5-35B-A3B-PTPC-FP8",
+    "tp_size": 4,
+    "kv_cache_dtype": "fp8_e4m3",
+    "attention_backend": "aiter",
+    "moe_runner_backend": "aiter",
+    "speculative_algorithm": null,
+    "speculative_moe_runner_backend": "aiter",
+    "mem_fraction_static": 0.765,
+    "max_running_requests": 128,
+    "disable_radix_cache": true,
+    "max_total_tokens": 262144,
+    "random_seed": 42
+  },
+  "metrics": {
+    "completed": 128,
+    "mean_ttft_ms": 165.2703027066309,
+    "mean_tpot_ms": 4.0620383173124655,
+    "mean_e2e_latency_ms": 2192.2274230455514,
+    "output_throughput": 228.0069436915562,
+    "request_throughput": 0.4560138873831123,
+    "accept_length": null
+  }
+}

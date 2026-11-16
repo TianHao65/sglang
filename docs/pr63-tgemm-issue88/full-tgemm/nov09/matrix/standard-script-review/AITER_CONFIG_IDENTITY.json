@@ -1,0 +1,17 @@
+[
+  {
+    "path": "/opt/aiter/aiter/tuned_gemm.py",
+    "exists": true,
+    "sha256": "8408a8914c76608d153c132d087e4cd6a614371bc71815cb98045f904b14d3a2"
+  },
+  {
+    "path": "/tmp/aiter_configs/bf16_tuned_gemm.csv",
+    "exists": true,
+    "sha256": "0f66d746fde168518ceff40e276a030117e030a5a58f82b223ba53040d41a9b0"
+  },
+  {
+    "path": "/tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv",
+    "exists": true,
+    "sha256": "cb78ca8b8383b6e4f37a1d9f086d6ac9b9db77ce37c49da6b4c060de32c1d5ed"
+  }
+]

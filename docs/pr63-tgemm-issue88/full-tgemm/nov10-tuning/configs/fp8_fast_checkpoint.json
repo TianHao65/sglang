@@ -1,0 +1,488 @@
+{
+  "8192,8192,2560,torch.float8_e4m3fnuz": [
+    {
+      "solidx": 168171,
+      "gtimems": 0.6646,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169251,
+      "gtimems": 0.669,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 164760,
+      "gtimems": 0.6723,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169161,
+      "gtimems": 0.6728,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169244,
+      "gtimems": 0.6757,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168217,
+      "gtimems": 0.678,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169295,
+      "gtimems": 0.6784,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169261,
+      "gtimems": 0.6801,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169287,
+      "gtimems": 0.6832,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168744,
+      "gtimems": 0.685,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169173,
+      "gtimems": 0.6862,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168419,
+      "gtimems": 0.688,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168119,
+      "gtimems": 0.6892,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 162518,
+      "gtimems": 0.6917,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169298,
+      "gtimems": 0.6921,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 162766,
+      "gtimems": 0.6924,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169219,
+      "gtimems": 0.6932,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168164,
+      "gtimems": 0.6932,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169157,
+      "gtimems": 0.6937,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169134,
+      "gtimems": 0.6939,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    }
+  ],
+  "8192,2560,3072,torch.float8_e4m3fnuz": [
+    {
+      "solidx": 168754,
+      "gtimems": 0.247,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168202,
+      "gtimems": 0.2478,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168163,
+      "gtimems": 0.2478,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168736,
+      "gtimems": 0.2481,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168363,
+      "gtimems": 0.2506,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169293,
+      "gtimems": 0.2506,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170060,
+      "gtimems": 0.253,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169123,
+      "gtimems": 0.2531,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169187,
+      "gtimems": 0.2532,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169201,
+      "gtimems": 0.2538,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170144,
+      "gtimems": 0.2542,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 164141,
+      "gtimems": 0.2545,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170603,
+      "gtimems": 0.2546,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169143,
+      "gtimems": 0.255,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169138,
+      "gtimems": 0.255,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170628,
+      "gtimems": 0.2552,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168150,
+      "gtimems": 0.2556,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170062,
+      "gtimems": 0.2556,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170685,
+      "gtimems": 0.2559,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170058,
+      "gtimems": 0.2559,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    }
+  ],
+  "8192,6656,2560,torch.float8_e4m3fnuz": [
+    {
+      "solidx": 169266,
+      "gtimems": 0.5374,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169218,
+      "gtimems": 0.54,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 162497,
+      "gtimems": 0.5423,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169251,
+      "gtimems": 0.544,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169201,
+      "gtimems": 0.5463,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170006,
+      "gtimems": 0.547,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 164082,
+      "gtimems": 0.5513,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169301,
+      "gtimems": 0.552,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168164,
+      "gtimems": 0.5573,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169554,
+      "gtimems": 0.5577,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169287,
+      "gtimems": 0.5578,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169526,
+      "gtimems": 0.558,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168378,
+      "gtimems": 0.5597,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169173,
+      "gtimems": 0.561,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 168274,
+      "gtimems": 0.5612,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 162640,
+      "gtimems": 0.5633,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170181,
+      "gtimems": 0.5646,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 170072,
+      "gtimems": 0.5646,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169195,
+      "gtimems": 0.5658,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    },
+    {
+      "solidx": 169548,
+      "gtimems": 0.5666,
+      "splitK": 0,
+      "err_ratio": 0.0,
+      "kernelName": "",
+      "libtype": "hipblaslt"
+    }
+  ]
+}

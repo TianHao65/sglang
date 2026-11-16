@@ -1,0 +1,23 @@
+{
+  "time_utc": "2026-11-09T04:42:53.302133+00:00",
+  "packages": {
+    "torch": "2.12.0+rocm7.14.0.git6bbd260",
+    "triton": "3.8.0+rocm7.14.0.git4cff872",
+    "aiter": "not installed as distribution",
+    "pyhip": "1.0.1.dev514+g8027faad2",
+    "sglang": "0.0.0.dev17291+g4d63dea19.d20261105"
+  },
+  "repositories": {
+    "/opt/aiter": {
+      "sha": "514c166e9abad59acde74309923c2d923a89eee0",
+      "dirty": false,
+      "git_exit_code": 0
+    },
+    "/opt/sglang": {
+      "sha": "4d63dea198be72236cd86dedf3640a3e49107258",
+      "dirty": true,
+      "git_exit_code": 0
+    }
+  },
+  "rocm_version": "7.14.0"
+}

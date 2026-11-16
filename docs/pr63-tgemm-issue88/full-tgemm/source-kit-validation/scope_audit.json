@@ -1,0 +1,279 @@
+{
+  "reference_pr": 107,
+  "reference_head": "f315e8da2e3e9bed6e948fd5a835aeae165b5921",
+  "reference_base": "9ac4ebe4a16d5b8a55473eec17cdeee8916a544f",
+  "scope": "All completed tgemm integration/tuning/reproduction/evidence work, not vendoring existing AITER",
+  "production_features": [
+    {
+      "feature": "PTPC FP8 large-M dispatch",
+      "f315_path": "python/sglang/srt/layers/quantization/fp8_utils.py",
+      "covered": true,
+      "required_markers": [
+        "def apply_fp8_ptpc_linear",
+        "q_input.shape[0] > 16",
+        "tgemm.mm",
+        "per_token_scales"
+      ]
+    },
+    {
+      "feature": "Quark FP8 shared adapter",
+      "f315_path": "python/sglang/srt/layers/quantization/fp8_utils.py",
+      "covered": true,
+      "required_markers": [
+        "def apply_fp8_linear",
+        "packed_weight = weight.T",
+        "packed_weight.is_shuffled = True"
+      ]
+    },
+    {
+      "feature": "BF16 canonical and separate packed prefill",
+      "f315_path": "python/sglang/srt/layers/quantization/unquant.py",
+      "covered": true,
+      "required_markers": [
+        "aiter_prefill_weight",
+        "packed.is_shuffled = True",
+        "x.reshape(-1, x.shape[-1])"
+      ]
+    },
+    {
+      "feature": "CT packed tuple metadata and safe layout",
+      "f315_path": "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py",
+      "covered": true,
+      "required_markers": [
+        "layer.weight.is_shuffled = True",
+        "apply_fp8_ptpc_linear"
+      ]
+    },
+    {
+      "feature": "DFlash layout guard",
+      "f315_path": "python/sglang/srt/speculative/dflash_utils.py",
+      "covered": true,
+      "required_markers": [
+        "can_dflash_slice_qkv_weight",
+        "aiter_trans_weight"
+      ]
+    },
+    {
+      "feature": "Optional environment flags",
+      "f315_path": "python/sglang/srt/environ.py",
+      "covered": true,
+      "required_markers": [
+        "SGLANG_ROCM_USE_AITER_LINEAR_FP8HIPB = EnvBool(False)",
+        "SGLANG_ROCM_USE_AITER_LINEAR_SHUFFLE = EnvBool(False)"
+      ]
+    }
+  ],
+  "missing_production_algorithm_files": [],
+  "authorship_boundary": {
+    "existing_aiter_library": "tgemm.mm dispatcher and CK/hipBLASLt/ASM/skinny kernels already belong to AITER514c166; no whole-library vendor needed",
+    "our_production_changes": "SGLang caller dispatch, safe packed/canonical ownership, tuple scale/dtype handling, flags and DFlash layout guards",
+    "our_tuning_changes": "Five accepted delta rows and experiment wrappers; two temporary tuner-support patches restored before production checks"
+  },
+  "superseded_historical_code": [
+    {
+      "path": "pr63_issue88_11k350_sigma4_prefix35_local52_20261109/review/tgemm-quark-extension.patch",
+      "status": "Semantically integrated in f315 apply_fp8_linear with the existing quantization/load-time packing predicate; do not duplicate the old adapter"
+    },
+    {
+      "path": "AiterHipblaslt/rocm_aiter_swizzle_hipb_* legacy helper",
+      "status": "Removed unused direct-hipb wrapper is intentional in the tgemm alternative"
+    },
+    {
+      "path": "Nov9 unsupported_54ad source / native397B MTP checkpoint setup",
+      "status": "Compatibility/model experiment history, not additional tgemm production code"
+    }
+  ],
+  "source_tuning_assets_implemented": [
+    {
+      "original": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_accepted_rows.csv",
+      "source_pr_path": "benchmark/rocm_tgemm/configs/ck_accepted_rows.csv",
+      "bytes": 249,
+      "sha256": "455c3e36147b90cd80ca7aa20e1dc05870467d18065514419552cbd51df34ee3",
+      "data_rows": 1,
+      "copied_bytes_match": true
+    },
+    {
+      "original": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_accepted_rows.csv",
+      "source_pr_path": "benchmark/rocm_tgemm/configs/tgemm_accepted_rows.csv",
+      "bytes": 3217,
+      "sha256": "937c8fe8af1d7ff40de1d84cf66dfca969caf7e38059d21e724a12ab8405027b",
+      "data_rows": 4,
+      "copied_bytes_match": true
+    },
+    {
+      "original": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_decode_shapes.csv",
+      "source_pr_path": "benchmark/rocm_tgemm/configs/ck_decode_shapes.csv",
+      "bytes": 325,
+      "sha256": "1a987dfedb1a516f5c4de85383604b26e0e70f2ad64e4a9c32f7211cb45ae6c3",
+      "data_rows": 9,
+      "copied_bytes_match": true
+    },
+    {
+      "original": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_shapes.csv",
+      "source_pr_path": "benchmark/rocm_tgemm/configs/tgemm_shapes.csv",
+      "bytes": 491,
+      "sha256": "b2b3e5aaab57485ce055472ae3ce296b3fcd52b890e5d860fbb5718d2d591dfb",
+      "data_rows": 7,
+      "copied_bytes_match": true
+    }
+  ],
+  "source_reproduction_helpers_implemented": [
+    {
+      "path": "benchmark/rocm_tgemm/prepare_configs.py",
+      "bytes": 6021,
+      "sha256": "45e52e08f79c2689dc490a3193adef3d87d9799b30f86c8509acb7d0ad98eb61"
+    },
+    {
+      "path": "benchmark/rocm_tgemm/benchmark_gemm.py",
+      "bytes": 6989,
+      "sha256": "59044fdf714f46f5385134050ddecce0c3495c66978613f18c8e79bf36da0111"
+    },
+    {
+      "path": "benchmark/rocm_tgemm/README.md",
+      "bytes": 5697,
+      "sha256": "d91a29bf393d212c01fd42dd2250dbdfc63a4a5c5cadb2f59e5dc07b1a3dec87"
+    },
+    {
+      "path": "test/registered/unit/layers/quantization/test_rocm_tgemm_configs.py",
+      "bytes": 8350,
+      "sha256": "6e81ea4ea76d7b256ca05a55a806aaf0ee984e9004de5116377b2f7d0dfab518"
+    },
+    {
+      "path": "benchmark/rocm_tgemm/run_ci.py",
+      "bytes": 1607,
+      "sha256": "5bccdf6b794c859e51b06a752ba59d72797abeae55809a3b3e6bb7fa65e7945c"
+    }
+  ],
+  "new_kit_validation": {
+    "stdlib_cpu_tests": 10,
+    "registry": "base-a-test-cpu; static registry accepted",
+    "semantic_merged_runtime_rows_match_frozen": {
+      "ck": 2943,
+      "tgemm": 3233
+    },
+    "original_inputs_unchanged": true,
+    "style_and_syntax": "isort/Ruff/py_compile passed",
+    "no_gpu_run_by_agent": true,
+    "adaptation_issue_corrected": "CLI args namespace no longer overwritten by kernel_args; all ordinary/eager/graph calls and result writes reviewed"
+  },
+  "necessary_evidence_additions": [
+    {
+      "kind": "all16 native GEMM measurements/selected5 overlays",
+      "experiment": "pr63_tgemm_tuning_host34_20261110",
+      "files": [
+        "RESULTS.md",
+        "results/final_comparison.json",
+        "results/final_comparison.csv",
+        "results/before.json",
+        "results/accepted.json",
+        "results/sglang_validation.json",
+        "review/runtime_final.json"
+      ]
+    },
+    {
+      "kind": "Qwen3.8 TP2 tune-only ABBA",
+      "experiment": "pr63_tgemm_ete_11k350_host34_20261110",
+      "files": [
+        "RESULTS.md",
+        "results/SUMMARY.json",
+        "results/rounds.csv",
+        "review/MANIFEST.json"
+      ],
+      "workload": "11000/350 generator means, sigma4,prefix0.35,MTP/radix on;16 discarded then128 formal/start;2 starts/arm;4d63dea prototype same source both arms",
+      "effect_pct": {
+        "TTFT": 0.6562139341635964,
+        "TPOT": -8.61927672646794,
+        "ETE": -6.762365979031215,
+        "output_tokens_s": 7.254384588336449
+      }
+    },
+    {
+      "kind": "tuning support/recovery provenance",
+      "experiment": "pr63_tgemm_tuning_host34_20261110",
+      "files": [
+        "review/tuning_bf16_no_scaling.patch",
+        "review/tuning_reject_invalid_solution.patch",
+        "configs/fp8_fast_checkpoint.json",
+        "scripts/resume_tgemm.py"
+      ],
+      "status": "Tuning-only in isolated AITER checkout, not production library modifications"
+    },
+    {
+      "kind": "all six prototype CI cases with tradeoffs",
+      "experiment": "pr63_tgemm_full_ci_20261112",
+      "files": [
+        "RESULTS.md",
+        "results/COMPARISON.json",
+        "results/PR63_TGEMM_CI.xlsx",
+        "review/MANIFEST.json"
+      ],
+      "status": "Already public JSON exists; retain full tables and bad35B mean/late21 rather than substituting clean followup"
+    },
+    {
+      "kind": "Nov16 controlled35B and original-pool sensitivity",
+      "experiment": "pr63_tgemm_regression_host34_20261116",
+      "files": [
+        "review/repeats/FINAL_ABBA.json",
+        "review/original_pool/REPORT.json",
+        "review/history/REPORT.json"
+      ],
+      "status": "Different seed/pool/host protocol; remains separate from six-model CI and tune-onlyQ38"
+    },
+    {
+      "kind": "four native full-model Perfetto images/traces/positions",
+      "status": "Pending in f315 PR; root skill-driven captures own task; use complete matched originals, not PR63 historical revisions"
+    },
+    {
+      "kind": "final head native checks",
+      "experiment": "pr63_issue88_draft_20261116",
+      "files": [
+        "review/draft_gpu_smoke.json",
+        "review/final_head.json",
+        "review/final_cpu_tests.log"
+      ],
+      "status": "f315 CPU8/native16/changedgraph32, separate from851/image4d measurements"
+    }
+  ],
+  "additional_repro_recommendations": [
+    {
+      "need": "native fullsix CI with accepted tables",
+      "existing_script": "pr63_tgemm_full_ci_20261112/scripts/run_ci_after.py",
+      "reason": "qwen4_ci.clean_environment strips AITER/SGLANG tuning env; inject prepared table paths and flags intoMODEL_PATH server env to reproduce the experiment",
+      "status": "Implemented run_ci.py thin wrapper with2stdlibserver/client environment tests and explicitREADME6case command"
+    },
+    {
+      "need": "Qwen3.8 11k350 tune-only server/client constants",
+      "existing_scripts": [
+        "pr63_tgemm_ete_11k350_host34_20261110/scripts/server_before.sh",
+        "pr63_tgemm_ete_11k350_host34_20261110/scripts/server_after.sh",
+        "pr63_tgemm_ete_11k350_host34_20261110/scripts/server_common.sh",
+        "pr63_tgemm_ete_11k350_host34_20261110/scripts/client.sh",
+        "pr63_tgemm_ete_11k350_host34_20261110/scripts/client_discard.sh"
+      ],
+      "reason": "Preserve both environment and actual CLI lengths plus sigma/prefix/sampling; customer-v4 client is an existing external dependency, not new tgemm algorithm"
+    },
+    {
+      "need": "small paired native-results comparison",
+      "existing_script": "pr63_tgemm_tuning_host34_20261110/scripts/compare.py",
+      "reason": "Median eager/graph deltas and>=3%acceptance rule; retain all16 cases; no new selection algorithm"
+    }
+  ],
+  "do_not_add_to_source": [
+    "Complete default AITER CSV tables",
+    "Whole AITER library/kernels/tgemm.py",
+    "Failed/unaccepted candidate rows as defaults",
+    "Old controllers or resumeSTATE files",
+    "Raw traces/screenshots/server logs/model checkpoints/customer datasets",
+    "Hardcoded SSH/hostcontainer orchestration"
+  ],
+  "current_public_evidence_commit": "2157e324283ad1588593c4674bf8f4e76a2fca89",
+  "public_evidence_current_files": [
+    "4 complete config snapshots",
+    "six_model_ci.json",
+    "controlled_runs.json",
+    "final_head_validation.json",
+    "tested-implementation.patch",
+    "2 scientific latency figures"
+  ],
+  "measurement_identity_rule": "Do not present image4d tune-only or851 prototype CI/ABBA as finalf315/newhead performance; preserve each workload/source/runtime label"
+}

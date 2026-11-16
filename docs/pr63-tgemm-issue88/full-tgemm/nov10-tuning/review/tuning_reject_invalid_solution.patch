@@ -1,0 +1,23 @@
+--- a/gradlib/csrc/hipbsolgemm.cu
++++ b/gradlib/csrc/hipbsolgemm.cu
+@@ -1212,7 +1212,7 @@
+     const hipStream_t current_stream = at::hip::getCurrentHIPStream();
+     void* bias_ptr = bias.has_value() ? static_cast<void*>(bias.value().data_ptr()) : nullptr;
+ 
+-    CHECK_HIPBLAS_ERROR(hipblasLtMatmul_sol_wrapper(hipblaslt_handle,
++    const auto matmul_status = hipblasLtMatmul_sol_wrapper(hipblaslt_handle,
+                                                     transpose_mat1 ? HIPBLAS_OP_T : HIPBLAS_OP_N,
+                                                     transpose_mat2 ? HIPBLAS_OP_T : HIPBLAS_OP_N,
+                                                     m,
+@@ -1236,7 +1236,10 @@
+                                                     solution_index,
+                                                     bpreshuffle_flag,
+                                                     use_rowwise,
+-                                                    use_gelu_flag));
++                                                    use_gelu_flag);
++    TORCH_CHECK(matmul_status == HIPBLAS_STATUS_SUCCESS,
++                "hipBLASLt solution ", solution_index,
++                " is unsupported or failed: status=", static_cast<int>(matmul_status));
+ 
+     return result;
+ }

@@ -1,0 +1,40 @@
+{
+  "name": "q38_tp2_mtp_baseline_r1_v4base_ipc_checked",
+  "model": "Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16",
+  "tp": 2,
+  "gpus": "6,7",
+  "arm": "baseline",
+  "cycle": 1,
+  "effective": {
+    "model_path": "/models/Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16",
+    "tp_size": 2,
+    "disable_radix_cache": false,
+    "max_total_tokens": 262144,
+    "random_seed": 42,
+    "speculative_algorithm": "EAGLE",
+    "linear_attn_prefill_backend": "aiter",
+    "speculative_num_steps": 3,
+    "speculative_num_draft_tokens": 4,
+    "mm_feature_transport": "cuda_ipc",
+    "kv_cache_dtype": "auto",
+    "attention_backend": "aiter",
+    "moe_runner_backend": "aiter",
+    "speculative_moe_runner_backend": "triton",
+    "mem_fraction_static": 0.8075,
+    "max_running_requests": 32,
+    "speculative_draft_model_path": "/models/Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16"
+  },
+  "metrics": {
+    "completed": 128,
+    "mean_ttft_ms": 510.5916670145234,
+    "mean_tpot_ms": 5.097235974057105,
+    "mean_e2el_ms": 2278.0515861268213,
+    "output_throughput": 153.4102935281573,
+    "request_throughput": 0.4389716221045791,
+    "mean_expect_input_len": 11000,
+    "mean_req_input_len": 10999.546875,
+    "mean_input_len": 11730.4140625,
+    "mean_output_len": 349.4765625,
+    "input_lens_sha256": "1239fa903579677a0244bcd6aeddbcd8e0c33386df6718e5d5817f8d582ea75b"
+  }
+}

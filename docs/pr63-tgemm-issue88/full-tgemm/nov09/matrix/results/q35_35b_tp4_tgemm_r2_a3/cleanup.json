@@ -1,0 +1,50 @@
+{
+  "time_utc": "2026-11-09T05:27:21.440056+00:00",
+  "cards": {
+    "card0": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "168644755456"
+    },
+    "card1": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "168644780032"
+    },
+    "card2": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "302505984"
+    },
+    "card3": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "302505984"
+    },
+    "card4": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "302505984"
+    },
+    "card5": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "302505984"
+    },
+    "card6": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "302493696"
+    },
+    "card7": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "302493696"
+    }
+  },
+  "gpu_by_pid": "\n\n============================ ROCm System Management Interface ============================\n================================== GPUs Indexed by PID ===================================\nPID 1222443 is using 0 DRM device(s)\nPID 1218625 is using 1 DRM device(s):\n1 \nPID 1217960 is using 1 DRM device(s):\n0 \nPID 1208401 is using 0 DRM device(s)\n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n",
+  "used_gpu_ids": [
+    "1",
+    "0"
+  ]
+}

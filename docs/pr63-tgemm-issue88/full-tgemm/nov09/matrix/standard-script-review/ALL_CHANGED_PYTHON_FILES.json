@@ -1,0 +1,61 @@
+{
+  "pr63": [
+    {
+      "path": "python/sglang/srt/environ.py",
+      "baseline_sha256": "6f5f9d8eccdb7d5e0ad922dde0944a4d99a20bf90d6a535b6906695100923bf0",
+      "candidate_sha256": "3870f47c7d7b31c4bb86cb7391cf0af19cf086329d80f6e6e6fdd4f855384fbe"
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py",
+      "baseline_sha256": "c853c513b29883c16dde974fe6b2d6e8ed6c4ab442509fd8a8f0f27c6cc15a85",
+      "candidate_sha256": "f7b9a88c648bc40a86444b0d4b4722c934a851cafa6b171570256382777285f7"
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/compressed_tensors/utils.py",
+      "baseline_sha256": "6f43153656248fd7fa3782fbc30ab052aa13e368ecdbd6fb00fac6c5e122df6d",
+      "candidate_sha256": "8868c4ef306509f0d0d54cae2ea1a6d747a1679d58150daad626d84226ea66f8"
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/fp8_utils.py",
+      "baseline_sha256": "e6c68b647baf3b8ea2275cd9c2fccb514082387440f4e82765a606f3b7f81064",
+      "candidate_sha256": "4befa291713700f3b28ec5b8a4acdce4d70274d4a7667ea94f96445dd61f900f"
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/unquant.py",
+      "baseline_sha256": "61552ca9fff26c6f9ffb16fcd2dffddc8a5f5c9652430a7c707388195c1240f8",
+      "candidate_sha256": "90db2d90f06b5fe4013570940d665ce105d9af7b40577ea430a9c4200c345b48"
+    },
+    {
+      "path": "python/sglang/srt/speculative/dflash_utils.py",
+      "baseline_sha256": "e69b3a072059fc00190097f02f6ecba64e60b41a9d44b799cc11268a046b1197",
+      "candidate_sha256": "01ec9d2cf2e9af87bc1fe716e39c8e710c199a774ab5cef06d3c070b9b492179"
+    }
+  ],
+  "tgemm": [
+    {
+      "path": "python/sglang/srt/environ.py",
+      "baseline_sha256": "6f5f9d8eccdb7d5e0ad922dde0944a4d99a20bf90d6a535b6906695100923bf0",
+      "candidate_sha256": "b7a9ed8a1851f470e9a9c96a1b99e2f2ce2aa80b66c49daf7e6f2315365be226"
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py",
+      "baseline_sha256": "c853c513b29883c16dde974fe6b2d6e8ed6c4ab442509fd8a8f0f27c6cc15a85",
+      "candidate_sha256": "41d6921e122e540b1353a8467d9adfd8e5acc86fd46053c0965703c0a7265618"
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/fp8_utils.py",
+      "baseline_sha256": "e6c68b647baf3b8ea2275cd9c2fccb514082387440f4e82765a606f3b7f81064",
+      "candidate_sha256": "dd2357423095897517b64b311a92b21fea044c74b36c459f45c23963310a5d28"
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/unquant.py",
+      "baseline_sha256": "61552ca9fff26c6f9ffb16fcd2dffddc8a5f5c9652430a7c707388195c1240f8",
+      "candidate_sha256": "28aa560257d4ec8677b6c3902526cae8867256538ece318dc3a5abd5b09f486a"
+    },
+    {
+      "path": "python/sglang/srt/speculative/dflash_utils.py",
+      "baseline_sha256": "e69b3a072059fc00190097f02f6ecba64e60b41a9d44b799cc11268a046b1197",
+      "candidate_sha256": "01ec9d2cf2e9af87bc1fe716e39c8e710c199a774ab5cef06d3c070b9b492179"
+    }
+  ]
+}

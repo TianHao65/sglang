@@ -1,0 +1,464 @@
+[aiter] import [module_aiter_core] under /opt/aiter/aiter/jit/module_aiter_core.so
+[aiter] [pid=9138 pname=MainProcess] start build [module_quant] under /opt/aiter/aiter/jit/build/module_quant
+[aiter] Current hipcc not support: -mllvm -amdgpu-coerce-illegal-types=1, skip it.
+[aiter] [pid=9138 pname=MainProcess] [32mfinish build [module_quant], cost 29.3s [0m
+[aiter] import [module_quant] under /opt/aiter/aiter/jit/module_quant.so
+[aiter] shape M:1, N:8192, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 1, N:8192, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v2 (kernelId 19)!
+[aiter] [pid=9138 pname=MainProcess] start build [module_gemm_a8w8_bpreshuffle] under /opt/aiter/aiter/jit/build/module_gemm_a8w8_bpreshuffle
+[aiter] [pid=9138 pname=MainProcess] [32mfinish build [module_gemm_a8w8_bpreshuffle], cost 65.2s [0m
+[aiter] import [module_gemm_a8w8_bpreshuffle] under /opt/aiter/aiter/jit/module_gemm_a8w8_bpreshuffle.so
+/usr/local/lib/python3.10/dist-packages/torch/profiler/profiler.py:272: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+USDT:2026-11-10 04:07:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[W1110 04:07:01.193128312 collection.cpp:1182] Warning: ROCTracer produced duplicate flow start: 15 (function operator())
+USDT:2026-11-10 04:07:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 8.314410526315791 us/iter with hipgraph
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.65226000000001 us/iter with hipgraph
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.909859999999998 us/iter with hipgraph
+[aiter] shape M:1, N:8192, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 1, N:8192, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v2 (kernelId 19)!
+{"family": "ck_decode", "M": 1, "N": 8192, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [8.790629629629624, 9.482340206185565, 9.648239583333345, 9.582210526315784, 9.016329545454546], "graph_us": [8.314410526315791, 10.65226000000001, 10.909859999999998], "relative_l2": 0.0016557533526793122, "changed_input_graph_relative_l2": [0.0016265916638076305, 0.0016541709192097187], "config": {"libtype": "ck", "kernelId": 19, "splitK": 0, "us": 8.3518, "kernelName": "a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v2", "tflops": 5.02, "bw": 2513.29, "errRatio": 0.0}}
+[aiter] shape M:4, N:8192, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 4, N:8192, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v2 (kernelId 25)!
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 11.039877551020407 us/iter with hipgraph
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 11.023804123711345 us/iter with hipgraph
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.563849999999997 us/iter with hipgraph
+[aiter] shape M:4, N:8192, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 4, N:8192, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v2 (kernelId 25)!
+{"family": "ck_decode", "M": 4, "N": 8192, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [10.114670000000022, 8.879050632911424, 9.584468749999997, 9.68844897959184, 9.383139784946247], "graph_us": [11.039877551020407, 11.023804123711345, 10.563849999999997], "relative_l2": 0.001654472784139216, "changed_input_graph_relative_l2": [0.0016526522813364863, 0.0016437077429145575], "config": {"libtype": "ck", "kernelId": 25, "splitK": 0, "us": 8.4775, "kernelName": "a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v2", "tflops": 19.79, "bw": 2482.72, "errRatio": 0.0}}
+[aiter] shape M:16, N:8192, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 16, N:8192, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v1 (kernelId 5)!
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:04 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 11.019061224489795 us/iter with hipgraph
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:05 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 11.014571428571433 us/iter with hipgraph
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.934414141414132 us/iter with hipgraph
+[aiter] shape M:16, N:8192, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 16, N:8192, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v1 (kernelId 5)!
+{"family": "ck_decode", "M": 16, "N": 8192, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [10.435890000000006, 8.873809523809525, 9.370472527472554, 9.17450000000001, 9.903163265306125], "graph_us": [11.019061224489795, 11.014571428571433, 10.934414141414132], "relative_l2": 0.001660131849348545, "changed_input_graph_relative_l2": [0.0016532200388610363, 0.0016457997262477875], "config": {"libtype": "ck", "kernelId": 5, "splitK": 0, "us": 8.9272, "kernelName": "a8w8_bpreshuffle_256x16x64x512_16x16_16x16_32x8x1_32x8x1_1x16x1x16_4x4x1_1x1_intrawave_v1", "tflops": 75.17, "bw": 2383.12, "errRatio": 0.0}}
+[aiter] shape M:1, N:2560, K:3072 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 1, N:2560, K:3072 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:06 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.4754040404040465 us/iter with hipgraph
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.365039999999999 us/iter with hipgraph
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.484292929292934 us/iter with hipgraph
+[aiter] shape M:1, N:2560, K:3072 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 1, N:2560, K:3072 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+{"family": "ck_decode", "M": 1, "N": 2560, "K": 3072, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [5.899031914893622, 5.885291666666656, 6.128816326530624, 6.121887755102033, 6.130836734693879], "graph_us": [7.4754040404040465, 7.365039999999999, 7.484292929292934], "relative_l2": 0.0016981404041871428, "changed_input_graph_relative_l2": [0.0016309526981785893, 0.001750720664858818], "config": {"libtype": "ck", "kernelId": 10, "splitK": 0, "us": 7.0666, "kernelName": "a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1", "tflops": 2.23, "bw": 1114.05, "errRatio": 0.0}}
+[aiter] shape M:4, N:2560, K:3072 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 4, N:2560, K:3072 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+USDT:2026-11-10 04:07:07 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:08 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.547727272727273 us/iter with hipgraph
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.5315656565656575 us/iter with hipgraph
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.522872340425536 us/iter with hipgraph
+[aiter] shape M:4, N:2560, K:3072 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 4, N:2560, K:3072 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+{"family": "ck_decode", "M": 4, "N": 2560, "K": 3072, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [5.953288659793835, 6.139459183673452, 6.216163265306122, 6.110846938775476, 6.10392857142859], "graph_us": [7.547727272727273, 7.5315656565656575, 7.522872340425536], "relative_l2": 0.0016519466880708933, "changed_input_graph_relative_l2": [0.001654842752031982, 0.0016925516538321972], "config": {"libtype": "ck", "kernelId": 10, "splitK": 0, "us": 7.1939, "kernelName": "a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1", "tflops": 8.75, "bw": 1097.75, "errRatio": 0.0}}
+[aiter] shape M:16, N:2560, K:3072 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 16, N:2560, K:3072 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:09 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.628926315789472 us/iter with hipgraph
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.624956043956049 us/iter with hipgraph
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:10 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.599873684210526 us/iter with hipgraph
+[aiter] shape M:16, N:2560, K:3072 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 16, N:2560, K:3072 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+{"family": "ck_decode", "M": 16, "N": 2560, "K": 3072, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [5.249929292929283, 5.5004545454545415, 5.441868686868713, 5.534383838383857, 5.483112244897939], "graph_us": [6.628926315789472, 6.624956043956049, 6.599873684210526], "relative_l2": 0.0016552676679566503, "changed_input_graph_relative_l2": [0.0016650533070787787, 0.0016742919106036425], "config": {"libtype": "ck", "kernelId": 10, "splitK": 0, "us": 6.1166, "kernelName": "a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1", "tflops": 41.14, "bw": 1307.16, "errRatio": 0.0}}
+[aiter] shape M:1, N:6656, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 1, N:6656, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:11 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.731684210526305 us/iter with hipgraph
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.38944999999999 us/iter with hipgraph
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.790650000000008 us/iter with hipgraph
+[aiter] shape M:1, N:6656, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 1, N:6656, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+{"family": "ck_decode", "M": 1, "N": 6656, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [7.946655172413763, 8.432453608247428, 8.470857142857163, 8.47946938775512, 8.412680412371113], "graph_us": [9.731684210526305, 9.38944999999999, 9.790650000000008], "relative_l2": 0.001651791506446898, "changed_input_graph_relative_l2": [0.001625801669433713, 0.001625262200832367], "config": {"libtype": "ck", "kernelId": 10, "splitK": 0, "us": 7.9288, "kernelName": "a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1", "tflops": 4.3, "bw": 2151.05, "errRatio": 0.0}}
+[aiter] shape M:4, N:6656, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 4, N:6656, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:12 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.96228282828283 us/iter with hipgraph
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:13 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.86255670103093 us/iter with hipgraph
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.920262626262621 us/iter with hipgraph
+[aiter] shape M:4, N:6656, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 4, N:6656, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1 (kernelId 10)!
+{"family": "ck_decode", "M": 4, "N": 6656, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [8.050080459770093, 8.781897959183679, 8.51170408163265, 8.706408163265294, 8.388279569892443], "graph_us": [9.96228282828283, 9.86255670103093, 9.920262626262621], "relative_l2": 0.0016560300718992949, "changed_input_graph_relative_l2": [0.001657481654547155, 0.0016415971331298351], "config": {"libtype": "ck", "kernelId": 10, "splitK": 0, "us": 8.0444, "kernelName": "a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v1", "tflops": 16.95, "bw": 2126.06, "errRatio": 0.0}}
+[aiter] shape M:16, N:6656, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 16, N:6656, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v2 (kernelId 24)!
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:14 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.823292929292919 us/iter with hipgraph
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.962249999999997 us/iter with hipgraph
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:15 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.04235051546392 us/iter with hipgraph
+[aiter] shape M:16, N:6656, K:2560 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 16, N:6656, K:2560 is tuned, in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/ck_candidate.csv! libtype is ck! kernelName is a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v2 (kernelId 24)!
+{"family": "ck_decode", "M": 16, "N": 6656, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [8.097967741935465, 8.697826530612218, 8.678244897959193, 8.773714285714282, 8.211373626373625], "graph_us": [9.823292929292919, 9.962249999999997, 10.04235051546392], "relative_l2": 0.0016601602546870708, "changed_input_graph_relative_l2": [0.0016567431157454848, 0.001647192402742803], "config": {"libtype": "ck", "kernelId": 24, "splitK": 0, "us": 8.066, "kernelName": "a8w8_bpreshuffle_128x16x32x512_16x16_16x16_32x4x1_32x4x1_1x16x1x8_4x4x1_1x1_intrawave_v2", "tflops": 67.6, "bw": 2143.98, "errRatio": 0.0}}
+[aiter] shape is M:8192, N:8192, K:2560 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True found padded_M: 8192, N:8192, K:2560 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+[aiter] [pid=9138 pname=MainProcess] start build [module_hipbsolgemm] under /opt/aiter/aiter/jit/build/module_hipbsolgemm
+[aiter] [pid=9138 pname=MainProcess] [32mfinish build [module_hipbsolgemm], cost 33.5s [0m
+[aiter] import [module_hipbsolgemm] under /opt/aiter/aiter/jit/module_hipbsolgemm.so
+USDT:2026-11-10 04:07:50 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:50 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:50 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:50 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:50 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:50 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:50 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:50 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 698.68552688172 us/iter with hipgraph
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:51 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 696.3620947368419 us/iter with hipgraph
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 697.0606701030925 us/iter with hipgraph
+[aiter] shape is M:8192, N:8192, K:2560 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True found padded_M: 8192, N:8192, K:2560 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+{"family": "tgemm", "M": 8192, "N": 8192, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [692.2983870967744, 694.3706836734696, 693.4359795918368, 695.9258229166666, 693.2229081632655], "graph_us": [698.68552688172, 696.3620947368419, 697.0606701030925], "relative_l2": 0.0016552929300814867, "changed_input_graph_relative_l2": [0.0016552915330976248, 0.0016553242458030581], "config": {"libtype": "hipblaslt", "solidx": 169251, "splitK": 0, "us": 701.2096, "kernelName": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT256x96x128_MI16x16x1_SN_LDSB0_AFC0_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA1_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA0_LPB32_LPMXSA0_LPMXSB0_LPM0_LRVW16_LWPMn1_MIAV0_MIWT4_6_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD4_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS16_NLCA2_NLCB1_ONLL0_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO0_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA1_VWB2_WSGRA0_WSGRB0_WS64_WG64_4_1", "err_ratio": 0.0, "tflops": 490.01, "bw": 311.04}}
+[aiter] shape is M:8192, N:2560, K:3072 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True found padded_M: 8192, N:2560, K:3072 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:52 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 275.2413711340207 us/iter with hipgraph
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:53 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 274.5988152173913 us/iter with hipgraph
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 275.78491954022974 us/iter with hipgraph
+[aiter] shape is M:8192, N:2560, K:3072 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True found padded_M: 8192, N:2560, K:3072 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+{"family": "tgemm", "M": 8192, "N": 2560, "K": 3072, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [275.6051789473683, 274.611311827957, 273.0442040816326, 273.63845263157896, 275.68529032258067], "graph_us": [275.2413711340207, 274.5988152173913, 275.78491954022974], "relative_l2": 0.00165655673481524, "changed_input_graph_relative_l2": [0.0016571154119446874, 0.0016570520820096135], "config": {"libtype": "hipblaslt", "solidx": 168150, "splitK": 0, "us": 275.103, "kernelName": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT256x96x128_MI16x16x1_SN_LDSB0_AFC0_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA1_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA0_LPB32_LPMXSA0_LPMXSB0_LPM0_LRVW16_LWPMn1_MIAV0_MIWT4_6_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD4_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS8_NLCA2_NLCB1_ONLL0_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO0_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA1_VWB2_WSGRA0_WSGRB0_WS64_WG64_4_1", "err_ratio": 0.0, "tflops": 468.37, "bw": 392.59}}
+[aiter] shape is M:8192, N:6656, K:2560 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True found padded_M: 8192, N:6656, K:2560 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:54 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 563.2912840909092 us/iter with hipgraph
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:55 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 563.4494545454544 us/iter with hipgraph
+USDT:2026-11-10 04:07:56 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:56 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:56 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:56 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 564.9230898876402 us/iter with hipgraph
+[aiter] shape is M:8192, N:6656, K:2560 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True found padded_M: 8192, N:6656, K:2560 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+{"family": "tgemm", "M": 8192, "N": 6656, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [563.8685670103094, 561.8359896907222, 561.56506185567, 563.1084374999997, 564.7782783505154], "graph_us": [563.2912840909092, 563.4494545454544, 564.9230898876402], "relative_l2": 0.0016553057357668877, "changed_input_graph_relative_l2": [0.00165550725068897, 0.0016551270382478833], "config": {"libtype": "hipblaslt", "solidx": 169251, "splitK": 0, "us": 575.4129, "kernelName": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT256x96x128_MI16x16x1_SN_LDSB0_AFC0_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA1_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA16_GRVWB16_GSUAMBSK_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA0_LBSPPB256_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA0_LPB32_LPMXSA0_LPMXSB0_LPM0_LRVW16_LWPMn1_MIAV0_MIWT4_6_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD4_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS16_NLCA2_NLCB1_ONLL0_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO0_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA1_VWB2_WSGRA0_WSGRB0_WS64_WG64_4_1", "err_ratio": 0.0, "tflops": 485.17, "bw": 321.64}}
+[aiter] shape is M:256, N:1728, K:1152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=True found padded_M: 256, N:1728, K:1152 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:57 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 15.061806818181822 us/iter with hipgraph
+USDT:2026-11-10 04:07:58 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:58 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:58 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:58 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 14.867500000000003 us/iter with hipgraph
+USDT:2026-11-10 04:07:58 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:58 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:58 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:58 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 13.375470000000009 us/iter with hipgraph
+[aiter] shape is M:256, N:1728, K:1152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=True found padded_M: 256, N:1728, K:1152 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+{"family": "tgemm", "M": 256, "N": 1728, "K": 1152, "dtype": "torch.bfloat16", "bias": true, "packed": true, "us": [11.926917525773208, 11.913060000000005, 11.91666999999999, 11.919879999999988, 11.895440000000026], "graph_us": [15.061806818181822, 14.867500000000003, 13.375470000000009], "relative_l2": 0.0016582696698606014, "changed_input_graph_relative_l2": [0.001662782859057188, 0.0016603028634563088], "config": {"libtype": "hipblaslt", "solidx": 86392, "splitK": 0, "us": 11.8483, "kernelName": "Cijk_Alik_Bljk_BBS_STA_BH_Bias_HA_S_SAV_UserArgs_MT192x32x128_MI16x16x1_SN_LDSB0_AFC1_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA1_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA0_LBSPPB512_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA0_LPB16_LPMXSA0_LPMXSB0_LPM0_LRVW8_LWPMn1_MIAV0_MIWT3_2_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD4_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS15_NLCA4_NLCB1_ONLL1_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO0_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA1_VWB2_WSGRA0_WSGRB0_WS64_WG64_4_1", "err_ratio": 0.0, "tflops": 86.02, "bw": 460.48}}
+[aiter] shape is M:256, N:2152, K:1152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=False found padded_M: 256, N:2152, K:1152 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:07:59 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 16.54509 us/iter with hipgraph
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 15.54628 us/iter with hipgraph
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 16.293490000000006 us/iter with hipgraph
+[aiter] shape is M:256, N:2152, K:1152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=False found padded_M: 256, N:2152, K:1152 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+{"family": "tgemm", "M": 256, "N": 2152, "K": 1152, "dtype": "torch.bfloat16", "bias": true, "packed": false, "us": [14.131900000000071, 14.185470000000032, 14.119888888888886, 14.206680000000011, 14.129070000000054], "graph_us": [16.54509, 15.54628, 16.293490000000006], "relative_l2": 0.0016642521368339658, "changed_input_graph_relative_l2": [0.0016593328909948468, 0.0016624461859464645], "config": {"libtype": "hipblaslt", "solidx": 83590, "splitK": 0, "us": 14.3721, "kernelName": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x128x128_MI16x16x1_SN_LDSB1_AFC0_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA0_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMB_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB256_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA16_LPB16_LPMXSA0_LPMXSB0_LPMn1_LRVW8_LWPMn1_MIAV0_MIWT4_4_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD0_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS0_NLCA1_NLCB1_ONLL1_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW4_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO0_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG16_8_2", "err_ratio": 0.0, "tflops": 88.32, "bw": 462.69}}
+[aiter] shape is M:256, N:1152, K:2152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=False found padded_M: 256, N:1152, K:2152 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:00 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 17.97990000000001 us/iter with hipgraph
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 15.72167532467533 us/iter with hipgraph
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 17.253490000000006 us/iter with hipgraph
+[aiter] shape is M:256, N:1152, K:2152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=False found padded_M: 256, N:1152, K:2152 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is hipblaslt, kernel name is 
+{"family": "tgemm", "M": 256, "N": 1152, "K": 2152, "dtype": "torch.bfloat16", "bias": true, "packed": false, "us": [16.10069999999999, 16.248061224489824, 16.103100000000005, 16.087470000000035, 16.094612244897966], "graph_us": [17.97990000000001, 15.72167532467533, 17.253490000000006], "relative_l2": 0.0016529998974874616, "changed_input_graph_relative_l2": [0.0016495068557560444, 0.0016550958389416337], "config": {"libtype": "hipblaslt", "solidx": 82636, "splitK": 0, "us": 17.0225, "kernelName": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x64x128_MI16x16x1_SN_LDSB1_AFC0_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA0_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMB_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA16_LPB16_LPMXSA0_LPMXSB0_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_2_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD7_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS8_NLCA1_NLCB1_ONLL1_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW4_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO1_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA4_VWB2_WSGRA0_WSGRB0_WS64_WG16_8_2", "err_ratio": 0.0, "tflops": 74.57, "bw": 390.65}}
+[aiter] shape is M:256, N:1152, K:576 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=True found padded_M: 256, N:1152, K:576 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is asm, kernel name is _ZN5aiter42bf16gemm_fp32bf16_tn_64x64_bshuffle_splitkE
+[aiter] LoadKernel: _ZN5aiter42bf16gemm_fp32bf16_tn_64x64_bshuffle_splitkE hsaco: /opt/aiter/hsa//gfx942/bf16gemm/bf16gemm_fp32bf16_tn_64x64_bshuffle_splitk.co
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:01 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.753074468085107 us/iter with hipgraph
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:02 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.7327812499999995 us/iter with hipgraph
+USDT:2026-11-10 04:08:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 04:08:03 9138:9138 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 04:08:03 9138:9138 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.747408602150533 us/iter with hipgraph
+[aiter] shape is M:256, N:1152, K:576 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=True found padded_M: 256, N:1152, K:576 is tuned on cu_num = 80 in /workspace/projects/Qwen3.8/experiments/pr63_tgemm_tuning_host34_20261110/configs/tgemm_candidate.csv, libtype is asm, kernel name is _ZN5aiter42bf16gemm_fp32bf16_tn_64x64_bshuffle_splitkE
+{"family": "tgemm", "M": 256, "N": 1152, "K": 576, "dtype": "torch.bfloat16", "bias": true, "packed": true, "us": [5.796650000000002, 5.789809999999993, 5.774373737373756, 5.781656565656568, 5.798562499999983], "graph_us": [6.753074468085107, 6.7327812499999995, 6.747408602150533], "relative_l2": 0.0016550187719985843, "changed_input_graph_relative_l2": [0.001652195118367672, 0.0016553624300286174], "config": {"libtype": "asm", "solidx": 5, "splitK": 1, "us": 5.9612, "kernelName": "_ZN5aiter42bf16gemm_fp32bf16_tn_64x64_bshuffle_splitkE", "err_ratio": 0.0, "tflops": 56.99, "bw": 371.04}}
+PASS 16 GEMMs; 32 changed-input graph replays

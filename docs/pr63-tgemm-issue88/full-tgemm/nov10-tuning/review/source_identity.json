@@ -1,0 +1,21 @@
+{
+  "sglang_image_base": "4d63dea",
+  "aiter": "514c166e9abad59acde74309923c2d923a89eee0",
+  "image_id": "sha256:317e4678c5a2d7b203c9fd2b239c931758bc84d225281054189e0444103c2f85",
+  "development_host": "hjbog-srdc-34.amd.com",
+  "PTL": "user-confirmed",
+  "source_snapshot_sha256": {
+    "python/sglang/srt/environ.py": "1e2a0e94708ec767f0c321aae95cc3910af17cde486621c6485aaba8b0914945",
+    "python/sglang/srt/layers/quantization/unquant.py": "22c7dd70fb621d9e52670f7ee2ab598aa0cf70b003a28f094667bb56107a21dc",
+    "python/sglang/srt/layers/quantization/fp8_utils.py": "09e584b34067d6f6c52b906bc4d3e6eae4e43179650a9dac8d6939f8e248c98f",
+    "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "c2fa74e267a51f0a9d09a13bf6264b0ad1f5310b0ef180bd77d17092965ad136"
+  },
+  "scope": "Qwen3.8 TP2 FP8 decode and prefill, isolated BF16 ViT linears; kernel tuning and SGLang caller validation",
+  "ck_tuning_gpu": 0,
+  "tgemm_tuning_gpus": [
+    1,
+    3
+  ],
+  "comparison_gpu": 2,
+  "pr63_head": "8511084989b483485597c946c31a92c9522b3ec8"
+}

@@ -1,0 +1,45 @@
+{
+  "sglang_image_base": "4d63dea",
+  "image": "sha256:317e4678c5a2d7b203c9fd2b239c931758bc84d225281054189e0444103c2f85",
+  "aiter": "514c166e9abad59acde74309923c2d923a89eee0",
+  "source_files_sha256": {
+    "srt/environ.py": "1e2a0e94708ec767f0c321aae95cc3910af17cde486621c6485aaba8b0914945",
+    "srt/layers/quantization/unquant.py": "22c7dd70fb621d9e52670f7ee2ab598aa0cf70b003a28f094667bb56107a21dc",
+    "srt/layers/quantization/fp8_utils.py": "09e584b34067d6f6c52b906bc4d3e6eae4e43179650a9dac8d6939f8e248c98f",
+    "srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "c2fa74e267a51f0a9d09a13bf6264b0ad1f5310b0ef180bd77d17092965ad136"
+  },
+  "client_files_sha256": {
+    "benchmark_dataset.py": "04c8ddb18abb10d553aaad9f3b8b8457fa5ab8cd756209a850700f73c4164e6a",
+    "benchmark_serving_wrapper.py": "a627d5778c6dfc3db05e4569dc08668e6af716d48fba9931c7dc4c91a8649349",
+    "backend_request_func.py": "1e76602113b704551254f22af00109e3ac72d773285200ddba5fd9651766346d",
+    "benchmark_envs.py": "52e9678a8d2f9ca8849b8719cc5dc7812e2314cdf1dca2d91596d6b5d48efaa2",
+    "custom_output_formatter.py": "a514a668e64ccde2f439a6e7dfceee4c51459dd164abd5010b25d4ba485b816a",
+    "benchmark_utils.py": "c961f7bdfbef206187bde2321bf42bc1021201f7f671d4aded870166d5b6811d",
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "benchmark_serving_multi_workers.py": "adfe361317a1c677e5dab1f4b08620a81d38968094a066f2af17354bc62edb43",
+    "benchmark_serving.py": "e7f2cd5c07c7b29f52102d94b34bda916bc1618585c43c4b1ae672ddd74064e5",
+    "common/cache_flusher.py": "e46982129f36b687ed8c86350075f5b1b201e58d00527780c56e49ab04380ddd",
+    "common/dataset_input.py": "7ad8aa8630e2fdb743db8ea9b9b8d9cd03cf0f65e7841932c4f261e2600f641f",
+    "common/__init__.py": "af09b9559711bf689164331a607b2c00fb655410a78be64ec8adf0ea8555a2d8"
+  },
+  "workload": {
+    "input": 11000,
+    "output": 350,
+    "sigma": 4,
+    "prefix_ratio": 0.35,
+    "prefix_tokens_customer_floor": 3849,
+    "concurrency": 1,
+    "MTP": "EAGLE, 3 steps, 4 draft tokens",
+    "radix": true,
+    "max_total_tokens": 262144,
+    "formal_requests_per_startup": 128,
+    "discard_requests_per_startup": 16,
+    "starts_per_arm": 2,
+    "plan": [
+      "before",
+      "after",
+      "after",
+      "before"
+    ]
+  }
+}

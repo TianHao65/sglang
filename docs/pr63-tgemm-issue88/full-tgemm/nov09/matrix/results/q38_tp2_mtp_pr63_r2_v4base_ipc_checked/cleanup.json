@@ -1,0 +1,53 @@
+{
+  "time_utc": "2026-11-09T07:27:55.919181+00:00",
+  "cards": {
+    "card0": {
+      "GPU use (%)": "100",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "125441970176"
+    },
+    "card1": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306577408"
+    },
+    "card2": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "174936363008"
+    },
+    "card3": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "173489487872"
+    },
+    "card4": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306577408"
+    },
+    "card5": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306577408"
+    },
+    "card6": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306565120"
+    },
+    "card7": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306565120"
+    }
+  },
+  "gpu_by_pid": "\n\n============================ ROCm System Management Interface ============================\n================================== GPUs Indexed by PID ===================================\nPID 2867259 is using 1 DRM device(s):\n3 \nPID 2887956 is using 0 DRM device(s)\nPID 2679165 is using 1 DRM device(s):\n0 \nPID 2679881 is using 0 DRM device(s)\nPID 2861241 is using 1 DRM device(s):\n2 \nPID 2755711 is using 0 DRM device(s)\nPID 2868011 is using 0 DRM device(s)\nPID 2671641 is using 1 DRM device(s):\n0 \nPID 2887958 is using 0 DRM device(s)\nPID 2866568 is using 1 DRM device(s):\n2 \nPID 2859939 is using 0 DRM device(s)\n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n",
+  "used_gpu_ids": [
+    "3",
+    "0",
+    "2",
+    "0",
+    "2"
+  ]
+}

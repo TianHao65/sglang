@@ -1,0 +1,13 @@
+{
+  "host": "hjbog-srdc-34.amd.com",
+  "comparison_gpu": 2,
+  "device": "_CudaDeviceProperties(name='AMD Instinct MI308X', major=9, minor=4, gcnArchName='gfx942:sramecc+:xnack-', total_memory=196592MB, multi_processor_count=80, uuid=36333133-3934-3237-6133-646265653136, pci_bus_id=164, pci_device_id=0, pci_domain_id=0, L2_cache_size=4MB)",
+  "aiter_commit": "514c166e9abad59acde74309923c2d923a89eee0",
+  "aiter_status": "",
+  "restored_source_sha256": {
+    "gradlib/csrc/hipbsolgemm.cu": "88efe7f6f99162ee1882e8968a52a43522c3a56b199dd9f7a625d7e3e0715b18",
+    "gradlib/gradlib/GemmTuner.py": "dcdddc2e0109f51546e0d897aefb35dac9a1b22a380ecddd774cc966895abbde"
+  },
+  "ck_config_sha256": "131424a27c392e988e06952e4fa8828456a32a41ff8ba0448a52abf2d19cedd5",
+  "tgemm_config_sha256": "6f2203674469c37b365a817837532d1fca2e7a40dc9c83b63bc205c3d3e9e297"
+}

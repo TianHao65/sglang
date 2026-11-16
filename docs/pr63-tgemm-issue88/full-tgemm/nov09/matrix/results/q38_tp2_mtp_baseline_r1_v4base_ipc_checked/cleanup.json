@@ -1,0 +1,53 @@
+{
+  "time_utc": "2026-11-09T06:53:45.508595+00:00",
+  "cards": {
+    "card0": {
+      "GPU use (%)": "1",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "167549431808"
+    },
+    "card1": {
+      "GPU use (%)": "1",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "167549440000"
+    },
+    "card2": {
+      "GPU use (%)": "60",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "124111929344"
+    },
+    "card3": {
+      "GPU use (%)": "59",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "122787872768"
+    },
+    "card4": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "304107520"
+    },
+    "card5": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "304107520"
+    },
+    "card6": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "304095232"
+    },
+    "card7": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "304095232"
+    }
+  },
+  "gpu_by_pid": "\n\n============================ ROCm System Management Interface ============================\n================================== GPUs Indexed by PID ===================================\nPID 2321563 is using 1 DRM device(s):\n0 \nPID 2322403 is using 1 DRM device(s):\n1 \nPID 2431700 is using 0 DRM device(s)\nPID 2430825 is using 1 DRM device(s):\n3 \nPID 2429771 is using 1 DRM device(s):\n2 \nPID 2310892 is using 0 DRM device(s)\nPID 2424573 is using 1 DRM device(s):\n2 \nPID 2323639 is using 0 DRM device(s)\n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n",
+  "used_gpu_ids": [
+    "0",
+    "1",
+    "3",
+    "2",
+    "2"
+  ]
+}

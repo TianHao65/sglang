@@ -1,0 +1,55 @@
+{
+  "before": {
+    "TTFT_ms": 476.56193131138025,
+    "TPOT_ms": 5.031978054165318,
+    "ETE_ms": 2226.8145401915262,
+    "output_tokens_s": 156.9405517671305,
+    "QPS": 0.4490731814587151,
+    "QPS_per_GPU": 0.22453659072935755,
+    "ETE_range_ms": [
+      2223.162241812588,
+      2230.4668385704645
+    ]
+  },
+  "after": {
+    "TTFT_ms": 479.6891971095647,
+    "TPOT_ms": 4.598257940861672,
+    "ETE_ms": 2076.229191309494,
+    "output_tokens_s": 168.3256229673754,
+    "QPS": 0.4816506771248084,
+    "QPS_per_GPU": 0.2408253385624042,
+    "ETE_range_ms": [
+      2067.6195805863244,
+      2084.838802032664
+    ]
+  },
+  "change_pct": {
+    "TTFT_ms": 0.6562139341635964,
+    "TPOT_ms": -8.61927672646794,
+    "ETE_ms": -6.762365979031215,
+    "output_tokens_s": 7.254384588336449,
+    "QPS": 7.254384588336471,
+    "QPS_per_GPU": 7.254384588336471
+  },
+  "completed_formal_requests": 512,
+  "workload": {
+    "input": 11000,
+    "output": 350,
+    "sigma": 4,
+    "prefix_ratio": 0.35,
+    "prefix_tokens_customer_floor": 3849,
+    "concurrency": 1,
+    "MTP": "EAGLE, 3 steps, 4 draft tokens",
+    "radix": true,
+    "max_total_tokens": 262144,
+    "formal_requests_per_startup": 128,
+    "discard_requests_per_startup": 16,
+    "starts_per_arm": 2,
+    "plan": [
+      "before",
+      "after",
+      "after",
+      "before"
+    ]
+  }
+}

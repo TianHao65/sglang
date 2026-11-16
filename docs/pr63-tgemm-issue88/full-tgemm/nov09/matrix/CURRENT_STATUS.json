@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-09T09:31:38.839152+00:00",
+  "completed": 14,
+  "planned": 24,
+  "52_Base": {
+    "status": "running",
+    "active": {
+      "model": "Qwen3.5-397B-A17B-PTPC-FP8",
+      "arm": "tgemm",
+      "cycle": 1,
+      "stage": "waiting_ci_lock",
+      "gpus": "0,1,2,3,4,5,6,7"
+    }
+  },
+  "34_TP4": {
+    "status": "failed",
+    "active": {
+      "name": "q38_tp4_mtp_baseline_r1_v4base_ipc_checked_retry6",
+      "model": "Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16",
+      "arm": "baseline",
+      "cycle": 1,
+      "stage": "cleanup",
+      "gpus": "0,1,2,3"
+    },
+    "completed": 0
+  }
+}

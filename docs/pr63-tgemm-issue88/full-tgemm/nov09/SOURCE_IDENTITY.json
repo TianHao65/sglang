@@ -1,0 +1,47 @@
+{
+  "baseline": {
+    "base": "4d63dea198be72236cd86dedf3640a3e49107258 image source snapshot (includes image fixes)",
+    "scope": "BF16/FP8 linear implementation port; native MTP benchmark",
+    "files": {
+      "python/sglang/srt/environ.py": "cef94418523a00e8395d6d6fdf6831f7607fc4b2ca1662e609a43ebc0df6da28",
+      "python/sglang/srt/layers/quantization/unquant.py": "12e8e9c6b8289136c6b2cb169eaf4376e408b0ad6c2fd928fca58532265f9c96",
+      "python/sglang/srt/layers/quantization/fp8_utils.py": "626398e0a6e396fd0bb7ce5bc6dbf2f1472a969ecf8db7e6240ad1e8a7c1f5a4",
+      "python/sglang/srt/layers/quantization/compressed_tensors/utils.py": "6f43153656248fd7fa3782fbc30ab052aa13e368ecdbd6fb00fac6c5e122df6d",
+      "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "c853c513b29883c16dde974fe6b2d6e8ed6c4ab442509fd8a8f0f27c6cc15a85"
+    }
+  },
+  "pr63": {
+    "base": "4d63dea198be72236cd86dedf3640a3e49107258 image source snapshot (includes image fixes)",
+    "scope": "BF16/FP8 linear implementation port; native MTP benchmark",
+    "files": {
+      "python/sglang/srt/environ.py": "1e2a0e94708ec767f0c321aae95cc3910af17cde486621c6485aaba8b0914945",
+      "python/sglang/srt/layers/quantization/unquant.py": "dd849f5988a7e403e1bcf2507dda378a518a0c3425b829de6438d805983808f6",
+      "python/sglang/srt/layers/quantization/fp8_utils.py": "4a65f96a0af785c496719d335fcfefedaffcda1beb547e8f6e6519bfe954ecd6",
+      "python/sglang/srt/layers/quantization/compressed_tensors/utils.py": "b4a85201e4b24e6999718d02c3cf50b21a2a5366b16ae6e2669d314f431fcc51",
+      "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "67cb8d014c7b2927d50a92a79e65647b3793b9b6d8303ad2e1e1c588c268c30b"
+    }
+  },
+  "tgemm": {
+    "base": "4d63dea198be72236cd86dedf3640a3e49107258 image source snapshot (includes image fixes)",
+    "scope": "BF16/FP8 linear implementation port; native MTP benchmark",
+    "files": {
+      "python/sglang/srt/environ.py": "1e2a0e94708ec767f0c321aae95cc3910af17cde486621c6485aaba8b0914945",
+      "python/sglang/srt/layers/quantization/unquant.py": "22c7dd70fb621d9e52670f7ee2ab598aa0cf70b003a28f094667bb56107a21dc",
+      "python/sglang/srt/layers/quantization/fp8_utils.py": "09e584b34067d6f6c52b906bc4d3e6eae4e43179650a9dac8d6939f8e248c98f",
+      "python/sglang/srt/layers/quantization/compressed_tensors/utils.py": "6f43153656248fd7fa3782fbc30ab052aa13e368ecdbd6fb00fac6c5e122df6d",
+      "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "c2fa74e267a51f0a9d09a13bf6264b0ad1f5310b0ef180bd77d17092965ad136"
+    }
+  },
+  "tgemm_quark": {
+    "base": "4d63dea198be72236cd86dedf3640a3e49107258 image source snapshot (includes image fixes)",
+    "scope": "Same tgemm/BF16 implementation plus Quark FP8 prefill adapter; small M retains original CK route",
+    "files": {
+      "python/sglang/srt/environ.py": "1e2a0e94708ec767f0c321aae95cc3910af17cde486621c6485aaba8b0914945",
+      "python/sglang/srt/layers/quantization/unquant.py": "22c7dd70fb621d9e52670f7ee2ab598aa0cf70b003a28f094667bb56107a21dc",
+      "python/sglang/srt/layers/quantization/fp8_utils.py": "09e584b34067d6f6c52b906bc4d3e6eae4e43179650a9dac8d6939f8e248c98f",
+      "python/sglang/srt/layers/quantization/compressed_tensors/utils.py": "6f43153656248fd7fa3782fbc30ab052aa13e368ecdbd6fb00fac6c5e122df6d",
+      "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "c2fa74e267a51f0a9d09a13bf6264b0ad1f5310b0ef180bd77d17092965ad136",
+      "python/sglang/srt/layers/quantization/quark/schemes/quark_w8a8_fp8.py": "40c62b0f8369bc17c6372669ad8b08761a626505f469de09f946ac326d4ebf4d"
+    }
+  }
+}

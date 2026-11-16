@@ -1,0 +1,226 @@
+{
+  "created_utc": "2026-11-16T08:54:23.689525+00:00",
+  "scope": "Read-only retrospective attribution of the one profile_before TP4 cleanup owner event; no CI score reinterpretation.",
+  "original_manifest_preserved": true,
+  "original_manifest_status": "failed",
+  "original_cleanup_error": "active or unresolved selected-GPU peer; cancel only owned server",
+  "conclusion": {
+    "classification": "known experiment-owned PID generation changed its cgroup membership flag during teardown",
+    "new_peer_generation_supported": false,
+    "same_pid_generation_prior_own_supported": true,
+    "profiling_export_completed_before_event": true,
+    "exact_intra_second_signal_vs_membership_order_known": false
+  },
+  "workload": {
+    "side": "before",
+    "physical_gpus": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "rank_to_physical_gpu": {
+      "0": 4,
+      "1": 5,
+      "2": 6,
+      "3": 7
+    },
+    "capture_start_epoch": 1794816347.5247955,
+    "capture_end_epoch": 1794816348.0448003,
+    "capture_start_utc": "2026-11-16T08:05:47.524796+00:00",
+    "capture_end_utc": "2026-11-16T08:05:48.044800+00:00",
+    "stop_profile_http_status": 200
+  },
+  "known_owner_generation": {
+    "pid": 1896069,
+    "start_ticks": 391975092,
+    "ppid": 1889760,
+    "name": "sglang::schedul",
+    "prior_own_samples": {
+      "first_index": 31,
+      "last_index": 89,
+      "count": 59,
+      "first_line": 33,
+      "last_line": 91,
+      "first_utc": "2026-11-16T08:04:55.082320+00:00",
+      "last_utc": "2026-11-16T08:05:53.082353+00:00",
+      "all_membership_flags": true,
+      "selected_gpu_observations": 236
+    },
+    "transition_sample": {
+      "index": 90,
+      "line": 92,
+      "start_epoch": 1794816354.082324,
+      "collection_end_epoch": 1794816354.7109826,
+      "start_utc": "2026-11-16T08:05:54.082324+00:00",
+      "same_pid": true,
+      "same_start_ticks": true,
+      "same_ppid": true,
+      "in_own_container": false,
+      "alive": true,
+      "state": "R",
+      "metadata_errors": [],
+      "selected_gpu_mappings": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "later_observation": "Samples91-98 (lines93-100) contain no GPU owner record for this generation; this does not by itself establish process death.",
+    "parent_generation": {
+      "host_pid": 1889760,
+      "start_ticks": 391972407,
+      "prior_and_later_own_flag": true,
+      "first_observed_sample": 4,
+      "last_observed_sample": 95,
+      "manifest_target_server_group": {
+        "pid": 1083,
+        "pgid": 1083,
+        "start_ticks": "391972407"
+      },
+      "start_ticks_match": true
+    }
+  },
+  "export_and_teardown_log": [
+    {
+      "line": 584,
+      "text": "[2026-11-16 08:05:51 TP1] Profiling done. Traces are saved to: /full_tgemm/results/profile_before/traces"
+    },
+    {
+      "line": 585,
+      "text": "[2026-11-16 08:05:51 TP3] Profiling done. Traces are saved to: /full_tgemm/results/profile_before/traces"
+    },
+    {
+      "line": 586,
+      "text": "[2026-11-16 08:05:51 TP0] Profiling done. Traces are saved to: /full_tgemm/results/profile_before/traces"
+    },
+    {
+      "line": 587,
+      "text": "[2026-11-16 08:05:51 TP2] Profiling done. Traces are saved to: /full_tgemm/results/profile_before/traces"
+    },
+    {
+      "line": 589,
+      "text": "[2026-11-16 08:05:54] SIGTERM received. signum=None frame=None. Draining requests and shutting down..."
+    },
+    {
+      "line": 590,
+      "text": "[2026-11-16 08:05:54] Subprocess scheduler_0 (pid=1476) crashed with exit code -15. Triggering SIGQUIT for cleanup..."
+    },
+    {
+      "line": 591,
+      "text": "[2026-11-16 08:05:54] SIGQUIT received. signum=None, frame=None. It usually means one child failed."
+    }
+  ],
+  "guard_event": {
+    "sample_index": 90,
+    "clock": "2026-11-16T08:05:54.082324+00:00",
+    "pid": 1896069,
+    "start_ticks": 391975092,
+    "ppid": 1889760,
+    "gpu": 4,
+    "has_kfd_queue": false,
+    "known_memory_bytes": 31840501760.0,
+    "memory_growth": false,
+    "mapping_verified": true
+  },
+  "telemetry_context": {
+    "sample_count": 99,
+    "guard_processed_samples": 91,
+    "guard_incomplete_owner_samples": 0,
+    "active_peer_events_in_raw_manifest": 1,
+    "selected_gpu_util_percent_samples89_and90": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sample91_selected_gpu_vram_used_bytes": [
+      1699676160,
+      302747648,
+      302735360,
+      302735360
+    ]
+  },
+  "original_traces": [
+    {
+      "rank": 0,
+      "local_path": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/results/profile_before/traces/full-tgemm-before-before-TP-0.trace.json.gz",
+      "original_path": "/raid/hatian/pr107_full_tgemm_20261116/results/profile_before/traces/full-tgemm-before-before-TP-0.trace.json.gz",
+      "bytes": 1999439,
+      "sha256": "4388e53ea3ad6982ff3b81654989158941373781dbee5ab64d09ea454660b1dc"
+    },
+    {
+      "rank": 1,
+      "local_path": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/results/profile_before/traces/full-tgemm-before-before-TP-1.trace.json.gz",
+      "original_path": "/raid/hatian/pr107_full_tgemm_20261116/results/profile_before/traces/full-tgemm-before-before-TP-1.trace.json.gz",
+      "bytes": 1992906,
+      "sha256": "270326a0ac2155e91fe7fb8f1a5b63caae662034947d1a8148bc5f9ac9a86c7d"
+    },
+    {
+      "rank": 2,
+      "local_path": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/results/profile_before/traces/full-tgemm-before-before-TP-2.trace.json.gz",
+      "original_path": "/raid/hatian/pr107_full_tgemm_20261116/results/profile_before/traces/full-tgemm-before-before-TP-2.trace.json.gz",
+      "bytes": 2000987,
+      "sha256": "a4c051dc90b4988bfb8c2aceff7cdbb2a8ebdb169be47307805a85ed7e2a2d1a"
+    },
+    {
+      "rank": 3,
+      "local_path": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/results/profile_before/traces/full-tgemm-before-before-TP-3.trace.json.gz",
+      "original_path": "/raid/hatian/pr107_full_tgemm_20261116/results/profile_before/traces/full-tgemm-before-before-TP-3.trace.json.gz",
+      "bytes": 1992548,
+      "sha256": "220a6ba4dde268028c38d7fa720eaccc8b8fbaaa2de1e32138d9ac8e9edfb574"
+    }
+  ],
+  "sources": [
+    {
+      "path": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/results/profile_before/capture_manifest.json",
+      "sha256": "ea4f4b3cfdc5386ec519e6140d388b4117de346531f2e596b3ae097c4318594d",
+      "raw_status": "failed"
+    },
+    {
+      "path": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/results/profile_before/telemetry.jsonl",
+      "sha256": "a0c0eef9e43c54c9a67f184913f24f6894f32336a333584ae21afaea99246383",
+      "line_semantics": "raw newline-separated JSONL; 1-based lines",
+      "key_lines": [
+        33,
+        91,
+        92,
+        93,
+        100
+      ]
+    },
+    {
+      "path": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/results/profile_before/server.log",
+      "sha256": "6b6cbb7adb8a0915fe55c649d4e9567888f0024eaae9aacd88d415472209f9ce",
+      "line_semantics": "read_bytes().decode().split(newline), standalone carriage returns do not create lines",
+      "key_lines": [
+        552,
+        555,
+        572,
+        575,
+        584,
+        585,
+        586,
+        587,
+        589,
+        590,
+        591
+      ]
+    }
+  ],
+  "limitations": [
+    "The source manifest retains failed status and cleanup_error; this review does not rewrite either.",
+    "The event has the same PID/start_ticks/PPID previously labeled own; its false cgroup flag alone does not establish a newly arrived peer.",
+    "Signal logs have one-second timestamp precision and the owner sample spans about0.629s; exact intra-second ordering and the cause of the cgroup label transition are unknown.",
+    "A zero utilization sample or disappearance from the GPU owner list is not proof of process death or absence of all external activity.",
+    "Raw metadata uses container PID1083 for the target server group and host PID1889760 for the parent; matching start_ticks is recorded without inventing an additional PID namespace mapping."
+  ],
+  "audit_actions": {
+    "hardware_queries": false,
+    "SSH": false,
+    "Torch_import": false,
+    "source_or_runtime_changes": false,
+    "original_artifact_changes": false
+  }
+}

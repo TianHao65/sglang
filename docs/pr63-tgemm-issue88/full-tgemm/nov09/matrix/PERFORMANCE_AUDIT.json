@@ -1,0 +1,133 @@
+{
+  "status": "partial",
+  "completed_startups": 14,
+  "formal_requests": 1792,
+  "runs": [
+    {
+      "case": "Qwen3.8 TP2",
+      "host": "52",
+      "arm": "baseline",
+      "cycle": 1,
+      "raw_sha256": "4733d9f928200f1bfc375ed6e045e9d15a2c600b84634480b8f400c524e0b498",
+      "input_lens_sha256": "1239fa903579677a0244bcd6aeddbcd8e0c33386df6718e5d5817f8d582ea75b",
+      "path": "/workspace/projects/Qwen3.8/experiments/pr63_issue88_11k350_sigma4_prefix35_local52_20261109/results/q38_tp2_mtp_baseline_r1_v4base_ipc_checked"
+    },
+    {
+      "case": "Qwen3.8 TP2",
+      "host": "52",
+      "arm": "baseline",
+      "cycle": 2,
+      "raw_sha256": "9252849638f2bf0b4b4b4db8afbe9adebd7bb317bc8b9c1b1f503c5253cd1cf9",
+      "input_lens_sha256": "1239fa903579677a0244bcd6aeddbcd8e0c33386df6718e5d5817f8d582ea75b",
+      "path": "/workspace/projects/Qwen3.8/experiments/pr63_issue88_11k350_sigma4_prefix35_local52_20261109/results/q38_tp2_mtp_baseline_r2_v4base_ipc_checked"
+    },
+    {
+      "case": "Qwen3.8 TP2",
+      "host": "52",
+      "arm": "pr63",
+      "cycle": 1,
+      "raw_sha256": "e91b8126d9391db16f9fa6de55113dde9a3620c8822b4d017105d177ece6dff1",
+      "input_lens_sha256": "1239fa903579677a0244bcd6aeddbcd8e0c33386df6718e5d5817f8d582ea75b",
+      "path": "/workspace/projects/Qwen3.8/experiments/pr63_issue88_11k350_sigma4_prefix35_local52_20261109/results/q38_tp2_mtp_pr63_r1_v4base_ipc_checked"
+    },
+    {
+      "case": "Qwen3.8 TP2",
+      "host": "52",
+      "arm": "pr63",
+      "cycle": 2,
+      "raw_sha256": "a84c34726d79df8e1338ec22b63135eb02e5ed2a1de2bc9f8273c3f9b54f80d2",
+      "input_lens_sha256": "1239fa903579677a0244bcd6aeddbcd8e0c33386df6718e5d5817f8d582ea75b",
+      "path": "/workspace/projects/Qwen3.8/experiments/pr63_issue88_11k350_sigma4_prefix35_local52_20261109/results/q38_tp2_mtp_pr63_r2_v4base_ipc_checked"
+    },
+    {
+      "case": "Qwen3.8 TP2",
+      "host": "52",
+      "arm": "tgemm",
+      "cycle": 1,
+      "raw_sha256": "31a473e867ac54729248be262b8334ad1b808e16d2ba6653635e1e50e02c8508",
+      "input_lens_sha256": "1239fa903579677a0244bcd6aeddbcd8e0c33386df6718e5d5817f8d582ea75b",
+      "path": "/workspace/projects/Qwen3.8/experiments/pr63_issue88_11k350_sigma4_prefix35_local52_20261109/results/q38_tp2_mtp_tgemm_r1_v4base_ipc_checked"
+    },
+    {
+      "case": "Qwen3.8 TP2",
+      "host": "52",
+      "arm": "tgemm",
+      "cycle": 2,
+      "raw_sha256": "9b60dfffebde2353b18c1341f2f62b9a40c5b6130020db18955b528c9559cc70",
+      "input_lens_sha256": "1239fa903579677a0244bcd6aeddbcd8e0c33386df6718e5d5817f8d582ea75b",
+      "path": "/workspace/projects/Qwen3.8/experiments/pr63_issue88_11k350_sigma4_prefix35_local52_20261109/results/q38_tp2_mtp_tgemm_r2_v4base_ipc_checked"
+    },
+    {
+      "case": "Qwen3.5-35B TP4",
+      "host": "52",
+      "arm": "baseline",
+      "cycle": 1,
+      "raw_sha256": "dbab6cefb8b815950fc9f7816596c83c7fe6770c425680575ea08deaa280a509",
+      "input_lens_sha256": "d0ee0f29cf78f9054e01a9209536316849badb8368cd0f5efa5edc9f6d55e549",
+      "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr63_standard_scripts_local52_20261109/results/q35_35b_tp4_baseline_r1_a3"
+    },
+    {
+      "case": "Qwen3.5-35B TP4",
+      "host": "52",
+      "arm": "baseline",
+      "cycle": 2,
+      "raw_sha256": "22ab911644e1cde541f89b9cd030e0f2df747e8bf90e54b49f3927388e1d2cea",
+      "input_lens_sha256": "d0ee0f29cf78f9054e01a9209536316849badb8368cd0f5efa5edc9f6d55e549",
+      "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr63_standard_scripts_local52_20261109/results/q35_35b_tp4_baseline_r2_a3"
+    },
+    {
+      "case": "Qwen3.5-35B TP4",
+      "host": "52",
+      "arm": "pr63",
+      "cycle": 1,
+      "raw_sha256": "64a1bf563ed313979598eb7f52241f8dc8d36feb61b58884578f824eecb3fc20",
+      "input_lens_sha256": "d0ee0f29cf78f9054e01a9209536316849badb8368cd0f5efa5edc9f6d55e549",
+      "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr63_standard_scripts_local52_20261109/results/q35_35b_tp4_pr63_r1_a3"
+    },
+    {
+      "case": "Qwen3.5-35B TP4",
+      "host": "52",
+      "arm": "pr63",
+      "cycle": 2,
+      "raw_sha256": "d59deaa01829ac7c96ab165126f7795da1b9ecf04944da8481389eb3ee17999d",
+      "input_lens_sha256": "d0ee0f29cf78f9054e01a9209536316849badb8368cd0f5efa5edc9f6d55e549",
+      "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr63_standard_scripts_local52_20261109/results/q35_35b_tp4_pr63_r2_a3"
+    },
+    {
+      "case": "Qwen3.5-35B TP4",
+      "host": "52",
+      "arm": "tgemm",
+      "cycle": 1,
+      "raw_sha256": "5f725ca1dc5cc0d937d5616d6ce42ba6d0d1c42ee2e152457cda9c974d73d9ad",
+      "input_lens_sha256": "d0ee0f29cf78f9054e01a9209536316849badb8368cd0f5efa5edc9f6d55e549",
+      "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr63_standard_scripts_local52_20261109/results/q35_35b_tp4_tgemm_r1_a3"
+    },
+    {
+      "case": "Qwen3.5-35B TP4",
+      "host": "52",
+      "arm": "tgemm",
+      "cycle": 2,
+      "raw_sha256": "ea8590c8b1689b8ee88a74fb48c48c995cc821ba42ea096b01b49d81427439c7",
+      "input_lens_sha256": "d0ee0f29cf78f9054e01a9209536316849badb8368cd0f5efa5edc9f6d55e549",
+      "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr63_standard_scripts_local52_20261109/results/q35_35b_tp4_tgemm_r2_a3"
+    },
+    {
+      "case": "Qwen3.5-397B TP8",
+      "host": "52",
+      "arm": "baseline",
+      "cycle": 1,
+      "raw_sha256": "d4619966f91273351ed5d98e461051a5bed2b00e46a5480a9040457f51efbe35",
+      "input_lens_sha256": "d0ee0f29cf78f9054e01a9209536316849badb8368cd0f5efa5edc9f6d55e549",
+      "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr63_standard_scripts_local52_20261109/results/q35_397b_tp8_baseline_r1_a6"
+    },
+    {
+      "case": "Qwen3.5-397B TP8",
+      "host": "52",
+      "arm": "pr63",
+      "cycle": 1,
+      "raw_sha256": "fc36236e814529c9dae577043ef6e2ef512501712964a0da14c40ad81aa457d9",
+      "input_lens_sha256": "d0ee0f29cf78f9054e01a9209536316849badb8368cd0f5efa5edc9f6d55e549",
+      "path": "/workspace/projects/Ali-Dflash/397B/experiments/pr63_standard_scripts_local52_20261109/results/q35_397b_tp8_pr63_r1_a6"
+    }
+  ]
+}

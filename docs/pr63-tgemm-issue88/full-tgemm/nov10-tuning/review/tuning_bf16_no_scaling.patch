@@ -1,0 +1,17 @@
+--- a/gradlib/gradlib/GemmTuner.py
++++ b/gradlib/gradlib/GemmTuner.py
+@@ -59,10 +59,13 @@
+     if indtype == dtypes.fp8:
+         inp, x_scale = aiter.pertoken_quant(inp, quant_dtype=dtypes.fp8)
+         weights, w_scale = aiter.pertoken_quant(weights, quant_dtype=dtypes.fp8)
+-    else:
++    elif scaleAB:
+         scale_half = torch.tensor(0.5, dtype=dtypes.fp32, device=device)
+         w_scale = scale_half
+         x_scale = scale_half
++    else:
++        w_scale = None
++        x_scale = None
+     if is_shuffle:
+         from aiter.ops.shuffle import shuffle_weight
+ 

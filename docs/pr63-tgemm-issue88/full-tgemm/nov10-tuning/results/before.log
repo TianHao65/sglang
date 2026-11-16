@@ -1,0 +1,460 @@
+[aiter] import [module_aiter_core] under /opt/aiter/aiter/jit/module_aiter_core.so
+[aiter] merge tuned file under model_configs/ and configs/ /opt/aiter/aiter/configs/bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/qwen3_5_397b_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/minimax_m3_eagle_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/kimik3_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/glm47_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/qwen3_8_flash_next_tp4_decode_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/dsv4_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/qwen3_8b_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/qwen3_8_flash_next_tp2_decode_bf16_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/kimi_bf16_tuned_gemm.csv
+[aiter] import [module_quant] under /opt/aiter/aiter/jit/module_quant.so
+[aiter] merge tuned file under model_configs/ and configs/ /opt/aiter/aiter/configs/a8w8_bpreshuffle_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/qwen3_8_flash_next_tp2_decode_a8w8_bpreshuffle_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/dsv3_a8w8_bpreshuffle_tuned_gemm.csv:/opt/aiter/aiter/configs/model_configs/a8w8_bpreshuffle_tuned_gemm_minimax_m3.csv:/opt/aiter/aiter/configs/model_configs/a8w8_bpreshuffle_tuned_gemm_glm47.csv:/opt/aiter/aiter/configs/model_configs/a8w8_bpreshuffle_tuned_gemm_glm5.2.csv:/opt/aiter/aiter/configs/model_configs/a8w8_bpreshuffle_tuned_gemm_kimik3.csv:/opt/aiter/aiter/configs/model_configs/a8w8_bpreshuffle_tuned_gemm_qwen3_5_397b_a17b_mxfp4_attnfp8.csv:/opt/aiter/aiter/configs/model_configs/glm5_a8w8_bpreshuffle_tuned_gemm.csv
+[aiter] shape is M:1, N:8192, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+[aiter] import [module_gemm_a8w8_bpreshuffle] under /opt/aiter/aiter/jit/module_gemm_a8w8_bpreshuffle.so
+/usr/local/lib/python3.10/dist-packages/torch/profiler/profiler.py:272: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[W1110 03:40:21.726267238 collection.cpp:1182] Warning: ROCTracer produced duplicate flow start: 15 (function operator())
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:21 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 8.336677419354828 us/iter with hipgraph
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.445849999999998 us/iter with hipgraph
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.365050000000005 us/iter with hipgraph
+[aiter] shape is M:1, N:8192, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+{"family": "ck_decode", "M": 1, "N": 8192, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [8.843879518072303, 9.153711111111102, 8.974188888888873, 9.032119565217387, 9.00264044943819], "graph_us": [8.336677419354828, 10.445849999999998, 10.365050000000005], "relative_l2": 0.0016557533526793122, "changed_input_graph_relative_l2": [0.0016265916638076305, 0.0016541709192097187], "config": null}
+[aiter] shape is M:4, N:8192, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:22 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.988752577319598 us/iter with hipgraph
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:23 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.540649999999992 us/iter with hipgraph
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 11.07340404040404 us/iter with hipgraph
+[aiter] shape is M:4, N:8192, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+{"family": "ck_decode", "M": 4, "N": 8192, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [10.031439999999984, 8.899341772151878, 9.63129591836734, 9.608737373737375, 9.664279999999998], "graph_us": [10.988752577319598, 10.540649999999992, 11.07340404040404], "relative_l2": 0.001654472784139216, "changed_input_graph_relative_l2": [0.0016526522813364863, 0.0016437077429145575], "config": null}
+[aiter] shape is M:16, N:8192, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:24 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 11.151145833333336 us/iter with hipgraph
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.58705 us/iter with hipgraph
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:25 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 11.051860000000007 us/iter with hipgraph
+[aiter] shape is M:16, N:8192, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+{"family": "ck_decode", "M": 16, "N": 8192, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [10.866714285714282, 8.856612500000004, 9.192149425287356, 9.341528089887658, 9.353733333333325], "graph_us": [11.151145833333336, 10.58705, 11.051860000000007], "relative_l2": 0.001660131849348545, "changed_input_graph_relative_l2": [0.0016532200388610363, 0.0016457997262477875], "config": null}
+[aiter] shape is M:1, N:2560, K:3072, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:26 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.468939393939389 us/iter with hipgraph
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.5302399999999965 us/iter with hipgraph
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 7.45904 us/iter with hipgraph
+[aiter] shape is M:1, N:2560, K:3072, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+{"family": "ck_decode", "M": 1, "N": 2560, "K": 3072, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [5.90978947368421, 5.937020000000011, 6.147727272727275, 6.149224489795914, 6.107204081632664], "graph_us": [7.468939393939389, 7.5302399999999965, 7.45904], "relative_l2": 0.0016981404041871428, "changed_input_graph_relative_l2": [0.0016309526981785893, 0.001750720664858818], "config": null}
+[aiter] shape M:4, N:2560, K:3072 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 4, N:2560, K:3072 is tuned, in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv! libtype is cktile! kernelName is a8w8_bpreshuffle_cktile_0x0x8x4x1x0x0x0x0x3_16x64x512_1x4x1_16x16x64_default (kernelId 143)!
+[aiter] import [module_gemm_a8w8_bpreshuffle_cktile] under /opt/aiter/aiter/jit/module_gemm_a8w8_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, splitK: int = 0) -> torch.Tensor
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:27 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 29.25488095238092 us/iter with hipgraph
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 32.265179999999994 us/iter with hipgraph
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 29.2499358974359 us/iter with hipgraph
+[aiter] shape M:4, N:2560, K:3072 q_dtype_w:torch.float8_e4m3fnuz, found padded_M: 4, N:2560, K:3072 is tuned, in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv! libtype is cktile! kernelName is a8w8_bpreshuffle_cktile_0x0x8x4x1x0x0x0x0x3_16x64x512_1x4x1_16x16x64_default (kernelId 143)!
+{"family": "ck_decode", "M": 4, "N": 2560, "K": 3072, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [29.255157894736854, 29.22968041237114, 29.228750000000023, 29.230494845360813, 29.237494736842134], "graph_us": [29.25488095238092, 32.265179999999994, 29.2499358974359], "relative_l2": 0.0032749997917562723, "changed_input_graph_relative_l2": [0.003307301551103592, 0.0033196790609508753], "config": {"libtype": "cktile", "kernelId": 143, "splitK": 0, "us": 7.4758, "kernelName": "a8w8_bpreshuffle_cktile_0x0x8x4x1x0x0x0x0x3_16x64x512_1x4x1_16x16x64_default", "tflops": 8.42, "bw": 1056.35, "errRatio": 0.0}}
+[aiter] shape is M:16, N:2560, K:3072, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:28 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.592294736842103 us/iter with hipgraph
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.653538461538465 us/iter with hipgraph
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:29 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 6.615031578947366 us/iter with hipgraph
+[aiter] shape is M:16, N:2560, K:3072, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+{"family": "ck_decode", "M": 16, "N": 2560, "K": 3072, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [5.248826530612249, 5.530747474747476, 5.48433673469388, 5.474979591836739, 5.520642857142874], "graph_us": [6.592294736842103, 6.653538461538465, 6.615031578947366], "relative_l2": 0.0016552676679566503, "changed_input_graph_relative_l2": [0.0016650533070787787, 0.0016742919106036425], "config": null}
+[aiter] shape is M:1, N:6656, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:30 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.621272727272736 us/iter with hipgraph
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.849663265306127 us/iter with hipgraph
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.553797979797976 us/iter with hipgraph
+[aiter] shape is M:1, N:6656, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+{"family": "ck_decode", "M": 1, "N": 6656, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [7.944034090909084, 8.128790697674424, 8.465132653061234, 8.530679999999984, 7.9462840909091375], "graph_us": [9.621272727272736, 9.849663265306127, 9.553797979797976], "relative_l2": 0.001651791506446898, "changed_input_graph_relative_l2": [0.001625801669433713, 0.001625262200832367], "config": null}
+[aiter] shape is M:4, N:6656, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:31 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.985717171717175 us/iter with hipgraph
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:32 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.014808080808075 us/iter with hipgraph
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.952650000000002 us/iter with hipgraph
+[aiter] shape is M:4, N:6656, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+{"family": "ck_decode", "M": 4, "N": 6656, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [8.066488372093037, 8.679877551020425, 8.242179775280892, 8.36738461538464, 8.286365591397834], "graph_us": [9.985717171717175, 10.014808080808075, 9.952650000000002], "relative_l2": 0.0016560300718992949, "changed_input_graph_relative_l2": [0.001657481654547155, 0.0016415971331298351], "config": null}
+[aiter] shape is M:16, N:6656, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:33 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.83137373737373 us/iter with hipgraph
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.005450000000005 us/iter with hipgraph
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:34 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 10.012650000000004 us/iter with hipgraph
+[aiter] shape is M:16, N:6656, K:2560, q_dtype_w:torch.float8_e4m3fnuz, not found tuned config in /tmp/aiter_configs/a8w8_bpreshuffle_tuned_gemm.csv, will use default config!
+{"family": "ck_decode", "M": 16, "N": 6656, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [8.072670454545447, 8.743938775510198, 8.465323232323234, 8.502734693877512, 8.370842105263138], "graph_us": [9.83137373737373, 10.005450000000005, 10.012650000000004], "relative_l2": 0.0016601602546870708, "changed_input_graph_relative_l2": [0.0016567431157454848, 0.001647192402742803], "config": null}
+[aiter] shape is M:8192, N:8192, K:2560 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+[aiter] import [module_hipbsolgemm] under /opt/aiter/aiter/jit/module_hipbsolgemm.so
+USDT:2026-11-10 03:40:35 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:35 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:36 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 784.8838275862067 us/iter with hipgraph
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 784.1019883720933 us/iter with hipgraph
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:37 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 784.3183103448275 us/iter with hipgraph
+[aiter] shape is M:8192, N:8192, K:2560 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+{"family": "tgemm", "M": 8192, "N": 8192, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [783.2921145833335, 782.3906836734689, 783.4084210526313, 785.2498383838374, 784.0862040816327], "graph_us": [784.8838275862067, 784.1019883720933, 784.3183103448275], "relative_l2": 0.0016552929300814867, "changed_input_graph_relative_l2": [0.0016552915330976248, 0.00165532436221838], "config": {"bpreshuffle": true, "libtype": "hipblaslt", "solidx": -1, "kernelName": ""}}
+[aiter] shape is M:8192, N:2560, K:3072 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:38 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 283.5793333333334 us/iter with hipgraph
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 283.13765624999996 us/iter with hipgraph
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 283.16223958333325 us/iter with hipgraph
+[aiter] shape is M:8192, N:2560, K:3072 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+{"family": "tgemm", "M": 8192, "N": 2560, "K": 3072, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [283.13938, 281.3818125, 281.54737000000017, 281.7805609756097, 281.70057142857144], "graph_us": [283.5793333333334, 283.13765624999996, 283.16223958333325], "relative_l2": 0.00165655673481524, "changed_input_graph_relative_l2": [0.0016571154119446874, 0.0016570520820096135], "config": {"bpreshuffle": true, "libtype": "hipblaslt", "solidx": -1, "kernelName": ""}}
+[aiter] shape is M:8192, N:6656, K:2560 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+USDT:2026-11-10 03:40:39 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:40 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 634.6847752808984 us/iter with hipgraph
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 635.6457906976735 us/iter with hipgraph
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:41 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 634.933964285715 us/iter with hipgraph
+[aiter] shape is M:8192, N:6656, K:2560 dtype='torch.float8_e4m3fnuz' otype='torch.bfloat16' bias=False, scaleAB=True, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+{"family": "tgemm", "M": 8192, "N": 6656, "K": 2560, "dtype": "torch.float8_e4m3fnuz", "bias": false, "packed": true, "us": [633.3372244897959, 633.5746666666666, 634.0256082474224, 633.8796391752578, 634.3147755102041], "graph_us": [634.6847752808984, 635.6457906976735, 634.933964285715], "relative_l2": 0.0016553057357668877, "changed_input_graph_relative_l2": [0.00165550725068897, 0.0016551270382478833], "config": {"bpreshuffle": true, "libtype": "hipblaslt", "solidx": -1, "kernelName": ""}}
+[aiter] shape is M:256, N:1728, K:1152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+USDT:2026-11-10 03:40:42 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:42 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:42 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:42 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:42 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:42 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 13.388270000000002 us/iter with hipgraph
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 15.068181818181802 us/iter with hipgraph
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:43 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 15.067129870129877 us/iter with hipgraph
+[aiter] shape is M:256, N:1728, K:1152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+{"family": "tgemm", "M": 256, "N": 1728, "K": 1152, "dtype": "torch.bfloat16", "bias": true, "packed": true, "us": [12.056208791208745, 12.026639999999963, 12.020061855670109, 12.115659574468099, 12.036195876288664], "graph_us": [13.388270000000002, 15.068181818181802, 15.067129870129877], "relative_l2": 0.0016582696698606014, "changed_input_graph_relative_l2": [0.001662782859057188, 0.0016603030962869525], "config": {"bpreshuffle": true, "libtype": "hipblaslt", "solidx": -1, "kernelName": ""}}
+[aiter] shape is M:256, N:2152, K:1152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:47 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 16.251317647058805 us/iter with hipgraph
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 15.36420512820513 us/iter with hipgraph
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:48 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 17.324689999999997 us/iter with hipgraph
+[aiter] shape is M:256, N:2152, K:1152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+{"family": "tgemm", "M": 256, "N": 2152, "K": 1152, "dtype": "torch.bfloat16", "bias": true, "packed": false, "us": [15.828314606741548, 15.784916666666653, 15.780637362637362, 15.776402061855709, 15.768897959183635], "graph_us": [16.251317647058805, 15.36420512820513, 17.324689999999997], "relative_l2": 0.0016642521368339658, "changed_input_graph_relative_l2": [0.0016593328909948468, 0.0016624461859464645], "config": {"libtype": "torch", "solidx": 0}}
+[aiter] shape is M:256, N:1152, K:2152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 20.112309999999994 us/iter with hipgraph
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 19.209500000000002 us/iter with hipgraph
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:49 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 19.607110000000013 us/iter with hipgraph
+[aiter] shape is M:256, N:1152, K:2152 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+{"family": "tgemm", "M": 256, "N": 1152, "K": 2152, "dtype": "torch.bfloat16", "bias": true, "packed": false, "us": [17.749530000000007, 17.755890000000026, 17.76034, 17.746877551020418, 17.753968085106397], "graph_us": [20.112309999999994, 19.209500000000002, 19.607110000000013], "relative_l2": 0.0016529998974874616, "changed_input_graph_relative_l2": [0.0016495068557560444, 0.0016550958389416337], "config": {"libtype": "torch", "solidx": 0}}
+[aiter] shape is M:256, N:1152, K:576 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:50 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.58680612244898 us/iter with hipgraph
+USDT:2026-11-10 03:40:51 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:51 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:51 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:51 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.564947368421056 us/iter with hipgraph
+USDT:2026-11-10 03:40:51 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:51 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+USDT:2026-11-10 03:40:51 9734:9734 ActivityProfilerController.cpp:415] profiler_start
+USDT:2026-11-10 03:40:51 9734:9734 ActivityProfilerController.cpp:455] profiler_stop
+[aiter] avg: 9.548619565217399 us/iter with hipgraph
+[aiter] shape is M:256, N:1152, K:576 dtype='torch.bfloat16' otype='torch.bfloat16' bias=True, scaleAB=False, bpreshuffle=True, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using hipblaslt solution:-1
+{"family": "tgemm", "M": 256, "N": 1152, "K": 576, "dtype": "torch.bfloat16", "bias": true, "packed": true, "us": [7.956616161616168, 7.958180851063818, 7.965909090909127, 7.964793814432978, 7.968747474747468], "graph_us": [9.58680612244898, 9.564947368421056, 9.548619565217399], "relative_l2": 0.0016550187719985843, "changed_input_graph_relative_l2": [0.001652195118367672, 0.0016553624300286174], "config": {"bpreshuffle": true, "libtype": "hipblaslt", "solidx": -1, "kernelName": ""}}
+PASS 16 GEMMs; 32 changed-input graph replays

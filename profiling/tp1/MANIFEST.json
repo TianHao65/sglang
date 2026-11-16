@@ -1,0 +1,206 @@
+{
+  "scope": "2026-11-16 full-model TP1 paired operator evidence, frozen PR63 851108 before vs validated tgemm prototype after; not final-head whole-model performance or TP4 CI",
+  "model": "Quark14 Qwen3.5-35B-A3B-PTPC-FP8",
+  "hardware": "MI308X PTL52 physical GPU6, rank0",
+  "traces": [
+    {
+      "path": "traces/full-tgemm-before-before-TP-0.trace.json.gz",
+      "bytes": 2027364,
+      "sha256": "de9f86ff4bf0001932155856f208193766b632e2100a4d09ed995946624de190",
+      "trace_event_count": 148605,
+      "baseTimeNanoseconds": 1790857026000000000,
+      "kernel_event_count": 52243
+    },
+    {
+      "path": "traces/full-tgemm-after-after-TP-0.trace.json.gz",
+      "bytes": 2009864,
+      "sha256": "298c19828ccdcba03778878fd84c9c077b603696f7e520da6ecdf293481856a4",
+      "trace_event_count": 147820,
+      "baseTimeNanoseconds": 1790857026000000000,
+      "kernel_event_count": 52241
+    }
+  ],
+  "captures": [
+    {
+      "side": "before",
+      "scope": "New2026-11-16 TP1 prototype full-model operator profiling of frozen851 source pair; separate from TP4 performance, not finalPRhead or CIscore",
+      "tensor_parallel_size": 1,
+      "profiling_workload": {
+        "input_tokens": 8000,
+        "output_tokens": 64,
+        "concurrency": 1,
+        "temperature": 0.0,
+        "ignore_eos": true,
+        "warmup_requests": 2,
+        "radix_cache": false
+      },
+      "actual_request_dimensions": {
+        "prompt_tokens": 8000,
+        "completion_tokens": 64
+      },
+      "source": {
+        "arm": "before",
+        "source_sha256": {
+          "python/sglang/srt/layers/quantization/unquant.py": "a8cb732dfe0e01393127298d241e23bc1d0d5822c58d6a3e4e5ff154274490d6",
+          "python/sglang/srt/layers/quantization/fp8_utils.py": "4befa291713700f3b28ec5b8a4acdce4d70274d4a7667ea94f96445dd61f900f",
+          "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "f7b9a88c648bc40a86444b0d4b4722c934a851cafa6b171570256382777285f7"
+        }
+      },
+      "environment": {
+        "PYTHONUNBUFFERED": "1",
+        "HF_HUB_OFFLINE": "1",
+        "AITER_USE_SYSTEM_TRITON": "1",
+        "SGLANG_DISABLE_CUDNN_CHECK": "1",
+        "SGLANG_USE_CUDA_IPC_TRANSPORT": "1",
+        "SGLANG_VLM_CACHE_SIZE_MB": "8192",
+        "SGLANG_USE_AITER": "1",
+        "SGLANG_ROCM_USE_AITER_LINEAR_SHUFFLE": "1",
+        "SGLANG_ROCM_USE_AITER_LINEAR_FP8HIPB": "1",
+        "SGLANG_USE_AITER_NEW_CA": "false",
+        "SGLANG_USE_IPC_POOL_HANDLE_CACHE": "1",
+        "AITER_QUICK_REDUCE_QUANTIZATION": "INT6",
+        "USE_AITER_COMM": "1",
+        "TVM_FFI_DISABLE_TORCH_C_DLPACK": "1",
+        "HIP_VISIBLE_DEVICES": "6",
+        "PYTHONPATH": "/ci/sglang/python",
+        "SGLANG_PROFILE_V2": "0",
+        "SGLANG_PROFILE_RECORD_SHAPES": "1",
+        "AITER_CONFIG_GEMM_A8W8_BPRESHUFFLE": "/full_tgemm_tp1/configs/ck_base.csv",
+        "AITER_CONFIG_GEMM_BF16": "/full_tgemm_tp1/configs/tgemm_base.csv"
+      },
+      "original_traces": [
+        {
+          "path": "traces/full-tgemm-before-before-TP-0.trace.json.gz",
+          "bytes": 2027364,
+          "sha256": "de9f86ff4bf0001932155856f208193766b632e2100a4d09ed995946624de190",
+          "trace_event_count": 148605,
+          "baseTimeNanoseconds": 1790857026000000000,
+          "kernel_event_count": 52243
+        }
+      ],
+      "scripts_sha256": {
+        "capture_full_profiles_tp1.py": "cbbddadfbdb01fa7657678e9f5f57e7bb378c9096765dd2d6c9ba9a220b3ad29",
+        "profile_support_tp1.py": "7e9a18003ea0d19483edfba4dc968005d95ca908a290f51de1fa0cdc0543dfc9",
+        "telemetry.py": "a5665a09b2fbdb1b7a757c4eca54a51689c9331cb6ba082f5875d4335444fbb8"
+      },
+      "capture_status": "captured_complete_originals",
+      "active_peer_events": 0,
+      "telemetry_samples": 113,
+      "incomplete_owner_samples": 0,
+      "raw_capture_manifest_sha256": "64e640389369b88053ac1e860a92adc295321c0c4e5b80134810e5df0e35dbb8",
+      "cleanup_verified": true
+    },
+    {
+      "side": "after",
+      "scope": "New2026-11-16 TP1 prototype full-model operator profiling of frozen851 source pair; separate from TP4 performance, not finalPRhead or CIscore",
+      "tensor_parallel_size": 1,
+      "profiling_workload": {
+        "input_tokens": 8000,
+        "output_tokens": 64,
+        "concurrency": 1,
+        "temperature": 0.0,
+        "ignore_eos": true,
+        "warmup_requests": 2,
+        "radix_cache": false
+      },
+      "actual_request_dimensions": {
+        "prompt_tokens": 8000,
+        "completion_tokens": 64
+      },
+      "source": {
+        "arm": "after",
+        "source_sha256": {
+          "python/sglang/srt/layers/quantization/unquant.py": "5e1a3c31dc8c7a00415df82cf4ccee4bc92119e186946016c2bf22cef0a612d1",
+          "python/sglang/srt/layers/quantization/fp8_utils.py": "cf67ce95577c8bdac6891739f4db94f1a4b32ec3c38e94f497384ba543af5155",
+          "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "f436ed7fcf79b3020f1b14f1c135534ecc4e00cc18115234b5f82fdc9b5378e3"
+        }
+      },
+      "environment": {
+        "PYTHONUNBUFFERED": "1",
+        "HF_HUB_OFFLINE": "1",
+        "AITER_USE_SYSTEM_TRITON": "1",
+        "SGLANG_DISABLE_CUDNN_CHECK": "1",
+        "SGLANG_USE_CUDA_IPC_TRANSPORT": "1",
+        "SGLANG_VLM_CACHE_SIZE_MB": "8192",
+        "SGLANG_USE_AITER": "1",
+        "SGLANG_ROCM_USE_AITER_LINEAR_SHUFFLE": "1",
+        "SGLANG_ROCM_USE_AITER_LINEAR_FP8HIPB": "1",
+        "SGLANG_USE_AITER_NEW_CA": "false",
+        "SGLANG_USE_IPC_POOL_HANDLE_CACHE": "1",
+        "AITER_QUICK_REDUCE_QUANTIZATION": "INT6",
+        "USE_AITER_COMM": "1",
+        "TVM_FFI_DISABLE_TORCH_C_DLPACK": "1",
+        "HIP_VISIBLE_DEVICES": "6",
+        "PYTHONPATH": "/ci/sglang/python",
+        "SGLANG_PROFILE_V2": "0",
+        "SGLANG_PROFILE_RECORD_SHAPES": "1",
+        "AITER_CONFIG_GEMM_A8W8_BPRESHUFFLE": "/full_tgemm_tp1/configs/ck_accepted.csv",
+        "AITER_CONFIG_GEMM_BF16": "/full_tgemm_tp1/configs/tgemm_accepted.csv"
+      },
+      "original_traces": [
+        {
+          "path": "traces/full-tgemm-after-after-TP-0.trace.json.gz",
+          "bytes": 2009864,
+          "sha256": "298c19828ccdcba03778878fd84c9c077b603696f7e520da6ecdf293481856a4",
+          "trace_event_count": 147820,
+          "baseTimeNanoseconds": 1790857026000000000,
+          "kernel_event_count": 52241
+        }
+      ],
+      "scripts_sha256": {
+        "capture_full_profiles_tp1.py": "cbbddadfbdb01fa7657678e9f5f57e7bb378c9096765dd2d6c9ba9a220b3ad29",
+        "profile_support_tp1.py": "7e9a18003ea0d19483edfba4dc968005d95ca908a290f51de1fa0cdc0543dfc9",
+        "telemetry.py": "a5665a09b2fbdb1b7a757c4eca54a51689c9331cb6ba082f5875d4335444fbb8"
+      },
+      "capture_status": "captured_complete_originals",
+      "active_peer_events": 0,
+      "telemetry_samples": 87,
+      "incomplete_owner_samples": 0,
+      "raw_capture_manifest_sha256": "0033fa9e2f7676c6ea4f369b049f0cca999139ba0893df0ff2e651849a5a9bde",
+      "cleanup_verified": true
+    }
+  ],
+  "complete_originals_unmodified": true,
+  "capture_failures_preserved_locally": [
+    "TP4 before teardown ownership transition (supplementary review)",
+    "TP4 after preflight foreign queue refusal",
+    "TP1 first source staging missing manifest (no model launched)"
+  ],
+  "files_sha256": {
+    "README.md": "4d197dd68a31fa4d81a3f3b3d02110f5677f36703e126778889709741e91a893",
+    "capture/after-source.json": "ff1990ac94507c9a8dddf6753527e1fe7013fcca69445e7fa095e69d8b609471",
+    "capture/after-summary.json": "d661d2d55c75b511f33f62903a5786977be4bf4d61108af08cf845d64e97e52c",
+    "capture/before-source.json": "28d1071c63392808b8777a39e4f7ee715558c3a0720676fee885be33097f2a42",
+    "capture/before-summary.json": "c2e6d8a9767efd2ec02fbe94bc7ff7d524b2f2e9e29dd42cf4ef6e4c56d9e5eb",
+    "capture/decode-after.json": "e451dc0c2f7925a66bae7443175024a78f81fccf17d1e3785804431ae2401c4d",
+    "capture/decode-before.json": "cd0d784facdedc073013338cfdb7bfb551a7e530d148eb6eb1f80955989ecd25",
+    "capture/input-ids.json": "348697e31f018a06b3d4e1768eb9e95496015b7c96450749842bc0d2f3226ded",
+    "capture/input-manifest.json": "d876f89d1bdc3e22333a8f009aada8e890a87a6fc577c9ec3c58fd3747613953",
+    "capture/prefill-after.json": "9521342b4aae084538260eef381eaf395dfff7af800afae0fa73ec3b6048dd10",
+    "capture/prefill-before.json": "265a9e3676cc49bc46488c9c17d41740f9a052349b0008ccc82f4222c68cc654",
+    "capture/tp4_before_cleanup_review.json": "c03adc9c4262c9f7aa02b5bab448c0cba4cb7be8c15ab15e874c1f05438d0d0a",
+    "capture/tp4_before_cleanup_review.md": "634164f3f9cd3331efeddd009c882aa121c9e0589f6d815b6069274bbc48bfca",
+    "capture/trace-selection-audit.json": "36a0184d8e4b1b3cc6f211201fe0122f4fc45f47b04cd08d07350fa384ef7818",
+    "capture/trace-selection-audit.md": "c40789b116a3f8ab2693d72f7c6534c91f81bab4be4c9116afdd7f0fd30b5610",
+    "figures/decode-after.png": "fffb073a465499009e421153debfcf44184d45890aba326f962f09b75cbef8da",
+    "figures/decode-before.png": "e7c2150b11a251a271353913728c90edd689a9b64fa62cacf783af5b2d8f78d5",
+    "figures/prefill-after.png": "793199bb665ac2483371789749dcd9eaca7f9d7c53b09cf54d2a6d0cdb7020c8",
+    "figures/prefill-before.png": "1a4a9d061decf421abb55dc5d387d236a0585a4f05b04a8ce7bae8e1ab7faaeb",
+    "review/MANIFEST.json": "c78bef96897d62b9911e9dd141a84971b6d5155e5b75bb6a0987c36eac3515c4",
+    "screenshot-manifest.json": "0db6a67a618a801b587e724d775d7580820e747c144d1e95b34eedbb3e9a1dbe",
+    "scripts/capture_full_profiles_tp1.py": "cbbddadfbdb01fa7657678e9f5f57e7bb378c9096765dd2d6c9ba9a220b3ad29",
+    "scripts/capture_perfetto_screenshots_tp1.py": "f9f224285b95861f320f38efd45bda515f56cb046310e1714dde464d4bd66dac",
+    "scripts/profile_support_tp1.py": "7e9a18003ea0d19483edfba4dc968005d95ca908a290f51de1fa0cdc0543dfc9",
+    "scripts/setup_arm_tp1.py": "7120554a97097f54d79223834091a41fb0fa0627357cd475e18bce21f657d783",
+    "scripts/telemetry.py": "a5665a09b2fbdb1b7a757c4eca54a51689c9331cb6ba082f5875d4335444fbb8",
+    "selection-source-manifest.json": "24db1f65fddd2622eef7abd8602636520afa4dad2ed8c52afb1d6003d07ad0c4",
+    "sources/after/python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "f436ed7fcf79b3020f1b14f1c135534ecc4e00cc18115234b5f82fdc9b5378e3",
+    "sources/after/python/sglang/srt/layers/quantization/fp8_utils.py": "cf67ce95577c8bdac6891739f4db94f1a4b32ec3c38e94f497384ba543af5155",
+    "sources/after/python/sglang/srt/layers/quantization/unquant.py": "5e1a3c31dc8c7a00415df82cf4ccee4bc92119e186946016c2bf22cef0a612d1",
+    "sources/before/python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "f7b9a88c648bc40a86444b0d4b4722c934a851cafa6b171570256382777285f7",
+    "sources/before/python/sglang/srt/layers/quantization/fp8_utils.py": "4befa291713700f3b28ec5b8a4acdce4d70274d4a7667ea94f96445dd61f900f",
+    "sources/before/python/sglang/srt/layers/quantization/unquant.py": "a8cb732dfe0e01393127298d241e23bc1d0d5822c58d6a3e4e5ff154274490d6",
+    "traces/full-tgemm-after-after-TP-0.trace.json.gz": "298c19828ccdcba03778878fd84c9c077b603696f7e520da6ecdf293481856a4",
+    "traces/full-tgemm-before-before-TP-0.trace.json.gz": "de9f86ff4bf0001932155856f208193766b632e2100a4d09ed995946624de190"
+  }
+}

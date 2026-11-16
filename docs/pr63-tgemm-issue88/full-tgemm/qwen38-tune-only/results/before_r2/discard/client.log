@@ -1,0 +1,178 @@
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:779 __main__: Running in multi-worker mode (num-workers=1)
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:794 __main__: Running in CONCURRENCY test mode (start-concurrency=1)
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:847 __main__: Starting progressive benchmark testing...
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:848 __main__: TTFT threshold: Nonems
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:849 __main__: E2EL threshold: Nonems
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:850 __main__: TPOT thresholds: Nonems
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:382 __main__: 
+=== Iteration 1 ===
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:385 __main__: Prompts: 16
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:386 __main__: Request Rate: 0
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:387 __main__: Max Concurrency: 1
+[2026-11-10 05:51:23.777] [INFO] benchmark_serving_wrapper.py:388 __main__: Command: /usr/bin/python3 /workspace/projects/Qwen3.8/experiments/pr63_tgemm_ete_11k350_host34_20261110/client_v4/benchmark_serving_multi_workers.py --trust-remote-code --ignore-eos --model /models/Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16 --tokenizer /models/Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16 --backend sglang --host 127.0.0.1 --port 19838 --endpoint /v1/completions --dataset-name primus_random --random-input-len 11000 --random-output-len 350 --custom-output-len 350 --random-range-ratio 0.2 --random-prefix-len 3849 --temperature 0.800000011920929 --top-p 0.9 --disable-tqdm --save-result --save-prompt --burstiness 1 --num-workers 1 --enable-warmup --result-dir . --num-prompts 16 --request-rate inf --max-concurrency 1 --seed 1 --save-result --result-filename concurrency_benchmark_conc1_iter1.json
+Cache flushed before concurrent=1: url=http://127.0.0.1:19838/flush_cache, response=Cache flushed. Please check backend logs for more details. (When there are running or waiting requests, the operation will not be performed.)
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+生成 script_tag 时发生错误: invalid literal for int() with base 10: ''
+[2026-11-10 05:51:27.098] [INFO] [pid:3283] [tid:139788824958080] benchmark_serving_multi_workers.py:870 __main__: Benchmark arguments: Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=19838, endpoint='/v1/completions', dataset_name='primus_random', dataset_path=None, max_concurrency=1, model='/models/Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16', tokenizer='/models/Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16', num_prompts=16, logprobs=None, request_rate=inf, burstiness=1.0, seed=1, trust_remote_code=True, disable_tqdm=True, profile=False, save_result=True, save_itl=False, save_prompt=True, result_dir='.', result_filename='concurrency_benchmark_conc1_iter1.json', ignore_eos=True, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='99', goodput=None, enable_warmup=True, custom_output_len=350, random_input_len=11000, random_output_len=350, random_range_ratio=0.2, random_prefix_len=3849, top_p=0.9, top_k=None, temperature=0.800000011920929, served_model_name=None, num_workers=1, queue_size=1000, monitor_interval=10)
+[transformers] You are using a model of type `qwen4_exp` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+Using fixed dataset seed with LLM_BENCH_SEED=1
+[2026-11-10 05:51:28.216] [INFO] [pid:3283] [tid:139788824958080] benchmark_dataset.py:521 benchmark_dataset: Generating [1/16]: prefix_len=3849, prompt_tokens=7430, completion_tokens=335
+[2026-11-10 05:51:28.283] [INFO] [pid:3283] [tid:139788824958080] benchmark_dataset.py:521 benchmark_dataset: Generating [16/16]: prefix_len=3849, prompt_tokens=9197, completion_tokens=336
+[2026-11-10 05:51:28.374] [INFO] [pid:3283] [tid:139788824958080] benchmark_serving_multi_workers.py:993 __main__: Using fixed benchmark seed with LLM_BENCH_SEED=1
+Starting initial single prompt test run...
+Initial test run completed. Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0
+Maximum request concurrency: 1
+Worker processes: 1
+Request queue size: 1000
+[2026-11-10 05:51:31.620] [INFO] [pid:3587] [tid:139788824958080] benchmark_serving_multi_workers.py:1251 __main__: 
+============================================================
+Benchmark Monitor Started
+============================================================
+
+[2026-11-10 05:51:31.621] [INFO] [pid:3587] [tid:139788824958080] benchmark_serving_multi_workers.py:1316 __main__: 
+[0.0s] Benchmark Status:
+  Queue Backlog:         19 requests(last item in que is the END SIGNAL)
+  Sent Requests:          0/16 (  0.0%)
+  Completed:              0/16 (  0.0%)
+  Failed:                 0/16 (  0.0%)
+  Running Requests:          0 requests
+  Send Rate:          0.000 req/s
+  Complete Rate:      0.000 req/s
+  TTFT Mean:          0.000 ms
+  TPOT Mean:          0.000 ms
+  E2EL Mean:          0.000 ms
+
+[2026-11-10 05:51:31.626] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=0, send_time=1794289891.6265783
+[2026-11-10 05:51:31.639] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:495 __main__: Worker 0 has sent all, put end signal to que for other processes
+[2026-11-10 05:51:31.640] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:515 __main__: Worker 0 finish sending, waiting for 18 remaining tasks to complete
+[2026-11-10 05:51:33.538] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=1, send_time=1794289893.538794
+[2026-11-10 05:51:35.615] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=2, send_time=1794289895.6153564
+[2026-11-10 05:51:38.427] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=3, send_time=1794289898.4278772
+[2026-11-10 05:51:40.271] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=4, send_time=1794289900.2718775
+[2026-11-10 05:51:41.622] [INFO] [pid:3587] [tid:139788824958080] benchmark_serving_multi_workers.py:1316 __main__: 
+[10.0s] Benchmark Status:
+  Queue Backlog:          1 requests(last item in que is the END SIGNAL)
+  Sent Requests:          5/16 ( 31.2%)
+  Completed:              4/16 ( 25.0%)
+  Failed:                 0/16 (  0.0%)
+  Running Requests:         18 requests
+  Send Rate:          0.500 req/s
+  Complete Rate:      0.400 req/s
+  TTFT Mean:         463.288 ms
+  TPOT Mean:          5.204 ms
+  E2EL Mean:         2160.885 ms
+
+[2026-11-10 05:51:41.986] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=5, send_time=1794289901.986312
+[2026-11-10 05:51:44.119] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=6, send_time=1794289904.1196644
+[2026-11-10 05:51:46.494] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=7, send_time=1794289906.4940984
+[2026-11-10 05:51:48.496] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=8, send_time=1794289908.496462
+[2026-11-10 05:51:50.928] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=9, send_time=1794289910.9281664
+[2026-11-10 05:51:51.622] [INFO] [pid:3587] [tid:139788824958080] benchmark_serving_multi_workers.py:1316 __main__: 
+[20.0s] Benchmark Status:
+  Queue Backlog:          1 requests(last item in que is the END SIGNAL)
+  Sent Requests:         10/16 ( 62.5%)
+  Completed:              9/16 ( 56.2%)
+  Failed:                 0/16 (  0.0%)
+  Running Requests:         18 requests
+  Send Rate:          0.500 req/s
+  Complete Rate:      0.450 req/s
+  TTFT Mean:         434.613 ms
+  TPOT Mean:          4.854 ms
+  E2EL Mean:         2144.234 ms
+
+[2026-11-10 05:51:53.739] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=10, send_time=1794289913.739576
+[2026-11-10 05:51:56.303] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=11, send_time=1794289916.3029897
+[2026-11-10 05:51:57.903] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=12, send_time=1794289917.9031408
+[2026-11-10 05:51:59.520] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=13, send_time=1794289919.5205076
+[2026-11-10 05:52:01.298] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=14, send_time=1794289921.2984312
+[2026-11-10 05:52:01.623] [INFO] [pid:3587] [tid:139788824958080] benchmark_serving_multi_workers.py:1316 __main__: 
+[30.0s] Benchmark Status:
+  Queue Backlog:          1 requests(last item in que is the END SIGNAL)
+  Sent Requests:         15/16 ( 93.8%)
+  Completed:             14/16 ( 87.5%)
+  Failed:                 0/16 (  0.0%)
+  Running Requests:         18 requests
+  Send Rate:          0.500 req/s
+  Complete Rate:      0.467 req/s
+  TTFT Mean:         459.946 ms
+  TPOT Mean:          4.796 ms
+  E2EL Mean:         2119.018 ms
+
+[2026-11-10 05:52:04.063] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=15, send_time=1794289924.0636742
+[2026-11-10 05:52:05.836] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=16, send_time=1794289925.8367155
+[2026-11-10 05:52:08.124] [INFO] [pid:3591] [tid:139788824958080] benchmark_serving_multi_workers.py:417 __main__: Worker 0: processing prompt_index=17, send_time=1794289928.1241856
+============ Serving Benchmark Result ============
+Benchmark duration (s):                  38.30     
+Benchmark seed:                          1         
+Max concurrency:                         1         
+Request rate:                            inf       
+Burstiness:                              1.0       
+Total requests:                          18        
+Warmup(prefix + suffix) requests:        2         
+Main requests:                           16        
+Main successful requests:                16        
+Main error rate:                         0.0       
+---------------------Summary----------------------
+Total input tokens:                      175993    
+Mean input tokens(Expect):               11000     
+Mean input tokens(Request):              10999.5625
+Mean input tokens(Actual):               11741.875 
+Total generated tokens:                  5591      
+Mean generated tokens:                   349.4375  
+Request throughput (req/s):              0.4628    
+Output token throughput (tok/s):         161.7276  
+Total Token throughput (tok/s):          5252.5738 
+---------------Time to First Token----------------
+Mean TTFT (ms):                          488.6969  
+Median TTFT (ms):                        469.8178  
+P99 TTFT (ms):                           797.1152  
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          4.8446    
+Median TPOT (ms):                        4.9206    
+P99 TPOT (ms):                           5.7162    
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           13.0418   
+Median ITL (ms):                         12.9369   
+P99 ITL (ms):                            13.4496   
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          2160.6550 
+Median E2EL (ms):                        2104.0055 
+P99 E2EL (ms):                           2811.5614 
+==================================================
+[2026-11-10 05:52:09.949] [INFO] [pid:3587] [tid:139788824958080] benchmark_serving_multi_workers.py:1342 __main__: 
+============================================================
+Final Benchmark Status:
+============================================================
+Total Runtime:       38.3s
+Total Requests:      16
+Sent Requests:       18
+Completed:           18
+Failed:              0
+Running Tasks P90:   18.0
+Success Rate:        100.000%
+============================================================
+
+[2026-11-10 05:52:09.976] [INFO] [pid:3283] [tid:139788824958080] benchmark_serving_multi_workers.py:1216 __main__: Results saved to: ./concurrency_benchmark_conc1_iter1.json
+Benchmark completed successfully!
+[2026-11-10 05:52:10.340] [INFO] benchmark_serving_wrapper.py:400 __main__: Benchmark completed in 46.56 seconds
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:406 __main__: TTFT: 488.6969ms
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:407 __main__: TPOT: 4.8446ms
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:408 __main__: ITL: 13.0418ms
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:409 __main__: E2EL: 2160.6550ms
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:410 __main__: Throughput: 0.4628 req/s
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:1100 __main__: Reached maximum iterations (1), stopping...
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:1102 __main__: Benchmark wrapper completed.
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:1105 __main__: 
+Final successful result:
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:1106 __main__:   TTFT: 488.70ms
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:1107 __main__:   TPOT: 4.84ms
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:1108 __main__:   ITL: 13.04ms
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:1109 __main__:   E2EL: 2160.66ms
+[2026-11-10 05:52:10.341] [INFO] benchmark_serving_wrapper.py:1110 __main__:   Throughput: 0.46 req/s

@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-10T05:40:34.958409+00:00",
+  "cards": {
+    "card0": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "167849795584"
+    },
+    "card1": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "166525935616"
+    },
+    "card2": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "309977088"
+    },
+    "card3": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "309977088"
+    },
+    "card4": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "178106441728"
+    },
+    "card5": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "176498225152"
+    },
+    "card6": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "309977088"
+    },
+    "card7": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "309977088"
+    }
+  },
+  "owners": [
+    {
+      "pid": 2928662,
+      "gpu": 4
+    },
+    {
+      "pid": 1007252,
+      "gpu": 0
+    },
+    {
+      "pid": 2923283,
+      "gpu": 4
+    },
+    {
+      "pid": 1014234,
+      "gpu": 0
+    },
+    {
+      "pid": 2929400,
+      "gpu": 5
+    },
+    {
+      "pid": 1014910,
+      "gpu": 1
+    }
+  ]
+}

@@ -1,0 +1,1193 @@
+{
+  "status": "all_four_original_selections_verified",
+  "method": "Complete gzip JSON read with Decimal timestamps; sort GPU events by ts and match External id/correlation; original bytes unchanged.",
+  "source_scope": "2026-11-16 TP1 frozen851 before/prototype-after, Quark35, GPU6/rank0,8000input_ids/64outputs, separate fromTP4 performance/finalhead",
+  "selection_manifest_sha256": "24db1f65fddd2622eef7abd8602636520afa4dad2ed8c52afb1d6003d07ad0c4",
+  "model_config_source": "/raid/models/Qwen3.5-35B-A3B-PTPC-FP8/config.json",
+  "model_config_sha256": "187335f1c79ce1d340be9f7a0b3dea86710a8bba77f996d0bc3066814dbf97fb",
+  "model_config_params": {
+    "hidden_size": 2048,
+    "linear_key_head_dim": 128,
+    "linear_value_head_dim": 128,
+    "linear_num_key_heads": 16,
+    "linear_num_value_heads": 32
+  },
+  "qkvz_N_formula": "2*(128*16)+2*(128*32)=12288",
+  "ba_N_formula": "2*32=64",
+  "layer0_type": "linear_attention",
+  "contexts": {
+    "before": {
+      "source": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/tp1/results/profile_before/traces/full-tgemm-before-before-TP-0.trace.json.gz",
+      "source_sha256": "de9f86ff4bf0001932155856f208193766b632e2100a4d09ed995946624de190",
+      "rank": 0,
+      "world_size": 1,
+      "baseTimeNanoseconds": 1790857026000000000,
+      "trace_event_count": 148605,
+      "kernel_count": 52243,
+      "GraphLaunch_count": 64,
+      "first_graph_kernel_count": 774,
+      "first_GraphLaunch": {
+        "name": "hipGraphLaunch",
+        "category": "cuda_runtime",
+        "pid": 7913,
+        "tid": 7913,
+        "ts_us_decimal": "3961893964515.507",
+        "dur_us_decimal": "785.414",
+        "ts_ns": "3961893964515507.000",
+        "dur_ns": "785414.000",
+        "args": {
+          "cid": 166,
+          "correlation": 7014
+        }
+      },
+      "first_graph_GPU_sequence": [
+        {
+          "name": "void at::native::(anonymous namespace)::indexSelectSmallIndex<c10::BFloat16, long, unsigned int, 2, 2, -2>(at::cuda::detail::TensorInfo<c10::BFloat16, unsigned int>, at::cuda::detail::TensorInfo<c10::BFloat16 const, unsigned int>, at::cuda::detail::TensorInfo<long const, unsigned int>, int, int, unsigned int, long) [clone .kd]",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062841.601",
+          "dur_us_decimal": "4.799",
+          "ts_ns": "3961894062841601.000",
+          "dur_ns": "4799.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_gemma_rmsnorm_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062846.401",
+          "dur_us_decimal": "5.039",
+          "ts_ns": "3961894062846401.000",
+          "dur_ns": "5039.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_per_token_group_quant_8bit.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062851.441",
+          "dur_us_decimal": "5.079",
+          "ts_ns": "3961894062851441.000",
+          "dur_ns": "5079.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062856.521",
+          "dur_us_decimal": "10.719",
+          "ts_ns": "3961894062856521.000",
+          "dur_ns": "10719.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT32x16x512_MI16x16x1_SN_LDSB1_AFC0_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA1_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA0_LPB16_LPMXSA0_LPMXSB0_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD4_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS16_NLCA16_NLCB1_ONLL1_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO0_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_4_1.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062867.241",
+          "dur_us_decimal": "9.199",
+          "ts_ns": "3961894062867241.000",
+          "dur_ns": "9199.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "fused_qkvzba_split_reshape_cat_contiguous_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062876.441",
+          "dur_us_decimal": "5.559",
+          "ts_ns": "3961894062876441.000",
+          "dur_ns": "5559.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_causal_conv1d_update_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062882.001",
+          "dur_us_decimal": "5.720",
+          "ts_ns": "3961894062882001.000",
+          "dur_ns": "5720.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "fused_recurrent_gated_delta_rule_packed_decode_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062887.722",
+          "dur_us_decimal": "11.039",
+          "ts_ns": "3961894062887722.000",
+          "dur_ns": "11039.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        }
+      ],
+      "non_graph_work_after_CPUlaunch_before_GPUstart_count": 416,
+      "last_non_graph_before_GPUstart": [
+        {
+          "name": "create_flashinfer_kv_indices_triton.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062818.641",
+          "dur_us_decimal": "8.639",
+          "ts_ns": "3961894062818641.000",
+          "dur_ns": "8639.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7005,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_fused_replay_state_indices_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062827.281",
+          "dur_us_decimal": "4.999",
+          "ts_ns": "3961894062827281.000",
+          "dur_ns": "4999.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7009,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062832.281",
+          "dur_us_decimal": "3.839",
+          "ts_ns": "3961894062832281.000",
+          "dur_ns": "3839.000",
+          "args": {
+            "External id": 6812,
+            "device": 6,
+            "stream": 4,
+            "correlation": 7010,
+            "kind": "Dispatch Kernel"
+          }
+        }
+      ],
+      "GPUstart_delay_from_CPUlaunch_us": "98326.094",
+      "prefill_BF16_CPU_ba_corrob": {
+        "name": "aiter::hipb_mm",
+        "category": "cpu_op",
+        "pid": 7913,
+        "tid": 7913,
+        "ts_us_decimal": "3961893766878.413",
+        "dur_us_decimal": "160.070",
+        "ts_ns": "3961893766878413.000",
+        "dur_ns": "160070.000",
+        "args": {
+          "External id": 446,
+          "Record function id": 0,
+          "Concrete Inputs": [
+            "",
+            "",
+            "-1",
+            "",
+            "15",
+            "",
+            "",
+            "",
+            "True",
+            ""
+          ],
+          "Input type": [
+            "c10::BFloat16",
+            "c10::BFloat16",
+            "Scalar",
+            "",
+            "Scalar",
+            "",
+            "",
+            "",
+            "Scalar",
+            ""
+          ],
+          "Input Strides": [
+            [
+              2048,
+              1
+            ],
+            [
+              1,
+              2048
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "Input Dims": [
+            [
+              8000,
+              2048
+            ],
+            [
+              2048,
+              64
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "Ev Idx": 445
+        }
+      }
+    },
+    "after": {
+      "source": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/tp1/results/profile_after/traces/full-tgemm-after-after-TP-0.trace.json.gz",
+      "source_sha256": "298c19828ccdcba03778878fd84c9c077b603696f7e520da6ecdf293481856a4",
+      "rank": 0,
+      "world_size": 1,
+      "baseTimeNanoseconds": 1790857026000000000,
+      "trace_event_count": 147820,
+      "kernel_count": 52241,
+      "GraphLaunch_count": 64,
+      "first_graph_kernel_count": 774,
+      "first_GraphLaunch": {
+        "name": "hipGraphLaunch",
+        "category": "cuda_runtime",
+        "pid": 10733,
+        "tid": 10733,
+        "ts_us_decimal": "3961980808026.341",
+        "dur_us_decimal": "1289.441",
+        "ts_ns": "3961980808026341.000",
+        "dur_ns": "1289441.000",
+        "args": {
+          "cid": 166,
+          "correlation": 6210
+        }
+      },
+      "first_graph_GPU_sequence": [
+        {
+          "name": "void at::native::(anonymous namespace)::indexSelectSmallIndex<c10::BFloat16, long, unsigned int, 2, 2, -2>(at::cuda::detail::TensorInfo<c10::BFloat16, unsigned int>, at::cuda::detail::TensorInfo<c10::BFloat16 const, unsigned int>, at::cuda::detail::TensorInfo<long const, unsigned int>, int, int, unsigned int, long) [clone .kd]",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939126.104",
+          "dur_us_decimal": "5.199",
+          "ts_ns": "3961980939126104.000",
+          "dur_ns": "5199.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_gemma_rmsnorm_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939131.304",
+          "dur_us_decimal": "5.039",
+          "ts_ns": "3961980939131304.000",
+          "dur_ns": "5039.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_per_token_group_quant_8bit.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939136.344",
+          "dur_us_decimal": "4.919",
+          "ts_ns": "3961980939136344.000",
+          "dur_ns": "4919.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939141.264",
+          "dur_us_decimal": "11.199",
+          "ts_ns": "3961980939141264.000",
+          "dur_ns": "11199.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "void aiter::wv_splitk_small_fp16_bf16_kernel<__hip_bfloat16, 64, 1, 1, 8, 4, 1>(int, int, __hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16*, int, int) [clone .kd]",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939152.464",
+          "dur_us_decimal": "4.959",
+          "ts_ns": "3961980939152464.000",
+          "dur_ns": "4959.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "fused_qkvzba_split_reshape_cat_contiguous_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939157.424",
+          "dur_us_decimal": "5.239",
+          "ts_ns": "3961980939157424.000",
+          "dur_ns": "5239.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_causal_conv1d_update_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939162.664",
+          "dur_us_decimal": "5.519",
+          "ts_ns": "3961980939162664.000",
+          "dur_ns": "5519.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "fused_recurrent_gated_delta_rule_packed_decode_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939168.184",
+          "dur_us_decimal": "11.599",
+          "ts_ns": "3961980939168184.000",
+          "dur_ns": "11599.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        }
+      ],
+      "non_graph_work_after_CPUlaunch_before_GPUstart_count": 584,
+      "last_non_graph_before_GPUstart": [
+        {
+          "name": "create_flashinfer_kv_indices_triton.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939102.944",
+          "dur_us_decimal": "8.679",
+          "ts_ns": "3961980939102944.000",
+          "dur_ns": "8679.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6201,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "_fused_replay_state_indices_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939111.624",
+          "dur_us_decimal": "4.839",
+          "ts_ns": "3961980939111624.000",
+          "dur_ns": "4839.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6205,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939116.464",
+          "dur_us_decimal": "3.959",
+          "ts_ns": "3961980939116464.000",
+          "dur_ns": "3959.000",
+          "args": {
+            "External id": 7687,
+            "device": 6,
+            "stream": 4,
+            "correlation": 6206,
+            "kind": "Dispatch Kernel"
+          }
+        }
+      ],
+      "GPUstart_delay_from_CPUlaunch_us": "131099.763",
+      "prefill_BF16_CPU_ba_corrob": {
+        "name": "aiter::hipb_mm",
+        "category": "cpu_op",
+        "pid": 10733,
+        "tid": 10733,
+        "ts_us_decimal": "3961980654357.746",
+        "dur_us_decimal": "85.453",
+        "ts_ns": "3961980654357746.000",
+        "dur_ns": "85453.000",
+        "args": {
+          "External id": 442,
+          "Record function id": 0,
+          "Concrete Inputs": [
+            "",
+            "",
+            "-1",
+            "",
+            "15",
+            "",
+            "",
+            "",
+            "True",
+            ""
+          ],
+          "Input type": [
+            "c10::BFloat16",
+            "c10::BFloat16",
+            "Scalar",
+            "",
+            "Scalar",
+            "",
+            "",
+            "",
+            "Scalar",
+            ""
+          ],
+          "Input Strides": [
+            [
+              2048,
+              1
+            ],
+            [
+              1,
+              2048
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "Input Dims": [
+            [
+              8000,
+              2048
+            ],
+            [
+              2048,
+              64
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "Ev Idx": 441
+        }
+      }
+    }
+  },
+  "selections": [
+    {
+      "phase": "prefill",
+      "side": "before",
+      "verified": true,
+      "source": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/tp1/results/profile_before/traces/full-tgemm-before-before-TP-0.trace.json.gz",
+      "source_sha256": "de9f86ff4bf0001932155856f208193766b632e2100a4d09ed995946624de190",
+      "GPU": 6,
+      "rank": 0,
+      "sampled_call_count": 1,
+      "shape_m_n_k": [
+        8000,
+        12288,
+        2048
+      ],
+      "GPU_event": {
+        "name": "_ZN2ck53kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffle_2ldsINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi128ELi128ELi128ELi16ELi16ELi16ELi16ELi8ELi2ENS_8SequenceIJLi8ELi32ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi2ELi1ENSG_IJLi1ELi32ELi1ELi8EEEENSG_IJLi8ELi8ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE2ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE.kd",
+        "category": "kernel",
+        "pid": 6,
+        "tid": 4,
+        "ts_us_decimal": "3961893766804.020",
+        "dur_us_decimal": "1169.323",
+        "ts_ns": "3961893766804020.000",
+        "dur_ns": "1169323.000",
+        "args": {
+          "External id": 441,
+          "device": 6,
+          "stream": 4,
+          "correlation": 199,
+          "kind": "Dispatch Kernel"
+        }
+      },
+      "attribution": {
+        "matrix": "Direct CPU Input Dims, matching External id and CPUlaunch/GPU correlation",
+        "CPU": {
+          "name": "aiter::gemm_a8w8_bpreshuffle_ck",
+          "category": "cpu_op",
+          "pid": 7913,
+          "tid": 7913,
+          "ts_us_decimal": "3961893766730.998",
+          "dur_us_decimal": "67.854",
+          "ts_ns": "3961893766730998.000",
+          "dur_ns": "67854.000",
+          "args": {
+            "External id": 441,
+            "Record function id": 0,
+            "Concrete Inputs": [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "0"
+            ],
+            "Input type": [
+              "c10::Float8_e4m3fnuz",
+              "c10::Float8_e4m3fnuz",
+              "float",
+              "float",
+              "c10::BFloat16",
+              "Scalar"
+            ],
+            "Input Strides": [
+              [
+                2048,
+                1
+              ],
+              [
+                2048,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                12288,
+                1
+              ],
+              []
+            ],
+            "Input Dims": [
+              [
+                8000,
+                2048
+              ],
+              [
+                12288,
+                2048
+              ],
+              [
+                8000,
+                1
+              ],
+              [
+                12288,
+                1
+              ],
+              [
+                8000,
+                12288
+              ],
+              []
+            ],
+            "Ev Idx": 440
+          }
+        },
+        "launches": [
+          {
+            "name": "hipLaunchKernel",
+            "category": "cuda_runtime",
+            "pid": 7913,
+            "tid": 7913,
+            "ts_us_decimal": "3961893766777.449",
+            "dur_us_decimal": "12.068",
+            "ts_ns": "3961893766777449.000",
+            "dur_ns": "12068.000",
+            "args": {
+              "External id": 441,
+              "cid": 214,
+              "correlation": 199,
+              "grid": [
+                6048,
+                1,
+                1
+              ],
+              "block": [
+                256,
+                1,
+                1
+              ],
+              "shared memory": 0
+            }
+          }
+        ],
+        "caller": "in_proj_qkvz",
+        "layer": "first GDN layer0 from model/source execution order; module/layer not directly named by CPU scope"
+      }
+    },
+    {
+      "phase": "decode",
+      "side": "before",
+      "verified": true,
+      "source": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/tp1/results/profile_before/traces/full-tgemm-before-before-TP-0.trace.json.gz",
+      "source_sha256": "de9f86ff4bf0001932155856f208193766b632e2100a4d09ed995946624de190",
+      "GPU": 6,
+      "rank": 0,
+      "sampled_call_count": 1,
+      "shape_m_n_k": [
+        1,
+        64,
+        2048
+      ],
+      "GPU_event": {
+        "name": "Cijk_Alik_Bljk_BBS_STA_BH_UserArgs_MT32x16x512_MI16x16x1_SN_LDSB1_AFC0_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA1_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA0_LBSPPB1024_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA0_LPB16_LPMXSA0_LPMXSB0_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD4_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS16_NLCA16_NLCB1_ONLL1_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO0_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_4_1.kd",
+        "category": "kernel",
+        "pid": 6,
+        "tid": 4,
+        "ts_us_decimal": "3961894062867.241",
+        "dur_us_decimal": "9.199",
+        "ts_ns": "3961894062867241.000",
+        "dur_ns": "9199.000",
+        "args": {
+          "device": 6,
+          "stream": 4,
+          "correlation": 7014,
+          "kind": "Dispatch Kernel"
+        }
+      },
+      "attribution": {
+        "matrix": "Inference: con1/source graph M1, staticN64/K2048 and prefill CPU shape corroboration; graph replay has no individual GEMM CPU shapes/External id",
+        "caller": "in_proj_ba",
+        "layer": "first GDN layer0 by first graph execution order",
+        "graph_kernel_ordinal_1based": 5,
+        "graph_correlation": 7014,
+        "preceding_FP8_CK": {
+          "name": "_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062856.521",
+          "dur_us_decimal": "10.719",
+          "ts_ns": "3961894062856521.000",
+          "dur_ns": "10719.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        "following_fused_qkvzba": {
+          "name": "fused_qkvzba_split_reshape_cat_contiguous_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961894062876.441",
+          "dur_us_decimal": "5.559",
+          "ts_ns": "3961894062876441.000",
+          "dur_ns": "5559.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 7014,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        "prefill_CPU_corrob": {
+          "name": "aiter::hipb_mm",
+          "category": "cpu_op",
+          "pid": 7913,
+          "tid": 7913,
+          "ts_us_decimal": "3961893766878.413",
+          "dur_us_decimal": "160.070",
+          "ts_ns": "3961893766878413.000",
+          "dur_ns": "160070.000",
+          "args": {
+            "External id": 446,
+            "Record function id": 0,
+            "Concrete Inputs": [
+              "",
+              "",
+              "-1",
+              "",
+              "15",
+              "",
+              "",
+              "",
+              "True",
+              ""
+            ],
+            "Input type": [
+              "c10::BFloat16",
+              "c10::BFloat16",
+              "Scalar",
+              "",
+              "Scalar",
+              "",
+              "",
+              "",
+              "Scalar",
+              ""
+            ],
+            "Input Strides": [
+              [
+                2048,
+                1
+              ],
+              [
+                1,
+                2048
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              []
+            ],
+            "Input Dims": [
+              [
+                8000,
+                2048
+              ],
+              [
+                2048,
+                64
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              []
+            ],
+            "Ev Idx": 445
+          }
+        }
+      }
+    },
+    {
+      "phase": "prefill",
+      "side": "after",
+      "verified": true,
+      "source": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/tp1/results/profile_after/traces/full-tgemm-after-after-TP-0.trace.json.gz",
+      "source_sha256": "298c19828ccdcba03778878fd84c9c077b603696f7e520da6ecdf293481856a4",
+      "GPU": 6,
+      "rank": 0,
+      "sampled_call_count": 1,
+      "shape_m_n_k": [
+        8000,
+        12288,
+        2048
+      ],
+      "GPU_event": {
+        "name": "Cijk_Alik_Bljk_F8NBS_STA_BH_SABV_UserArgs_MT256x160x64_MI16x16x1_SN_LDSB0_AFC0_AG0_AGGSUA0_AGNTAB0_AFEM1_AFEM1_ASEM1_CD1_1_CLR1_CLS0_CADS0_DTLA0_DTLB0_DTLM0_DTVA1_DTVB0_DTVMXSA0_DTVMXSB0_DTVSM0_DPLB0_EPS0_ELFLR0_EMLLn1_FDSI0_GRPM1_GRVWA16_GRVWB8_GSUAMB_GLS0_HPLR0_ISA942_ICIW0_IU1_K1_LDSTI0_LBSPPA0_LBSPPB128_LBSPPMXSA0_LBSPPMXSB0_LBSPPM0_LPA0_LPB32_LPMXSA0_LPMXSB0_LPM0_LRVW16_LWPMn1_MIAV0_MIWT4_10_MXLIBL_MXSFNS_MO40_MGRIPM1_NTn1_NTA0_NTB0_NTC0_NTD4_NTE0_NTMXSA0_NTMXSB0_NTM0_NTWS0_NVn1_NVA0_NVB0_NVC0_NVD0_NVE0_NVMXSA0_NVMXSB0_NVM0_NVWS0_NEPBS8_NLCA1_NLCB1_ONLL0_PAP0_PGL0_PGR2_PLR1_PKA1_SGROB0_SIA3_SS1_SPO0_SRVW0_SSO0_SVW4_SK0_SKFTR0_SKFDPO0_SKXCCM0_SNLL0_SIP1_SGRO0_TDMI0_TDMIM0_TDMS0_TIN0_THn1_THA0_THB0_THC0_THD0_THE0_THMXSA0_THMXSB0_THM0_THWS0_TLDS1_TLDSM1_ULSGRO0_USL1_USLMX0_UIOFGRO0_UPLRP0_USFGROn1_USI0_VSn1_VWA4_VWB2_WSGRA0_WSGRB0_WS64_WG64_4_1.kd",
+        "category": "kernel",
+        "pid": 6,
+        "tid": 4,
+        "ts_us_decimal": "3961980654205.630",
+        "dur_us_decimal": "853.602",
+        "ts_ns": "3961980654205630.000",
+        "dur_ns": "853602.000",
+        "args": {
+          "External id": 430,
+          "device": 6,
+          "stream": 4,
+          "correlation": 189,
+          "kind": "Dispatch Kernel"
+        }
+      },
+      "attribution": {
+        "matrix": "Direct CPU Input Dims, matching External id and CPUlaunch/GPU correlation",
+        "CPU": {
+          "name": "aiter::hipb_mm",
+          "category": "cpu_op",
+          "pid": 10733,
+          "tid": 10733,
+          "ts_us_decimal": "3961980653987.184",
+          "dur_us_decimal": "234.628",
+          "ts_ns": "3961980653987184.000",
+          "dur_ns": "234628.000",
+          "args": {
+            "External id": 430,
+            "Record function id": 0,
+            "Concrete Inputs": [
+              "",
+              "",
+              "-1",
+              "",
+              "15",
+              "",
+              "",
+              "",
+              "True",
+              ""
+            ],
+            "Input type": [
+              "c10::Float8_e4m3fnuz",
+              "c10::Float8_e4m3fnuz",
+              "Scalar",
+              "",
+              "Scalar",
+              "float",
+              "float",
+              "",
+              "Scalar",
+              ""
+            ],
+            "Input Strides": [
+              [
+                2048,
+                1
+              ],
+              [
+                1,
+                2048
+              ],
+              [],
+              [],
+              [],
+              [
+                1,
+                1
+              ],
+              [
+                12288,
+                1
+              ],
+              [],
+              [],
+              []
+            ],
+            "Input Dims": [
+              [
+                8000,
+                2048
+              ],
+              [
+                2048,
+                12288
+              ],
+              [],
+              [],
+              [],
+              [
+                8000,
+                1
+              ],
+              [
+                1,
+                12288
+              ],
+              [],
+              [],
+              []
+            ],
+            "Ev Idx": 429
+          }
+        },
+        "launches": [
+          {
+            "name": "hipExtModuleLaunchKernel",
+            "category": "cuda_runtime",
+            "pid": 10733,
+            "tid": 10733,
+            "ts_us_decimal": "3961980654175.708",
+            "dur_us_decimal": "15.551",
+            "ts_ns": "3961980654175708.000",
+            "dur_ns": "15551.000",
+            "args": {
+              "External id": 430,
+              "cid": 388,
+              "correlation": 189,
+              "grid": [
+                614400,
+                1,
+                1
+              ],
+              "block": [
+                256,
+                1,
+                1
+              ],
+              "shared memory": 0
+            }
+          }
+        ],
+        "caller": "in_proj_qkvz",
+        "layer": "first GDN layer0 from model/source execution order; module/layer not directly named by CPU scope"
+      }
+    },
+    {
+      "phase": "decode",
+      "side": "after",
+      "verified": true,
+      "source": "/home/hatian/workspace/projects/Qwen3.8/experiments/pr107_full_tgemm_20261116/tp1/results/profile_after/traces/full-tgemm-after-after-TP-0.trace.json.gz",
+      "source_sha256": "298c19828ccdcba03778878fd84c9c077b603696f7e520da6ecdf293481856a4",
+      "GPU": 6,
+      "rank": 0,
+      "sampled_call_count": 1,
+      "shape_m_n_k": [
+        1,
+        64,
+        2048
+      ],
+      "GPU_event": {
+        "name": "void aiter::wv_splitk_small_fp16_bf16_kernel<__hip_bfloat16, 64, 1, 1, 8, 4, 1>(int, int, __hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16*, int, int) [clone .kd]",
+        "category": "kernel",
+        "pid": 6,
+        "tid": 4,
+        "ts_us_decimal": "3961980939152.464",
+        "dur_us_decimal": "4.959",
+        "ts_ns": "3961980939152464.000",
+        "dur_ns": "4959.000",
+        "args": {
+          "device": 6,
+          "stream": 4,
+          "correlation": 6210,
+          "kind": "Dispatch Kernel"
+        }
+      },
+      "attribution": {
+        "matrix": "Inference: con1/source graph M1, staticN64/K2048 and prefill CPU shape corroboration; graph replay has no individual GEMM CPU shapes/External id",
+        "caller": "in_proj_ba",
+        "layer": "first GDN layer0 by first graph execution order",
+        "graph_kernel_ordinal_1based": 5,
+        "graph_correlation": 6210,
+        "preceding_FP8_CK": {
+          "name": "_ZN2ck48kernel_gemm_xdl_cshuffle_v3_multi_d_b_preshuffleINS_47GridwiseGemmMultiD_xdl_cshuffle_v3_b_preshuffleINS_13tensor_layout4gemm8RowMajorENS3_11ColumnMajorENS_5TupleIJS4_S5_EEES4_NS_9f8_fnuz_tES8_ffNS6_IJffEEEDF16bNS_16tensor_operation12element_wise11PassThroughESC_16MultiplyMultiplyLNSA_6device18GemmSpecializationE7ELi256ELi16ELi64ELi512ELi16ELi16ELi16ELi16ELi1ELi1ENS_8SequenceIJLi32ELi8ELi1EEEENSG_IJLi1ELi0ELi2EEEESI_Li2ELi16ELi16ELb0ELi0ESH_SI_SI_Li2ELi16ELi16ELb0ELi0ELi1ELi1ENSG_IJLi1ELi16ELi1ELi16EEEENSG_IJLi4ELi4ELi1EEEELNS_26BlockGemmPipelineSchedulerE0ELNS_24BlockGemmPipelineVersionE0ES8_S8_S8_S8_EELb1ELNS_25InMemoryDataOperationEnumE0ELi2ELNS_10TailNumberE1EEEvNT_8ArgumentE.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939141.264",
+          "dur_us_decimal": "11.199",
+          "ts_ns": "3961980939141264.000",
+          "dur_ns": "11199.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        "following_fused_qkvzba": {
+          "name": "fused_qkvzba_split_reshape_cat_contiguous_kernel.kd",
+          "category": "kernel",
+          "pid": 6,
+          "tid": 4,
+          "ts_us_decimal": "3961980939157.424",
+          "dur_us_decimal": "5.239",
+          "ts_ns": "3961980939157424.000",
+          "dur_ns": "5239.000",
+          "args": {
+            "device": 6,
+            "stream": 4,
+            "correlation": 6210,
+            "kind": "Dispatch Kernel"
+          }
+        },
+        "prefill_CPU_corrob": {
+          "name": "aiter::hipb_mm",
+          "category": "cpu_op",
+          "pid": 10733,
+          "tid": 10733,
+          "ts_us_decimal": "3961980654357.746",
+          "dur_us_decimal": "85.453",
+          "ts_ns": "3961980654357746.000",
+          "dur_ns": "85453.000",
+          "args": {
+            "External id": 442,
+            "Record function id": 0,
+            "Concrete Inputs": [
+              "",
+              "",
+              "-1",
+              "",
+              "15",
+              "",
+              "",
+              "",
+              "True",
+              ""
+            ],
+            "Input type": [
+              "c10::BFloat16",
+              "c10::BFloat16",
+              "Scalar",
+              "",
+              "Scalar",
+              "",
+              "",
+              "",
+              "Scalar",
+              ""
+            ],
+            "Input Strides": [
+              [
+                2048,
+                1
+              ],
+              [
+                1,
+                2048
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              []
+            ],
+            "Input Dims": [
+              [
+                8000,
+                2048
+              ],
+              [
+                2048,
+                64
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              []
+            ],
+            "Ev Idx": 441
+          }
+        }
+      }
+    }
+  ],
+  "individual_call_comparisons": {
+    "prefill": {
+      "selected_calls_per_side": 1,
+      "before_us": "1169.323",
+      "after_us": "853.602",
+      "individual_call_delta_percent": "-27.00032411916981022352249977"
+    },
+    "decode": {
+      "selected_calls_per_side": 1,
+      "before_us": "9.199",
+      "after_us": "4.959",
+      "individual_call_delta_percent": "-46.09196651809979345581041418"
+    }
+  },
+  "limitations": [
+    "Prefill matrix is direct CPU shape; caller/layer name additionally uses source order.",
+    "Decode matrix/caller is inferred from first graph membership and surrounding kernels, not direct per-GEMM CPU shape.",
+    "CPU launch is asynchronous:416/584 unrelated preceding GPU work entries remain before first graph kernel; timestamp>CPUlaunch alone is not graph attribution.",
+    "One selected call per image is not mean modelETE, fullDecode average, or all-layer aggregate.",
+    "Raw Chrome event ns and baseTimeNanoseconds are separate; no timestamp offsets/reconstruction applied."
+  ]
+}

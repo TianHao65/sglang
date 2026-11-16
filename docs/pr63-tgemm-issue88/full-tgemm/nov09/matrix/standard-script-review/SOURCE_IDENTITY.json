@@ -1,0 +1,28 @@
+{
+  "baseline": {
+    "base": "54ad17d7cf815de0ac6d9d32df0f437671d1217e",
+    "files": {
+      "python/sglang/srt/environ.py": "6f5f9d8eccdb7d5e0ad922dde0944a4d99a20bf90d6a535b6906695100923bf0",
+      "python/sglang/srt/layers/quantization/unquant.py": "61552ca9fff26c6f9ffb16fcd2dffddc8a5f5c9652430a7c707388195c1240f8",
+      "python/sglang/srt/layers/quantization/fp8_utils.py": "e6c68b647baf3b8ea2275cd9c2fccb514082387440f4e82765a606f3b7f81064"
+    }
+  },
+  "pr63": {
+    "base": "54ad17d7cf815de0ac6d9d32df0f437671d1217e",
+    "files": {
+      "python/sglang/srt/environ.py": "3870f47c7d7b31c4bb86cb7391cf0af19cf086329d80f6e6e6fdd4f855384fbe",
+      "python/sglang/srt/layers/quantization/unquant.py": "90db2d90f06b5fe4013570940d665ce105d9af7b40577ea430a9c4200c345b48",
+      "python/sglang/srt/layers/quantization/fp8_utils.py": "4befa291713700f3b28ec5b8a4acdce4d70274d4a7667ea94f96445dd61f900f"
+    },
+    "compatibility_fix": "Restore moved shuffle_weight import; no math/dispatch change"
+  },
+  "tgemm": {
+    "base": "54ad17d7cf815de0ac6d9d32df0f437671d1217e",
+    "validated_on": "19",
+    "files": {
+      "python/sglang/srt/environ.py": "b7a9ed8a1851f470e9a9c96a1b99e2f2ce2aa80b66c49daf7e6f2315365be226",
+      "python/sglang/srt/layers/quantization/unquant.py": "28aa560257d4ec8677b6c3902526cae8867256538ece318dc3a5abd5b09f486a",
+      "python/sglang/srt/layers/quantization/fp8_utils.py": "dd2357423095897517b64b311a92b21fea044c74b36c459f45c23963310a5d28"
+    }
+  }
+}

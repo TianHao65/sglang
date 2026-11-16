@@ -1,0 +1,14 @@
+{
+  "input_tokens": 8000,
+  "input_ids_sha256": "345bea25ecbaae322767ef1b17eeb65bb27cbdec9993d113f0b05d679233e169",
+  "tokenizer_class": "Qwen2Tokenizer",
+  "model_metadata_sha256": {
+    "config.json": "187335f1c79ce1d340be9f7a0b3dea86710a8bba77f996d0bc3066814dbf97fb",
+    "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "tokenizer_config.json": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8",
+    "model.safetensors.index.json": "4aa826f6d5ee822c67b2435d18511b3d21f2530ec8719830c0a2a35d075511b4"
+  },
+  "quant_method": "quark",
+  "main_shards": 14,
+  "source": "CPU tokenizer fixed repeated real English text plus instruction; same input_ids reused for both arms"
+}

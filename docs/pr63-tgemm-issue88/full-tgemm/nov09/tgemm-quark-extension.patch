@@ -1,0 +1,44 @@
+--- a/python/sglang/srt/layers/quantization/quark/schemes/quark_w8a8_fp8.py
++++ b/python/sglang/srt/layers/quantization/quark/schemes/quark_w8a8_fp8.py
+@@ -175,6 +175,41 @@
+         bias: Optional[torch.Tensor] = None,
+     ) -> torch.Tensor:
+ 
++        if (
++            _use_aiter
++            and self.per_token
++            and self.weight_qscheme == "per_channel"
++            and not self.is_static_input_scheme
++            and isinstance(x, torch.Tensor)
++            and x.is_cuda
++            and x.dtype == torch.bfloat16
++            and x.dim() >= 2
++            and x.numel() // x.shape[-1] > 16
++            and layer.weight.shape[0] % 32 == 0
++            and layer.weight.shape[1] % 16 == 0
++            and layer.weight_scale.numel() == layer.weight.shape[1]
++        ):
++            from sglang.srt.utils import is_gfx942_supported
++
++            if get_bool_env_var("SGLANG_ROCM_USE_AITER_LINEAR_FP8HIPB") and is_gfx942_supported():
++                import aiter
++                from aiter.tuned_gemm import tgemm
++
++                q_input, x_scale = aiter.per_token_quant_hip(
++                    x.reshape(-1, x.shape[-1]), quant_dtype=aiter.dtypes.fp8
++                )
++                # Quark keeps the packed weight in [K,N]; tgemm takes [N,K].
++                packed = layer.weight.t()
++                packed.is_shuffled = True
++                output = tgemm.mm(
++                    q_input, packed, otype=x.dtype,
++                    scale_a=x_scale.view(-1, 1),
++                    scale_b=layer.weight_scale.view(1, -1),
++                )
++                if bias is not None:
++                    output = output + bias
++                return output.view(*x.shape[:-1], layer.weight.shape[1])
++
+         return apply_fp8_linear(
+             x,
+             layer.weight,

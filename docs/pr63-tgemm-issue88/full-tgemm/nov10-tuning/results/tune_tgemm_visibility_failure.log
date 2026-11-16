@@ -1,0 +1,26 @@
+[aiter] import [module_aiter_core] under /opt/aiter/aiter/jit/module_aiter_core.so
+Traceback (most recent call last):
+  File "/opt/aiter/aiter/ops/triton/utils/_triton/arch_info.py", line 4, in <module>
+    _CACHED_ARCH = triton.runtime.driver.active.get_current_target().arch
+  File "/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py", line 39, in active
+    self._active = self.default
+  File "/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py", line 33, in default
+    self._default = _create_driver()
+  File "/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py", line 20, in _create_driver
+    raise RuntimeError(f"{len(active_drivers)} active drivers ({active_drivers}). There should only be one.")
+RuntimeError: 0 active drivers ([]). There should only be one.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/aiter/csrc/gemm_a16w16/gemm_a16w16_tune.py", line 23, in <module>
+    import aiter
+  File "/opt/aiter/aiter/__init__.py", line 107, in <module>
+    from .ops.attention import *
+  File "/opt/aiter/aiter/ops/attention.py", line 13, in <module>
+    from aiter.ops.triton.gluon.pa_decode_gluon import pa_decode_gluon
+  File "/opt/aiter/aiter/ops/triton/gluon/pa_decode_gluon.py", line 12, in <module>
+    from aiter.ops.triton.utils._triton import arch_info
+  File "/opt/aiter/aiter/ops/triton/utils/_triton/arch_info.py", line 6, in <module>
+    from jax._src.lib import gpu_triton as triton_kernel_call_lib
+ModuleNotFoundError: No module named 'jax'

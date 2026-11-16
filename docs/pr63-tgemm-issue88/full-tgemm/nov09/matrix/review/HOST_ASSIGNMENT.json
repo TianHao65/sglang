@@ -1,0 +1,6 @@
+{
+  "Qwen3.8-TP2": "52/PTL custom workload",
+  "Qwen3.8-TP4": "34/PTL custom workload",
+  "Qwen3.5-35B-TP4": "52/PTL standard Base (already measured)",
+  "Qwen3.5-397B-TP8": "52/PTL standard Base"
+}

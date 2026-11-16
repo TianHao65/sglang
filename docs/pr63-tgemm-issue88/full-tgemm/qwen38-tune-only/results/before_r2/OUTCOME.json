@@ -1,0 +1,36 @@
+{
+  "arm": "before",
+  "cycle": 2,
+  "effective": {
+    "model_path": "/models/Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16",
+    "tp_size": 2,
+    "disable_radix_cache": false,
+    "max_total_tokens": 262144,
+    "random_seed": 42,
+    "speculative_algorithm": "EAGLE",
+    "speculative_num_steps": 3,
+    "speculative_num_draft_tokens": 4,
+    "attention_backend": "aiter",
+    "linear_attn_prefill_backend": "aiter",
+    "mm_feature_transport": "cuda_ipc",
+    "mamba_radix_cache_strategy": "extra_buffer",
+    "mem_fraction_static": 0.8075,
+    "max_running_requests": 32,
+    "kv_cache_dtype": "auto",
+    "speculative_attention_mode": "prefill"
+  },
+  "metrics": {
+    "completed": 128,
+    "mean_ttft_ms": 478.0717763726443,
+    "mean_tpot_ms": 5.043943120383071,
+    "mean_e2el_ms": 2230.4668385704645,
+    "output_throughput": 156.68314653087788,
+    "request_throughput": 0.44833663639711996,
+    "mean_expect_input_len": 11000,
+    "mean_req_input_len": 10999.546875,
+    "mean_input_len": 11730.4140625,
+    "mean_output_len": 349.4765625,
+    "input_lens_sha256": "1239fa903579677a0244bcd6aeddbcd8e0c33386df6718e5d5817f8d582ea75b",
+    "output_lens_sha256": "228dbd3dd2844615d3d15eab5f3c5ca5824486a670d897220e5d2124d85c4f68"
+  }
+}

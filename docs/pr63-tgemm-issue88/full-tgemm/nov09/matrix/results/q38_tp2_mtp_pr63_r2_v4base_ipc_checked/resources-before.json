@@ -1,0 +1,53 @@
+{
+  "time_utc": "2026-11-09T07:19:24.679995+00:00",
+  "cards": {
+    "card0": {
+      "GPU use (%)": "1",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "117893242880"
+    },
+    "card1": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306159616"
+    },
+    "card2": {
+      "GPU use (%)": "1",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "172666060800"
+    },
+    "card3": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "171219906560"
+    },
+    "card4": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306159616"
+    },
+    "card5": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306159616"
+    },
+    "card6": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306147328"
+    },
+    "card7": {
+      "GPU use (%)": "0",
+      "VRAM Total Memory (B)": "206141652992",
+      "VRAM Total Used Memory (B)": "306147328"
+    }
+  },
+  "gpu_by_pid": "\n\n============================ ROCm System Management Interface ============================\n================================== GPUs Indexed by PID ===================================\nPID 2772363 is using 0 DRM device(s)\nPID 2748960 is using 0 DRM device(s)\nPID 2679165 is using 1 DRM device(s):\n0 \nPID 2679881 is using 0 DRM device(s)\nPID 2746362 is using 1 DRM device(s):\n2 \nPID 2755711 is using 0 DRM device(s)\nPID 2741043 is using 1 DRM device(s):\n2 \nPID 2772362 is using 0 DRM device(s)\nPID 2671641 is using 1 DRM device(s):\n0 \nPID 2747159 is using 1 DRM device(s):\n3 \n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n",
+  "used_gpu_ids": [
+    "0",
+    "2",
+    "2",
+    "0",
+    "3"
+  ]
+}

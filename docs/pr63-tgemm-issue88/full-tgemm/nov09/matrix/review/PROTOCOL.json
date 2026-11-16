@@ -1,0 +1,27 @@
+{
+  "time_utc": "2026-11-09T06:14:16.863425+00:00",
+  "host": "52/PTL (user confirmed)",
+  "isl": 11000,
+  "osl": 350,
+  "sigma": 4,
+  "prefix": 0.35,
+  "concurrency": 1,
+  "MTP": true,
+  "radix_cache": true,
+  "linear_attn_prefill_backend": "aiter",
+  "num_prompts": 128,
+  "cycles": 2,
+  "seed": 1,
+  "sampling": {
+    "temperature": 0.800000011920929,
+    "top_p": 0.9,
+    "ignore_eos": true
+  },
+  "reference_script": "/workspace/projects/Qwen3.8/scripts/ttft_11k350_mtp_radix_20261106/client_tp2.sh",
+  "old_result_scope": "Different workload and GDN prefill/cache configuration; retained separately",
+  "actual_prefix_len": 3849,
+  "output_length_semantics": "sigma4 applies to input body and output lengths;11000/350 are configured means",
+  "discard_requests_per_startup": 16,
+  "measured_requests_per_startup": 128,
+  "client_output_file": "concurrency_benchmark_conc1_iter1.json"
+}

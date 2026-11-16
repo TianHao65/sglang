@@ -1,0 +1,459 @@
+{
+  "time_utc": "2026-11-09T04:49:37.118249+00:00",
+  "aiter_origin": "/opt/aiter/aiter/__init__.py",
+  "models": [
+    {
+      "name": "Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16",
+      "resolved_path": "/models/Qwen3.8-Flash-Next-PTPC-FP8-PLE-BF16",
+      "metadata_sha256": {
+        "config.json": "155af7cf90043b910bd43ee30b2ff0e53e5a417a4bc9db4de55db8c23913ffcd",
+        "model.safetensors.index.json": "92f8972c881e65e0348a5615ffb4069650b998fa768da2682f8e6f25546f750a",
+        "generation_config.json": "a38679b4e2684094a224758f6953ec2cb9d816ec27eb41d595feaf1d38a6fff5"
+      },
+      "shards": [
+        {
+          "file": "model-00001-of-00008.safetensors",
+          "bytes": 102400512288,
+          "mtime_ns": 1791596649279226144
+        },
+        {
+          "file": "model-00002-of-00008.safetensors",
+          "bytes": 20001841552,
+          "mtime_ns": 1789265673310478461
+        },
+        {
+          "file": "model-00003-of-00008.safetensors",
+          "bytes": 20002481904,
+          "mtime_ns": 1789265229067381817
+        },
+        {
+          "file": "model-00004-of-00008.safetensors",
+          "bytes": 20002497296,
+          "mtime_ns": 1789265308258577119
+        },
+        {
+          "file": "model-00005-of-00008.safetensors",
+          "bytes": 20002147352,
+          "mtime_ns": 1789265249222431524
+        },
+        {
+          "file": "model-00006-of-00008.safetensors",
+          "bytes": 20002498072,
+          "mtime_ns": 1789265213227342753
+        },
+        {
+          "file": "model-00007-of-00008.safetensors",
+          "bytes": 20002497296,
+          "mtime_ns": 1789265304255567247
+        },
+        {
+          "file": "model-00008-of-00008.safetensors",
+          "bytes": 8877546976,
+          "mtime_ns": 1789264611673859227
+        },
+        {
+          "file": "model_mtp.safetensors",
+          "bytes": 5214305424,
+          "mtime_ns": 1789265900708041140
+        }
+      ]
+    },
+    {
+      "name": "Qwen3.5-35B-A3B-PTPC-FP8",
+      "resolved_path": "/models/Qwen3.5-35B-A3B-PTPC-FP8",
+      "metadata_sha256": {
+        "config.json": "187335f1c79ce1d340be9f7a0b3dea86710a8bba77f996d0bc3066814dbf97fb",
+        "model.safetensors.index.json": "4aa826f6d5ee822c67b2435d18511b3d21f2530ec8719830c0a2a35d075511b4",
+        "generation_config.json": "4f25002776b741773666203dcea8f54619f177ace3ae483d311102092a4658e0"
+      },
+      "shards": [
+        {
+          "file": "model.safetensors-00001-of-00014.safetensors",
+          "bytes": 2690301200,
+          "mtime_ns": 1780560931537966218
+        },
+        {
+          "file": "model.safetensors-00002-of-00014.safetensors",
+          "bytes": 2690299152,
+          "mtime_ns": 1780560934729976015
+        },
+        {
+          "file": "model.safetensors-00003-of-00014.safetensors",
+          "bytes": 2690299152,
+          "mtime_ns": 1780560935324977842
+        },
+        {
+          "file": "model.safetensors-00004-of-00014.safetensors",
+          "bytes": 2690300176,
+          "mtime_ns": 1780560930798963950
+        },
+        {
+          "file": "model.safetensors-00005-of-00014.safetensors",
+          "bytes": 2690301200,
+          "mtime_ns": 1780560927565953850
+        },
+        {
+          "file": "model.safetensors-00006-of-00014.safetensors",
+          "bytes": 2690300176,
+          "mtime_ns": 1780561005008191721
+        },
+        {
+          "file": "model.safetensors-00007-of-00014.safetensors",
+          "bytes": 2690299152,
+          "mtime_ns": 1780560928586957099
+        },
+        {
+          "file": "model.safetensors-00008-of-00014.safetensors",
+          "bytes": 2690299152,
+          "mtime_ns": 1780560943956004333
+        },
+        {
+          "file": "model.safetensors-00009-of-00014.safetensors",
+          "bytes": 3657861920,
+          "mtime_ns": 1780561110390515172
+        },
+        {
+          "file": "model.safetensors-00010-of-00014.safetensors",
+          "bytes": 2706039032,
+          "mtime_ns": 1780561081600426807
+        },
+        {
+          "file": "model.safetensors-00011-of-00014.safetensors",
+          "bytes": 2706041080,
+          "mtime_ns": 1780561089242450262
+        },
+        {
+          "file": "model.safetensors-00012-of-00014.safetensors",
+          "bytes": 2706039544,
+          "mtime_ns": 1780561100727485513
+        },
+        {
+          "file": "model.safetensors-00013-of-00014.safetensors",
+          "bytes": 3046623416,
+          "mtime_ns": 1780561376501331948
+        },
+        {
+          "file": "model.safetensors-00014-of-00014.safetensors",
+          "bytes": 2078515072,
+          "mtime_ns": 1780561100276484129
+        }
+      ]
+    },
+    {
+      "name": "Qwen3.5-397B-A17B-PTPC-FP8",
+      "resolved_path": "/models/Qwen3.5-397B-A17B-PTPC-FP8",
+      "metadata_sha256": {
+        "config.json": "0d6f94abe9032f6c4dd60eb934574812a7fd8bc83ffd9dd9e1f8e3c57dce41d0",
+        "model.safetensors.index.json": "941207b929942c78bbb5e205e5248814c30332a5853f229b57a1dea95a9e50a3",
+        "generation_config.json": "303aba891d66ab63908a7b3cc9163bcb835fdf8b9f6301c73216f3f1eb3992dd"
+      },
+      "shards": [
+        {
+          "file": "model-language_model-layers-0.safetensors",
+          "bytes": 6590995032,
+          "mtime_ns": 1773046126000000000
+        },
+        {
+          "file": "model-language_model-layers-1.safetensors",
+          "bytes": 6590995032,
+          "mtime_ns": 1773046126000000000
+        },
+        {
+          "file": "model-language_model-layers-10.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046126000000000
+        },
+        {
+          "file": "model-language_model-layers-11.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046147000000000
+        },
+        {
+          "file": "model-language_model-layers-12.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046147000000000
+        },
+        {
+          "file": "model-language_model-layers-13.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046148000000000
+        },
+        {
+          "file": "model-language_model-layers-14.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046169000000000
+        },
+        {
+          "file": "model-language_model-layers-15.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046169000000000
+        },
+        {
+          "file": "model-language_model-layers-16.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046169000000000
+        },
+        {
+          "file": "model-language_model-layers-17.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046192000000000
+        },
+        {
+          "file": "model-language_model-layers-18.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046193000000000
+        },
+        {
+          "file": "model-language_model-layers-19.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046194000000000
+        },
+        {
+          "file": "model-language_model-layers-2.safetensors",
+          "bytes": 6590995032,
+          "mtime_ns": 1773046214000000000
+        },
+        {
+          "file": "model-language_model-layers-20.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046214000000000
+        },
+        {
+          "file": "model-language_model-layers-21.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046216000000000
+        },
+        {
+          "file": "model-language_model-layers-22.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046236000000000
+        },
+        {
+          "file": "model-language_model-layers-23.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046236000000000
+        },
+        {
+          "file": "model-language_model-layers-24.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046238000000000
+        },
+        {
+          "file": "model-language_model-layers-25.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046262000000000
+        },
+        {
+          "file": "model-language_model-layers-26.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046262000000000
+        },
+        {
+          "file": "model-language_model-layers-27.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046263000000000
+        },
+        {
+          "file": "model-language_model-layers-28.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046290000000000
+        },
+        {
+          "file": "model-language_model-layers-29.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046289000000000
+        },
+        {
+          "file": "model-language_model-layers-3.safetensors",
+          "bytes": 6577253704,
+          "mtime_ns": 1773046291000000000
+        },
+        {
+          "file": "model-language_model-layers-30.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046314000000000
+        },
+        {
+          "file": "model-language_model-layers-31.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046315000000000
+        },
+        {
+          "file": "model-language_model-layers-32.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046316000000000
+        },
+        {
+          "file": "model-language_model-layers-33.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046336000000000
+        },
+        {
+          "file": "model-language_model-layers-34.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046336000000000
+        },
+        {
+          "file": "model-language_model-layers-35.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046338000000000
+        },
+        {
+          "file": "model-language_model-layers-36.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046357000000000
+        },
+        {
+          "file": "model-language_model-layers-37.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046358000000000
+        },
+        {
+          "file": "model-language_model-layers-38.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046359000000000
+        },
+        {
+          "file": "model-language_model-layers-39.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046377000000000
+        },
+        {
+          "file": "model-language_model-layers-4.safetensors",
+          "bytes": 6590995032,
+          "mtime_ns": 1773046377000000000
+        },
+        {
+          "file": "model-language_model-layers-40.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046378000000000
+        },
+        {
+          "file": "model-language_model-layers-41.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046398000000000
+        },
+        {
+          "file": "model-language_model-layers-42.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046397000000000
+        },
+        {
+          "file": "model-language_model-layers-43.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046399000000000
+        },
+        {
+          "file": "model-language_model-layers-44.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046417000000000
+        },
+        {
+          "file": "model-language_model-layers-45.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046418000000000
+        },
+        {
+          "file": "model-language_model-layers-46.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046419000000000
+        },
+        {
+          "file": "model-language_model-layers-47.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046437000000000
+        },
+        {
+          "file": "model-language_model-layers-48.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046437000000000
+        },
+        {
+          "file": "model-language_model-layers-49.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046438000000000
+        },
+        {
+          "file": "model-language_model-layers-5.safetensors",
+          "bytes": 6590995032,
+          "mtime_ns": 1773046454000000000
+        },
+        {
+          "file": "model-language_model-layers-50.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046454000000000
+        },
+        {
+          "file": "model-language_model-layers-51.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046455000000000
+        },
+        {
+          "file": "model-language_model-layers-52.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046467000000000
+        },
+        {
+          "file": "model-language_model-layers-53.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046466000000000
+        },
+        {
+          "file": "model-language_model-layers-54.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046467000000000
+        },
+        {
+          "file": "model-language_model-layers-55.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046481000000000
+        },
+        {
+          "file": "model-language_model-layers-56.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046482000000000
+        },
+        {
+          "file": "model-language_model-layers-57.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046483000000000
+        },
+        {
+          "file": "model-language_model-layers-58.safetensors",
+          "bytes": 6590998128,
+          "mtime_ns": 1773046496000000000
+        },
+        {
+          "file": "model-language_model-layers-59.safetensors",
+          "bytes": 6577256800,
+          "mtime_ns": 1773046498000000000
+        },
+        {
+          "file": "model-language_model-layers-6.safetensors",
+          "bytes": 6590995032,
+          "mtime_ns": 1773046498000000000
+        },
+        {
+          "file": "model-language_model-layers-7.safetensors",
+          "bytes": 6577253704,
+          "mtime_ns": 1773046511000000000
+        },
+        {
+          "file": "model-language_model-layers-8.safetensors",
+          "bytes": 6590995032,
+          "mtime_ns": 1773046512000000000
+        },
+        {
+          "file": "model-language_model-layers-9.safetensors",
+          "bytes": 6590995032,
+          "mtime_ns": 1773046512000000000
+        },
+        {
+          "file": "model.parameters.safetensors",
+          "bytes": 18171871296,
+          "mtime_ns": 1773046537000000000
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "side": "before",
+  "scope": "New2026-11-16 TP1 prototype full-model operator profiling of frozen851 source pair; separate from TP4 performance, not finalPRhead or CIscore",
+  "tensor_parallel_size": 1,
+  "profiling_workload": {
+    "input_tokens": 8000,
+    "output_tokens": 64,
+    "concurrency": 1,
+    "temperature": 0.0,
+    "ignore_eos": true,
+    "warmup_requests": 2,
+    "radix_cache": false
+  },
+  "actual_request_dimensions": {
+    "prompt_tokens": 8000,
+    "completion_tokens": 64
+  },
+  "source": {
+    "arm": "before",
+    "source_sha256": {
+      "python/sglang/srt/layers/quantization/unquant.py": "a8cb732dfe0e01393127298d241e23bc1d0d5822c58d6a3e4e5ff154274490d6",
+      "python/sglang/srt/layers/quantization/fp8_utils.py": "4befa291713700f3b28ec5b8a4acdce4d70274d4a7667ea94f96445dd61f900f",
+      "python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_fp8.py": "f7b9a88c648bc40a86444b0d4b4722c934a851cafa6b171570256382777285f7"
+    }
+  },
+  "environment": {
+    "PYTHONUNBUFFERED": "1",
+    "HF_HUB_OFFLINE": "1",
+    "AITER_USE_SYSTEM_TRITON": "1",
+    "SGLANG_DISABLE_CUDNN_CHECK": "1",
+    "SGLANG_USE_CUDA_IPC_TRANSPORT": "1",
+    "SGLANG_VLM_CACHE_SIZE_MB": "8192",
+    "SGLANG_USE_AITER": "1",
+    "SGLANG_ROCM_USE_AITER_LINEAR_SHUFFLE": "1",
+    "SGLANG_ROCM_USE_AITER_LINEAR_FP8HIPB": "1",
+    "SGLANG_USE_AITER_NEW_CA": "false",
+    "SGLANG_USE_IPC_POOL_HANDLE_CACHE": "1",
+    "AITER_QUICK_REDUCE_QUANTIZATION": "INT6",
+    "USE_AITER_COMM": "1",
+    "TVM_FFI_DISABLE_TORCH_C_DLPACK": "1",
+    "HIP_VISIBLE_DEVICES": "6",
+    "PYTHONPATH": "/ci/sglang/python",
+    "SGLANG_PROFILE_V2": "0",
+    "SGLANG_PROFILE_RECORD_SHAPES": "1",
+    "AITER_CONFIG_GEMM_A8W8_BPRESHUFFLE": "/full_tgemm_tp1/configs/ck_base.csv",
+    "AITER_CONFIG_GEMM_BF16": "/full_tgemm_tp1/configs/tgemm_base.csv"
+  },
+  "original_traces": [
+    {
+      "path": "traces/full-tgemm-before-before-TP-0.trace.json.gz",
+      "bytes": 2027364,
+      "sha256": "de9f86ff4bf0001932155856f208193766b632e2100a4d09ed995946624de190",
+      "trace_event_count": 148605,
+      "baseTimeNanoseconds": 1790857026000000000,
+      "kernel_event_count": 52243
+    }
+  ],
+  "scripts_sha256": {
+    "capture_full_profiles_tp1.py": "cbbddadfbdb01fa7657678e9f5f57e7bb378c9096765dd2d6c9ba9a220b3ad29",
+    "profile_support_tp1.py": "7e9a18003ea0d19483edfba4dc968005d95ca908a290f51de1fa0cdc0543dfc9",
+    "telemetry.py": "a5665a09b2fbdb1b7a757c4eca54a51689c9331cb6ba082f5875d4335444fbb8"
+  },
+  "capture_status": "captured_complete_originals",
+  "active_peer_events": 0,
+  "telemetry_samples": 113,
+  "incomplete_owner_samples": 0,
+  "raw_capture_manifest_sha256": "64e640389369b88053ac1e860a92adc295321c0c4e5b80134810e5df0e35dbb8",
+  "cleanup_verified": true
+}

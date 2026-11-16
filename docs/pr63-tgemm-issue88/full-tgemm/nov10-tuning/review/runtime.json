@@ -1,0 +1,21 @@
+{
+  "host": "hjbog-srdc-34.amd.com",
+  "gpu": 0,
+  "image_id": "sha256:317e4678c5a2d7b203c9fd2b239c931758bc84d225281054189e0444103c2f85",
+  "packages": {
+    "torch": "2.12.0+rocm7.14.0.git6bbd260",
+    "triton": "3.8.0+rocm7.14.0.git4cff872",
+    "aiter": null,
+    "sglang": "0.0.0.dev17291+g4d63dea19.d20261105",
+    "transformers": "5.12.1",
+    "compressed-tensors": "0.16.0"
+  },
+  "aiter_commit": "514c166e9abad59acde74309923c2d923a89eee0",
+  "aiter_status": "",
+  "env": {
+    "HIP_VISIBLE_DEVICES": "0",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "ROCR_VISIBLE_DEVICES": "0",
+    "ROCM_HOME": "/opt/rocm-7.14"
+  }
+}
